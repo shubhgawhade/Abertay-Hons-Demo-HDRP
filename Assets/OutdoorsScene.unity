@@ -402,7 +402,7 @@ MonoBehaviour:
     meanFreePath: 0.85
     anisotropy: 0
     volumeMask: {fileID: 11700000, guid: 80eceedfbed74c04fa0d2ecf873d6c8b, type: 3}
-    textureScrollingSpeed: {x: 0, y: 3, z: 1}
+    textureScrollingSpeed: {x: 0.2, y: 0, z: 0}
     textureTiling: {x: 1, y: 1, z: 1}
     positiveFade: {x: 0, y: 0, z: 0}
     negativeFade: {x: 0, y: 0, z: 0}
@@ -2133,7 +2133,7 @@ MonoBehaviour:
     meanFreePath: 0.85
     anisotropy: 0
     volumeMask: {fileID: 11700000, guid: 80eceedfbed74c04fa0d2ecf873d6c8b, type: 3}
-    textureScrollingSpeed: {x: 0, y: 3, z: 1}
+    textureScrollingSpeed: {x: 0.2, y: 0, z: 0}
     textureTiling: {x: 1, y: 1, z: 1}
     positiveFade: {x: 0, y: 0, z: 0}
     negativeFade: {x: 0, y: 0, z: 0}

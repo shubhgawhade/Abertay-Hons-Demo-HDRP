@@ -1,0 +1,12 @@
+Shubh: Hello. I am Shubh;
+Alex: GoodMorning.;
+Shubh: hqhq;
+Alex: hdfsoiauhjfiusa
+jdfosajfdo
+kaopskoa;
+r_text[0] = "I was just thinking about you!"
+:));
+r_text[1] = "You are a great example for others."; 
+r_text[2] = "You have great ideas."; 
+r_text[3] = "When I grow up I want to be you!"; 
+r_text[4] = "I appreciate all of your opinions.";

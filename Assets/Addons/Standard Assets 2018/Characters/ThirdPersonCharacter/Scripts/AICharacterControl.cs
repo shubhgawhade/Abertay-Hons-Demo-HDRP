@@ -8,6 +8,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
     public class AICharacterControl : MonoBehaviour
     {
         [SerializeField] private GameObject cursorObj;
+        [SerializeField] private Transform targetTransform;
         public NavMeshAgent agent { get; private set; }             // the navmesh agent required for the path finding
         public ThirdPersonCharacter character { get; private set; } // the character we are controlling
         public Vector3 target;                                    // target to aim for
@@ -31,6 +32,11 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
         private void Update()
         {
+            if (targetTransform != null)
+            {
+                target = targetTransform.position;
+            }
+            
             if (target == Vector3.zero)
             {
                 target = transform.position;

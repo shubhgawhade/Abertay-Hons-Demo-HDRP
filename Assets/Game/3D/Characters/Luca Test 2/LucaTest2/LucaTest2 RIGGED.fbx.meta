@@ -1,44 +1,12 @@
 fileFormatVersion: 2
-guid: c604cae9a77614947b31fea2f371d8e9
+guid: 7a0a28a88f5d8b140804995abceae1fe
 ModelImporter:
   serializedVersion: 21300
-  internalIDToNameTable: []
-  externalObjects:
+  internalIDToNameTable:
   - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: BodyMat
-    second: {fileID: 2100000, guid: 14a90232ff643484ebcdbca01818e95a, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: BottomsMat
-    second: {fileID: 2100000, guid: 6592e129bb4535245a56ce1ab86fe45f, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: EyelashesMat
-    second: {fileID: 2100000, guid: 72f894ff9bdedd94c927b3c196bae520, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: EyesMat
-    second: {fileID: 2100000, guid: 155570750906c2c429a613ca1b70f0f8, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: HairMat
-    second: {fileID: 2100000, guid: 6142c0c307db2f844b94e287265e704f, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: ShoesMat
-    second: {fileID: 2100000, guid: 329eda8fd6430c34ab6bace825aecf11, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: TopsMat
-    second: {fileID: 2100000, guid: 053dde13da5179346824b5b058c48a14, type: 2}
+      74: -203655887218126122
+    second: mixamo.com
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -70,7 +38,7 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 0.015
+    globalScale: 1.5
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -123,10 +91,10 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.015
+    globalScale: 1.5
     rootMotionBoneName: 
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1

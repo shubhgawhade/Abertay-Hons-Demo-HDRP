@@ -79,12 +79,16 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                 // print(Mathf.Abs((transform.position - target).magnitude));
                 character.Move(agent.desiredVelocity, false, false);
 
-                if ((target - transform.position).magnitude < 0.8f && textReader != null && targetIsInteractable && textReader.interactableStates == InteractableStates.NotInteracted)
+                if ((target - transform.position).magnitude < 0.8f && textReader != null && targetIsInteractable)
                 {
-                    textReader.ToggleUI();
-                    targetIsInteractable = false;
-                    // Send action to Text reader to enable UI
-                    print("ENABLE UI");
+                    if (textReader.interactableStates == InteractableStates.NotInteracted ||
+                        textReader.interactableStates == InteractableStates.InteractionOver)
+                    {
+                        targetIsInteractable = false;
+                        textReader.ToggleUI();
+                        // Send action to Text reader to enable UI
+                        print("ENABLE UI");
+                    }
                 } 
             }
             else

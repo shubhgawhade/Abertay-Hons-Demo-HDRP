@@ -68,10 +68,8 @@ public class TextReader : MonoBehaviour
                     
                     if (dialogueTracker == lines.Length)
                     {
-                        interactableStates = InteractableStates.InteractionOver;
                         nextDialogue = false;
                         dialogueTracker = -1;
-                        ToggleUI();
                     }
                 }
                 else
@@ -91,26 +89,33 @@ public class TextReader : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            if (interactableStates == InteractableStates.InteractionOver)
+            {
+                ToggleUI();
+            }
             NextDialogue();
         }
     }
 
     public void ToggleUI()
     {
-        text = textAsset.text;
-        strB = new StringBuilder(textAsset.text);
-        // text = strB.ToString();
-        lines = strB.ToString().Split("\n");
-        ui.SetActive(!ui.activeSelf);
+        LoadScript();
         
-        NextDialogue();
+        ui.SetActive(!ui.activeSelf);
+
+        if (ui.activeSelf)
+        {
+            NextDialogue();
+        }
     }
 
     public void NextDialogue()
     {
         if(dialogueTracker == -1)
         {
+            interactableStates = InteractableStates.InteractionOver;
             dialogueTracker = 0;
+            ToggleUI();
         }
         else
         {
@@ -119,5 +124,13 @@ public class TextReader : MonoBehaviour
             
             interactableStates = InteractableStates.Interacting;
         }
+    }
+
+    private void LoadScript()
+    {
+        text = textAsset.text;
+        strB = new StringBuilder(textAsset.text);
+        // text = strB.ToString();
+        lines = strB.ToString().Split("\n");
     }
 }

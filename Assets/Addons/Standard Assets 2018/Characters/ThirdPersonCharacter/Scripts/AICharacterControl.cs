@@ -73,13 +73,13 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                 
             // print(agent.isStopped);
 
-            print(agent.remainingDistance);
+            // print(agent.remainingDistance);
             if (agent.remainingDistance > 0.3f)
             {
                 // print(Mathf.Abs((transform.position - target).magnitude));
                 character.Move(agent.desiredVelocity, false, false);
 
-                if ((target - transform.position).magnitude < 0.8f && textReader != null && targetIsInteractable && textReader.dialogueOver)
+                if ((target - transform.position).magnitude < 0.8f && textReader != null && targetIsInteractable && textReader.interactableStates == InteractableStates.NotInteracted)
                 {
                     textReader.ToggleUI();
                     targetIsInteractable = false;

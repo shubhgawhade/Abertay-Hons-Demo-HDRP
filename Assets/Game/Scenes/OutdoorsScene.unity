@@ -13991,7 +13991,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 46.139904
+  field of view: 46.139923
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -14017,7 +14017,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6842342793067014595}
   m_LocalRotation: {x: 0.36599812, y: 0.45315394, z: -0.2113091, w: 0.78488564}
-  m_LocalPosition: {x: -14.490795, y: 10.684528, z: -19.028465}
+  m_LocalPosition: {x: -14.490796, y: 10.684525, z: -19.028465}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14701,7 +14701,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6842342793993662067}
   m_LocalRotation: {x: 0.36599812, y: 0.45315394, z: -0.2113091, w: 0.78488564}
-  m_LocalPosition: {x: -14.490795, y: 10.684528, z: -19.028465}
+  m_LocalPosition: {x: -14.490796, y: 10.684525, z: -19.028465}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -14723,9 +14723,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ui: {fileID: 6842342792785642081}
   dialogueText: {fileID: 6842342793622364927}
+  DialogueStates: 0
   lines: []
-  a: []
-  ta: {fileID: 4900000, guid: 3fb868b7830385246b14665f663278ad, type: 3}
+  currentDialogue: []
+  textAsset: {fileID: 4900000, guid: 3fb868b7830385246b14665f663278ad, type: 3}
   text: 
   nextDialogue: 0
   dialogueTracker: 0

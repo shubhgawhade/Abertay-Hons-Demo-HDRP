@@ -9,17 +9,19 @@ public class TextReader : MonoBehaviour
 
     [SerializeField] private GameObject ui;
     [SerializeField] private TextMeshProUGUI dialogueText;
-    
+
+
+    public InteractableStates interactableStates = InteractableStates.NotInteracted;
     
     public string[] lines;
-    public string[] a;
-    public TextAsset ta;
+    public string[] currentDialogue;
+    public TextAsset textAsset;
     public string text;
     public StringBuilder strB;
     StringBuilder lineAdd = new();
 
     public bool nextDialogue;
-    public bool dialogueOver;
+    // public bool dialogueOver;
 
     public int dialogueTracker;
     private void Awake()
@@ -41,7 +43,10 @@ public class TextReader : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ParseUI();
+        if (interactableStates == InteractableStates.Interacting)
+        {
+            ParseUI();
+        }
     }
 
     private void ParseUI()
@@ -50,20 +55,23 @@ public class TextReader : MonoBehaviour
         {
             for(int i = dialogueTracker; i < lines.Length; i++)
             {
-                print(i);
+                // print(i);
 
                 if (lines[i].Contains(";"))
                 {
-                    a = lines[i].Split(";", StringSplitOptions.RemoveEmptyEntries);
-                    lineAdd.AppendLine(a[0]);
+                    currentDialogue = lines[i].Split(";", StringSplitOptions.RemoveEmptyEntries);
+                    lineAdd.AppendLine(currentDialogue[0]);
 
-                    print(lines[i]);
+                    // print(lines[i]);
                     nextDialogue = false;
                     dialogueTracker = i + 1;
                     
                     if (dialogueTracker == lines.Length)
                     {
+                        interactableStates = InteractableStates.InteractionOver;
+                        nextDialogue = false;
                         dialogueTracker = -1;
+                        ToggleUI();
                     }
                 }
                 else
@@ -89,8 +97,8 @@ public class TextReader : MonoBehaviour
 
     public void ToggleUI()
     {
-        text = ta.text;
-        strB = new StringBuilder(ta.text);
+        text = textAsset.text;
+        strB = new StringBuilder(textAsset.text);
         // text = strB.ToString();
         lines = strB.ToString().Split("\n");
         ui.SetActive(!ui.activeSelf);
@@ -100,17 +108,16 @@ public class TextReader : MonoBehaviour
 
     public void NextDialogue()
     {
-        if (dialogueTracker == -1)
+        if(dialogueTracker == -1)
         {
             dialogueTracker = 0;
-            nextDialogue = false;
-            dialogueOver = true;
-            ToggleUI();
         }
         else
         {
-            dialogueOver = false;
+            // dialogueOver = false;
             nextDialogue = true;
+            
+            interactableStates = InteractableStates.Interacting;
         }
     }
 }

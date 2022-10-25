@@ -7,7 +7,6 @@ namespace UnityStandardAssets.Characters.ThirdPerson
     [RequireComponent(typeof (ThirdPersonCharacter))]
     public class AICharacterControl : MonoBehaviour
     {
-        [SerializeField] private GameObject cursorObj;
         [SerializeField] private Transform targetTransform;
         public NavMeshAgent agent { get; private set; }             // the navmesh agent required for the path finding
         public ThirdPersonCharacter character { get; private set; } // the character we are controlling
@@ -35,13 +34,13 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             if (targetTransform != null)
             {
                 target = targetTransform.position;
+                targetTransform = null;
+                agent.SetDestination(target);
             }
-            
-            if (target == Vector3.zero)
+            else if (target == Vector3.zero)
             {
                 target = transform.position;
             }
-            
 
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 

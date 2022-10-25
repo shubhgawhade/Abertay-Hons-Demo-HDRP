@@ -19,6 +19,7 @@ public class TextReader : MonoBehaviour
     StringBuilder lineAdd = new();
 
     public bool nextDialogue;
+    public bool dialogueOver;
 
     public int dialogueTracker;
     private void Awake()
@@ -40,6 +41,11 @@ public class TextReader : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        ParseUI();
+    }
+
+    private void ParseUI()
+    {
         if (nextDialogue)
         {
             for(int i = dialogueTracker; i < lines.Length; i++)
@@ -57,7 +63,7 @@ public class TextReader : MonoBehaviour
                     
                     if (dialogueTracker == lines.Length)
                     {
-                        dialogueTracker = 0;
+                        dialogueTracker = -1;
                     }
                 }
                 else
@@ -74,6 +80,11 @@ public class TextReader : MonoBehaviour
                 }
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            NextDialogue();
+        }
     }
 
     public void ToggleUI()
@@ -82,12 +93,24 @@ public class TextReader : MonoBehaviour
         strB = new StringBuilder(ta.text);
         // text = strB.ToString();
         lines = strB.ToString().Split("\n");
-        
         ui.SetActive(!ui.activeSelf);
+        
+        NextDialogue();
     }
 
     public void NextDialogue()
     {
-        nextDialogue = true;
+        if (dialogueTracker == -1)
+        {
+            dialogueTracker = 0;
+            nextDialogue = false;
+            dialogueOver = true;
+            ToggleUI();
+        }
+        else
+        {
+            dialogueOver = false;
+            nextDialogue = true;
+        }
     }
 }

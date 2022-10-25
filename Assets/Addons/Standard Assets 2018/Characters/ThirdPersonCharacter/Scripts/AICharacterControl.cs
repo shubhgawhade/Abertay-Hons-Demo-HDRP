@@ -59,7 +59,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                         textReader = hit.collider.GetComponent<TextReader>();
                         print("INTERACTED WITH" + hit.collider.name);
 
-                        // if (interactable.isinteracted)
+                        if (interactable.isinteracted)
                         {
                             target = interactable.targetLocation.transform.position;
                             agent.SetDestination(target);
@@ -79,7 +79,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                 // print(Mathf.Abs((transform.position - target).magnitude));
                 character.Move(agent.desiredVelocity, false, false);
 
-                if (agent.remainingDistance < 0.7f && textReader != null && targetIsInteractable)
+                if ((target - transform.position).magnitude < 0.8f && textReader != null && targetIsInteractable && textReader.dialogueOver)
                 {
                     textReader.ToggleUI();
                     targetIsInteractable = false;

@@ -7,7 +7,7 @@ using UnityEngine;
 public class Interactable : MonoBehaviour
 {
     public GameObject targetLocation;
-    // public bool isinteracted;
+    public bool isinteracted;
 
     [SerializeField] private GameObject player;
 
@@ -33,13 +33,14 @@ public class Interactable : MonoBehaviour
             if (Physics.Raycast(player.transform.position, transform.position - player.transform.position, out hit) && hit.collider.CompareTag("Interactable"))
             {
                 // testRay = true;
-                print(hit.collider.name);
-                // isinteracted = true;
+                // print(hit.collider.name);
+                isinteracted = true;
                 outline.OutlineMode = Outline.Mode.OutlineAll;
                 outline.needsUpdate = true;
             }
             else
             {
+                // isinteracted = false;
                 outline.OutlineMode = Outline.Mode.OutlineHidden;
                 outline.needsUpdate = true;
             }
@@ -50,7 +51,8 @@ public class Interactable : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            testRay = false;
+            // isinteracted = false;
+            // testRay = false;
             print("EXIT");
             outline.OutlineMode = Outline.Mode.OutlineHidden;
             outline.needsUpdate = true;

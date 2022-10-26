@@ -51,6 +51,12 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                     case "Ground":
                         target = new Vector3(hit.point.x, 0, hit.point.z);
                         agent.SetDestination(target);
+
+                        if (targetIsInteractable)
+                        {
+                            targetIsInteractable = false;
+                            GameManager.isInteracting = false;
+                        }
                         break;
                     
                     case "Interactable":
@@ -58,7 +64,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                         textReader = hit.collider.GetComponent<TextReader>();
                         print("INTERACTED WITH" + hit.collider.name);
 
-                        if (interactable.isVIsible && !GameManager.isInteracting)
+                        if (interactable.isVisible && !GameManager.isInteracting)
                         {
                             target = interactable.targetLocation.transform.position;
                             agent.SetDestination(target);

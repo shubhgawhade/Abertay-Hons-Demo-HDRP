@@ -7,7 +7,7 @@ using UnityEngine;
 public class Interactable : MonoBehaviour
 {
     public GameObject targetLocation;
-    public bool isVIsible;
+    public bool isVisible;
 
     [SerializeField] private GameObject player;
 
@@ -34,7 +34,7 @@ public class Interactable : MonoBehaviour
             {
                 // testRay = true;
                 // print(hit.collider.name);
-                isVIsible = true;
+                isVisible = true;
                 outline.OutlineMode = Outline.Mode.OutlineAll;
                 outline.needsUpdate = true;
             }
@@ -59,6 +59,7 @@ public class Interactable : MonoBehaviour
         }
     }
 
+    /*
     private void OnDrawGizmos()
     {
         // if (testRay)
@@ -66,4 +67,5 @@ public class Interactable : MonoBehaviour
             Gizmos.DrawLine(player.transform.position, transform.position);
         }
     }
+    */
 }

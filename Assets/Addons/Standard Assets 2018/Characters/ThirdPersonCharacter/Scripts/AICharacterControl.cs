@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -7,8 +8,10 @@ namespace UnityStandardAssets.Characters.ThirdPerson
     [RequireComponent(typeof (ThirdPersonCharacter))]
     public class AICharacterControl : MonoBehaviour
     {
+        public string name;
         [SerializeField] private Transform targetTransform;
-        [SerializeField] private Transform targetCache;
+        public Transform a;
+        private Rigidbody rb;
         public NavMeshAgent agent { get; private set; }             // the navmesh agent required for the path finding
         public ThirdPersonCharacter character { get; private set; } // the character we are controlling
         public Vector3 target;                                    // target to aim for
@@ -20,6 +23,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         private bool targetIsInteractable;
         private void Start()
         {
+            rb = GetComponent<Rigidbody>();
             // get the components on the object we need ( should not be null due to require component so no need to check )
             // agent = GetComponentInChildren<UnityEngine.AI.NavMeshAgent>();
             agent = GetComponent<NavMeshAgent>();
@@ -35,13 +39,20 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             if (targetTransform != null)
             {
                 target = targetTransform.position;
-                targetCache = targetTransform;
+                a = targetTransform;
                 targetTransform = null;
                 agent.SetDestination(target);
             }
             else if (target == Vector3.zero)
             {
                 target = transform.position;
+            }
+            
+            // disable if player isMoveable
+            if (agent.desiredVelocity.magnitude < 0.08f)
+            {
+                print("STOPPED");
+                transform.eulerAngles = a.eulerAngles;
             }
 
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -79,30 +90,30 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             }
                 
             // print(agent.isStopped);
-
             // print(agent.remainingDistance);
             if (agent.remainingDistance > 0.3f)
             {
                 // print(Mathf.Abs((transform.position - target).magnitude));
                 character.Move(agent.desiredVelocity, false, false);
 
-                if ((target - transform.position).magnitude < 0.8f && textReader != null && targetIsInteractable)
-                {
-                    transform.rotation = targetCache.rotation;
+                if ((target - transform.position).magnitude < 0.8f)
+                {                    
+                    //FIGURE WAY TO TURN AT THE END OF PATH
+                    // transform.LookAt(targetTransform.transform.forward);
                     
-                    if (textReader.interactableStates == InteractableStates.NotInteracted ||
-                        textReader.interactableStates == InteractableStates.InteractionOver)
+                    if(targetIsInteractable && (textReader.interactableStates == InteractableStates.NotInteracted || 
+                                                                      textReader.interactableStates == InteractableStates.InteractionOver))
                     {
                         targetIsInteractable = false;
                         textReader.ToggleUI();
                         // Send action to Text reader to enable UI
                         print("ENABLE UI");
                     }
-                } 
+                    
+                }
             }
             else
             {
-                  
             }
         }
     }

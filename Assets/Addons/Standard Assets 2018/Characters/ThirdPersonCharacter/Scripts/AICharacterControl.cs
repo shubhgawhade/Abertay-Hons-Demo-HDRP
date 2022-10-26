@@ -58,12 +58,12 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                         textReader = hit.collider.GetComponent<TextReader>();
                         print("INTERACTED WITH" + hit.collider.name);
 
-                        if (interactable.isinteracted)
+                        if (interactable.isVIsible && !GameManager.isInteracting)
                         {
                             target = interactable.targetLocation.transform.position;
                             agent.SetDestination(target);
                             targetIsInteractable = true;
-                            
+                            GameManager.isInteracting = true;
                             //Send action to Text reader script to initialize dialogue but not display yet
                         }
                         break;

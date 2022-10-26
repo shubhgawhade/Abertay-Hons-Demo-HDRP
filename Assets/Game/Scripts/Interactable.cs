@@ -7,7 +7,7 @@ using UnityEngine;
 public class Interactable : MonoBehaviour
 {
     public GameObject targetLocation;
-    public bool isinteracted;
+    public bool isVIsible;
 
     [SerializeField] private GameObject player;
 
@@ -34,7 +34,7 @@ public class Interactable : MonoBehaviour
             {
                 // testRay = true;
                 // print(hit.collider.name);
-                isinteracted = true;
+                isVIsible = true;
                 outline.OutlineMode = Outline.Mode.OutlineAll;
                 outline.needsUpdate = true;
             }

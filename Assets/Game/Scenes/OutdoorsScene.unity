@@ -903,8 +903,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2761e7a936b86044bb3ba118109a7111, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetLocation: {fileID: 0}
-  isinteracted: 0
+  targetLocation: {fileID: 648984993}
   player: {fileID: 6842342792815959445}
 --- !u!114 &401273402
 MonoBehaviour:
@@ -14888,7 +14887,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetLocation: {fileID: 6842342793071541902}
-  isinteracted: 0
   player: {fileID: 6842342792815959445}
 --- !u!65 &6842342794275908235
 BoxCollider:
@@ -14924,7 +14922,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 8
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6842342794275908239
 Transform:
   m_ObjectHideFlags: 0

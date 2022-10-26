@@ -44,7 +44,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-            if (Physics.Raycast(ray, out hit) && Input.GetMouseButtonDown(0) && GameManager.IsMoveable)
+            if (Physics.Raycast(ray, out hit) && Input.GetMouseButtonDown(0) && GameManager.IsMoveable && CompareTag("Player"))
             {
                 switch (hit.collider.tag)
                 {

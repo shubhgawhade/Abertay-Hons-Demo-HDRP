@@ -3,7 +3,7 @@ using UnityEngine;
 
 
 [RequireComponent(typeof (TextReader))]
-[RequireComponent(typeof (Outline))]
+// [RequireComponent(typeof (Outline))]
 public class Interactable : MonoBehaviour
 {
     public GameObject targetLocation;
@@ -11,7 +11,7 @@ public class Interactable : MonoBehaviour
 
     [SerializeField] private GameObject player;
 
-    private Outline outline;
+    // private Outline outline;
     private RaycastHit hit;
     
     
@@ -23,7 +23,7 @@ public class Interactable : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        outline = GetComponent<Outline>();
+        // outline = GetComponent<Outline>();
     }
     
     private void OnTriggerStay(Collider other)
@@ -35,14 +35,21 @@ public class Interactable : MonoBehaviour
                 // testRay = true;
                 // print(hit.collider.name);
                 isVisible = true;
-                outline.OutlineMode = Outline.Mode.OutlineAll;
-                outline.needsUpdate = true;
+                
+                //OLD OUTLINE
+                // outline.OutlineMode = Outline.Mode.OutlineAll;
+                // outline.needsUpdate = true;
+
+                transform.GetChild(0).GetComponent<MeshRenderer>().materials[1].SetFloat("_OutlineWidth", 0.06f);
             }
             else
             {
+                //OLD OUTLINE
                 // isinteracted = false;
-                outline.OutlineMode = Outline.Mode.OutlineHidden;
-                outline.needsUpdate = true;
+                // outline.OutlineMode = Outline.Mode.OutlineHidden;
+                // outline.needsUpdate = true;
+                
+                transform.GetChild(0).GetComponent<MeshRenderer>().materials[1].SetFloat("_OutlineWidth", 0);
             }
         }
     }
@@ -54,8 +61,12 @@ public class Interactable : MonoBehaviour
             // isinteracted = false;
             // testRay = false;
             print("EXIT");
-            outline.OutlineMode = Outline.Mode.OutlineHidden;
-            outline.needsUpdate = true;
+            
+            //OLD OUTLINE
+            // outline.OutlineMode = Outline.Mode.OutlineHidden;
+            // outline.needsUpdate = true;
+            
+            transform.GetChild(0).GetComponent<MeshRenderer>().materials[1].SetFloat("_OutlineWidth", 0);
         }
     }
 

@@ -3372,7 +3372,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &593167052
 Transform:
   m_ObjectHideFlags: 0
@@ -3446,6 +3446,7 @@ MonoBehaviour:
   targetTransform: {fileID: 259982479}
   cachedTransform: {fileID: 0}
   target: {x: 0, y: 0, z: 0}
+  aIStopped: 0
 --- !u!195 &593167056
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -8636,7 +8637,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!135 &1711899644
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -8690,6 +8691,7 @@ MonoBehaviour:
   targetTransform: {fileID: 1303421054}
   cachedTransform: {fileID: 0}
   target: {x: 0, y: 0, z: 0}
+  aIStopped: 0
 --- !u!195 &1711899647
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -9834,6 +9836,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1885397264}
   - component: {fileID: 1885397265}
+  - component: {fileID: 1885397266}
   m_Layer: 0
   m_Name: Chapter1Controller
   m_TagString: Untagged
@@ -9874,6 +9877,30 @@ MonoBehaviour:
   - {fileID: 1711899643}
   - {fileID: 593167051}
   aiCharacterControl: []
+  animators: []
+  nextScene: 0
+  scene: 0
+--- !u!114 &1885397266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1885397263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 637384bc62e05b140bbbb85cd4f287dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ui: {fileID: 6842342792785642081}
+  dialogueText: {fileID: 6842342793622364927}
+  interactableStates: 0
+  lines: []
+  currentDialogue: []
+  textAsset: {fileID: 4900000, guid: 8c698c97a2f4f214ab623d9f7520b1e3, type: 3}
+  text: 
+  nextDialogue: 0
+  dialogueTracker: 0
 --- !u!1 &1903236899
 GameObject:
   m_ObjectHideFlags: 0
@@ -21526,6 +21553,7 @@ MonoBehaviour:
   targetTransform: {fileID: 977980771}
   cachedTransform: {fileID: 0}
   target: {x: 0, y: 0, z: 0}
+  aIStopped: 0
 --- !u!137 &6121777988800364611
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0
@@ -23032,7 +23060,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &6121777988805844453
 GameObject:
   m_ObjectHideFlags: 0
@@ -24785,7 +24813,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6842342793067014595}
   m_LocalRotation: {x: 0.36599812, y: 0.45315394, z: -0.2113091, w: 0.78488564}
-  m_LocalPosition: {x: -12.525959, y: 10.96918, z: -21.753185}
+  m_LocalPosition: {x: -12.525959, y: 10.96918, z: -21.753183}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -25469,7 +25497,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6842342793993662067}
   m_LocalRotation: {x: 0.36599812, y: 0.45315394, z: -0.2113091, w: 0.78488564}
-  m_LocalPosition: {x: -12.525959, y: 10.96918, z: -21.753185}
+  m_LocalPosition: {x: -12.525959, y: 10.96918, z: -21.753183}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

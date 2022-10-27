@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
@@ -21,6 +22,9 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         private TextReader textReader;
 
         private bool targetIsInteractable;
+
+        public bool aIStopped;
+        
         private void Start()
         {
             rb = GetComponent<Rigidbody>();
@@ -99,7 +103,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                     print((target - transform.position).magnitude);
                     if (agent.velocity.magnitude == 0 && cachedTransform != null)
                     {
-                        print("STOPPED");
+                        // print("STOPPED");
+                        aIStopped = true;
                         transform.eulerAngles = cachedTransform.eulerAngles;
                     }
 

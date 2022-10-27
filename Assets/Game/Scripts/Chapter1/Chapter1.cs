@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.Characters.ThirdPerson;
 
@@ -11,8 +8,22 @@ public class Chapter1 : MonoBehaviour
     [SerializeField] private AICharacterControl[] aiCharacterControl;
     [SerializeField] private Animator[] animators;
 
-    private bool nextScene;
+    public bool nextScene;
     private Animator playerAnimator;
+    
+    public enum Scene
+    {
+        InitialMove,
+        InitialDialogue,
+        PreFightAnims,
+        KillDecision,
+        PostDecisionAnimations,
+        PostDecisionDialogue,
+        SurvivorDecision,
+        EOC
+    }
+
+    public Scene scene = Scene.InitialMove;
 
     private void Awake()
     {
@@ -29,6 +40,12 @@ public class Chapter1 : MonoBehaviour
 
     }
 
+    private void A()
+    {
+        
+        print("STOPPED");
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,22 +55,58 @@ public class Chapter1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        //switch(player.name)
-
-
-        nextScene = true;
-        foreach (AICharacterControl item in aiCharacterControl)
+        switch (scene)
         {
-            if(item.agent.velocity.magnitude == 0.0f && item.targetTransform == null) nextScene = false;
+            case Scene.InitialMove:
+                foreach (AICharacterControl item in aiCharacterControl)
+                {
+                    if (!item.aIStopped)
+                    {
+                        nextScene = false;
+                        break;
+                    }
+
+                    scene++;
+                }
+                break;
+            
+            case Scene.InitialDialogue:
+                GetComponent<TextReader>().ToggleUI();
+                scene++;
+                break;
+            
+            case Scene.PreFightAnims:
+                break;
+            
+            case Scene.KillDecision:
+                break;
+            
+            case Scene.PostDecisionAnimations:
+                break;
+            
+            case Scene.PostDecisionDialogue:
+                break;
+            
+            case Scene.SurvivorDecision:
+                break;
+            
+            case Scene.EOC:
+                break;
         }
+        
+        
+        
         
         
         if(nextScene)
         {
-            print("Scene Change");
-            playerAnimator.SetTrigger("DrawGun");
-            playerAnimator.SetTrigger("Grab");
+            //PLAY DIALOGUE
+            
+            nextScene = false;
+
+            // print("Scene Change");
+            // playerAnimator.SetTrigger("DrawGun");
+            // playerAnimator.SetTrigger("Grab");
         }
 
 

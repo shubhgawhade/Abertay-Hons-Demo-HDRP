@@ -10,7 +10,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
     {
         public string name;
         [SerializeField] private Transform targetTransform;
-        public Transform a;
+        public Transform cachedTransform;
         private Rigidbody rb;
         public NavMeshAgent agent { get; private set; }             // the navmesh agent required for the path finding
         public ThirdPersonCharacter character { get; private set; } // the character we are controlling
@@ -39,26 +39,23 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             if (targetTransform != null)
             {
                 target = targetTransform.position;
-                a = targetTransform;
+                cachedTransform = targetTransform;
                 targetTransform = null;
                 agent.SetDestination(target);
             }
             else if (target == Vector3.zero)
             {
-                target = transform.position;
+                // target = transform.position;
             }
             
             // disable if player isMoveable
-            if (agent.desiredVelocity.magnitude < 0.08f)
-            {
-                print("STOPPED");
-                transform.eulerAngles = a.eulerAngles;
-            }
+            // print(agent.remainingDistance);
 
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
             if (Physics.Raycast(ray, out hit) && Input.GetMouseButtonDown(0) && GameManager.IsMoveable && CompareTag("Player"))
             {
+                cachedTransform = null;
                 switch (hit.collider.tag)
                 {
                     case "Ground":
@@ -91,18 +88,25 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                 
             // print(agent.isStopped);
             // print(agent.remainingDistance);
-            if (agent.remainingDistance > 0.3f)
+            if ((target - transform.position).magnitude > 0.3f)
             {
                 // print(Mathf.Abs((transform.position - target).magnitude));
                 character.Move(agent.desiredVelocity, false, false);
 
                 if ((target - transform.position).magnitude < 0.8f)
-                {                    
-                    //FIGURE WAY TO TURN AT THE END OF PATH
-                    // transform.LookAt(targetTransform.transform.forward);
-                    
-                    if(targetIsInteractable && (textReader.interactableStates == InteractableStates.NotInteracted || 
-                                                                      textReader.interactableStates == InteractableStates.InteractionOver))
+                {
+                    //TURN AT THE END OF PATH
+                    print((target - transform.position).magnitude);
+                    if (agent.velocity.magnitude == 0 && cachedTransform != null)
+                    {
+                        print("STOPPED");
+                        transform.eulerAngles = cachedTransform.eulerAngles;
+                    }
+
+
+
+                    if (targetIsInteractable && (textReader.interactableStates == InteractableStates.NotInteracted ||
+                                                 textReader.interactableStates == InteractableStates.InteractionOver))
                     {
                         targetIsInteractable = false;
                         textReader.ToggleUI();
@@ -114,6 +118,12 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             }
             else
             {
+                
+            }
+            
+            if ((target - transform.position).magnitude < 0.6f && agent.velocity.magnitude == 0 && cachedTransform != null)
+            {
+                    // transform.eulerAngles = cachedTransform.eulerAngles;
             }
         }
     }

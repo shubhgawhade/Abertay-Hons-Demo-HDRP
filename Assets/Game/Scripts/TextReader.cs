@@ -114,6 +114,7 @@ public class TextReader : MonoBehaviour
         if(dialogueTracker == -1)
         {
             interactableStates = InteractableStates.InteractionOver;
+            GameManager.isInteracting = false;
             dialogueTracker = 0;
             ToggleUI();
         }

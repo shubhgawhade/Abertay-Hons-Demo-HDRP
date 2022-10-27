@@ -157,8 +157,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c5335f0882fe4d478883cc8c58ce906, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cursorObj: {fileID: 0}
   targetTransform: {fileID: 0}
+  targetCache: {fileID: 0}
   target: {x: 0, y: 0, z: 0}
 --- !u!114 &6121777987086615891
 MonoBehaviour:

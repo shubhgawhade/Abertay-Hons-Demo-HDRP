@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public static bool IsMoveable = true;
+    public static bool IsMoveable = false;
     public static bool isInteracting;
 
     private void Awake()

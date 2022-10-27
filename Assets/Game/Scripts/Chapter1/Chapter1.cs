@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityStandardAssets.Characters.ThirdPerson;
 
@@ -10,7 +11,7 @@ public class Chapter1 : MonoBehaviour
 
     public bool nextScene;
     private Animator playerAnimator;
-    
+    private TextReader textReader;
     public enum Scene
     {
         InitialMove,
@@ -27,6 +28,7 @@ public class Chapter1 : MonoBehaviour
 
     private void Awake()
     {
+        textReader = GetComponent<TextReader>();
         aiCharacterControl = new AICharacterControl[characters.Length];
         animators = new Animator[characters.Length];
 
@@ -58,6 +60,7 @@ public class Chapter1 : MonoBehaviour
         switch (scene)
         {
             case Scene.InitialMove:
+                
                 foreach (AICharacterControl item in aiCharacterControl)
                 {
                     if (!item.aIStopped)
@@ -71,14 +74,21 @@ public class Chapter1 : MonoBehaviour
                 break;
             
             case Scene.InitialDialogue:
-                GetComponent<TextReader>().ToggleUI();
+                
+                textReader.ToggleUI();
                 scene++;
                 break;
             
             case Scene.PreFightAnims:
+                if (textReader.dialogueTracker == 0)
+                {
+                    StartCoroutine(A(0));
+                    animators[1].SetTrigger("DrawGun");
+                }
                 break;
             
             case Scene.KillDecision:
+                
                 break;
             
             case Scene.PostDecisionAnimations:
@@ -122,8 +132,22 @@ public class Chapter1 : MonoBehaviour
         */
     }
 
-   
-   
+    IEnumerator A(int num)
+    {
+        switch (num)
+        {
+            case 0:
+                yield return new WaitForSeconds(1f);
+                playerAnimator.SetTrigger("DrawGun");
+                playerAnimator.SetTrigger("Grab");
+                animators[2].SetTrigger("Grabbed");
+                break;
+        }
+        
+        yield break;        
+    }
+
+
 /*
     Angle characters in scene to look at the player.
 

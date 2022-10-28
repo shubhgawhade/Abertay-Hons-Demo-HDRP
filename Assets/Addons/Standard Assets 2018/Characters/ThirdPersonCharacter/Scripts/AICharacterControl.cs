@@ -100,8 +100,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                 if ((target - transform.position).magnitude < 0.8f)
                 {
                     //TURN AT THE END OF PATH
-                    print((target - transform.position).magnitude);
-                    if (agent.velocity.magnitude == 0 && cachedTransform != null)
+                    // print((target - transform.position).magnitude);
+                    if (rb.velocity.magnitude < 0.4f && cachedTransform != null) //agent.velocity.magnitude == 0
                     {
                         // print("STOPPED");
                         aIStopped = true;

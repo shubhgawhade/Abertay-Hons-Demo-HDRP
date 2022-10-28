@@ -65,10 +65,12 @@ public class Chapter1 : MonoBehaviour
                 {
                     if (!item.aIStopped)
                     {
-                        nextScene = false;
                         break;
                     }
 
+                    print(item);
+                    player.GetComponent<AICharacterControl>().cachedTransform = null;
+                    item.cachedTransform = null;
                     scene++;
                 }
                 break;
@@ -137,7 +139,7 @@ public class Chapter1 : MonoBehaviour
         switch (num)
         {
             case 0:
-                yield return new WaitForSeconds(1f);
+                yield return new WaitForSeconds(0.5f);
                 playerAnimator.SetTrigger("DrawGun");
                 playerAnimator.SetTrigger("Grab");
                 animators[2].SetTrigger("Grabbed");

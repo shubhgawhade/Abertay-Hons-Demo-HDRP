@@ -60,7 +60,29 @@ public class Chapter1 : MonoBehaviour
         switch (scene)
         {
             case Scene.InitialMove:
+
+                for (int i = 0; i < characters.Length;)
+                {
+                    if (aiCharacterControl[i].aIStopped)
+                    {
+                        aiCharacterControl[i].cachedTransform = null;
+                        i++;
+
+                        // print(i);
+                        if (i == characters.Length)
+                        {
+                            // print(i + "STOPPED");
+                            player.GetComponent<AICharacterControl>().cachedTransform = null;
+                            scene++;
+                        }
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
                 
+                /*
                 foreach (AICharacterControl item in aiCharacterControl)
                 {
                     if (!item.aIStopped)
@@ -68,11 +90,13 @@ public class Chapter1 : MonoBehaviour
                         break;
                     }
 
-                    print(item);
+                    print(item.name);
                     player.GetComponent<AICharacterControl>().cachedTransform = null;
                     item.cachedTransform = null;
                     scene++;
                 }
+                */
+                
                 break;
             
             case Scene.InitialDialogue:

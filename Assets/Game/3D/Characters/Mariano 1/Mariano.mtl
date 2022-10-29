@@ -1,0 +1,62 @@
+# Exported from Fuse 1.3.0
+
+newmtl Shoes
+illum 4
+Kd 1.00 1.00 1.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 1.00 1.00 1.00
+map_Kd Mariano_Shoes_diffuse.png
+map_Ks Mariano_Shoes_specular.png
+bump Mariano_Shoes_normal.png
+map_Ns Mariano_Shoes_gloss.png
+
+newmtl Bottom
+illum 4
+Kd 1.00 1.00 1.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 1.00 1.00 1.00
+map_Kd Mariano_Bottom_diffuse.png
+map_Ks Mariano_Bottom_specular.png
+bump Mariano_Bottom_normal.png
+map_Ns Mariano_Bottom_gloss.png
+
+newmtl Hair
+illum 4
+Kd 1.00 1.00 1.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 1.00 1.00 1.00
+map_Kd Mariano_Hair_diffuse.png
+map_Ks Mariano_Hair_specular.png
+bump Mariano_Hair_normal.png
+map_Ns Mariano_Hair_gloss.png
+
+newmtl Body
+illum 4
+Kd 1.00 1.00 1.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 1.00 1.00 1.00
+map_Kd Mariano_Body_diffuse.png
+map_Ks Mariano_Body_specular.png
+bump Mariano_Body_normal.png
+map_Ns Mariano_Body_gloss.png
+
+newmtl Top
+illum 4
+Kd 1.00 1.00 1.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 1.00 1.00 1.00
+map_Kd Mariano_Top_diffuse.png
+map_Ks Mariano_Top_specular.png
+bump Mariano_Top_normal.png
+map_Ns Mariano_Top_gloss.png
+

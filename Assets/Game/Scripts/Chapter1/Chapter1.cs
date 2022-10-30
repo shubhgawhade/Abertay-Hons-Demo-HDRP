@@ -168,6 +168,8 @@ public class Chapter1 : MonoBehaviour
             case Scene.PostDecisionAnimations:
                 // STRIPPER DEATH ANIM(RAGDOLL)
                 animators[2].SetTrigger("Dead");
+                playerAnimator.SetBool("Grabbing", false);
+                
                 characters[2].transform.parent = charactersParent.transform;
                 
                 if (isPaulieKilled)
@@ -217,6 +219,8 @@ public class Chapter1 : MonoBehaviour
             case Scene.PostDecisionDialogue:
                 print("POST DECISION DIALOGUE");
                 
+                playerAnimator.SetBool("GunDrawn", false);
+                
                 if (isPaulieKilled)
                 {
                     textReader.textAsset = dialogue1_2Luca;
@@ -227,6 +231,7 @@ public class Chapter1 : MonoBehaviour
                 }
                 
                 textReader.ToggleUI();
+                
                 scene++;
                 break;
             
@@ -235,7 +240,7 @@ public class Chapter1 : MonoBehaviour
                 if (textReader.dialogueTracker == 0)
                 {
                     killOrSpareUI.SetActive(true);
-                    
+
                     if (Input.GetMouseButtonDown(0))
                     {
                         print("KILL");
@@ -262,8 +267,7 @@ public class Chapter1 : MonoBehaviour
                 break;
             
             case Scene.EOC:
-                playerAnimator.SetBool("GunDrawn", false);
-                playerAnimator.SetBool("Grabbing", false);
+                
                 break;
         }
 

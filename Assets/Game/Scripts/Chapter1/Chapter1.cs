@@ -264,6 +264,7 @@ public class Chapter1 : MonoBehaviour
                 playerAnimator.SetBool("Grabbing", true);
                 animators[2].SetBool("Grabbed", true);
                 // LUCA RUNNING ANIM
+                // animators[0].SetBool("GunDrawn", true);
                 aiCharacterControl[0].targetTransform = player.transform;
                 characters[0].GetComponent<ThirdPersonCharacter>().run = true;
                 yield return new WaitForSeconds(1.5f);

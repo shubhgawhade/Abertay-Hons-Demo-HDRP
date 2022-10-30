@@ -10,7 +10,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
     public class AICharacterControl : MonoBehaviour
     {
         public string name;
-        [SerializeField] private Transform targetTransform;
+        public Transform targetTransform;
         public Transform cachedTransform;
         private Rigidbody rb;
         public NavMeshAgent agent { get; private set; }             // the navmesh agent required for the path finding

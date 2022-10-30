@@ -9,6 +9,11 @@ public class Chapter1 : MonoBehaviour
     [SerializeField] private AICharacterControl[] aiCharacterControl;
     [SerializeField] private Animator[] animators;
 
+    [SerializeField] private GameObject charactersParent;
+    
+    [SerializeField] private Transform lucaPos2;
+    [SerializeField] private Transform pauliePos2;
+
     [SerializeField] private GameObject killDecisionUI;
 
     public bool isPaulieKilled;
@@ -115,10 +120,10 @@ public class Chapter1 : MonoBehaviour
                 {
                     StartCoroutine(A(0));
                     animators[1].SetTrigger("DrawGun");
-                    // LUCA RUNNING ANIM
 
                     if (showKillDecisionUI)
                     {
+                        
                         scene++;
                     }
                     
@@ -129,6 +134,7 @@ public class Chapter1 : MonoBehaviour
             case Scene.KillDecision:
                 
                 killDecisionUI.SetActive(true);
+                characters[2].transform.parent = player.transform;
 
                 if (!animPaused)
                 {
@@ -141,12 +147,14 @@ public class Chapter1 : MonoBehaviour
                     print("Left");
                     isPaulieKilled = true;
                     // ROTATE TOWARDS PAULIE
+                    player.transform.LookAt(characters[1].transform.position);
                     StartCoroutine(A(1));
                 }
                 else if (Input.GetMouseButtonDown(1))
                 {
                     print("Right");
                     // ROTATE TOWARDS LUCA
+                    player.transform.LookAt(characters[0].transform.position);
                     StartCoroutine(A(1));
                 }
                 
@@ -154,20 +162,24 @@ public class Chapter1 : MonoBehaviour
                 break;
             
             case Scene.PostDecisionAnimations:
-                
+                // STRIPPER DEATH ANIM(RAGDOLL)
                 
                 if (isPaulieKilled)
                 {
                     print("Paulie Death Anim");
                     animators[1].SetTrigger("Dead");
-                    
+                    aiCharacterControl[1].agent.enabled = false;
+
                     // LUCA STAB ANIMATION
                 }
                 else
                 {
                     print("Luca Death Anim");
                     animators[0].SetTrigger("Dead");
-                    
+                    aiCharacterControl[0].enabled = false;
+                    aiCharacterControl[0].agent.enabled = false;
+
+                    aiCharacterControl[1].targetTransform = pauliePos2;
                     // PAULIE RUNNING TOWARDS PLAYER
                 }
                 
@@ -209,6 +221,9 @@ public class Chapter1 : MonoBehaviour
                 playerAnimator.SetTrigger("DrawGun");
                 playerAnimator.SetTrigger("Grab");
                 animators[2].SetTrigger("Grabbed");
+                // LUCA RUNNING ANIM
+                aiCharacterControl[0].targetTransform = player.transform;
+                // characters[0].GetComponent<ThirdPersonCharacter>().run = true;
                 yield return new WaitForSeconds(1.5f);
                 showKillDecisionUI = true;
                 break;

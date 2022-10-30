@@ -1023,6 +1023,37 @@ Transform:
   m_Father: {fileID: 2081261413}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &175700777
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 175700778}
+  m_Layer: 0
+  m_Name: PaulieLoc2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &175700778
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 175700777}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 4.95, y: 0, z: -17.1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 578297573}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1 &184973841
 GameObject:
   m_ObjectHideFlags: 0
@@ -1217,7 +1248,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 578297573}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &267286883
 GameObject:
@@ -5158,6 +5189,7 @@ Transform:
   m_Children:
   - {fileID: 1682866909}
   - {fileID: 1303421054}
+  - {fileID: 175700778}
   - {fileID: 977980771}
   - {fileID: 259982479}
   m_Father: {fileID: 0}
@@ -5297,7 +5329,7 @@ MonoBehaviour:
   maxPlayerDistance: 0
   chargeDistance: 0
   attackDistance: 0
-  detected: 0
+  run: 0
   m_MovingTurnSpeed: 360
   m_StationaryTurnSpeed: 180
   m_JumpPower: 6
@@ -6807,7 +6839,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 578297573}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: -94, z: 0}
 --- !u!1001 &979017897
 PrefabInstance:
@@ -11593,7 +11625,7 @@ MonoBehaviour:
   maxPlayerDistance: 0
   chargeDistance: 0
   attackDistance: 0
-  detected: 0
+  run: 0
   m_MovingTurnSpeed: 360
   m_StationaryTurnSpeed: 180
   m_JumpPower: 6
@@ -12895,9 +12927,12 @@ MonoBehaviour:
   - {fileID: 593167051}
   aiCharacterControl: []
   animators: []
+  charactersParent: {fileID: 0}
+  lucaPos2: {fileID: 0}
+  pauliePos2: {fileID: 175700778}
   killDecisionUI: {fileID: 1375425344}
-  nextScene: 0
   isPaulieKilled: 0
+  animPaused: 0
   scene: 0
 --- !u!114 &1885397266
 MonoBehaviour:
@@ -28642,7 +28677,7 @@ MonoBehaviour:
   maxPlayerDistance: 0
   chargeDistance: 0
   attackDistance: 0
-  detected: 0
+  run: 0
   m_MovingTurnSpeed: 360
   m_StationaryTurnSpeed: 180
   m_JumpPower: 6
@@ -31984,7 +32019,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6842342793067014595}
   m_LocalRotation: {x: 0.36599812, y: 0.45315394, z: -0.2113091, w: 0.78488564}
-  m_LocalPosition: {x: -12.52596, y: 10.969185, z: -21.753185}
+  m_LocalPosition: {x: -12.525959, y: 10.96918, z: -21.753185}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -32668,7 +32703,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6842342793993662067}
   m_LocalRotation: {x: 0.36599812, y: 0.45315394, z: -0.2113091, w: 0.78488564}
-  m_LocalPosition: {x: -12.52596, y: 10.969185, z: -21.753185}
+  m_LocalPosition: {x: -12.525959, y: 10.96918, z: -21.753185}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

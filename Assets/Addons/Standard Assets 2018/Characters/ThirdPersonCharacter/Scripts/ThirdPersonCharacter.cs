@@ -13,7 +13,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		public float chargeDistance;
 		public float attackDistance;
 		
-		public bool detected;
+		public bool run;
 		
 		[SerializeField] float m_MovingTurnSpeed = 360;
 		[SerializeField] float m_StationaryTurnSpeed = 180;
@@ -67,7 +67,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			move = Vector3.ProjectOnPlane(move, m_GroundNormal);
 			m_TurnAmount = Mathf.Atan2(move.x, move.z);
 
-			if (detected)
+			if (run)
 			{
 				m_ForwardAmount = move.z;
 			}

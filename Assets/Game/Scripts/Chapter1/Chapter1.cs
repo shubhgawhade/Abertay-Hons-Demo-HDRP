@@ -15,6 +15,7 @@ public class Chapter1 : MonoBehaviour
     [SerializeField] private Transform pauliePos2;
 
     [SerializeField] private GameObject killDecisionUI;
+    [SerializeField] private GameObject killOrSpareUI;
 
     [SerializeField] private TextAsset dialogue1_2Luca;
     [SerializeField] private TextAsset dialogue1_2Paulie;
@@ -167,6 +168,7 @@ public class Chapter1 : MonoBehaviour
             case Scene.PostDecisionAnimations:
                 // STRIPPER DEATH ANIM(RAGDOLL)
                 animators[2].SetTrigger("Dead");
+                characters[2].transform.parent = charactersParent.transform;
                 
                 if (isPaulieKilled)
                 {
@@ -232,12 +234,36 @@ public class Chapter1 : MonoBehaviour
                 
                 if (textReader.dialogueTracker == 0)
                 {
-                    print("SURVIVOR DEICSION");
+                    killOrSpareUI.SetActive(true);
+                    
+                    if (Input.GetMouseButtonDown(0))
+                    {
+                        print("KILL");
+                        //PLAY DEATH ANIM ON LUCA OR PAULIE
+                        
+                        killOrSpareUI.SetActive(false);
+                        
+                        // ENABLE FREE ROAM
+                        GameManager.IsMoveable = true;
+                        scene++;
+                    }
+                    else if (Input.GetMouseButtonDown(1))
+                    {
+                        print("SPARE");
+                        
+                        killOrSpareUI.SetActive(false);
+                        
+                        // ENABLE FREE ROAM
+                        GameManager.IsMoveable = true;
+                        scene++;
+                    }
                 }
                 
                 break;
             
             case Scene.EOC:
+                playerAnimator.SetBool("GunDrawn", false);
+                playerAnimator.SetBool("Grabbing", false);
                 break;
         }
 

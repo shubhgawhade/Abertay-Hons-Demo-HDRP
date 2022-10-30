@@ -119,7 +119,7 @@ public class Chapter1 : MonoBehaviour
                 if (textReader.dialogueTracker == 0)
                 {
                     StartCoroutine(A(0));
-                    animators[1].SetTrigger("DrawGun");
+                    animators[1].SetBool("GunDrawn", true);
 
                     if (showKillDecisionUI)
                     {
@@ -168,6 +168,7 @@ public class Chapter1 : MonoBehaviour
                 {
                     print("Paulie Death Anim");
                     animators[1].SetTrigger("Dead");
+                    aiCharacterControl[0].enabled = false;
                     aiCharacterControl[1].agent.enabled = false;
 
                     // LUCA STAB ANIMATION
@@ -180,7 +181,9 @@ public class Chapter1 : MonoBehaviour
                     aiCharacterControl[0].agent.enabled = false;
 
                     aiCharacterControl[1].targetTransform = pauliePos2;
+                    animators[1].SetBool("GunDrawn", false);
                     // PAULIE RUNNING TOWARDS PLAYER
+                    characters[1].GetComponent<ThirdPersonCharacter>().run = true;
                 }
                 
                 // PLAYER INJURED ANIMATION
@@ -218,9 +221,9 @@ public class Chapter1 : MonoBehaviour
         {
             case 0:
                 yield return new WaitForSeconds(0.5f);
-                playerAnimator.SetTrigger("DrawGun");
-                playerAnimator.SetTrigger("Grab");
-                animators[2].SetTrigger("Grabbed");
+                playerAnimator.SetBool("GunDrawn", true);
+                playerAnimator.SetBool("Grabbing", true);
+                animators[2].SetBool("Grabbed", true);
                 // LUCA RUNNING ANIM
                 aiCharacterControl[0].targetTransform = player.transform;
                 // characters[0].GetComponent<ThirdPersonCharacter>().run = true;

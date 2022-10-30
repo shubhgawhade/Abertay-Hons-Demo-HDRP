@@ -6986,7 +6986,7 @@ GameObject:
   - component: {fileID: 997659460}
   - component: {fileID: 997659459}
   m_Layer: 5
-  m_Name: Kill Paullie Button
+  m_Name: Kill Paulie Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

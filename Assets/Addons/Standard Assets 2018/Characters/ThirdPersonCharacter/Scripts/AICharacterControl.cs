@@ -42,6 +42,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         {
             if (targetTransform != null)
             {
+                aIStopped = false;
                 target = targetTransform.position;
                 cachedTransform = targetTransform;
                 targetTransform = null;

@@ -16,6 +16,9 @@ public class Chapter1 : MonoBehaviour
 
     [SerializeField] private GameObject killDecisionUI;
 
+    [SerializeField] private TextAsset dialogue1_2Luca;
+    [SerializeField] private TextAsset dialogue1_2Paulie;
+    
     public bool isPaulieKilled;
     public bool animPaused;
     private bool showKillDecisionUI;
@@ -163,15 +166,18 @@ public class Chapter1 : MonoBehaviour
             
             case Scene.PostDecisionAnimations:
                 // STRIPPER DEATH ANIM(RAGDOLL)
+                animators[2].SetTrigger("Dead");
                 
                 if (isPaulieKilled)
                 {
                     print("Paulie Death Anim");
                     animators[1].SetTrigger("Dead");
-                    aiCharacterControl[0].enabled = false;
+                    aiCharacterControl[1].enabled = false;
                     aiCharacterControl[1].agent.enabled = false;
 
-                    // LUCA STAB ANIMATION
+                    // LUCA STAB ANIMATION and add timer before shot
+                    StartCoroutine(A(2));
+                    // animators[0].SetBool("Shot", true);
                 }
                 else
                 {
@@ -184,18 +190,51 @@ public class Chapter1 : MonoBehaviour
                     animators[1].SetBool("GunDrawn", false);
                     // PAULIE RUNNING TOWARDS PLAYER
                     characters[1].GetComponent<ThirdPersonCharacter>().run = true;
+
+                    StartCoroutine(A(2));
                 }
                 
                 // PLAYER INJURED ANIMATION
                 // PLAYER SHOOTS AT LAST CHARACTER
+                
                 // OTHER CHARACTER INJURED ANIMATION
+                /*
+                print(aiCharacterControl[1].aIStopped);
+                if (isPaulieKilled)
+                {
+                    animators[0].SetBool("Shot", true);
+                }
+                else if(aiCharacterControl[1].aIStopped)
+                {
+                    animators[1].SetBool("Shot", true);
+                }
+                */
                 
                 break;
             
             case Scene.PostDecisionDialogue:
+                print("POST DECISION DIALOGUE");
+                
+                if (isPaulieKilled)
+                {
+                    textReader.textAsset = dialogue1_2Luca;
+                }
+                else
+                {
+                    textReader.textAsset = dialogue1_2Paulie;
+                }
+                
+                textReader.ToggleUI();
+                scene++;
                 break;
             
             case Scene.SurvivorDecision:
+                
+                if (textReader.dialogueTracker == 0)
+                {
+                    print("SURVIVOR DEICSION");
+                }
+                
                 break;
             
             case Scene.EOC:
@@ -226,7 +265,7 @@ public class Chapter1 : MonoBehaviour
                 animators[2].SetBool("Grabbed", true);
                 // LUCA RUNNING ANIM
                 aiCharacterControl[0].targetTransform = player.transform;
-                // characters[0].GetComponent<ThirdPersonCharacter>().run = true;
+                characters[0].GetComponent<ThirdPersonCharacter>().run = true;
                 yield return new WaitForSeconds(1.5f);
                 showKillDecisionUI = true;
                 break;
@@ -241,6 +280,32 @@ public class Chapter1 : MonoBehaviour
                 // yield return new WaitForSeconds(0.3f);
                 killDecisionUI.SetActive(false);
                 scene++;
+                break;
+            
+            case 2:
+
+
+                if (isPaulieKilled)
+                {
+                    yield return new WaitForSeconds(0.5f);
+                    animators[0].SetBool("Shot", true);
+                    aiCharacterControl[0].enabled = false;
+                    aiCharacterControl[0].agent.enabled = false;
+                    yield return new WaitForSeconds(3f);
+                    scene++;
+                    StopAllCoroutines();
+                }
+                else
+                {
+                    yield return new WaitForSeconds(4f);
+                    animators[1].SetBool("Shot", true);
+                    aiCharacterControl[1].enabled = false;
+                    aiCharacterControl[1].agent.enabled = false;
+                    yield return new WaitForSeconds(3f);
+                    scene++;
+                    StopAllCoroutines();
+                }
+
                 break;
         }
     }

@@ -681,7 +681,7 @@ GameObject:
   m_Component:
   - component: {fileID: 175700778}
   m_Layer: 0
-  m_Name: PaulieLoc2
+  m_Name: PaulieLoc 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -864,7 +864,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 578297573}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &267286883
 GameObject:
@@ -1311,9 +1311,9 @@ MonoBehaviour:
   ui: {fileID: 0}
   dialogueText: {fileID: 0}
   interactableStates: 0
+  textAsset: {fileID: 0}
   lines: []
   currentDialogue: []
-  textAsset: {fileID: 0}
   text: 
   nextDialogue: 0
   dialogueTracker: 0
@@ -2015,6 +2015,7 @@ Transform:
   - {fileID: 1303421054}
   - {fileID: 175700778}
   - {fileID: 977980771}
+  - {fileID: 1734250302}
   - {fileID: 259982479}
   m_Father: {fileID: 0}
   m_RootOrder: 10
@@ -3118,7 +3119,7 @@ GameObject:
   m_Component:
   - component: {fileID: 977980771}
   m_Layer: 0
-  m_Name: LucaLoc1
+  m_Name: LucaLoc 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4726,7 +4727,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1303421054}
   m_Layer: 0
-  m_Name: PaulieLoc1
+  m_Name: PaulieLoc 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7175,7 +7176,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1682866909}
   m_Layer: 0
-  m_Name: PlayerLoc1
+  m_Name: PlayerLoc 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7468,6 +7469,37 @@ Transform:
   m_Father: {fileID: 397862545}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1734250301
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1734250302}
+  m_Layer: 0
+  m_Name: LucaLoc 2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1734250302
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1734250301}
+  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 4.95, y: 0, z: -17.1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 578297573}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: -94, z: 0}
 --- !u!1 &1753873165
 GameObject:
   m_ObjectHideFlags: 0
@@ -8310,9 +8342,11 @@ MonoBehaviour:
   aiCharacterControl: []
   animators: []
   charactersParent: {fileID: 0}
-  lucaPos2: {fileID: 0}
+  lucaPos2: {fileID: 1734250302}
   pauliePos2: {fileID: 175700778}
   killDecisionUI: {fileID: 1375425344}
+  dialogue1_2Luca: {fileID: 4900000, guid: e3fb3fa843fc8e24dbe8ffa386a8224a, type: 3}
+  dialogue1_2Paulie: {fileID: 4900000, guid: 2c215a9b413ff9940b727ad71e876c55, type: 3}
   isPaulieKilled: 0
   animPaused: 0
   scene: 0
@@ -8331,9 +8365,9 @@ MonoBehaviour:
   ui: {fileID: 1186328887}
   dialogueText: {fileID: 6842342793622364927}
   interactableStates: 0
+  textAsset: {fileID: 4900000, guid: 8c698c97a2f4f214ab623d9f7520b1e3, type: 3}
   lines: []
   currentDialogue: []
-  textAsset: {fileID: 4900000, guid: 8c698c97a2f4f214ab623d9f7520b1e3, type: 3}
   text: 
   nextDialogue: 0
   dialogueTracker: 0
@@ -27019,7 +27053,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6842342793067014595}
   m_LocalRotation: {x: 0.36599812, y: 0.45315394, z: -0.2113091, w: 0.78488564}
-  m_LocalPosition: {x: -12.52596, y: 10.969185, z: -21.753185}
+  m_LocalPosition: {x: -12.525959, y: 10.96918, z: -21.753183}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -27703,7 +27737,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6842342793993662067}
   m_LocalRotation: {x: 0.36599812, y: 0.45315394, z: -0.2113091, w: 0.78488564}
-  m_LocalPosition: {x: -12.52596, y: 10.969185, z: -21.753185}
+  m_LocalPosition: {x: -12.525959, y: 10.96918, z: -21.753183}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -27726,9 +27760,9 @@ MonoBehaviour:
   ui: {fileID: 6842342792785642081}
   dialogueText: {fileID: 6842342793622364927}
   interactableStates: 0
+  textAsset: {fileID: 4900000, guid: 3fb868b7830385246b14665f663278ad, type: 3}
   lines: []
   currentDialogue: []
-  textAsset: {fileID: 4900000, guid: 3fb868b7830385246b14665f663278ad, type: 3}
   text: 
   nextDialogue: 0
   dialogueTracker: 0

@@ -13,9 +13,9 @@ public class TextReader : MonoBehaviour
 
     public InteractableStates interactableStates = InteractableStates.NotInteracted;
     
+    public TextAsset textAsset;
     public string[] lines;
     public string[] currentDialogue;
-    public TextAsset textAsset;
     public string text;
     public StringBuilder strB;
     StringBuilder lineAdd = new();
@@ -117,6 +117,7 @@ public class TextReader : MonoBehaviour
             GameManager.isInteracting = false;
             dialogueTracker = 0;
             ToggleUI();
+            // textAsset = null;
         }
         else
         {

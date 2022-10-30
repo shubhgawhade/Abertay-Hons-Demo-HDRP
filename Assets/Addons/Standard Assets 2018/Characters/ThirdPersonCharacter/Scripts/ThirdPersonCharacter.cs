@@ -69,7 +69,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
 			if (run)
 			{
-				m_ForwardAmount = move.z;
+				m_ForwardAmount = move.z * 0.6f;
 			}
 			else
 			{

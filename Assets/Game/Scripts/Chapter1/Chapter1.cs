@@ -9,9 +9,14 @@ public class Chapter1 : MonoBehaviour
     [SerializeField] private AICharacterControl[] aiCharacterControl;
     [SerializeField] private Animator[] animators;
 
-    public bool nextScene;
+    [SerializeField] private GameObject killDecisionUI;
+
+    public bool isPaulieKilled;
+    public bool animPaused;
+    private bool showKillDecisionUI;
     private Animator playerAnimator;
     private TextReader textReader;
+    
     public enum Scene
     {
         InitialMove,
@@ -110,14 +115,66 @@ public class Chapter1 : MonoBehaviour
                 {
                     StartCoroutine(A(0));
                     animators[1].SetTrigger("DrawGun");
+                    // LUCA RUNNING ANIM
+
+                    if (showKillDecisionUI)
+                    {
+                        scene++;
+                    }
+                    
                 }
+                
                 break;
             
             case Scene.KillDecision:
                 
+                killDecisionUI.SetActive(true);
+
+                if (!animPaused)
+                {
+                    Time.timeScale = 0;
+                    animPaused = true;
+                }
+                
+                if (Input.GetMouseButtonDown(0))
+                {
+                    print("Left");
+                    isPaulieKilled = true;
+                    // ROTATE TOWARDS PAULIE
+                    StartCoroutine(A(1));
+                }
+                else if (Input.GetMouseButtonDown(1))
+                {
+                    print("Right");
+                    // ROTATE TOWARDS LUCA
+                    StartCoroutine(A(1));
+                }
+                
+                
                 break;
             
             case Scene.PostDecisionAnimations:
+                
+                
+                if (isPaulieKilled)
+                {
+                    print("Paulie Death Anim");
+                    animators[1].SetTrigger("Dead");
+                    
+                    // LUCA STAB ANIMATION
+                }
+                else
+                {
+                    print("Luca Death Anim");
+                    animators[0].SetTrigger("Dead");
+                    
+                    // PAULIE RUNNING TOWARDS PLAYER
+                }
+                
+                // PLAYER INJURED ANIMATION
+                // PLAYER SHOOTS AT LAST CHARACTER
+                // OTHER CHARACTER INJURED ANIMATION
+                
                 break;
             
             case Scene.PostDecisionDialogue:
@@ -128,21 +185,6 @@ public class Chapter1 : MonoBehaviour
             
             case Scene.EOC:
                 break;
-        }
-        
-        
-        
-        
-        
-        if(nextScene)
-        {
-            //PLAY DIALOGUE
-            
-            nextScene = false;
-
-            // print("Scene Change");
-            // playerAnimator.SetTrigger("DrawGun");
-            // playerAnimator.SetTrigger("Grab");
         }
 
 
@@ -167,10 +209,22 @@ public class Chapter1 : MonoBehaviour
                 playerAnimator.SetTrigger("DrawGun");
                 playerAnimator.SetTrigger("Grab");
                 animators[2].SetTrigger("Grabbed");
+                yield return new WaitForSeconds(1.5f);
+                showKillDecisionUI = true;
+                break;
+            
+            case 1:
+                // PAULIE GUNSHOT ANIM
+                // PLAYER GUNSHOT ANIM
+                // GUNSHOT PARTICLE FX
+
+                animPaused = false;
+                Time.timeScale = 1;
+                // yield return new WaitForSeconds(0.3f);
+                killDecisionUI.SetActive(false);
+                scene++;
                 break;
         }
-        
-        yield break;        
     }
 
 

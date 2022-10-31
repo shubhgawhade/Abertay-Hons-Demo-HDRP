@@ -81,7 +81,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
                         if (interactable.isVisible && !GameManager.isInteracting)
                         {
-                            target = interactable.targetLocation.transform.position;
+                            targetTransform = interactable.targetLocation.transform;
+                            target = targetTransform.transform.position;
                             agent.SetDestination(target);
                             targetIsInteractable = true;
                             GameManager.isInteracting = true;

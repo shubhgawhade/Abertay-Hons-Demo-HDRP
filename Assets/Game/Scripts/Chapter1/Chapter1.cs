@@ -8,6 +8,7 @@ public class Chapter1 : MonoBehaviour
     [SerializeField] private GameObject[] characters;
     [SerializeField] private AICharacterControl[] aiCharacterControl;
     [SerializeField] private Animator[] animators;
+    [SerializeField] private GameObject[] weapons;
     
 
     [SerializeField] private GameObject charactersParent;
@@ -126,6 +127,9 @@ public class Chapter1 : MonoBehaviour
                     StartCoroutine(A(0));
                     animators[0].SetBool("GunDrawn", true);
                     animators[1].SetBool("GunDrawn", true);
+                    //ENABLE WEAPONS
+                    weapons[1].SetActive(true);
+                    weapons[2].SetActive(true);
 
                     if (showKillDecisionUI)
                     {
@@ -224,14 +228,17 @@ public class Chapter1 : MonoBehaviour
             
             case Scene.PostDecisionDialogue:
                 print("POST DECISION DIALOGUE");
-                                
+                playerAnimator.ResetTrigger("Shoot");
+
                 if (isPaulieKilled)
                 {
                     textReader.textAsset = dialogue1_2Luca;
+                    player.transform.LookAt(characters[0].transform);
                 }
                 else
                 {
                     textReader.textAsset = dialogue1_2Paulie;
+                    player.transform.LookAt(characters[1].transform);
                 }
                 
                 textReader.ToggleUI();
@@ -244,10 +251,19 @@ public class Chapter1 : MonoBehaviour
                 if (textReader.dialogueTracker == 0)
                 {
                     killOrSpareUI.SetActive(true);
+                    playerAnimator.SetBool("GunDrawn", true);
 
                     if (Input.GetMouseButtonDown(0))
                     {
                         print("KILL");
+                        if (isPaulieKilled)
+                        {
+                            player.transform.LookAt(characters[0].transform);
+                        }
+                        else
+                        {
+                            player.transform.LookAt(characters[1].transform);
+                        }
                         playerAnimator.SetTrigger("Shoot");
                         print("FLARE");
                         //PLAY DEATH ANIM ON LUCA OR PAULIE
@@ -298,9 +314,10 @@ public class Chapter1 : MonoBehaviour
                 yield return new WaitForSeconds(0.5f);
                 playerAnimator.SetBool("GunDrawn", true);
                 playerAnimator.SetBool("Grabbing", true);
+                weapons[0].SetActive(true);
                 animators[2].SetBool("Grabbed", true);
                 // LUCA RUNNING ANIM
-                aiCharacterControl[0].targetTransform = player.transform;
+                aiCharacterControl[0].targetTransform = lucaPos2;
                 characters[0].GetComponent<ThirdPersonCharacter>().run = true;
                 yield return new WaitForSeconds(1.5f);
                 showKillDecisionUI = true;
@@ -331,10 +348,14 @@ public class Chapter1 : MonoBehaviour
                     yield return new WaitForSeconds(0.5f);
                     animators[0].SetBool("GunDrawn", false);
                     yield return new WaitForSeconds(0.5f);
+                    player.transform.LookAt(characters[0].transform);
+                    playerAnimator.SetTrigger("Shoot");
+                    yield return new WaitForSeconds(0.5f);
+                    playerAnimator.SetBool("GunDrawn", false);
                     animators[0].SetBool("Shot", true);
                     aiCharacterControl[0].enabled = false;
                     aiCharacterControl[0].agent.enabled = false;
-                    yield return new WaitForSeconds(3f);
+                    yield return new WaitForSeconds(2f);
                     scene++;
                     StopAllCoroutines();
                 }
@@ -345,10 +366,14 @@ public class Chapter1 : MonoBehaviour
                     aiCharacterControl[1].targetTransform = pauliePos2;
                     characters[1].GetComponent<ThirdPersonCharacter>().run = true;
                     yield return new WaitForSeconds(3f);
+                    player.transform.LookAt(characters[1].transform);
+                    playerAnimator.SetTrigger("Shoot");
+                    yield return new WaitForSeconds(0.5f);
+                    playerAnimator.SetBool("GunDrawn", false);
                     animators[1].SetBool("Shot", true);
                     aiCharacterControl[1].enabled = false;
                     aiCharacterControl[1].agent.enabled = false;
-                    yield return new WaitForSeconds(3f);
+                    yield return new WaitForSeconds(2f);
                     scene++;
                     StopAllCoroutines();
                 }

@@ -24,6 +24,7 @@ public class Chapter1 : MonoBehaviour
     
     public bool isPaulieKilled;
     public bool animPaused;
+    public bool calledPostDecision;
     private bool showKillDecisionUI;
     private Animator playerAnimator;
     private TextReader textReader;
@@ -173,7 +174,7 @@ public class Chapter1 : MonoBehaviour
                 break;
             
             case Scene.PostDecisionAnimations:
-                // STRIPPER DEATH ANIM(RAGDOLL)
+                // STRIPPER DEATH ANIM
                 animators[2].SetTrigger("Dead");
                 playerAnimator.SetBool("Grabbing", false);
                 
@@ -259,12 +260,15 @@ public class Chapter1 : MonoBehaviour
                         if (isPaulieKilled)
                         {
                             player.transform.LookAt(characters[0].transform);
+                            animators[0].SetTrigger("Finished");
                         }
                         else
                         {
                             player.transform.LookAt(characters[1].transform);
+                            animators[1].SetTrigger("Finished");
                         }
                         playerAnimator.SetTrigger("Shoot");
+                        weapons[0].transform.GetChild(0).gameObject.SetActive(true);
                         print("FLARE");
                         //PLAY DEATH ANIM ON LUCA OR PAULIE
                         
@@ -326,10 +330,13 @@ public class Chapter1 : MonoBehaviour
             case 1:
                 // PLAYER GUNSHOT ANIM
                 playerAnimator.SetTrigger("Shoot");
+                playerAnimator.SetLayerWeight(1, 1);
+                weapons[0].transform.GetChild(0).gameObject.SetActive(true);
                 print("FLARE");
 
                 // PAULIE GUNSHOT ANIM
                 animators[1].SetTrigger("Shoot");
+                weapons[2].transform.GetChild(0).gameObject.SetActive(true);
                 print("FLARE");
 
                 // GUNSHOT PARTICLE FX
@@ -343,39 +350,49 @@ public class Chapter1 : MonoBehaviour
             
             case 2:
 
-                if (isPaulieKilled)
+                if (!calledPostDecision)
                 {
-                    yield return new WaitForSeconds(0.5f);
-                    animators[0].SetBool("GunDrawn", false);
-                    yield return new WaitForSeconds(0.5f);
-                    player.transform.LookAt(characters[0].transform);
-                    playerAnimator.SetTrigger("Shoot");
-                    yield return new WaitForSeconds(0.5f);
-                    playerAnimator.SetBool("GunDrawn", false);
-                    animators[0].SetBool("Shot", true);
-                    aiCharacterControl[0].enabled = false;
-                    aiCharacterControl[0].agent.enabled = false;
-                    yield return new WaitForSeconds(2f);
-                    scene++;
-                    StopAllCoroutines();
-                }
-                else
-                {
-                    yield return new WaitForSeconds(0.5f);
-                    animators[1].SetBool("GunDrawn", false);
-                    aiCharacterControl[1].targetTransform = pauliePos2;
-                    characters[1].GetComponent<ThirdPersonCharacter>().run = true;
-                    yield return new WaitForSeconds(3f);
-                    player.transform.LookAt(characters[1].transform);
-                    playerAnimator.SetTrigger("Shoot");
-                    yield return new WaitForSeconds(0.5f);
-                    playerAnimator.SetBool("GunDrawn", false);
-                    animators[1].SetBool("Shot", true);
-                    aiCharacterControl[1].enabled = false;
-                    aiCharacterControl[1].agent.enabled = false;
-                    yield return new WaitForSeconds(2f);
-                    scene++;
-                    StopAllCoroutines();
+                    if (isPaulieKilled)
+                    {
+                        calledPostDecision = true;
+                        
+                        yield return new WaitForSeconds(0.5f);
+                        animators[0].SetBool("GunDrawn", false);
+                        yield return new WaitForSeconds(0.5f);
+                        player.transform.LookAt(characters[0].transform);
+                        playerAnimator.SetTrigger("Shoot");
+                        yield return new WaitForSeconds(0.3f);
+                        weapons[0].transform.GetChild(0).gameObject.SetActive(true);
+                        playerAnimator.SetBool("GunDrawn", false);
+                        animators[0].SetBool("Shot", true);
+                        aiCharacterControl[0].enabled = false;
+                        aiCharacterControl[0].agent.enabled = false;
+                        yield return new WaitForSeconds(2f);
+                        scene++;
+                        StopAllCoroutines();
+                    }
+                    else
+                    {
+                        calledPostDecision = true;
+
+                        yield return new WaitForSeconds(0.5f);
+                        animators[1].SetBool("GunDrawn", false);
+                        aiCharacterControl[1].targetTransform = pauliePos2;
+                        characters[1].GetComponent<ThirdPersonCharacter>().run = true;
+                        yield return new WaitForSeconds(3f);
+                        player.transform.LookAt(characters[1].transform);
+                        playerAnimator.SetTrigger("Shoot");
+                        print("FLARE" + calledPostDecision);
+                        weapons[0].transform.GetChild(0).gameObject.SetActive(true);
+                        yield return new WaitForSeconds(0.3f);
+                        playerAnimator.SetBool("GunDrawn", false);
+                        animators[1].SetBool("Shot", true);
+                        aiCharacterControl[1].enabled = false;
+                        aiCharacterControl[1].agent.enabled = false;
+                        yield return new WaitForSeconds(2f);
+                        scene++;
+                        StopAllCoroutines();
+                    }
                 }
 
                 break;

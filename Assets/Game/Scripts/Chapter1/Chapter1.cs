@@ -8,6 +8,7 @@ public class Chapter1 : MonoBehaviour
     [SerializeField] private GameObject[] characters;
     [SerializeField] private AICharacterControl[] aiCharacterControl;
     [SerializeField] private Animator[] animators;
+    
 
     [SerializeField] private GameObject charactersParent;
     
@@ -123,6 +124,7 @@ public class Chapter1 : MonoBehaviour
                 if (textReader.dialogueTracker == 0)
                 {
                     StartCoroutine(A(0));
+                    animators[0].SetBool("GunDrawn", true);
                     animators[1].SetBool("GunDrawn", true);
 
                     if (showKillDecisionUI)
@@ -159,6 +161,7 @@ public class Chapter1 : MonoBehaviour
                     print("Right");
                     // ROTATE TOWARDS LUCA
                     player.transform.LookAt(characters[0].transform.position);
+                    // animators[0].SetBool("GunDrawn", false);
                     StartCoroutine(A(1));
                 }
                 
@@ -179,7 +182,12 @@ public class Chapter1 : MonoBehaviour
                     aiCharacterControl[1].enabled = false;
                     aiCharacterControl[1].agent.enabled = false;
 
+
                     // LUCA STAB ANIMATION and add timer before shot
+                    animators[0].SetTrigger("Stabbing");
+                    animators[1].SetBool("GunDrawn", false);
+
+
                     StartCoroutine(A(2));
                     // animators[0].SetBool("Shot", true);
                 }
@@ -190,11 +198,8 @@ public class Chapter1 : MonoBehaviour
                     aiCharacterControl[0].enabled = false;
                     aiCharacterControl[0].agent.enabled = false;
 
-                    aiCharacterControl[1].targetTransform = pauliePos2;
-                    animators[1].SetBool("GunDrawn", false);
+                    animators[0].SetBool("GunDrawn", false);
                     // PAULIE RUNNING TOWARDS PLAYER
-                    characters[1].GetComponent<ThirdPersonCharacter>().run = true;
-
                     StartCoroutine(A(2));
                 }
                 
@@ -202,6 +207,7 @@ public class Chapter1 : MonoBehaviour
                 // PLAYER SHOOTS AT LAST CHARACTER
                 
                 // OTHER CHARACTER INJURED ANIMATION
+                
                 /*
                 print(aiCharacterControl[1].aIStopped);
                 if (isPaulieKilled)
@@ -218,9 +224,7 @@ public class Chapter1 : MonoBehaviour
             
             case Scene.PostDecisionDialogue:
                 print("POST DECISION DIALOGUE");
-                
-                playerAnimator.SetBool("GunDrawn", false);
-                
+                                
                 if (isPaulieKilled)
                 {
                     textReader.textAsset = dialogue1_2Luca;
@@ -244,6 +248,8 @@ public class Chapter1 : MonoBehaviour
                     if (Input.GetMouseButtonDown(0))
                     {
                         print("KILL");
+                        playerAnimator.SetTrigger("Shoot");
+                        print("FLARE");
                         //PLAY DEATH ANIM ON LUCA OR PAULIE
                         
                         killOrSpareUI.SetActive(false);
@@ -267,7 +273,7 @@ public class Chapter1 : MonoBehaviour
                 break;
             
             case Scene.EOC:
-                
+                playerAnimator.SetBool("GunDrawn", false);
                 break;
         }
 
@@ -294,7 +300,6 @@ public class Chapter1 : MonoBehaviour
                 playerAnimator.SetBool("Grabbing", true);
                 animators[2].SetBool("Grabbed", true);
                 // LUCA RUNNING ANIM
-                // animators[0].SetBool("GunDrawn", true);
                 aiCharacterControl[0].targetTransform = player.transform;
                 characters[0].GetComponent<ThirdPersonCharacter>().run = true;
                 yield return new WaitForSeconds(1.5f);
@@ -302,8 +307,14 @@ public class Chapter1 : MonoBehaviour
                 break;
             
             case 1:
-                // PAULIE GUNSHOT ANIM
                 // PLAYER GUNSHOT ANIM
+                playerAnimator.SetTrigger("Shoot");
+                print("FLARE");
+
+                // PAULIE GUNSHOT ANIM
+                animators[1].SetTrigger("Shoot");
+                print("FLARE");
+
                 // GUNSHOT PARTICLE FX
 
                 animPaused = false;
@@ -315,9 +326,10 @@ public class Chapter1 : MonoBehaviour
             
             case 2:
 
-
                 if (isPaulieKilled)
                 {
+                    yield return new WaitForSeconds(0.5f);
+                    animators[0].SetBool("GunDrawn", false);
                     yield return new WaitForSeconds(0.5f);
                     animators[0].SetBool("Shot", true);
                     aiCharacterControl[0].enabled = false;
@@ -328,7 +340,11 @@ public class Chapter1 : MonoBehaviour
                 }
                 else
                 {
-                    yield return new WaitForSeconds(4f);
+                    yield return new WaitForSeconds(0.5f);
+                    animators[1].SetBool("GunDrawn", false);
+                    aiCharacterControl[1].targetTransform = pauliePos2;
+                    characters[1].GetComponent<ThirdPersonCharacter>().run = true;
+                    yield return new WaitForSeconds(3f);
                     animators[1].SetBool("Shot", true);
                     aiCharacterControl[1].enabled = false;
                     aiCharacterControl[1].agent.enabled = false;

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.3337816, g: 0.49996054, b: 0.8330078, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5684,6 +5684,12 @@ Transform:
   m_Father: {fileID: 1024554802}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1391242011 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8158748278332278440, guid: e7504d630c9b7b2418ea56653a8066dc,
+    type: 3}
+  m_PrefabInstance: {fileID: 2368781113697025232}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1391531334
 GameObject:
   m_ObjectHideFlags: 0
@@ -25368,12 +25374,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!4 &6842342792815686353 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 9091495907537128961, guid: e7504d630c9b7b2418ea56653a8066dc,
-    type: 3}
-  m_PrefabInstance: {fileID: 2368781113697025232}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &6842342792815747499 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9091495907537198459, guid: e7504d630c9b7b2418ea56653a8066dc,
@@ -25561,7 +25561,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 50.751686
+  field of view: 31.688332
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -25587,7 +25587,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6842342793067014595}
   m_LocalRotation: {x: 0.36599812, y: 0.45315394, z: -0.2113091, w: 0.78488564}
-  m_LocalPosition: {x: -12.52596, y: 10.969185, z: -21.753185}
+  m_LocalPosition: {x: -10.991225, y: 11.033114, z: -21.541029}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -26165,12 +26165,12 @@ MonoBehaviour:
   m_RotationMode: 0
   m_UpdateMethod: 2
   m_Targets:
-  - target: {fileID: 6842342792815686353}
+  - target: {fileID: 1391242011}
     weight: 1
     radius: 3
   - target: {fileID: 6842342793518637604}
-    weight: 1
-    radius: 4
+    weight: 2
+    radius: 3
 --- !u!4 &6842342793698539606
 Transform:
   m_ObjectHideFlags: 0
@@ -26179,7 +26179,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6842342793698539604}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.9154696, y: 0, z: -17.09}
+  m_LocalPosition: {x: -4.258966, y: 0.88625836, z: -17.089275}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -26271,7 +26271,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6842342793993662067}
   m_LocalRotation: {x: 0.36599812, y: 0.45315394, z: -0.2113091, w: 0.78488564}
-  m_LocalPosition: {x: -12.52596, y: 10.969185, z: -21.753185}
+  m_LocalPosition: {x: -10.991225, y: 11.033114, z: -21.541029}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

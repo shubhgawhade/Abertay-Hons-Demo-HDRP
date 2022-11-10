@@ -5,11 +5,13 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public bool isMoveable;
     public static bool IsMoveable = false;
     public static bool isInteracting;
 
     private void Awake()
     {
+        IsMoveable = isMoveable;
         DontDestroyOnLoad(gameObject);
     }
 

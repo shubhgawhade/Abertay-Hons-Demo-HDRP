@@ -40,6 +40,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
         private void Update()
         {
+            print(gameObject.name + aIStopped);
+            
             if (targetTransform != null)
             {
                 aIStopped = false;
@@ -66,6 +68,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                     case "Ground":
                         target = new Vector3(hit.point.x, 0, hit.point.z);
                         agent.SetDestination(target);
+                        aIStopped = false;
 
                         if (targetIsInteractable)
                         {
@@ -103,11 +106,14 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                 {
                     //TURN AT THE END OF PATH
                     // print((target - transform.position).magnitude);
-                    if (rb.velocity.magnitude < 0.4f && cachedTransform != null) //agent.velocity.magnitude == 0
+                    if (rb.velocity.magnitude < 0.4f) //agent.velocity.magnitude == 0
                     {
                         // print("STOPPED");
                         aIStopped = true;
-                        transform.eulerAngles = cachedTransform.eulerAngles;
+                        if (cachedTransform != null)
+                        {
+                            transform.eulerAngles = cachedTransform.eulerAngles;
+                        }
                     }
 
 

@@ -14,6 +14,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		public float attackDistance;
 		
 		public bool run;
+		public float maxRunSpeed = 1.5f;
 		
 		[SerializeField] float m_MovingTurnSpeed = 360;
 		[SerializeField] float m_StationaryTurnSpeed = 180;
@@ -69,7 +70,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
 			if (run)
 			{
-				m_ForwardAmount = move.z * 0.6f;
+				m_ForwardAmount = Mathf.Clamp(move.z, 0, maxRunSpeed);
 			}
 			else
 			{

@@ -2022,7 +2022,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &549092933
 Transform:
   m_ObjectHideFlags: 0
@@ -2272,6 +2272,7 @@ MonoBehaviour:
   chargeDistance: 0
   attackDistance: 0
   run: 0
+  maxRunSpeed: 1.5
   m_MovingTurnSpeed: 360
   m_StationaryTurnSpeed: 180
   m_JumpPower: 6
@@ -7979,6 +7980,7 @@ MonoBehaviour:
   chargeDistance: 0
   attackDistance: 0
   run: 0
+  maxRunSpeed: 1.5
   m_MovingTurnSpeed: 360
   m_StationaryTurnSpeed: 180
   m_JumpPower: 6
@@ -22160,6 +22162,16 @@ PrefabInstance:
       propertyPath: targetTransform
       value: 
       objectReference: {fileID: 1682866909}
+    - target: {fileID: 9091495907526119509, guid: e7504d630c9b7b2418ea56653a8066dc,
+        type: 3}
+      propertyPath: run
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9091495907526119509, guid: e7504d630c9b7b2418ea56653a8066dc,
+        type: 3}
+      propertyPath: maxRunSpeed
+      value: 0.8
+      objectReference: {fileID: 0}
     - target: {fileID: 9091495907537128961, guid: e7504d630c9b7b2418ea56653a8066dc,
         type: 3}
       propertyPath: m_RootOrder
@@ -22308,6 +22320,7 @@ MonoBehaviour:
   chargeDistance: 0
   attackDistance: 0
   run: 0
+  maxRunSpeed: 1.5
   m_MovingTurnSpeed: 360
   m_StationaryTurnSpeed: 180
   m_JumpPower: 6
@@ -25436,18 +25449,18 @@ MonoBehaviour:
   m_LookaheadSmoothing: 0
   m_LookaheadIgnoreY: 0
   m_XDamping: 1
-  m_YDamping: 1
+  m_YDamping: 1.5
   m_ZDamping: 1
-  m_TargetMovementOnly: 1
+  m_TargetMovementOnly: 0
   m_ScreenX: 0.5
-  m_ScreenY: 0.5
+  m_ScreenY: 0.6
   m_CameraDistance: 10
-  m_DeadZoneWidth: 0
-  m_DeadZoneHeight: 0
+  m_DeadZoneWidth: 0.2
+  m_DeadZoneHeight: 0.2
   m_DeadZoneDepth: 0
   m_UnlimitedSoftZone: 0
   m_SoftZoneWidth: 0.8
-  m_SoftZoneHeight: 0.8
+  m_SoftZoneHeight: 0.7
   m_BiasX: 0
   m_BiasY: 0
   m_CenterOnActivate: 1
@@ -25561,7 +25574,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 40.94547
+  field of view: 40.94548
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -25587,7 +25600,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6842342793067014595}
   m_LocalRotation: {x: 0.36599812, y: 0.45315394, z: -0.2113091, w: 0.78488564}
-  m_LocalPosition: {x: -11.166839, y: 11.416141, z: -21.879635}
+  m_LocalPosition: {x: -10.400795, y: 12.158363, z: -21.437355}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -26272,7 +26285,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6842342793993662067}
   m_LocalRotation: {x: 0.36599812, y: 0.45315394, z: -0.2113091, w: 0.78488564}
-  m_LocalPosition: {x: -11.166839, y: 11.416141, z: -21.879635}
+  m_LocalPosition: {x: -10.400795, y: 12.158363, z: -21.437355}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

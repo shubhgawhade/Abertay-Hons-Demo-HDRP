@@ -16,7 +16,9 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         public NavMeshAgent agent { get; private set; }             // the navmesh agent required for the path finding
         public ThirdPersonCharacter character { get; private set; } // the character we are controlling
         public Vector3 target;                                    // target to aim for
-
+        public float doubleClickDelay;
+        public float timer;
+        
         private bool cooldown;
         private RaycastHit hit;
         private TextReader textReader;
@@ -40,6 +42,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
         private void Update()
         {
+            timer += Time.deltaTime;   
+            
             print(gameObject.name + aIStopped);
             
             if (targetTransform != null)
@@ -66,6 +70,16 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                 switch (hit.collider.tag)
                 {
                     case "Ground":
+                        if (timer > doubleClickDelay && !character.run)
+                        {
+                            timer = 0;
+                            character.run = false;
+                        }
+                        else
+                        {
+                            character.run = true;
+                        }
+                            
                         target = new Vector3(hit.point.x, 0, hit.point.z);
                         agent.SetDestination(target);
                         aIStopped = false;
@@ -104,6 +118,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
                 if ((target - transform.position).magnitude < 0.8f)
                 {
+                    character.run = false;
                     //TURN AT THE END OF PATH
                     // print((target - transform.position).magnitude);
                     if (rb.velocity.magnitude < 0.4f) //agent.velocity.magnitude == 0

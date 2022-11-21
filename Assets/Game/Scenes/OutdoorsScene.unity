@@ -2297,6 +2297,8 @@ MonoBehaviour:
   targetTransform: {fileID: 259982479}
   cachedTransform: {fileID: 0}
   target: {x: 0, y: 0, z: 0}
+  doubleClickDelay: 0
+  timer: 0
   aIStopped: 0
 --- !u!195 &593167056
 NavMeshAgent:
@@ -8005,6 +8007,8 @@ MonoBehaviour:
   targetTransform: {fileID: 1303421054}
   cachedTransform: {fileID: 0}
   target: {x: 0, y: 0, z: 0}
+  doubleClickDelay: 0
+  timer: 0
   aIStopped: 0
 --- !u!195 &1711899647
 NavMeshAgent:
@@ -22162,6 +22166,11 @@ PrefabInstance:
       propertyPath: targetTransform
       value: 
       objectReference: {fileID: 1682866909}
+    - target: {fileID: 9091495907525941981, guid: e7504d630c9b7b2418ea56653a8066dc,
+        type: 3}
+      propertyPath: doubleClickDelay
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 9091495907526119509, guid: e7504d630c9b7b2418ea56653a8066dc,
         type: 3}
       propertyPath: run
@@ -22345,6 +22354,8 @@ MonoBehaviour:
   targetTransform: {fileID: 977980771}
   cachedTransform: {fileID: 0}
   target: {x: 0, y: 0, z: 0}
+  doubleClickDelay: 0
+  timer: 0
   aIStopped: 0
 --- !u!137 &6121777988800364611
 SkinnedMeshRenderer:
@@ -25574,7 +25585,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 40.94548
+  field of view: 40.94547
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -25600,7 +25611,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6842342793067014595}
   m_LocalRotation: {x: 0.36599812, y: 0.45315394, z: -0.2113091, w: 0.78488564}
-  m_LocalPosition: {x: -10.400795, y: 12.158363, z: -21.437355}
+  m_LocalPosition: {x: -10.400795, y: 12.158368, z: -21.437357}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -26285,7 +26296,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6842342793993662067}
   m_LocalRotation: {x: 0.36599812, y: 0.45315394, z: -0.2113091, w: 0.78488564}
-  m_LocalPosition: {x: -10.400795, y: 12.158363, z: -21.437355}
+  m_LocalPosition: {x: -10.400795, y: 12.158368, z: -21.437357}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

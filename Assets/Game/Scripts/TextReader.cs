@@ -24,8 +24,13 @@ public class TextReader : MonoBehaviour
     // public bool dialogueOver;
 
     public int dialogueTracker;
+
+    private Timer dialogueSkipTimer;
+    public float skipDelay;
     private void Awake()
     {
+        dialogueSkipTimer = gameObject.AddComponent<Timer>();
+        
         //USE LOAD ASYNC
         //Call from another script when player is in proximity of someone who has a dialogue
         // ta = Resources.Load<TextAsset>("a");
@@ -94,6 +99,25 @@ public class TextReader : MonoBehaviour
                 ToggleUI();
             }
             NextDialogue();
+        }
+        // LONG PRESS SPACE TO SKIP
+        else if (Input.GetKey(KeyCode.Space))
+        {
+            if (!dialogueSkipTimer.isRunning)
+            {
+                GameManager.dialogueSkipDelay = skipDelay;
+                dialogueSkipTimer.StartTimer(GameManager.dialogueSkipDelay);
+                
+            }
+            else if (dialogueSkipTimer.isCompleted)
+            {
+                dialogueTracker = -1;
+                NextDialogue();
+            }
+        }
+        else if (Input.GetKeyUp(KeyCode.Space))
+        {
+            dialogueSkipTimer.StopTimer();
         }
     }
 

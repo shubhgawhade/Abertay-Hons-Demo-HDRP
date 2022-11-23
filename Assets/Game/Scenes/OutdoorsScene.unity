@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3337816, g: 0.49996054, b: 0.8330078, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1342,7 +1342,6 @@ GameObject:
   - component: {fileID: 365177051}
   - component: {fileID: 365177053}
   - component: {fileID: 365177052}
-  - component: {fileID: 365177055}
   m_Layer: 0
   m_Name: Shelves_2C (1)
   m_TagString: Untagged
@@ -1417,27 +1416,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 365177050}
   m_Mesh: {fileID: 4300000, guid: 6377b0a9b9eb3da498a9b6643804caa9, type: 3}
---- !u!114 &365177055
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 365177050}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 637384bc62e05b140bbbb85cd4f287dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ui: {fileID: 0}
-  dialogueText: {fileID: 0}
-  interactableStates: 0
-  textAsset: {fileID: 0}
-  lines: []
-  currentDialogue: []
-  text: 
-  nextDialogue: 0
-  dialogueTracker: 0
 --- !u!1 &368253385
 GameObject:
   m_ObjectHideFlags: 0
@@ -3511,6 +3489,11 @@ PrefabInstance:
       objectReference: {fileID: 1186328887}
     - target: {fileID: 3807689115035814804, guid: 7a23c0aec0cc7ee4dbaef6f5e9af673b,
         type: 3}
+      propertyPath: skipDelay
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3807689115035814804, guid: 7a23c0aec0cc7ee4dbaef6f5e9af673b,
+        type: 3}
       propertyPath: textAsset
       value: 
       objectReference: {fileID: 4900000, guid: 3fb868b7830385246b14665f663278ad, type: 3}
@@ -3819,6 +3802,11 @@ PrefabInstance:
       propertyPath: ui
       value: 
       objectReference: {fileID: 1186328887}
+    - target: {fileID: 3807689115035814804, guid: 7a23c0aec0cc7ee4dbaef6f5e9af673b,
+        type: 3}
+      propertyPath: skipDelay
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3807689115035814804, guid: 7a23c0aec0cc7ee4dbaef6f5e9af673b,
         type: 3}
       propertyPath: textAsset
@@ -9324,6 +9312,7 @@ MonoBehaviour:
   text: 
   nextDialogue: 0
   dialogueTracker: 0
+  skipDelay: 0
 --- !u!1 &1903236899
 GameObject:
   m_ObjectHideFlags: 0
@@ -25585,7 +25574,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 40.94547
+  field of view: 40.94548
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -25611,7 +25600,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6842342793067014595}
   m_LocalRotation: {x: 0.36599812, y: 0.45315394, z: -0.2113091, w: 0.78488564}
-  m_LocalPosition: {x: -10.400795, y: 12.158368, z: -21.437357}
+  m_LocalPosition: {x: -10.400795, y: 12.158363, z: -21.437355}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -26296,7 +26285,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6842342793993662067}
   m_LocalRotation: {x: 0.36599812, y: 0.45315394, z: -0.2113091, w: 0.78488564}
-  m_LocalPosition: {x: -10.400795, y: 12.158368, z: -21.437357}
+  m_LocalPosition: {x: -10.400795, y: 12.158363, z: -21.437355}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -26325,6 +26314,7 @@ MonoBehaviour:
   text: 
   nextDialogue: 0
   dialogueTracker: 0
+  skipDelay: 0
 --- !u!114 &6842342794275908233
 MonoBehaviour:
   m_ObjectHideFlags: 0

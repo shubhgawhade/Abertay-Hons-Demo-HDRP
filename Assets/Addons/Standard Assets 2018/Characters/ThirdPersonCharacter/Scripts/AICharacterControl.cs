@@ -121,12 +121,15 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                     character.run = false;
                     //TURN AT THE END OF PATH
                     // print((target - transform.position).magnitude);
-                    if (rb.velocity.magnitude < 0.4f) //agent.velocity.magnitude == 0
+                    // print(agent.velocity.magnitude);
+                    if (agent.velocity.magnitude == 0)  //rb.velocity.magnitude < 0.4f
                     {
                         // print("STOPPED");
                         aIStopped = true;
                         if (cachedTransform != null)
                         {
+                            print(cachedTransform.eulerAngles);
+
                             transform.eulerAngles = cachedTransform.eulerAngles;
                         }
                     }

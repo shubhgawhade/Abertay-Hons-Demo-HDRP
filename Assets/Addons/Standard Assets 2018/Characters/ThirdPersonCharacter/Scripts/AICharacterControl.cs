@@ -132,18 +132,20 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
                             transform.eulerAngles = cachedTransform.eulerAngles;
                         }
+                        
+                        
+                        if (targetIsInteractable && (textReader.interactableStates == InteractableStates.NotInteracted ||
+                                                     textReader.interactableStates == InteractableStates.InteractionOver))
+                        {
+                            targetIsInteractable = false;
+                            textReader.ToggleUI();
+                            // Send action to Text reader to enable UI
+                            print("ENABLE UI");
+                        }
                     }
 
 
 
-                    if (targetIsInteractable && (textReader.interactableStates == InteractableStates.NotInteracted ||
-                                                 textReader.interactableStates == InteractableStates.InteractionOver))
-                    {
-                        targetIsInteractable = false;
-                        textReader.ToggleUI();
-                        // Send action to Text reader to enable UI
-                        print("ENABLE UI");
-                    }
                     
                 }
             }

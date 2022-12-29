@@ -14,6 +14,7 @@ public class CameraZoom : MonoBehaviour
 
     private void Awake()
     {
+        TextReader.RemoveCinemachineTarget += RemoveCinemachinTarget;
         targetGroup = GetComponent<CinemachineTargetGroup>();
     }
 
@@ -21,7 +22,20 @@ public class CameraZoom : MonoBehaviour
     {
         targetGroup.m_Targets[0].radius -=  Input.GetAxis("Mouse ScrollWheel") * sensitivity;
         targetGroup.m_Targets[1].radius -=  Input.GetAxis("Mouse ScrollWheel") * sensitivity;
-        
-        // Mathf.Clamp()
+    }
+
+    public void AddCinemachineTarget(Transform transform, float weight, float radius)
+    {
+        targetGroup.AddMember(transform, weight, radius);
+    }
+
+    public void RemoveCinemachinTarget(Transform t)
+    {
+        targetGroup.RemoveMember(t);
+    }
+
+    private void OnDisable()
+    {
+        TextReader.RemoveCinemachineTarget -= RemoveCinemachinTarget;
     }
 }

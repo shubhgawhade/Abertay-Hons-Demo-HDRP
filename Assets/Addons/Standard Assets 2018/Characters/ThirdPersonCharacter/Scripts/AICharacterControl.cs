@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Cinemachine;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -9,6 +10,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
     [RequireComponent(typeof (ThirdPersonCharacter))]
     public class AICharacterControl : MonoBehaviour
     {
+        [SerializeField] private CinemachineTargetGroup cinemachineTarget;
+        
         public string name;
         public Transform targetTransform;
         public Transform cachedTransform;
@@ -102,7 +105,6 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                             target = targetTransform.transform.position;
                             agent.SetDestination(target);
                             targetIsInteractable = true;
-                            GameManager.isInteracting = true;
                             //Send action to Text reader script to initialize dialogue but not display yet
                         }
                         break;
@@ -137,10 +139,13 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                         if (targetIsInteractable && (textReader.interactableStates == InteractableStates.NotInteracted ||
                                                      textReader.interactableStates == InteractableStates.InteractionOver))
                         {
+                            GameManager.isInteracting = true;
                             targetIsInteractable = false;
                             textReader.ToggleUI();
                             // Send action to Text reader to enable UI
                             print("ENABLE UI");
+
+                            cinemachineTarget.AddMember(cachedTransform, 3, 0);
                         }
                     }
 

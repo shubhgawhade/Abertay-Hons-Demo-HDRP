@@ -1348,7 +1348,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 8
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &365177051
 Transform:
   m_ObjectHideFlags: 0
@@ -1431,7 +1431,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &368253386
 Transform:
   m_ObjectHideFlags: 0
@@ -2353,6 +2353,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c5335f0882fe4d478883cc8c58ce906, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cinemachineTarget: {fileID: 0}
   name: STRIPPER
   targetTransform: {fileID: 259982479}
   cachedTransform: {fileID: 0}
@@ -2669,7 +2670,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &648984994
 Transform:
   m_ObjectHideFlags: 0
@@ -3657,7 +3658,7 @@ PrefabInstance:
     - target: {fileID: 3807689115035814808, guid: 7a23c0aec0cc7ee4dbaef6f5e9af673b,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a23c0aec0cc7ee4dbaef6f5e9af673b, type: 3}
@@ -3977,7 +3978,7 @@ PrefabInstance:
     - target: {fileID: 3807689115035814808, guid: 7a23c0aec0cc7ee4dbaef6f5e9af673b,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3807689115035814808, guid: 7a23c0aec0cc7ee4dbaef6f5e9af673b,
         type: 3}
@@ -8083,6 +8084,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c5335f0882fe4d478883cc8c58ce906, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cinemachineTarget: {fileID: 0}
   name: PAULIE
   targetTransform: {fileID: 1303421054}
   cachedTransform: {fileID: 0}
@@ -8170,7 +8172,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1711899643}
   m_LocalRotation: {x: 0.0000011323459, y: 0.707106, z: 0.00000040963909, w: 0.7071076}
-  m_LocalPosition: {x: -11.16, y: 0.12, z: -16.85}
+  m_LocalPosition: {x: -12.91, y: 0.12, z: -16.85}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -9777,6 +9779,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -2381038027006661305, guid: 7140987bc17c0ce438716d386abe370a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -2145536977180821353, guid: 7140987bc17c0ce438716d386abe370a,
         type: 3}
@@ -16111,7 +16118,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &515385581339717828
 Transform:
   m_ObjectHideFlags: 0
@@ -22881,6 +22888,11 @@ PrefabInstance:
       propertyPath: doubleClickDelay
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 9091495907525941981, guid: e7504d630c9b7b2418ea56653a8066dc,
+        type: 3}
+      propertyPath: cinemachineTarget
+      value: 
+      objectReference: {fileID: 6842342793698539605}
     - target: {fileID: 9091495907526119509, guid: e7504d630c9b7b2418ea56653a8066dc,
         type: 3}
       propertyPath: run
@@ -22890,6 +22902,11 @@ PrefabInstance:
         type: 3}
       propertyPath: maxRunSpeed
       value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 9091495907534176003, guid: e7504d630c9b7b2418ea56653a8066dc,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9091495907537128961, guid: e7504d630c9b7b2418ea56653a8066dc,
         type: 3}
@@ -23060,6 +23077,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c5335f0882fe4d478883cc8c58ce906, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cinemachineTarget: {fileID: 0}
   name: LUCA
   targetTransform: {fileID: 977980771}
   cachedTransform: {fileID: 0}
@@ -25297,7 +25315,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6121777988805844331}
   m_LocalRotation: {x: 0.0000011323459, y: 0.707106, z: 0.00000040963909, w: 0.7071076}
-  m_LocalPosition: {x: -9.26, y: 0.12, z: -16.98}
+  m_LocalPosition: {x: -10.42, y: 0.12, z: -16.98}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -26610,7 +26628,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b62b04dfa675cb1409f5a5ebf4540ac7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isMoveable: 0
+  isMoveable: 1
 --- !u!222 &6842342793622364920
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -26934,8 +26952,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sensitivity: 2.5
-  minZoom: 0
-  maxZoom: 0
+  minZoom: 2
+  maxZoom: 5
 --- !u!1 &6842342793993662067
 GameObject:
   m_ObjectHideFlags: 0

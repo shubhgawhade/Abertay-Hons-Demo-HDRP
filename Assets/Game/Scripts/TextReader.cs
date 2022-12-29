@@ -27,6 +27,9 @@ public class TextReader : MonoBehaviour
 
     private Timer dialogueSkipTimer;
     public float skipDelay;
+
+    public static Action<Transform> RemoveCinemachineTarget;
+
     private void Awake()
     {
         dialogueSkipTimer = gameObject.AddComponent<Timer>();
@@ -138,8 +141,14 @@ public class TextReader : MonoBehaviour
         if(dialogueTracker == -1)
         {
             interactableStates = InteractableStates.InteractionOver;
+            if (GameManager.isInteracting)
+            {
+                print(gameObject.transform);
+                RemoveCinemachineTarget(gameObject.GetComponent<Interactable>().targetLocation.transform);
+            }
             GameManager.isInteracting = false;
             dialogueTracker = 0;
+
             ToggleUI();
             // textAsset = null;
         }

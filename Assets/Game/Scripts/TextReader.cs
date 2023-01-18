@@ -87,6 +87,8 @@ public class TextReader : MonoBehaviour
                 
                 dialogueText.text = lineAdd.ToString();
                 
+                //PLAY THE NEXT AUDIO CLIP
+                
                 if(!nextDialogue)
                 {
                     lineAdd.Clear();

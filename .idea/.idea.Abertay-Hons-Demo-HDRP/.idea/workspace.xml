@@ -3,7 +3,396 @@
   <component name="ChangeListManager">
     <list default="true" id="4dd56a48-5213-4dda-9bf0-e9744c4963bb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Abertay-Hons-Demo-HDRP/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Abertay-Hons-Demo-HDRP/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Luca 1.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Luca 1/BodyMat.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Luca 1/BodyMat.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Luca 1/BottomsMat.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Luca 1/BottomsMat.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Luca 1/EyelashesMat.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Luca 1/EyelashesMat.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Luca 1/EyesMat.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Luca 1/EyesMat.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Luca 1/HairMat.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Luca 1/HairMat.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Luca 1/Luca 1 Rigged.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Luca 1/Luca 1 Rigged.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Luca 1/Luca_Packed_packed0_diffuse.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Luca 1/Luca_Packed_packed0_diffuse.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Luca 1/Luca_Packed_packed0_gloss.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Luca 1/Luca_Packed_packed0_gloss.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Luca 1/Luca_Packed_packed0_normal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Luca 1/Luca_Packed_packed0_normal.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Luca 1/Luca_Packed_packed0_specular.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Luca 1/Luca_Packed_packed0_specular.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Luca 1/ShoesMat.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Luca 1/ShoesMat.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Luca 1/TopsMat.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Luca 1/TopsMat.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Mariano 1.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Mariano 1/Body.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Mariano 1/Body.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Mariano 1/Bottom.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Mariano 1/Bottom.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Mariano 1/Hair.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Mariano 1/Hair.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Mariano 1/Mariano.mtl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Mariano 1/Mariano.mtl.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Mariano 1/Mariano.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Mariano 1/Mariano.obj.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Mariano 1/MarianoEdited.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Mariano 1/MarianoEdited.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Mariano 1/MarianoEdited1.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Mariano 1/MarianoEdited1.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Mariano 1/MarianoRigged.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Mariano 1/MarianoRigged.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Mariano 1/Mariano_Body_diffuse.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Mariano 1/Mariano_Body_diffuse.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Mariano 1/Mariano_Body_gloss.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Mariano 1/Mariano_Body_gloss.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Mariano 1/Mariano_Body_normal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Mariano 1/Mariano_Body_normal.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Mariano 1/Mariano_Body_specular.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Mariano 1/Mariano_Body_specular.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Mariano 1/Mariano_Bottom_diffuse.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Mariano 1/Mariano_Bottom_diffuse.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Mariano 1/Mariano_Bottom_gloss.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Mariano 1/Mariano_Bottom_gloss.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Mariano 1/Mariano_Bottom_normal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Mariano 1/Mariano_Bottom_normal.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Mariano 1/Mariano_Bottom_specular.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Mariano 1/Mariano_Bottom_specular.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Mariano 1/Mariano_Hair_diffuse.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Mariano 1/Mariano_Hair_diffuse.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Mariano 1/Mariano_Hair_gloss.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Mariano 1/Mariano_Hair_gloss.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Mariano 1/Mariano_Hair_normal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Mariano 1/Mariano_Hair_normal.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Mariano 1/Mariano_Hair_specular.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Mariano 1/Mariano_Hair_specular.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Mariano 1/Mariano_Shoes_diffuse.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Mariano 1/Mariano_Shoes_diffuse.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Mariano 1/Mariano_Shoes_gloss.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Mariano 1/Mariano_Shoes_gloss.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Mariano 1/Mariano_Shoes_normal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Mariano 1/Mariano_Shoes_normal.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Mariano 1/Mariano_Shoes_specular.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Mariano 1/Mariano_Shoes_specular.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Mariano 1/Mariano_Top_diffuse.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Mariano 1/Mariano_Top_diffuse.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Mariano 1/Mariano_Top_gloss.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Mariano 1/Mariano_Top_gloss.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Mariano 1/Mariano_Top_normal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Mariano 1/Mariano_Top_normal.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Mariano 1/Mariano_Top_specular.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Mariano 1/Mariano_Top_specular.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Mariano 1/Shoes.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Mariano 1/Shoes.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Mariano 1/Top.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Mariano 1/Top.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Paulie 1.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Paulie 1/Body.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Paulie 1/Body.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Paulie 1/Bottom.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Paulie 1/Bottom.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Paulie 1/Hair.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Paulie 1/Hair.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Paulie 1/Paulie 1 Rigged.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Paulie 1/Paulie 1 Rigged.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Paulie 1/Paulie.mtl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Paulie 1/Paulie.mtl.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Paulie 1/Paulie.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Paulie 1/Paulie.obj.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Paulie 1/Paulie_Body_diffuse.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Paulie 1/Paulie_Body_diffuse.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Paulie 1/Paulie_Body_gloss.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Paulie 1/Paulie_Body_gloss.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Paulie 1/Paulie_Body_normal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Paulie 1/Paulie_Body_normal.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Paulie 1/Paulie_Body_specular.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Paulie 1/Paulie_Body_specular.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Paulie 1/Paulie_Bottom_diffuse.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Paulie 1/Paulie_Bottom_diffuse.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Paulie 1/Paulie_Bottom_gloss.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Paulie 1/Paulie_Bottom_gloss.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Paulie 1/Paulie_Bottom_normal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Paulie 1/Paulie_Bottom_normal.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Paulie 1/Paulie_Bottom_specular.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Paulie 1/Paulie_Bottom_specular.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Paulie 1/Paulie_Hair_diffuse.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Paulie 1/Paulie_Hair_diffuse.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Paulie 1/Paulie_Hair_gloss.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Paulie 1/Paulie_Hair_gloss.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Paulie 1/Paulie_Hair_normal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Paulie 1/Paulie_Hair_normal.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Paulie 1/Paulie_Hair_specular.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Paulie 1/Paulie_Hair_specular.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Paulie 1/Paulie_Shoes_diffuse.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Paulie 1/Paulie_Shoes_diffuse.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Paulie 1/Paulie_Shoes_gloss.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Paulie 1/Paulie_Shoes_gloss.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Paulie 1/Paulie_Shoes_normal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Paulie 1/Paulie_Shoes_normal.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Paulie 1/Paulie_Shoes_specular.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Paulie 1/Paulie_Shoes_specular.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Paulie 1/Paulie_Top_diffuse.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Paulie 1/Paulie_Top_diffuse.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Paulie 1/Paulie_Top_gloss.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Paulie 1/Paulie_Top_gloss.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Paulie 1/Paulie_Top_normal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Paulie 1/Paulie_Top_normal.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Paulie 1/Paulie_Top_specular.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Paulie 1/Paulie_Top_specular.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Paulie 1/Shoes.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Paulie 1/Shoes.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Paulie 1/Top.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Paulie 1/Top.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Stripper 1.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Stripper 1/2_packed0_diffuse.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Stripper 1/2_packed0_diffuse.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Stripper 1/2_packed0_gloss.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Stripper 1/2_packed0_gloss.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Stripper 1/2_packed0_normal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Stripper 1/2_packed0_normal.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Stripper 1/2_packed0_specular.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Stripper 1/2_packed0_specular.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Stripper 1/BodyMat.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Stripper 1/BodyMat.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Stripper 1/BottomMat.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Stripper 1/BottomMat.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Stripper 1/EyelashesMat.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Stripper 1/EyelashesMat.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Stripper 1/EyesMat.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Stripper 1/EyesMat.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Stripper 1/HairMat.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Stripper 1/HairMat.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Stripper 1/ShoesMat.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Stripper 1/ShoesMat.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Stripper 1/StripperModel.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Stripper 1/StripperModel.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Stripper 1/StripperModel_Body_diffuse.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Stripper 1/StripperModel_Body_diffuse.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Stripper 1/StripperModel_Body_gloss.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Stripper 1/StripperModel_Body_gloss.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Stripper 1/StripperModel_Body_normal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Stripper 1/StripperModel_Body_normal.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Stripper 1/StripperModel_Body_specular.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Stripper 1/StripperModel_Body_specular.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Stripper 1/StripperModel_Bottom_diffuse.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Stripper 1/StripperModel_Bottom_diffuse.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Stripper 1/StripperModel_Bottom_gloss.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Stripper 1/StripperModel_Bottom_gloss.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Stripper 1/StripperModel_Bottom_normal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Stripper 1/StripperModel_Bottom_normal.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Stripper 1/StripperModel_Bottom_specular.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Stripper 1/StripperModel_Bottom_specular.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Stripper 1/StripperModel_Hair_diffuse.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Stripper 1/StripperModel_Hair_diffuse.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Stripper 1/StripperModel_Hair_gloss.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Stripper 1/StripperModel_Hair_gloss.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Stripper 1/StripperModel_Hair_normal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Stripper 1/StripperModel_Hair_normal.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Stripper 1/StripperModel_Hair_specular.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Stripper 1/StripperModel_Hair_specular.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Stripper 1/StripperModel_Shoes_diffuse.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Stripper 1/StripperModel_Shoes_diffuse.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Stripper 1/StripperModel_Shoes_gloss.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Stripper 1/StripperModel_Shoes_gloss.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Stripper 1/StripperModel_Shoes_normal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Stripper 1/StripperModel_Shoes_normal.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Stripper 1/StripperModel_Shoes_specular.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Stripper 1/StripperModel_Shoes_specular.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Stripper 1/StripperModel_Top_diffuse.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Stripper 1/StripperModel_Top_diffuse.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Stripper 1/StripperModel_Top_gloss.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Stripper 1/StripperModel_Top_gloss.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Stripper 1/StripperModel_Top_normal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Stripper 1/StripperModel_Top_normal.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Stripper 1/StripperModel_Top_specular.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Stripper 1/StripperModel_Top_specular.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Stripper 1/TopMat.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Characters/Stripper 1/TopMat.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Env.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Env/Chapter 1 Scene New Carpet.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Env/Chapter 1 Scene New Carpet.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Env/Export.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Env/Export.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Env/Floor.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Env/Floor.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Env/House1.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Env/House1.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Env/Textures.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Env/Textures/Lamp_Emissive.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Env/Textures/Lamp_Emissive.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Env/Textures/Mesh_Base_Color.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Env/Textures/Mesh_Base_Color.PNG.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Env/Textures/Mesh_Normal.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Env/Textures/Mesh_Normal.PNG.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Env/Textures/Mesh_Roughness.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Env/Textures/Mesh_Roughness.PNG.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Env/Tv.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Env/Tv.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Knife.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Knife/TrackerKnife.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Knife/TrackerKnife/M_TrackerKnife.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Knife/TrackerKnife/M_TrackerKnife.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Knife/TrackerKnife/Meshes.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Knife/TrackerKnife/Meshes/Materials.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Knife/TrackerKnife/Meshes/Materials/LP.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Knife/TrackerKnife/Meshes/Materials/LP.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Knife/TrackerKnife/T_TrackerKnife_D.tga" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Knife/TrackerKnife/T_TrackerKnife_D.tga.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Knife/TrackerKnife/T_TrackerKnife_M.tga" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Knife/TrackerKnife/T_TrackerKnife_M.tga.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Knife/TrackerKnife/T_TrackerKnife_N.tga" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Knife/TrackerKnife/T_TrackerKnife_N.tga.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Knife/TrackerKnife/T_TrackerKnife_O.tga" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Knife/TrackerKnife/T_TrackerKnife_O.tga.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Knife/TrackerKnife/TrackerKnife.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Knife/TrackerKnife/TrackerKnife.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Knife/TrackerKnife/TrackerKnife.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Knife/TrackerKnife/TrackerKnife.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Pistol.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Pistol/m1911.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Pistol/m1911/M1911.FBX" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Pistol/m1911/M1911.FBX.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Pistol/m1911/M1911.mtl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Pistol/m1911/M1911.mtl.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Pistol/m1911/M1911.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Pistol/m1911/M1911.obj.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Pistol/m1911/textures.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Pistol/m1911/textures/M1911_AO.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Pistol/m1911/textures/M1911_AO.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Pistol/m1911/textures/M1911_Albedo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Pistol/m1911/textures/M1911_Albedo.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Pistol/m1911/textures/M1911_Metalness.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Pistol/m1911/textures/M1911_Metalness.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Pistol/m1911/textures/M1911_Normal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Pistol/m1911/textures/M1911_Normal.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Pistol/m1911/textures/M1911_Roughness.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 1/Pistol/m1911/textures/M1911_Roughness.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/Chapter2.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/Chapter2.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/source.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/source/51238.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/source/51238.jpg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/source/BTiles_Color.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/source/BTiles_Color.jpg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/source/BTiles_Normal.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/source/BTiles_Normal.jpg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/source/BTiles_Roughness.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/source/BTiles_Roughness.jpg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/source/ConcreteColor.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/source/ConcreteColor.jpg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/source/ConcreteNormal.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/source/ConcreteNormal.jpg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/source/ConcreteRoughness.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/source/ConcreteRoughness.jpg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/source/Concrete_Color.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/source/Concrete_Color.jpg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/source/Concrete_Normal.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/source/Concrete_Normal.jpg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/source/GarbageContainers0075_350.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/source/GarbageContainers0075_350.jpg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/source/GarbageContainers0075_350Normal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/source/GarbageContainers0075_350Normal.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/source/GasPump1.jpg6e6508c3-1fee-4da9-9c0b-2b9d41e8c4d8Original.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/source/GasPump1.jpg6e6508c3-1fee-4da9-9c0b-2b9d41e8c4d8Original.jpg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/source/MetalWall.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/source/MetalWall.jpg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/source/MetalWall_NormalMap .png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/source/MetalWall_NormalMap .png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/source/PaintedColor.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/source/PaintedColor.jpg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/source/PaintedNormal.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/source/PaintedNormal.jpg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/source/PaintedRoughness.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/source/PaintedRoughness.jpg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/source/PaintedWood_Color.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/source/PaintedWood_Color.jpg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/source/PaintedWood_Normal.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/source/PaintedWood_Normal.jpg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/source/Painted_BlueColor.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/source/Painted_BlueColor.jpg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/source/Painted_BlueNormal.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/source/Painted_BlueNormal.jpg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/source/Painted_BlueRoughness.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/source/Painted_BlueRoughness.jpg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/source/Plank_Color.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/source/Plank_Color.jpg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/source/Planks_Normal.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/source/Planks_Normal.jpg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/source/Planks_Roughness.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/source/Planks_Roughness.jpg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/source/Price.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/source/Price.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/source/desert_general__gas_pump_uv_layout_texture_by_golddragon_13_d5jtw2m-fullview.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/source/desert_general__gas_pump_uv_layout_texture_by_golddragon_13_d5jtw2m-fullview.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/source/door.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/source/door.jpg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/source/door2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/source/door2.jpg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/source/gas station.blend" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/source/gas station.blend.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/source/istockphoto-546205492-612x612.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/source/istockphoto-546205492-612x612.jpg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/source/toilet.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/source/toilet.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/source/toilet_MetallicSmoothness.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/source/toilet_MetallicSmoothness.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/source/toilet_Normal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/source/toilet_Normal.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/source/window.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/source/window.tif.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/textures.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/textures/51238.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/textures/51238.jpeg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/textures/BTiles_Color.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/textures/BTiles_Color.jpeg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/textures/BTiles_Normal.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/textures/BTiles_Normal.jpeg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/textures/BTiles_Roughness.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/textures/BTiles_Roughness.jpeg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/textures/ConcreteColor.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/textures/ConcreteColor.jpeg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/textures/Concrete_Color.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/textures/Concrete_Color.jpeg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/textures/Concrete_Normal.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/textures/Concrete_Normal.jpeg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/textures/GarbageContainers0075_350.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/textures/GarbageContainers0075_350.jpeg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/textures/MetalWall.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/textures/MetalWall.jpeg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/textures/MetalWall_NormalMap .png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/textures/MetalWall_NormalMap .png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/textures/PaintedColor.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/textures/PaintedColor.jpeg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/textures/PaintedWood_Color.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/textures/PaintedWood_Color.jpeg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/textures/PaintedWood_Normal.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/textures/PaintedWood_Normal.jpeg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/textures/Painted_BlueColor.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/textures/Painted_BlueColor.jpeg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/textures/Plank_Color.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/textures/Plank_Color.jpeg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/textures/Price.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/textures/Price.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/textures/desert_general__gas_pump_uv_layout_texture_by_golddragon_13_.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/textures/desert_general__gas_pump_uv_layout_texture_by_golddragon_13_.jpeg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/textures/door.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/textures/door.jpeg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/textures/toilet.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/textures/toilet.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/textures/window.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/SCENE 2/old-gas-station/textures/window.png.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Scenes/OutdoorsScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scenes/OutdoorsScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scenes/Scene2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scenes/Scene2.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scenes/Scene2/NavMesh.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scenes/Scene2/NavMesh.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/TextReader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/TextReader.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -11,7 +400,10 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b276a98b11af46b2b561d29e03350cd5fc00/28/afa32d14/AudioSource.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Game/Scripts/Chapter1/Chapter1DialogueAudioManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.cinemachine@2.8.9/Runtime/Behaviours/CinemachineTargetGroup.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://E:/D DRIVE/UNITY/2021/October/BYOG21 3D/Assets/Scripts/AudioManager.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />

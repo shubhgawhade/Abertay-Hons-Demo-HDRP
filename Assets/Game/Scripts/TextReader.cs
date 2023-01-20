@@ -2,9 +2,19 @@ using System;
 using System.Text;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 
+//Get dialogues as single lines
+//Add audio clip to respective character dialogue
+//Format the text before displaying it as UI
+
+[ExecuteInEditMode]
 public class TextReader : MonoBehaviour
 {
+    [SerializeField] private GameObject chapter1;
+    private Chapter1DialogueAudioManager chapter1DialogueAudioManager;
+    public DialogueAudioMatch[] dialogueAudioMatch;
+
     // Create variables if player is already in conversation with someone or examining
 
     [SerializeField] private GameObject ui;
@@ -16,6 +26,7 @@ public class TextReader : MonoBehaviour
     public TextAsset textAsset;
     public string[] lines;
     public string[] currentDialogue;
+    public string currentSpeaker;
     public string text;
     public StringBuilder strB;
     StringBuilder lineAdd = new();
@@ -29,11 +40,13 @@ public class TextReader : MonoBehaviour
     public float skipDelay;
 
     public static Action<Transform> RemoveCinemachineTarget;
+    public static Action<SpeakerEnum, AudioClip> SetDialogueAudio;
 
     private void Awake()
     {
         dialogueSkipTimer = gameObject.AddComponent<Timer>();
-        
+        chapter1DialogueAudioManager = chapter1.GetComponent<Chapter1DialogueAudioManager>();
+
         //USE LOAD ASYNC
         //Call from another script when player is in proximity of someone who has a dialogue
         // ta = Resources.Load<TextAsset>("a");
@@ -65,10 +78,16 @@ public class TextReader : MonoBehaviour
             {
                 // print(i);
 
-                if (lines[i].Contains(";"))
+                // CheckSpeaker(lines, i, textAsset.name);
+                SetDialogueAudio(dialogueAudioMatch[i].speakerId, dialogueAudioMatch[i].dialogueAudio);
+
+                // if (lines[i].Contains(";"))
                 {
-                    currentDialogue = lines[i].Split(";", StringSplitOptions.RemoveEmptyEntries);
-                    lineAdd.AppendLine(currentDialogue[0]);
+                    currentDialogue = lines[i].Split("$", StringSplitOptions.RemoveEmptyEntries);
+                    foreach (string s in currentDialogue)
+                    {
+                        lineAdd.AppendLine(s);
+                    }
 
                     // print(lines[i]);
                     nextDialogue = false;
@@ -79,10 +98,6 @@ public class TextReader : MonoBehaviour
                         nextDialogue = false;
                         dialogueTracker = -1;
                     }
-                }
-                else
-                {
-                    lineAdd.AppendLine(lines[i]);
                 }
                 
                 dialogueText.text = lineAdd.ToString();
@@ -105,6 +120,7 @@ public class TextReader : MonoBehaviour
             }
             NextDialogue();
         }
+        
         // LONG PRESS SPACE TO SKIP
         else if (Input.GetKey(KeyCode.Space))
         {
@@ -125,6 +141,18 @@ public class TextReader : MonoBehaviour
             dialogueSkipTimer.StopTimer();
         }
     }
+
+    // private void CheckSpeaker(string[] lines, int i, string script)
+    // {
+    //     if (lines[i].Contains(":"))
+    //     {
+    //         currentSpeaker = lines[i].Split(":");
+    //         print(currentSpeaker[0]);
+    //         
+    //         //SET CURRENT SPEAKER INFO
+    //         SetDialogueAudio(currentSpeaker[0], script);
+    //     }
+    // }
 
     public void ToggleUI()
     {
@@ -169,5 +197,44 @@ public class TextReader : MonoBehaviour
         strB = new StringBuilder(textAsset.text);
         // text = strB.ToString();
         lines = strB.ToString().Split("\n");
+        
+        dialogueAudioMatch = new DialogueAudioMatch[lines.Length];
+
+        for (int i = 0; i < lines.Length; i++)
+        {
+            dialogueAudioMatch[i] = new DialogueAudioMatch();
+            dialogueAudioMatch[i].dialogueLine = lines[i];
+            
+            string scriptName = textAsset.name + "_" + i;
+            dialogueAudioMatch[i].dialogueAudio = Array.Find(chapter1DialogueAudioManager.sceneCharactersAudio, p => p.name == scriptName);
+            
+            currentSpeaker = lines[i].Split(":")[0];
+
+            switch (currentSpeaker)
+            {
+                case "Mariano":
+                    dialogueAudioMatch[i].speakerId = SpeakerEnum.Mariano;
+                    break;
+            
+                case "Luca":
+                    dialogueAudioMatch[i].speakerId = SpeakerEnum.Luca;
+                    break;
+            
+                case "Paulie":
+                    dialogueAudioMatch[i].speakerId = SpeakerEnum.Paulie;
+                    break;
+            
+                case "Stripper":
+                    dialogueAudioMatch[i].speakerId = SpeakerEnum.Stripper;
+                    break;
+            }
+
+        }
     }
+
+    // private void OnDisable()
+    // {
+    //     // dialogueSkipTimer
+    //     DestroyImmediate(dialogueSkipTimer);
+    // }
 }

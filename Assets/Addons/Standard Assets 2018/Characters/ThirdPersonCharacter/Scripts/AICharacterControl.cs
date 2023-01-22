@@ -27,9 +27,10 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         private TextReader textReader;
 
         private bool targetIsInteractable;
-
         public bool aIStopped;
-        
+
+        public static Action<Material, bool> FadeMat;
+
         private void Start()
         {
             rb = GetComponent<Rigidbody>();
@@ -45,7 +46,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
         private void Update()
         {
-            timer += Time.deltaTime;   
+            timer += Time.deltaTime;
             
             print(gameObject.name + aIStopped);
             
@@ -82,8 +83,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                         {
                             character.run = true;
                         }
-                            
-                        target = new Vector3(hit.point.x, 0, hit.point.z);
+
+                        target = new Vector3(hit.point.x, hit.point.y, hit.point.z);
                         agent.SetDestination(target);
                         aIStopped = false;
 
@@ -162,6 +163,24 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             if ((target - transform.position).magnitude < 0.6f && agent.velocity.magnitude == 0 && cachedTransform != null)
             {
                     // transform.eulerAngles = cachedTransform.eulerAngles;
+            }
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.CompareTag("IndoorsVolume"))
+            {
+                Material tempMat = other.transform.root.GetComponent<MeshRenderer>().material;
+                FadeMat(tempMat, true);
+            }
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
+            if (other.CompareTag("IndoorsVolume"))
+            {
+                Material tempMat = other.transform.root.GetComponent<MeshRenderer>().material;
+                FadeMat(tempMat, false);
             }
         }
     }

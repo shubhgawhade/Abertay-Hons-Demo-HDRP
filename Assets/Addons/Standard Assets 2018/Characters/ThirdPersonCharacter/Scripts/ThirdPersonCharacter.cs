@@ -5,7 +5,7 @@ using UnityEngine;
 namespace UnityStandardAssets.Characters.ThirdPerson
 {
 	[RequireComponent(typeof(Rigidbody))]
-	[RequireComponent(typeof(CapsuleCollider))]
+	// [RequireComponent(typeof(CapsuleCollider))]
 	[RequireComponent(typeof(Animator))]
 	public class ThirdPersonCharacter : MonoBehaviour
 	{
@@ -46,9 +46,9 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		{
 			m_Animator = GetComponent<Animator>();
 			m_Rigidbody = GetComponent<Rigidbody>();
-			m_Capsule = GetComponent<CapsuleCollider>();
-			m_CapsuleHeight = m_Capsule.height;
-			m_CapsuleCenter = m_Capsule.center;
+			// m_Capsule = GetComponent<CapsuleCollider>();
+			// m_CapsuleHeight = m_Capsule.height;
+			// m_CapsuleCenter = m_Capsule.center;
 
 			m_Rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
 			m_OrigGroundCheckDistance = m_GroundCheckDistance;
@@ -90,8 +90,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 				HandleAirborneMovement();
 			}
 
-			ScaleCapsuleForCrouching(crouch);
-			PreventStandingInLowHeadroom();
+			// ScaleCapsuleForCrouching(crouch);
+			// PreventStandingInLowHeadroom();
 
 			// send input and other state parameters to the animator
 			UpdateAnimator(move);

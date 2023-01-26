@@ -4,14 +4,16 @@
     <list default="true" id="4dd56a48-5213-4dda-9bf0-e9744c4963bb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Abertay-Hons-Demo-HDRP/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Abertay-Hons-Demo-HDRP/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Addons/Standard Assets 2018/Characters/ThirdPersonCharacter/Scripts/AICharacterControl.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Addons/Standard Assets 2018/Characters/ThirdPersonCharacter/Scripts/AICharacterControl.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Outliner.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Outliner.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Outliner/Outliner.shadergraph.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Outliner/Outliner.shadergraph.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Outliner/OutlinerMaterial.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Outliner/OutlinerMaterial.mat.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/Standard Assets 2018/Characters/ThirdPersonCharacter/Scripts/ThirdPersonCharacter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Addons/Standard Assets 2018/Characters/ThirdPersonCharacter/Scripts/ThirdPersonCharacter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/New Material.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/New Material.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Scenes/OutdoorsScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scenes/OutdoorsScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Scenes/Scene2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scenes/Scene2.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Scenes/Scene2/NavMesh.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scenes/Scene2/NavMesh.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/MaterialFade.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/MaterialFade.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/DynamicsManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/DynamicsManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -25,10 +27,12 @@
     <setting file="file://$PROJECT_DIR$/Assets/Game/Scripts/AudioDialogueTest.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Game/Scripts/Chapter1/Chapter1DialogueAudioManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Game/Scripts/Chapter1/SpeakerEnum.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Game/Scripts/DetectFadeMaterials.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Game/Scripts/DialogueAudioMatch.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Game/Scripts/MaterialFade.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Game/Scripts/MaterialInvisible.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.cinemachine@2.8.9/Runtime/Behaviours/CinemachineTargetGroup.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.cinemachine@2.8.9/Runtime/Behaviours/CinemachineVirtualCamera.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.core@12.1.7/Runtime/Volume/Volume.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.high-definition@12.1.7/Editor/Lighting/Reflection/HDBakedReflectionSystem.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://E:/D DRIVE/UNITY/2021/October/BYOG21 3D/Assets/Scripts/AudioManager.cs" root0="SKIP_HIGHLIGHTING" />
@@ -121,7 +125,10 @@
       <workItem from="1674244585146" duration="6511000" />
       <workItem from="1674268489922" duration="3306000" />
       <workItem from="1674402569471" duration="868000" />
-      <workItem from="1674420544152" duration="8172000" />
+      <workItem from="1674420544152" duration="9551000" />
+      <workItem from="1674455062160" duration="4377000" />
+      <workItem from="1674561441392" duration="2346000" />
+      <workItem from="1674684311926" duration="7351000" />
     </task>
     <servers />
   </component>

@@ -12,7 +12,7 @@ public class MaterialFade : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        AICharacterControl.FadeMat += FadeMat;
+        AICharacterControl.FadeRoof += FadeMat;
         objMat = gameObject.GetComponent<MeshRenderer>().material;
     }
 
@@ -38,37 +38,10 @@ public class MaterialFade : MonoBehaviour
         }
     }
 
-    private void FadeMat(Material toFade, bool fade)
+    public void FadeMat(Material toFade, bool fade, float fadeSpeed)
     {
         this.fade = fade;
+        this.fadeSpeed = fadeSpeed;
         objMat = toFade;
-    }
-
-    private void OnCollisionStay(Collision collision)
-    {
-        print(collision.gameObject.name);
-        if (fade)
-        {
-            //HIDE ANYTHING THAT COLLIDES FROM ON TOP OF THIS OBJECT
-            if (collision.collider.GetComponent<MaterialInvisible>())
-            {
-                collision.collider.GetComponent<MaterialInvisible>().isVisible = false;
-            }
-            else if (collision.collider.GetComponent<MaterialFade>())
-            {
-                collision.collider.GetComponent<MaterialFade>().FadeMat(collision.gameObject.GetComponent<MeshRenderer>().material, fade);
-            }
-        }
-        else
-        {
-            if (collision.collider.GetComponent<MaterialInvisible>())
-            {
-                collision.collider.GetComponent<MaterialInvisible>().isVisible = true;
-            }
-            else if (collision.collider.GetComponent<MaterialFade>())
-            {
-                collision.collider.GetComponent<MaterialFade>().FadeMat(collision.gameObject.GetComponent<MeshRenderer>().material, fade);
-            }
-        }
     }
 }

@@ -29,7 +29,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         private bool targetIsInteractable;
         public bool aIStopped;
 
-        public static Action<Material, bool> FadeMat;
+        public static Action<Material, bool, float> FadeRoof;
+        public static Action<bool> Detect;
 
         private void Start()
         {
@@ -170,8 +171,13 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         {
             if (other.CompareTag("IndoorsVolume"))
             {
-                Material tempMat = other.transform.root.GetComponent<MeshRenderer>().material;
-                FadeMat(tempMat, true);
+                print(other.name);
+                print("ENTERED VOLUME");
+                // FADES THE ROOF
+                // Material tempMat = other.transform.root.GetComponent<MeshRenderer>().material;
+                // FadeRoof(tempMat, true, 1);
+
+                Detect(true);
             }
         }
 
@@ -179,8 +185,11 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         {
             if (other.CompareTag("IndoorsVolume"))
             {
-                Material tempMat = other.transform.root.GetComponent<MeshRenderer>().material;
-                FadeMat(tempMat, false);
+                print("EXITED VOLUME");
+                // Material tempMat = other.transform.root.GetComponent<MeshRenderer>().material;
+                // FadeRoof(tempMat, false, 8);
+
+                Detect(false);
             }
         }
     }

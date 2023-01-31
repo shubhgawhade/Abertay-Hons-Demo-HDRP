@@ -28,7 +28,13 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
         private bool targetIsInteractable;
         public bool aIStopped;
+        
+        // Gunplay local variables
+        private string _gameMode;
+        public GameObject weapon;
+        public static Action<Transform, GameObject> ShootAt;
 
+        // Fading Actions
         public static Action<Material, bool, float> FadeRoof;
         public static Action<bool> Detect;
 
@@ -40,6 +46,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             agent = GetComponent<NavMeshAgent>();
             character = GetComponent<ThirdPersonCharacter>();
 
+            _gameMode = "Roaming";
+            ShootAt += ShootTarget;
 	        agent.updateRotation = false;
 	        agent.updatePosition = true;
         }
@@ -50,123 +58,156 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             timer += Time.deltaTime;
             
             // print(gameObject.name + aIStopped);
-            
-            if (targetTransform != null)
+            if (_gameMode == "Roaming")
             {
-                aIStopped = false;
-                target = targetTransform.position;
-                cachedTransform = targetTransform;
-                targetTransform = null;
-                agent.SetDestination(target);
-            }
-            else if (target == Vector3.zero)
-            {
-                // target = transform.position;
-            }
-            
-            // disable if player isMoveable
-            // print(agent.remainingDistance);
-
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-            if (Physics.Raycast(ray, out hit) && Input.GetMouseButtonDown(0) && GameManager.IsMoveable && CompareTag("Player"))
-            {
-                cachedTransform = null;
-                switch (hit.collider.tag)
+                if (targetTransform != null)
                 {
-                    case "Ground":
-                        if (timer > doubleClickDelay && !character.run)
-                        {
-                            timer = 0;
-                            character.run = false;
-                        }
-                        else
-                        {
-                            character.run = true;
-                        }
+                    aIStopped = false;
+                    target = targetTransform.position;
+                    cachedTransform = targetTransform;
+                    targetTransform = null;
+                    agent.SetDestination(target);
+                }
+                else if (target == Vector3.zero)
+                {
+                    // target = transform.position;
+                }
+            
+                // disable if player isMoveable
+                // print(agent.remainingDistance);
 
-                        target = new Vector3(hit.point.x, hit.point.y, hit.point.z);
-                        agent.SetDestination(target);
-                        aIStopped = false;
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-                        if (targetIsInteractable)
-                        {
-                            targetIsInteractable = false;
-                            GameManager.isInteracting = false;
-                        }
-                        break;
-                    
-                    case "Interactable":
-                        Interactable interactable = hit.collider.GetComponent<Interactable>();
-                        textReader = hit.collider.GetComponent<TextReader>();
-                        print("INTERACTED WITH" + hit.collider.name);
+                if (Physics.Raycast(ray, out hit) && Input.GetMouseButtonDown(0) && GameManager.IsMoveable && CompareTag("Player"))
+                {
+                    cachedTransform = null;
+                    switch (hit.collider.tag)
+                    {
+                        case "Ground":
+                            if (timer > doubleClickDelay && !character.run)
+                            {
+                                timer = 0;
+                                character.run = false;
+                            }
+                            else
+                            {
+                                character.run = true;
+                            }
 
-                        if (interactable.isVisible && !GameManager.isInteracting)
-                        {
-                            targetTransform = interactable.targetLocation.transform;
-                            target = targetTransform.transform.position;
+                            target = new Vector3(hit.point.x, hit.point.y, hit.point.z);
                             agent.SetDestination(target);
-                            targetIsInteractable = true;
-                            //Send action to Text reader script to initialize dialogue but not display yet
+                            aIStopped = false;
+
+                            if (targetIsInteractable)
+                            {
+                                targetIsInteractable = false;
+                                GameManager.isInteracting = false;
+                            }
+                            break;
+                        
+                        case "Interactable":
+                            Interactable interactable = hit.collider.GetComponent<Interactable>();
+                            textReader = hit.collider.GetComponent<TextReader>();
+                            print("INTERACTED WITH" + hit.collider.name);
+
+                            if (interactable.isVisible && !GameManager.isInteracting)
+                            {
+                                targetTransform = interactable.targetLocation.transform;
+                                target = targetTransform.transform.position;
+                                agent.SetDestination(target);
+                                targetIsInteractable = true;
+                                //Send action to Text reader script to initialize dialogue but not display yet
+                            }
+                            break;
+                    }
+                }
+                    
+                // print(agent.isStopped);
+                // print(agent.remainingDistance);
+                if ((target - transform.position).magnitude > 0.3f)
+                {
+                    // print(Mathf.Abs((transform.position - target).magnitude));
+                    character.Move(agent.desiredVelocity, false, false);
+
+                    if ((target - transform.position).magnitude < 0.8f)
+                    {
+                        character.run = false;
+                        //TURN AT THE END OF PATH
+                        // print((target - transform.position).magnitude);
+                        // print(agent.velocity.magnitude);
+                        if (agent.velocity.magnitude == 0)  //rb.velocity.magnitude < 0.4f
+                        {
+                            // print("STOPPED");
+                            aIStopped = true;
+                            if (cachedTransform != null)
+                            {
+                                print(cachedTransform.eulerAngles);
+
+                                transform.eulerAngles = cachedTransform.eulerAngles;
+                            }
+                            
+                            
+                            if (targetIsInteractable && (textReader.interactableStates == InteractableStates.NotInteracted ||
+                                                         textReader.interactableStates == InteractableStates.InteractionOver))
+                            {
+                                GameManager.isInteracting = true;
+                                targetIsInteractable = false;
+                                textReader.ToggleUI();
+                                // Send action to Text reader to enable UI
+                                print("ENABLE UI");
+
+                                cinemachineTarget.AddMember(cachedTransform, 3, 0);
+                            }
                         }
-                        break;
+
+
+
+                        
+                    }
+                }
+                else
+                {
+                    
+                }
+
+                if ((target - transform.position).magnitude < 0.6f && agent.velocity.magnitude == 0 &&
+                    cachedTransform != null)
+                {
+                    // transform.eulerAngles = cachedTransform.eulerAngles;
                 }
             }
-                
-            // print(agent.isStopped);
-            // print(agent.remainingDistance);
-            if ((target - transform.position).magnitude > 0.3f)
+            else if (_gameMode == "Shooting")
             {
-                // print(Mathf.Abs((transform.position - target).magnitude));
-                character.Move(agent.desiredVelocity, false, false);
-
-                if ((target - transform.position).magnitude < 0.8f)
+                if (Input.GetMouseButtonDown(0))
                 {
-                    character.run = false;
-                    //TURN AT THE END OF PATH
-                    // print((target - transform.position).magnitude);
-                    // print(agent.velocity.magnitude);
-                    if (agent.velocity.magnitude == 0)  //rb.velocity.magnitude < 0.4f
-                    {
-                        // print("STOPPED");
-                        aIStopped = true;
-                        if (cachedTransform != null)
-                        {
-                            print(cachedTransform.eulerAngles);
-
-                            transform.eulerAngles = cachedTransform.eulerAngles;
-                        }
-                        
-                        
-                        if (targetIsInteractable && (textReader.interactableStates == InteractableStates.NotInteracted ||
-                                                     textReader.interactableStates == InteractableStates.InteractionOver))
-                        {
-                            GameManager.isInteracting = true;
-                            targetIsInteractable = false;
-                            textReader.ToggleUI();
-                            // Send action to Text reader to enable UI
-                            print("ENABLE UI");
-
-                            cinemachineTarget.AddMember(cachedTransform, 3, 0);
-                        }
-                    }
-
-
-
+                    // Get weapon behavior from an object to allow customization
+                    GameObject bullet = weapon.GetComponent<BehaviorScript>().bullet;
+                    float timeBetweenShots = 1.0f / weapon.GetComponent<BehaviorScript>().fireRate;
                     
+                    // Cap fire rate
+                    if (timer >= timeBetweenShots)
+                    {
+                        ShootAt(Input.mousePosition, bullet);
+                        timer = 0;
+                    }
+                }
+                else if (Input.GetMouseButtonDown(1))
+                {
+                    print("Leaving Cover");
                 }
             }
             else
             {
-                
-            }
-            
-            if ((target - transform.position).magnitude < 0.6f && agent.velocity.magnitude == 0 && cachedTransform != null)
-            {
-                    // transform.eulerAngles = cachedTransform.eulerAngles;
+                print("BAD GAMEMODE");
             }
         }
 
+        private void ShootTarget(Transform target, GameObject bullet)
+        {
+            Instantiate(bullet, this.transform);
+            bullet.GetComponent<BulletControl>().target = target;
+
+        }
         private void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag("IndoorsVolume"))
@@ -178,6 +219,12 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                 // FadeRoof(tempMat, true, 1);
 
                 // Detect(true);
+            }
+            else if (other.CompareTag("GunplayCover"))
+            {
+                print("ENTERED VOLUME");
+                _gameMode = "Shooting";
+                timer = 0;
             }
         }
 

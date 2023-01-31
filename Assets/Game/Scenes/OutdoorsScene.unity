@@ -2410,7 +2410,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &549092933
 Transform:
   m_ObjectHideFlags: 0
@@ -4172,6 +4172,22 @@ MonoBehaviour:
   duration: 0
   isRunning: 0
   isCompleted: 0
+--- !u!114 &979017920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 979017899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb24e9bbfec601c40a8137c011114262, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time: 0
+  duration: 0
+  isRunning: 0
+  isCompleted: 0
 --- !u!1 &997659457
 GameObject:
   m_ObjectHideFlags: 0
@@ -4856,6 +4872,22 @@ MonoBehaviour:
   isRunning: 0
   isCompleted: 0
 --- !u!114 &1059146266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1059146235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb24e9bbfec601c40a8137c011114262, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time: 0
+  duration: 0
+  isRunning: 0
+  isCompleted: 0
+--- !u!114 &1059146267
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10302,6 +10334,7 @@ GameObject:
   - component: {fileID: 1885397278}
   - component: {fileID: 1885397279}
   - component: {fileID: 1885397280}
+  - component: {fileID: 1885397281}
   m_Layer: 0
   m_Name: Chapter1Controller
   m_TagString: Untagged
@@ -10629,6 +10662,22 @@ MonoBehaviour:
   isRunning: 0
   isCompleted: 0
 --- !u!114 &1885397280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1885397263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb24e9bbfec601c40a8137c011114262, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time: 0
+  duration: 0
+  isRunning: 0
+  isCompleted: 0
+--- !u!114 &1885397281
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -27935,7 +27984,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b62b04dfa675cb1409f5a5ebf4540ac7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isMoveable: 1
+  isMoveable: 0
 --- !u!222 &6842342793622364920
 CanvasRenderer:
   m_ObjectHideFlags: 0

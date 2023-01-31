@@ -49,7 +49,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         {
             timer += Time.deltaTime;
             
-            print(gameObject.name + aIStopped);
+            // print(gameObject.name + aIStopped);
             
             if (targetTransform != null)
             {
@@ -177,7 +177,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                 // Material tempMat = other.transform.root.GetComponent<MeshRenderer>().material;
                 // FadeRoof(tempMat, true, 1);
 
-                Detect(true);
+                // Detect(true);
             }
         }
 
@@ -189,7 +189,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                 // Material tempMat = other.transform.root.GetComponent<MeshRenderer>().material;
                 // FadeRoof(tempMat, false, 8);
 
-                Detect(false);
+                // Detect(false);
             }
         }
     }

@@ -3,6 +3,7 @@ using System.Collections;
 using Cinemachine;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Serialization;
 
 namespace UnityStandardAssets.Characters.ThirdPerson
 {
@@ -11,6 +12,9 @@ namespace UnityStandardAssets.Characters.ThirdPerson
     public class AICharacterControl : MonoBehaviour
     {
         [SerializeField] private CinemachineTargetGroup cinemachineTarget;
+        [SerializeField] private GameObject bulletTrail;
+        [FormerlySerializedAs("muzzlleFlash")] [SerializeField] private GameObject muzzleFlash;
+        [SerializeField] private GameObject bulletSpawnLoc;
         
         public string name;
         public Transform targetTransform;
@@ -47,18 +51,18 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             character = GetComponent<ThirdPersonCharacter>();
 
             _gameMode = "Roaming";
-            ShootAt += ShootTarget;
+            // ShootAt += ShootTarget;
 	        agent.updateRotation = false;
 	        agent.updatePosition = true;
         }
 
 
         private void Update()
-        {
+        { 
             timer += Time.deltaTime;
             
             // print(gameObject.name + aIStopped);
-            if (_gameMode == "Roaming")
+            // if (_gameMode == "Roaming")
             {
                 if (targetTransform != null)
                 {
@@ -176,36 +180,49 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                     // transform.eulerAngles = cachedTransform.eulerAngles;
                 }
             }
-            else if (_gameMode == "Shooting")
+            // else if (_gameMode == "Shooting")
             {
-                if (Input.GetMouseButtonDown(0))
+                if (Input.GetMouseButton(0) && !GameManager.IsMoveable)
                 {
                     // Get weapon behavior from an object to allow customization
-                    GameObject bullet = weapon.GetComponent<BehaviorScript>().bullet;
-                    float timeBetweenShots = 1.0f / weapon.GetComponent<BehaviorScript>().fireRate;
+                    // GameObject bullet = weapon.GetComponent<BehaviorScript>().bullet;
+                    // float timeBetweenShots = 1.0f / weapon.GetComponent<BehaviorScript>().fireRate;
                     
                     // Cap fire rate
-                    if (timer >= timeBetweenShots)
+                    // if (timer >= timeBetweenShots)
+                    // {
+                    //     ShootAt(Input.mousePosition, bullet);
+                    //     timer = 0;
+                    // }
+                    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+                    if (Physics.Raycast(ray, out hit))
                     {
-                        ShootAt(Input.mousePosition, bullet);
-                        timer = 0;
+                        target = new Vector3(hit.point.x, 1.8f, hit.point.z);
+                        ShootTarget(target);
                     }
                 }
                 else if (Input.GetMouseButtonDown(1))
                 {
                     print("Leaving Cover");
+                    _gameMode = "Roaming";
+                    GameManager.IsMoveable = true;
                 }
             }
-            else
-            {
-                print("BAD GAMEMODE");
-            }
+            // else
+            // {
+            //     print("BAD GAMEMODE");
+            // }
         }
 
-        private void ShootTarget(Transform target, GameObject bullet)
+        private void ShootTarget(Vector3 target)
         {
-            Instantiate(bullet, this.transform);
-            bullet.GetComponent<BulletControl>().target = target;
+            // print(bulletSpawnLoc.transform.forward);
+            Instantiate(muzzleFlash, bulletSpawnLoc.transform.position, Quaternion.identity);
+            GameObject temp = Instantiate(bulletTrail, bulletSpawnLoc.transform.position, Quaternion.identity);
+            temp.transform.LookAt(target);
+            // print(temp.transform.rotation.eulerAngles);
+            // bullet.GetComponent<BulletControl>().target = target;
 
         }
         private void OnTriggerEnter(Collider other)
@@ -224,6 +241,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             {
                 print("ENTERED VOLUME");
                 _gameMode = "Shooting";
+                GameManager.IsMoveable = false;
                 timer = 0;
             }
         }

@@ -40,7 +40,7 @@ public class Interactable : MonoBehaviour
                 // outline.OutlineMode = Outline.Mode.OutlineAll;
                 // outline.needsUpdate = true;
 
-                transform.GetChild(0).GetComponent<MeshRenderer>().materials[1].SetFloat("_OutlineWidth", 0.06f);
+                // transform.GetChild(0).GetComponent<MeshRenderer>().materials[1].SetFloat("_OutlineWidth", 0.06f);
             }
             else
             {
@@ -49,7 +49,7 @@ public class Interactable : MonoBehaviour
                 // outline.OutlineMode = Outline.Mode.OutlineHidden;
                 // outline.needsUpdate = true;
                 
-                transform.GetChild(0).GetComponent<MeshRenderer>().materials[1].SetFloat("_OutlineWidth", 0);
+                // transform.GetChild(0).GetComponent<MeshRenderer>().materials[1].SetFloat("_OutlineWidth", 0);
             }
         }
     }

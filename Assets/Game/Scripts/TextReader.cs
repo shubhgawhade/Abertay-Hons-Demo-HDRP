@@ -44,7 +44,15 @@ public class TextReader : MonoBehaviour
 
     private void Awake()
     {
-        dialogueSkipTimer = gameObject.AddComponent<Timer>();
+        if (!gameObject.GetComponent<Timer>())
+        {
+            dialogueSkipTimer = gameObject.AddComponent<Timer>();
+        }
+        else
+        {
+            dialogueSkipTimer = gameObject.GetComponent<Timer>();
+        }
+        
         chapter1DialogueAudioManager = chapter1.GetComponent<Chapter1DialogueAudioManager>();
 
         //USE LOAD ASYNC

@@ -33,6 +33,9 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         private bool targetIsInteractable;
         public bool aIStopped;
         
+        
+        private int deltaIntelligence;
+        
         // Gunplay local variables
         private string _gameMode;
         public GameObject weapon;
@@ -51,6 +54,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             character = GetComponent<ThirdPersonCharacter>();
 
             _gameMode = "Roaming";
+            deltaIntelligence = 0;
             // ShootAt += ShootTarget;
 	        agent.updateRotation = false;
 	        agent.updatePosition = true;
@@ -58,9 +62,9 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
 
         private void Update()
-        { 
-            timer += Time.deltaTime;
+        {
             
+            timer += Time.deltaTime;
             // print(gameObject.name + aIStopped);
             // if (_gameMode == "Roaming")
             {
@@ -79,7 +83,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             
                 // disable if player isMoveable
                 // print(agent.remainingDistance);
-
+                
+                
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
                 if (Physics.Raycast(ray, out hit) && Input.GetMouseButtonDown(0) && GameManager.IsMoveable && CompareTag("Player"))
@@ -119,6 +124,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                                 targetTransform = interactable.targetLocation.transform;
                                 target = targetTransform.transform.position;
                                 agent.SetDestination(target);
+                                deltaIntelligence = interactable.playerIntelChange;
                                 targetIsInteractable = true;
                                 //Send action to Text reader script to initialize dialogue but not display yet
                             }
@@ -155,6 +161,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                                                          textReader.interactableStates == InteractableStates.InteractionOver))
                             {
                                 GameManager.isInteracting = true;
+                                print("adding intel: " + deltaIntelligence);
+                                GameManager.Intelligence += deltaIntelligence;
                                 targetIsInteractable = false;
                                 textReader.ToggleUI();
                                 // Send action to Text reader to enable UI
@@ -215,6 +223,10 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             // }
         }
 
+        private void DetectInteractible()
+        {
+            
+        }
         private void ShootTarget(Vector3 target)
         {
             // print(bulletSpawnLoc.transform.forward);
@@ -239,7 +251,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             }
             else if (other.CompareTag("GunplayCover"))
             {
-                print("ENTERED VOLUME");
+                print("ENTERED GUNPLAY");
                 _gameMode = "Shooting";
                 GameManager.IsMoveable = false;
                 timer = 0;

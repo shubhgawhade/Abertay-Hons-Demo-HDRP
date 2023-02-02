@@ -1,4 +1,5 @@
 using System;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 
@@ -10,11 +11,12 @@ public class Interactable : MonoBehaviour
     public bool isVisible;
 
     [SerializeField] private GameObject player;
-
-    // private Outline outline;
+    
+    private int _basicLayer;
     private RaycastHit hit;
-    
-    
+
+    public int minIntel;
+    public int playerIntelChange;
     
     //TEST VARIABLES
     private bool testRay;
@@ -23,33 +25,28 @@ public class Interactable : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // outline = GetComponent<Outline>();
+        _basicLayer = gameObject.layer;
     }
     
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player") && GameManager.IsMoveable)
         {
-            if (Physics.Raycast(player.transform.position, transform.position - player.transform.position, out hit) && hit.collider.CompareTag("Interactable"))
+            if (Physics.Raycast(player.transform.position, transform.position - player.transform.position, out hit) && hit.collider.CompareTag("Interactable") &&
+                GameManager.Intelligence >= minIntel)
             {
                 // testRay = true;
-                // print(hit.collider.name);
+                print(hit.collider.name);
                 isVisible = true;
-                
-                //OLD OUTLINE
-                // outline.OutlineMode = Outline.Mode.OutlineAll;
-                // outline.needsUpdate = true;
-
-                // transform.GetChild(0).GetComponent<MeshRenderer>().materials[1].SetFloat("_OutlineWidth", 0.06f);
+                transform.Find("Mesh").gameObject.layer = LayerMask.NameToLayer("Outline");
+            }
+            else if (!hit.collider.CompareTag("Interactable"))
+            {
+                isVisible = false;
+                transform.Find("Mesh").gameObject.layer = _basicLayer;
             }
             else
             {
-                //OLD OUTLINE
-                // isinteracted = false;
-                // outline.OutlineMode = Outline.Mode.OutlineHidden;
-                // outline.needsUpdate = true;
-                
-                // transform.GetChild(0).GetComponent<MeshRenderer>().materials[1].SetFloat("_OutlineWidth", 0);
             }
         }
     }
@@ -61,12 +58,13 @@ public class Interactable : MonoBehaviour
             // isinteracted = false;
             // testRay = false;
             print("EXIT");
-            
+
+            isVisible = false;
+            transform.Find("Mesh").gameObject.layer = _basicLayer;
+
             //OLD OUTLINE
             // outline.OutlineMode = Outline.Mode.OutlineHidden;
             // outline.needsUpdate = true;
-            
-            transform.GetChild(0).GetComponent<MeshRenderer>().materials[1].SetFloat("_OutlineWidth", 0);
         }
     }
 

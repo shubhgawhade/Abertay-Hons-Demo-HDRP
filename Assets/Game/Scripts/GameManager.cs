@@ -4,7 +4,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public bool isMoveable;
-    public static bool IsMoveable = false;
+    // public static bool IsMoveable = false;
     public static bool isInteracting;
     public static string CurrentSpeaker;
 
@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        IsMoveable = isMoveable;
+        // IsMoveable = isMoveable;
         Intelligence = intelligence;
         DontDestroyOnLoad(gameObject);
     }

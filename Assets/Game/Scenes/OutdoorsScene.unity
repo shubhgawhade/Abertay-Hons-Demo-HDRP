@@ -2561,7 +2561,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &549092933
 Transform:
   m_ObjectHideFlags: 0
@@ -2852,6 +2852,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c5335f0882fe4d478883cc8c58ce906, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterState: 0
   cinemachineTarget: {fileID: 0}
   bulletTrail: {fileID: 0}
   muzzleFlash: {fileID: 0}
@@ -4535,7 +4536,7 @@ PrefabInstance:
         type: 3}
       propertyPath: textAsset
       value: 
-      objectReference: {fileID: 4900000, guid: 3fb868b7830385246b14665f663278ad, type: 3}
+      objectReference: {fileID: 4900000, guid: 885e475afdb23fb459691c8e4950d8b5, type: 3}
     - target: {fileID: 3807689115035814804, guid: 7a23c0aec0cc7ee4dbaef6f5e9af673b,
         type: 3}
       propertyPath: dialogueText
@@ -9295,6 +9296,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c5335f0882fe4d478883cc8c58ce906, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterState: 0
   cinemachineTarget: {fileID: 0}
   bulletTrail: {fileID: 0}
   muzzleFlash: {fileID: 0}
@@ -24776,6 +24778,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c5335f0882fe4d478883cc8c58ce906, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterState: 0
   cinemachineTarget: {fileID: 0}
   bulletTrail: {fileID: 0}
   muzzleFlash: {fileID: 0}
@@ -28332,6 +28335,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isMoveable: 1
+  intelligence: 0
 --- !u!222 &6842342793622364920
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -28795,6 +28799,8 @@ MonoBehaviour:
   targetLocation: {fileID: 6842342793071541902}
   isVisible: 0
   player: {fileID: 6842342792815959445}
+  minIntel: 0
+  playerIntelChange: 0
 --- !u!65 &6842342794275908235
 BoxCollider:
   m_ObjectHideFlags: 0

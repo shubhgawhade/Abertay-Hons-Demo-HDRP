@@ -275,7 +275,7 @@ public class Chapter1 : MonoBehaviour
                         killOrSpareUI.SetActive(false);
                         
                         // ENABLE FREE ROAM
-                        GameManager.IsMoveable = true;
+                        // GameManager.IsMoveable = true;
                         scene++;
                     }
                     else if (Input.GetMouseButtonDown(1))
@@ -285,7 +285,7 @@ public class Chapter1 : MonoBehaviour
                         killOrSpareUI.SetActive(false);
                         
                         // ENABLE FREE ROAM
-                        GameManager.IsMoveable = true;
+                        // GameManager.IsMoveable = true;
                         scene++;
                     }
                 }

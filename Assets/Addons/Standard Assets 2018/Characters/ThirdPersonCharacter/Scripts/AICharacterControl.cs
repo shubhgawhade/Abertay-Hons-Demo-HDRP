@@ -11,9 +11,19 @@ namespace UnityStandardAssets.Characters.ThirdPerson
     [RequireComponent(typeof (ThirdPersonCharacter))]
     public class AICharacterControl : MonoBehaviour
     {
+        public enum CharacterState
+        {
+            Dialogue,
+            Exploration,
+            Gunplay,
+            Dead
+        }
+
+        public CharacterState characterState = CharacterState.Dialogue;
+        
         [SerializeField] private CinemachineTargetGroup cinemachineTarget;
         [SerializeField] private GameObject bulletTrail;
-        [FormerlySerializedAs("muzzlleFlash")] [SerializeField] private GameObject muzzleFlash;
+        [SerializeField] private GameObject muzzleFlash;
         [SerializeField] private GameObject bulletSpawnLoc;
         
         public string name;
@@ -63,8 +73,11 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
         private void Update()
         {
-            
             timer += Time.deltaTime;
+
+
+            // print(Vector3.Distance(transform.position, Camera.main.transform.position));
+            
             // print(gameObject.name + aIStopped);
             // if (_gameMode == "Roaming")
             {
@@ -87,7 +100,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                 
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-                if (Physics.Raycast(ray, out hit) && Input.GetMouseButtonDown(0) && GameManager.IsMoveable && CompareTag("Player"))
+                // if (Physics.Raycast(ray, out hit) && Input.GetMouseButtonDown(0) && GameManager.IsMoveable && CompareTag("Player"))
+                if (Physics.Raycast(ray, out hit) && Input.GetMouseButtonDown(0) && characterState == CharacterState.Exploration && CompareTag("Player"))
                 {
                     cachedTransform = null;
                     switch (hit.collider.tag)
@@ -190,7 +204,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             }
             // else if (_gameMode == "Shooting")
             {
-                if (Input.GetMouseButton(0) && !GameManager.IsMoveable)
+                // if (Input.GetMouseButton(0) && !GameManager.IsMoveable) 
+                if (Input.GetMouseButton(0) && characterState == CharacterState.Gunplay)
                 {
                     // Get weapon behavior from an object to allow customization
                     // GameObject bullet = weapon.GetComponent<BehaviorScript>().bullet;
@@ -214,7 +229,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                 {
                     print("Leaving Cover");
                     _gameMode = "Roaming";
-                    GameManager.IsMoveable = true;
+                    // GameManager.IsMoveable = true;
+                    characterState = CharacterState.Exploration;
                 }
             }
             // else
@@ -223,10 +239,26 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             // }
         }
 
+        // private bool GetRaycastHit(Ray ray)
+        // {
+        //     if (Physics.Raycast(ray, out hit))
+        //     {
+        //         return true;
+        //     }
+        //     
+        //     return false;
+        // }
+        
+        private void ChangeCharacterState(CharacterState characterState)
+        {
+            this.characterState = characterState;
+        }
+
         private void DetectInteractible()
         {
             
         }
+        
         private void ShootTarget(Vector3 target)
         {
             // print(bulletSpawnLoc.transform.forward);
@@ -253,7 +285,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             {
                 print("ENTERED GUNPLAY");
                 _gameMode = "Shooting";
-                GameManager.IsMoveable = false;
+                // GameManager.IsMoveable = false;
+                characterState = CharacterState.Gunplay;
                 timer = 0;
             }
         }

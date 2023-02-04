@@ -2,7 +2,6 @@ using System;
 using System.Text;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 //Get dialogues as single lines
 //Add audio clip to respective character dialogue

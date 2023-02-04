@@ -109,8 +109,6 @@ public class TextReader : MonoBehaviour
                 
                 dialogueText.text = lineAdd.ToString();
                 
-                //PLAY THE NEXT AUDIO CLIP
-                
                 if(!nextDialogue)
                 {
                     lineAdd.Clear();
@@ -184,6 +182,8 @@ public class TextReader : MonoBehaviour
                 RemoveCinemachineTarget(gameObject.GetComponent<Interactable>().targetLocation.transform);
             }
             GameManager.isInteracting = false;
+            currentDialogue = null;
+            dialogueText.text = "";
             dialogueTracker = 0;
 
             ToggleUI();

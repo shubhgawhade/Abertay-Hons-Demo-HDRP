@@ -75,6 +75,7 @@ public class TextReader : MonoBehaviour
         {
             ParseUI();
         }
+        
     }
 
     private void ParseUI()
@@ -116,9 +117,11 @@ public class TextReader : MonoBehaviour
                 }
             }
         }
-
+        
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            // print(interactableStates.ToString());
+
             if (interactableStates == InteractableStates.InteractionOver)
             {
                 ToggleUI();
@@ -129,11 +132,13 @@ public class TextReader : MonoBehaviour
         // LONG PRESS SPACE TO SKIP
         else if (Input.GetKey(KeyCode.Space))
         {
+            // print("SPACE HOLD");
+            
             if (!dialogueSkipTimer.isRunning)
             {
                 GameManager.dialogueSkipDelay = skipDelay;
                 dialogueSkipTimer.StartTimer(GameManager.dialogueSkipDelay);
-                
+
             }
             else if (dialogueSkipTimer.isCompleted)
             {
@@ -143,6 +148,8 @@ public class TextReader : MonoBehaviour
         }
         else if (Input.GetKeyUp(KeyCode.Space))
         {
+            // print("SPACE UP");
+
             dialogueSkipTimer.StopTimer();
         }
     }
@@ -192,6 +199,7 @@ public class TextReader : MonoBehaviour
         else
         {
             // dialogueOver = false;
+            dialogueSkipTimer.isCompleted = false;
             nextDialogue = true;
             
             interactableStates = InteractableStates.Interacting;
@@ -200,6 +208,9 @@ public class TextReader : MonoBehaviour
 
     private void LoadScript()
     {
+        // RESETS TIMER
+        // dialogueSkipTimer.isCompleted = false;
+
         text = textAsset.text;
         strB = new StringBuilder(textAsset.text);
         // text = strB.ToString();

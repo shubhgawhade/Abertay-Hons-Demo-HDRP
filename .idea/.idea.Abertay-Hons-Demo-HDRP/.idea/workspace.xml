@@ -3,11 +3,53 @@
   <component name="ChangeListManager">
     <list default="true" id="4dd56a48-5213-4dda-9bf0-e9744c4963bb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Abertay-Hons-Demo-HDRP/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Abertay-Hons-Demo-HDRP/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/Standard Assets 2018/Characters/ThirdPersonCharacter/Scripts/AICharacterControl.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Addons/Standard Assets 2018/Characters/ThirdPersonCharacter/Scripts/AICharacterControl.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/Standard Assets 2018/Characters/ThirdPersonCharacter/Scripts/ThirdPersonCharacter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Addons/Standard Assets 2018/Characters/ThirdPersonCharacter/Scripts/ThirdPersonCharacter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/QuickOutline.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/QuickOutline/Readme.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/QuickOutline/Readme.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/QuickOutline/Resources.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/QuickOutline/Resources/Materials.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/QuickOutline/Resources/Materials/OutlineFill.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/QuickOutline/Resources/Materials/OutlineFill.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/QuickOutline/Resources/Materials/OutlineMask.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/QuickOutline/Resources/Materials/OutlineMask.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/QuickOutline/Resources/Shaders.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/QuickOutline/Resources/Shaders/OutlineFill.shader" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/QuickOutline/Resources/Shaders/OutlineFill.shader.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/QuickOutline/Resources/Shaders/OutlineMask.shader" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/QuickOutline/Resources/Shaders/OutlineMask.shader.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/QuickOutline/Samples.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/QuickOutline/Samples/Materials.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/QuickOutline/Samples/Materials/Plane.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/QuickOutline/Samples/Materials/Plane.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/QuickOutline/Samples/Scenes.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/QuickOutline/Samples/Scenes/QuickOutline.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/QuickOutline/Samples/Scenes/QuickOutline.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/QuickOutline/Samples/Scenes/QuickOutlineSettings.lighting" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/QuickOutline/Samples/Scenes/QuickOutlineSettings.lighting.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/QuickOutline/Scripts.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/QuickOutline/Scripts/Outline.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/QuickOutline/Scripts/Outline.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/Standard Assets 2018/Characters/ThirdPersonCharacter/Prefabs/AIThirdPersonController.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/Standard Assets 2018/Characters/ThirdPersonCharacter/Prefabs/AIThirdPersonController.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/Standard Assets 2018/Characters/ThirdPersonCharacter/Scripts/AICharacterControl.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/Standard Assets 2018/Characters/ThirdPersonCharacter/Scripts/AICharacterControl.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/Standard Assets 2018/Characters/ThirdPersonCharacter/Scripts/ThirdPersonCharacter.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/Standard Assets 2018/Characters/ThirdPersonCharacter/Scripts/ThirdPersonCharacter.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Animations/Animation Controllers/Luca.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Animations/Animation Controllers/Luca.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Animations/Animation Controllers/Player.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Animations/Animation Controllers/Player.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Animations/Paulie@Hit To The Legs.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Animations/Paulie@Hit To The Legs.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Outliner.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Outliner/Outliner.shadergraph" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Outliner/Outliner.shadergraph.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Outliner/OutlinerMaterial.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Outliner/OutlinerMaterial.mat.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Scenes/OutdoorsScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scenes/OutdoorsScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Scenes/Scene2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scenes/Scene2.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scenes/Scene2/NavMesh.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scenes/Scene2/NavMesh.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/AudioDialogueTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/AudioDialogueTest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Chapter1/Chapter1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Chapter1/Chapter1.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/DetectFadeMaterials.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/DetectFadeMaterials.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Interactable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Interactable.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/MaterialFade.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/MaterialFade.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/TextReader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/TextReader.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -136,7 +178,9 @@
       <workItem from="1675358203212" duration="2891000" />
       <workItem from="1675543671460" duration="675000" />
       <workItem from="1675550896700" duration="436000" />
-      <workItem from="1675557365854" duration="11987000" />
+      <workItem from="1675557365854" duration="12063000" />
+      <workItem from="1675640658176" duration="1260000" />
+      <workItem from="1675645808676" duration="4623000" />
     </task>
     <servers />
   </component>

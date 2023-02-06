@@ -2373,16 +2373,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e231955b6cd4fc4fbda21192a3dab9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ac:
-  - {fileID: 8300000, guid: 8a9099dccf3b1774cb960132350eaf39, type: 3}
-  - {fileID: 8300000, guid: aa627bb8e7e924245abda0253f9c4110, type: 3}
-  - {fileID: 8300000, guid: 8e4f12259cc1b0348b8c7ad8ed1d4e83, type: 3}
-  - {fileID: 8300000, guid: 3343c9df586d10c41b39b717a3e93665, type: 3}
-  - {fileID: 8300000, guid: df589bcf1daa4e54a95f481c648b94f0, type: 3}
-  - {fileID: 8300000, guid: c55e6aa62bff4ac44adc802083860eaf, type: 3}
-  - {fileID: 8300000, guid: a91015f8aa643604f824b66f26e47f2d, type: 3}
-  - {fileID: 8300000, guid: 08a0715826bb07f49bdc0bd3756877b5, type: 3}
-  - {fileID: 8300000, guid: f5abe7be844eb0e44989c61a7bd6c8f0, type: 3}
+  ac: []
   textAsset: {fileID: 4900000, guid: b4b0d0cb61303684ca61321bade4bf3c, type: 3}
   lines:
   - "Luca: Heya toots,$its about time you make your way back.\r"
@@ -2396,36 +2387,36 @@ MonoBehaviour:
   dialogueAudioMatch:
   - name: 
     dialogueLine: "Luca: Heya toots,$its about time you make your way back.\r"
-    dialogueAudio: {fileID: 8300000, guid: 8a9099dccf3b1774cb960132350eaf39, type: 3}
+    dialogueAudio: {fileID: 0}
     speakerId: 1
   - name: 
     dialogueLine: "Mariano: Why so soon?\r"
-    dialogueAudio: {fileID: 8300000, guid: aa627bb8e7e924245abda0253f9c4110, type: 3}
+    dialogueAudio: {fileID: 0}
     speakerId: 0
   - name: 
     dialogueLine: "Mariano: The more the merrier for such an occasion.\r"
-    dialogueAudio: {fileID: 8300000, guid: 8e4f12259cc1b0348b8c7ad8ed1d4e83, type: 3}
+    dialogueAudio: {fileID: 0}
     speakerId: 0
   - name: 
     dialogueLine: "Mariano: I've got fine whiskey oh in the kitchen.\r"
-    dialogueAudio: {fileID: 8300000, guid: 3343c9df586d10c41b39b717a3e93665, type: 3}
+    dialogueAudio: {fileID: 0}
     speakerId: 0
   - name: 
     dialogueLine: "Mariano: I'd be a lot more inclined to share with a lovely lady
       around.\r"
-    dialogueAudio: {fileID: 8300000, guid: df589bcf1daa4e54a95f481c648b94f0, type: 3}
+    dialogueAudio: {fileID: 0}
     speakerId: 0
   - name: 
     dialogueLine: "Luca: No rush M.\r"
-    dialogueAudio: {fileID: 8300000, guid: c55e6aa62bff4ac44adc802083860eaf, type: 3}
+    dialogueAudio: {fileID: 0}
     speakerId: 1
   - name: 
     dialogueLine: "Luca: She'll be back to suck$the soul out of you.\r"
-    dialogueAudio: {fileID: 8300000, guid: a91015f8aa643604f824b66f26e47f2d, type: 3}
+    dialogueAudio: {fileID: 0}
     speakerId: 1
   - name: 
     dialogueLine: 'Mariano: UWAGHHHHHHHHHHHHHHHHHHH?'
-    dialogueAudio: {fileID: 8300000, guid: 08a0715826bb07f49bdc0bd3756877b5, type: 3}
+    dialogueAudio: {fileID: 0}
     speakerId: 0
   currentDialogue: 
   currentSpeaker: Mariano
@@ -2448,7 +2439,7 @@ MonoBehaviour:
     be back to suck$the soul out of you.
 
     Mariano: UWAGHHHHHHHHHHHHHHHHHHH?'
-  dialogueTracker: 1
+  dialogueTracker: 0
 --- !u!1 &547013301
 GameObject:
   m_ObjectHideFlags: 0
@@ -4156,6 +4147,11 @@ PrefabInstance:
       objectReference: {fileID: 1186328887}
     - target: {fileID: 3807689115035814804, guid: 7a23c0aec0cc7ee4dbaef6f5e9af673b,
         type: 3}
+      propertyPath: text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3807689115035814804, guid: 7a23c0aec0cc7ee4dbaef6f5e9af673b,
+        type: 3}
       propertyPath: chapter1
       value: 
       objectReference: {fileID: 1885397263}
@@ -4167,18 +4163,73 @@ PrefabInstance:
     - target: {fileID: 3807689115035814804, guid: 7a23c0aec0cc7ee4dbaef6f5e9af673b,
         type: 3}
       propertyPath: skipDelay
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3807689115035814804, guid: 7a23c0aec0cc7ee4dbaef6f5e9af673b,
         type: 3}
       propertyPath: textAsset
       value: 
-      objectReference: {fileID: 4900000, guid: b4b0d0cb61303684ca61321bade4bf3c, type: 3}
+      objectReference: {fileID: 4900000, guid: 885e475afdb23fb459691c8e4950d8b5, type: 3}
     - target: {fileID: 3807689115035814804, guid: 7a23c0aec0cc7ee4dbaef6f5e9af673b,
         type: 3}
       propertyPath: dialogueText
       value: 
       objectReference: {fileID: 6842342793622364927}
+    - target: {fileID: 3807689115035814804, guid: 7a23c0aec0cc7ee4dbaef6f5e9af673b,
+        type: 3}
+      propertyPath: lines.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3807689115035814804, guid: 7a23c0aec0cc7ee4dbaef6f5e9af673b,
+        type: 3}
+      propertyPath: lines.Array.data[0]
+      value: "Luca: Heya toots,$its about time you make your way back.\r"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3807689115035814804, guid: 7a23c0aec0cc7ee4dbaef6f5e9af673b,
+        type: 3}
+      propertyPath: lines.Array.data[1]
+      value: "Mariano: Why so soon?\r"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3807689115035814804, guid: 7a23c0aec0cc7ee4dbaef6f5e9af673b,
+        type: 3}
+      propertyPath: lines.Array.data[2]
+      value: "Mariano: The more the merrier for such an occasion.\r"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3807689115035814804, guid: 7a23c0aec0cc7ee4dbaef6f5e9af673b,
+        type: 3}
+      propertyPath: lines.Array.data[3]
+      value: "Mariano: I've got fine whiskey oh in the kitchen.\r"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3807689115035814804, guid: 7a23c0aec0cc7ee4dbaef6f5e9af673b,
+        type: 3}
+      propertyPath: lines.Array.data[4]
+      value: "Mariano: I'd be a lot more inclined to share with a lovely lady around.\r"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3807689115035814804, guid: 7a23c0aec0cc7ee4dbaef6f5e9af673b,
+        type: 3}
+      propertyPath: lines.Array.data[5]
+      value: "Luca: No rush M.\r"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3807689115035814804, guid: 7a23c0aec0cc7ee4dbaef6f5e9af673b,
+        type: 3}
+      propertyPath: lines.Array.data[6]
+      value: "Luca: She'll be back to suck$the soul out of you.\r"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3807689115035814804, guid: 7a23c0aec0cc7ee4dbaef6f5e9af673b,
+        type: 3}
+      propertyPath: lines.Array.data[7]
+      value: 'Mariano: UWAGHHHHHHHHHHHHHHHHHHH?'
+      objectReference: {fileID: 0}
+    - target: {fileID: 3807689115035814804, guid: 7a23c0aec0cc7ee4dbaef6f5e9af673b,
+        type: 3}
+      propertyPath: dialogueAudioMatch.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3807689115035814804, guid: 7a23c0aec0cc7ee4dbaef6f5e9af673b,
+        type: 3}
+      propertyPath: dialogueAudioMatch.Array.data[0].dialogueLine
+      value: "Luca: Heya toots,$its about time you make your way back.\r"
+      objectReference: {fileID: 0}
     - target: {fileID: 3807689115035814806, guid: 7a23c0aec0cc7ee4dbaef6f5e9af673b,
         type: 3}
       propertyPath: player
@@ -4519,6 +4570,15 @@ PrefabInstance:
       objectReference: {fileID: 1186328887}
     - target: {fileID: 3807689115035814804, guid: 7a23c0aec0cc7ee4dbaef6f5e9af673b,
         type: 3}
+      propertyPath: text
+      value: "Shubh: Hello. I am Shubh;\r\nAlex: GoodMorning.;\r\nShubh: hqhq;\r\nAlex:
+        hdfsoiauhjfiusa\r\njdfosajfdo\r\nkaopskoa;\r\nr_text[0] = \"I was just thinking
+        about you!\"\r\n:));\r\nr_text[1] = \"You are a great example for others.\";
+        \r\nr_text[2] = \"You have great ideas.\"; \r\nr_text[3] = \"When I grow
+        up I want to be you!\"; \r\nr_text[4] = \"I appreciate all of your opinions.\";"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3807689115035814804, guid: 7a23c0aec0cc7ee4dbaef6f5e9af673b,
+        type: 3}
       propertyPath: chapter1
       value: 
       objectReference: {fileID: 1885397263}
@@ -4542,6 +4602,81 @@ PrefabInstance:
       propertyPath: dialogueText
       value: 
       objectReference: {fileID: 6842342793622364927}
+    - target: {fileID: 3807689115035814804, guid: 7a23c0aec0cc7ee4dbaef6f5e9af673b,
+        type: 3}
+      propertyPath: lines.Array.size
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3807689115035814804, guid: 7a23c0aec0cc7ee4dbaef6f5e9af673b,
+        type: 3}
+      propertyPath: lines.Array.data[0]
+      value: "Shubh: Hello. I am Shubh;\r"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3807689115035814804, guid: 7a23c0aec0cc7ee4dbaef6f5e9af673b,
+        type: 3}
+      propertyPath: lines.Array.data[1]
+      value: "Alex: GoodMorning.;\r"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3807689115035814804, guid: 7a23c0aec0cc7ee4dbaef6f5e9af673b,
+        type: 3}
+      propertyPath: lines.Array.data[2]
+      value: "Shubh: hqhq;\r"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3807689115035814804, guid: 7a23c0aec0cc7ee4dbaef6f5e9af673b,
+        type: 3}
+      propertyPath: lines.Array.data[3]
+      value: "Alex: hdfsoiauhjfiusa\r"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3807689115035814804, guid: 7a23c0aec0cc7ee4dbaef6f5e9af673b,
+        type: 3}
+      propertyPath: lines.Array.data[4]
+      value: "jdfosajfdo\r"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3807689115035814804, guid: 7a23c0aec0cc7ee4dbaef6f5e9af673b,
+        type: 3}
+      propertyPath: lines.Array.data[5]
+      value: "kaopskoa;\r"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3807689115035814804, guid: 7a23c0aec0cc7ee4dbaef6f5e9af673b,
+        type: 3}
+      propertyPath: lines.Array.data[6]
+      value: "r_text[0] = \"I was just thinking about you!\"\r"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3807689115035814804, guid: 7a23c0aec0cc7ee4dbaef6f5e9af673b,
+        type: 3}
+      propertyPath: lines.Array.data[7]
+      value: ":));\r"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3807689115035814804, guid: 7a23c0aec0cc7ee4dbaef6f5e9af673b,
+        type: 3}
+      propertyPath: lines.Array.data[8]
+      value: "r_text[1] = \"You are a great example for others.\"; \r"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3807689115035814804, guid: 7a23c0aec0cc7ee4dbaef6f5e9af673b,
+        type: 3}
+      propertyPath: lines.Array.data[9]
+      value: "r_text[2] = \"You have great ideas.\"; \r"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3807689115035814804, guid: 7a23c0aec0cc7ee4dbaef6f5e9af673b,
+        type: 3}
+      propertyPath: lines.Array.data[10]
+      value: "r_text[3] = \"When I grow up I want to be you!\"; \r"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3807689115035814804, guid: 7a23c0aec0cc7ee4dbaef6f5e9af673b,
+        type: 3}
+      propertyPath: lines.Array.data[11]
+      value: r_text[4] = "I appreciate all of your opinions.";
+      objectReference: {fileID: 0}
+    - target: {fileID: 3807689115035814804, guid: 7a23c0aec0cc7ee4dbaef6f5e9af673b,
+        type: 3}
+      propertyPath: dialogueAudioMatch.Array.size
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3807689115035814804, guid: 7a23c0aec0cc7ee4dbaef6f5e9af673b,
+        type: 3}
+      propertyPath: dialogueAudioMatch.Array.data[0].dialogueLine
+      value: "Shubh: Hello. I am Shubh;\r"
+      objectReference: {fileID: 0}
     - target: {fileID: 3807689115035814806, guid: 7a23c0aec0cc7ee4dbaef6f5e9af673b,
         type: 3}
       propertyPath: player
@@ -10204,15 +10339,73 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chapter1: {fileID: 1885397263}
-  dialogueAudioMatch: []
+  dialogueAudioMatch:
+  - name: 
+    dialogueLine: "Luca: Heya toots,$its about time you make your way back.\r"
+    dialogueAudio: {fileID: 0}
+    speakerId: 0
+  - name: 
+    dialogueLine: 
+    dialogueAudio: {fileID: 0}
+    speakerId: 0
+  - name: 
+    dialogueLine: 
+    dialogueAudio: {fileID: 0}
+    speakerId: 0
+  - name: 
+    dialogueLine: 
+    dialogueAudio: {fileID: 0}
+    speakerId: 0
+  - name: 
+    dialogueLine: 
+    dialogueAudio: {fileID: 0}
+    speakerId: 0
+  - name: 
+    dialogueLine: 
+    dialogueAudio: {fileID: 0}
+    speakerId: 0
+  - name: 
+    dialogueLine: 
+    dialogueAudio: {fileID: 0}
+    speakerId: 0
+  - name: 
+    dialogueLine: 
+    dialogueAudio: {fileID: 0}
+    speakerId: 0
   ui: {fileID: 1186328887}
   dialogueText: {fileID: 6842342793622364927}
   interactableStates: 0
   textAsset: {fileID: 4900000, guid: b4b0d0cb61303684ca61321bade4bf3c, type: 3}
-  lines: []
+  lines:
+  - "Luca: Heya toots,$its about time you make your way back.\r"
+  - "Mariano: Why so soon?\r"
+  - "Mariano: The more the merrier for such an occasion.\r"
+  - "Mariano: I've got fine whiskey oh in the kitchen.\r"
+  - "Mariano: I'd be a lot more inclined to share with a lovely lady around.\r"
+  - "Luca: No rush M.\r"
+  - "Luca: She'll be back to suck$the soul out of you.\r"
+  - 'Mariano: UWAGHHHHHHHHHHHHHHHHHHH?'
   currentDialogue: []
   currentSpeaker: 
-  text: 
+  text: 'Luca: Heya toots,$its about time you make your way back.
+
+    Mariano: Why
+    so soon?
+
+    Mariano: The more the merrier for such an occasion.
+
+    Mariano:
+    I''ve got fine whiskey oh in the kitchen.
+
+    Mariano: I''d be a lot more inclined
+    to share with a lovely lady around.
+
+    Luca: No rush M.
+
+    Luca: She''ll
+    be back to suck$the soul out of you.
+
+    Mariano: UWAGHHHHHHHHHHHHHHHHHHH?'
   nextDialogue: 0
   dialogueTracker: 0
   skipDelay: 0
@@ -27630,7 +27823,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6842342793067014595}
   m_LocalRotation: {x: 0.36599812, y: 0.45315394, z: -0.2113091, w: 0.78488564}
-  m_LocalPosition: {x: -8.518103, y: 8.807763, z: -20.277428}
+  m_LocalPosition: {x: -8.518101, y: 8.8077545, z: -20.277428}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -28316,7 +28509,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6842342793993662067}
   m_LocalRotation: {x: 0.36599812, y: 0.45315394, z: -0.2113091, w: 0.78488564}
-  m_LocalPosition: {x: -8.518103, y: 8.807763, z: -20.277428}
+  m_LocalPosition: {x: -8.518101, y: 8.8077545, z: -20.277428}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

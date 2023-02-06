@@ -12,7 +12,7 @@ public class MaterialFade : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        AICharacterControl.FadeRoof += FadeMat;
+        CharacterControl.FadeRoof += FadeMat;
         objMat = gameObject.GetComponent<MeshRenderer>().material;
         layer = gameObject.layer;
     }

@@ -32,7 +32,7 @@ public class Interactable : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         // if (other.CompareTag("Player") && GameManager.IsMoveable)
-        if (other.CompareTag("Player") && other.GetComponent<AICharacterControl>().characterState == AICharacterControl.CharacterState.Exploration)
+        if (other.CompareTag("Player") && other.GetComponent<CharacterControl>().characterState == CharacterControl.CharacterState.Exploration)
         {
             if (Physics.Raycast(player.transform.position, transform.position - player.transform.position, out hit) && hit.collider.CompareTag("Interactable") &&
                 GameManager.Intelligence >= minIntel)

@@ -20,7 +20,7 @@ public class DetectFadeMaterials : MonoBehaviour
 
     private void Awake()
     {
-        AICharacterControl.Detect += Detect;
+        CharacterControl.Detect += Detect;
     }
 
     private void Detect(bool fade)

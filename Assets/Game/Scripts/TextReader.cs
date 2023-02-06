@@ -7,7 +7,7 @@ using UnityEngine;
 //Add audio clip to respective character dialogue
 //Format the text before displaying it as UI
 
-[ExecuteInEditMode]
+// [ExecuteInEditMode]
 public class TextReader : MonoBehaviour
 {
     [SerializeField] private GameObject chapter1;

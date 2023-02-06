@@ -2,7 +2,7 @@ using System;
 using System.Text;
 using UnityEngine;
 
-[ExecuteInEditMode]
+// [ExecuteInEditMode]
 public class AudioDialogueTest : MonoBehaviour
 {
     [SerializeField] private AudioClip[] ac;

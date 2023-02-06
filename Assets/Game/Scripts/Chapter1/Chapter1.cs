@@ -6,7 +6,7 @@ public class Chapter1 : MonoBehaviour
 {
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject[] characters;
-    [SerializeField] private AICharacterControl[] aiCharacterControl;
+    [SerializeField] private CharacterControl[] aiCharacterControl;
     [SerializeField] private Animator[] animators;
     [SerializeField] private GameObject[] weapons;
     
@@ -46,12 +46,12 @@ public class Chapter1 : MonoBehaviour
     private void Awake()
     {
         textReader = GetComponent<TextReader>();
-        aiCharacterControl = new AICharacterControl[characters.Length];
+        aiCharacterControl = new CharacterControl[characters.Length];
         animators = new Animator[characters.Length];
 
         for (int i = 0; i < characters.Length; i++)
         {
-            aiCharacterControl[i] = characters[i].GetComponent<AICharacterControl>();
+            aiCharacterControl[i] = characters[i].GetComponent<CharacterControl>();
             animators[i] = characters[i].GetComponent<Animator>();
         }
 
@@ -89,7 +89,7 @@ public class Chapter1 : MonoBehaviour
                         if (i == characters.Length)
                         {
                             // print(i + "STOPPED");
-                            player.GetComponent<AICharacterControl>().cachedTransform = null;
+                            player.GetComponent<CharacterControl>().cachedTransform = null;
                             scene++;
                         }
                     }
@@ -322,7 +322,7 @@ public class Chapter1 : MonoBehaviour
                 animators[2].SetBool("Grabbed", true);
                 // LUCA RUNNING ANIM
                 aiCharacterControl[0].targetTransform = lucaPos2;
-                characters[0].GetComponent<ThirdPersonCharacter>().run = true;
+                characters[0].GetComponent<CharacterMovement>().run = true;
                 yield return new WaitForSeconds(1.5f);
                 showKillDecisionUI = true;
                 break;
@@ -378,7 +378,7 @@ public class Chapter1 : MonoBehaviour
                         yield return new WaitForSeconds(0.5f);
                         animators[1].SetBool("GunDrawn", false);
                         aiCharacterControl[1].targetTransform = pauliePos2;
-                        characters[1].GetComponent<ThirdPersonCharacter>().run = true;
+                        characters[1].GetComponent<CharacterMovement>().run = true;
                         yield return new WaitForSeconds(3f);
                         player.transform.LookAt(characters[1].transform);
                         playerAnimator.SetTrigger("Shoot");

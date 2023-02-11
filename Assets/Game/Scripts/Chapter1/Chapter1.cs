@@ -294,6 +294,7 @@ public class Chapter1 : MonoBehaviour
             
             case Scene.EOC:
                 playerAnimator.SetBool("GunDrawn", false);
+                player.GetComponent<CharacterControl>().ChangeCharacterState(CharacterControl.CharacterState.Exploration);
                 break;
         }
 

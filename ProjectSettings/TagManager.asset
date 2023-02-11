@@ -8,6 +8,7 @@ TagManager:
   - Interactable
   - IndoorsVolume
   - GunplayCover
+  - Cover
   layers:
   - Default
   - TransparentFX

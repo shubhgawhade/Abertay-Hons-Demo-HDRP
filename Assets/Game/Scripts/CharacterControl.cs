@@ -4,6 +4,7 @@ using Cinemachine;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Animations.Rigging;
 using UnityEngine.Serialization;
 
 namespace UnityStandardAssets.Characters.ThirdPerson
@@ -52,9 +53,22 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         public static Action<Material, bool, float> FadeRoof;
         public static Action<bool> Detect;
 
+        private Rig coverAnimRig;
+        private Transform _defaultHeightConstraint;
+        private Transform heightConstraint;
+        private float coverAnimRigWeight;
+        
+        private bool crouch;
+        private CapsuleCollider m_Capsule;
+        
         private void Start()
         {
             rb = GetComponent<Rigidbody>();
+            m_Capsule = GetComponent<CapsuleCollider>();
+            coverAnimRig = GetComponent<RigBuilder>().layers[0].rig;
+            heightConstraint = coverAnimRig.gameObject.GetComponent<BlendConstraint>().data.sourceObjectB;
+            _defaultHeightConstraint = heightConstraint;
+
             // get the components on the object we need ( should not be null due to require component so no need to check )
             // agent = GetComponentInChildren<UnityEngine.AI.NavMeshAgent>();
             agent = GetComponent<NavMeshAgent>();
@@ -66,13 +80,34 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 	        agent.updatePosition = true;
         }
 
+        private bool ToggleCrouch()
+        {
+            if (Input.GetKeyDown(KeyCode.LeftControl))
+            {
+                crouch = !crouch;
+            }
+
+            return crouch;
+        }
 
         private void Update()
         {
             timer += Time.deltaTime;
 
+            if (crouch)
+            {
+                // coverAnimRigWeight = 1;
+            }
+            else
+            {
+                // coverAnimRigWeight = 0;
+            }
+            
+            coverAnimRig.weight = Mathf.Lerp(coverAnimRig.weight, coverAnimRigWeight, 0.05f);
+            coverAnimRig.weight = Mathf.Clamp(coverAnimRig.weight, 0, 1);
+            
             // print(Vector3.Distance(transform.position, Camera.main.transform.position));
-            // print(gameObject.name + aIStopped);
+            print(gameObject.name + aIStopped);
 
             if (targetTransform != null)
             {
@@ -92,23 +127,13 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             
-          
-            switch (characterState)
-            {
-                case CharacterState.Dialogue:
-                    
-                    break;
-                
-                
-                case CharacterState.Exploration:
-
-                    // ----- RE-FORMAT
-                    if ((target - transform.position).magnitude > 0.3f)
+            // ----- RE-FORMAT
+                    if ((target - transform.position).magnitude > 0.2f)
                     {
                         // print(Mathf.Abs((transform.position - target).magnitude));
-                        characterMovement.Move(agent.desiredVelocity, Input.GetKey(KeyCode.LeftControl), false);
+                        characterMovement.Move(agent.desiredVelocity, ToggleCrouch(), false);
 
-                        if ((target - transform.position).magnitude < 0.8f)
+                        if ((target - transform.position).magnitude < 1f)
                         {
                             characterMovement.run = false;
                             //TURN AT THE END OF PATH
@@ -142,6 +167,17 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                             }
                         }
                     }
+            
+            switch (characterState)
+            {
+                case CharacterState.Dialogue:
+                    // characterMovement.Move(agent.desiredVelocity, ToggleCrouch(), false);
+                    break;
+                
+                
+                case CharacterState.Exploration:
+
+                    
                     
                     if ((target - transform.position).magnitude < 0.6f && agent.velocity.magnitude == 0 && cachedTransform != null)
                     {
@@ -248,7 +284,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                 characterState = CharacterState.Gunplay;
             }
             
-            print($"{gameObject.name.ToUpper()} STATE IS {characterState.ToString().ToUpper()}");
+            // print($"{gameObject.name.ToUpper()} STATE IS {characterState.ToString().ToUpper()}");
         }
         
         public void ChangeCharacterState(CharacterState characterState)
@@ -288,6 +324,30 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             }
         }
 
+        private void OnTriggerStay(Collider other)
+        {
+            switch (other.tag)
+            {
+                case "Cover":
+
+                    if (crouch)
+                    {
+                        coverAnimRigWeight = 1;
+                        // print(other.bounds.extents.y);
+                        float tempY = other.bounds.max.y - 0.5f;
+                        print($"CONSTRAINT HEIGHT: {tempY}");
+                        heightConstraint.position = new Vector3(heightConstraint.position.x, Mathf.Lerp(heightConstraint.position.y, tempY, 0.05f), heightConstraint.position.z);
+                        m_Capsule.height = other.bounds.center.y;
+                        m_Capsule.center = new Vector3(m_Capsule.center.x, (other.bounds.center.y - other.bounds.min.y) / 2 + 0.1f, m_Capsule.center.z);
+                    }
+                    else
+                    {
+                        coverAnimRigWeight = 0;
+                    }
+                    break;
+            }
+        }
+
         private void OnTriggerExit(Collider other)
         {
             switch (other.tag)
@@ -297,6 +357,11 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                     Material tempMat = other.transform.root.GetComponent<MeshRenderer>().material;
                     FadeRoof(tempMat, false, 8);
                     Detect(false);
+                    break;
+                
+                case "Cover":
+                    heightConstraint.position = new Vector3(heightConstraint.position.x, _defaultHeightConstraint.position.y, heightConstraint.position.z);
+                    coverAnimRigWeight = 0;
                     break;
             }
         }

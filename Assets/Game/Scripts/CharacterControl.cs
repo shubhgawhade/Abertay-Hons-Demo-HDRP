@@ -65,9 +65,9 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         {
             rb = GetComponent<Rigidbody>();
             m_Capsule = GetComponent<CapsuleCollider>();
-            coverAnimRig = GetComponent<RigBuilder>().layers[0].rig;
-            heightConstraint = coverAnimRig.gameObject.GetComponent<BlendConstraint>().data.sourceObjectB;
-            _defaultHeightConstraint = heightConstraint;
+            // coverAnimRig = GetComponent<RigBuilder>().layers[0].rig;
+            // heightConstraint = coverAnimRig.gameObject.GetComponent<BlendConstraint>().data.sourceObjectB;
+            // _defaultHeightConstraint = heightConstraint;
 
             // get the components on the object we need ( should not be null due to require component so no need to check )
             // agent = GetComponentInChildren<UnityEngine.AI.NavMeshAgent>();
@@ -103,8 +103,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                 // coverAnimRigWeight = 0;
             }
             
-            coverAnimRig.weight = Mathf.Lerp(coverAnimRig.weight, coverAnimRigWeight, 0.05f);
-            coverAnimRig.weight = Mathf.Clamp(coverAnimRig.weight, 0, 1);
+            // coverAnimRig.weight = Mathf.Lerp(coverAnimRig.weight, coverAnimRigWeight, 0.05f);
+            // coverAnimRig.weight = Mathf.Clamp(coverAnimRig.weight, 0, 1);
             
             // print(Vector3.Distance(transform.position, Camera.main.transform.position));
             print(gameObject.name + aIStopped);

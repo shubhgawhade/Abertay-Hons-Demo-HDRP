@@ -32,7 +32,7 @@ public class Interactable : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         // if (other.CompareTag("Player") && GameManager.IsMoveable)
-        if (other.CompareTag("Player") && other.GetComponent<CharacterControl>().characterState == CharacterControl.CharacterState.Exploration)
+        if (other.transform.root.CompareTag("Player") && other.transform.root.GetComponent<CharacterControl>().characterState == CharacterControl.CharacterState.Exploration)
         {
             if (Physics.Raycast(player.transform.position, transform.position - player.transform.position, out hit) && hit.collider.CompareTag("Interactable") &&
                 GameManager.Intelligence >= minIntel)
@@ -40,12 +40,31 @@ public class Interactable : MonoBehaviour
                 // testRay = true;
                 print(hit.collider.name);
                 isVisible = true;
-                transform.Find("Mesh").gameObject.layer = LayerMask.NameToLayer("Outline");
+
+                // for (int i = 0; i < transform.childCount; i++)
+                {
+                    // MeshRenderer[] tempMeshs = transform.GetChild(i).transform.GetComponentsInChildren<MeshRenderer>();
+
+                    MeshRenderer[] tempMeshs = transform.GetComponentsInChildren<MeshRenderer>();
+
+                    foreach (MeshRenderer meshRenderer in tempMeshs)
+                    {
+                        meshRenderer.gameObject.layer = LayerMask.NameToLayer("Outline");
+                    }
+                }
             }
             else if (!hit.collider.CompareTag("Interactable"))
             {
                 isVisible = false;
-                transform.Find("Mesh").gameObject.layer = _basicLayer;
+                // for (int i = 0; i < transform.childCount; i++)
+                {
+                    MeshRenderer[] tempMeshs = transform.GetComponentsInChildren<MeshRenderer>();
+
+                    foreach (MeshRenderer meshRenderer in tempMeshs)
+                    {
+                        meshRenderer.gameObject.layer = _basicLayer;
+                    }
+                }
             }
             else
             {
@@ -55,14 +74,22 @@ public class Interactable : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.transform.root.CompareTag("Player"))
         {
             // isinteracted = false;
             // testRay = false;
             print("EXIT");
 
             isVisible = false;
-            transform.Find("Mesh").gameObject.layer = _basicLayer;
+            // for (int i = 0; i < transform.childCount; i++)
+            {
+                MeshRenderer[] tempMeshs = transform.GetComponentsInChildren<MeshRenderer>();
+
+                foreach (MeshRenderer meshRenderer in tempMeshs)
+                {
+                    meshRenderer.gameObject.layer = _basicLayer;
+                }
+            }
 
             //OLD OUTLINE
             // outline.OutlineMode = Outline.Mode.OutlineHidden;

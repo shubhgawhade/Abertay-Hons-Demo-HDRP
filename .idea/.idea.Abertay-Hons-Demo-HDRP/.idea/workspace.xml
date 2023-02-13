@@ -3,17 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="4dd56a48-5213-4dda-9bf0-e9744c4963bb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Abertay-Hons-Demo-HDRP/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Abertay-Hons-Demo-HDRP/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/Standard Assets 2018/Characters/ThirdPersonCharacter/Animation/HumanoidCrouch.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Addons/Standard Assets 2018/Characters/ThirdPersonCharacter/Animation/HumanoidCrouch.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Animations/Animation Controllers/Player.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Animations/Animation Controllers/Player.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/Interactable.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Prefabs/Interactable.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Scenes/OutdoorsScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scenes/OutdoorsScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Scenes/Scene2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scenes/Scene2.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Chapter1/Chapter1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Chapter1/Chapter1.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scenes/Scene2/NavMesh.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scenes/Scene2/NavMesh.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Chapter1/Chapter1DialogueAudioManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Chapter1/Chapter1DialogueAudioManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/CharacterControl.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/CharacterControl.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/CharacterMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/CharacterMovement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Interactable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Interactable.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/DynamicsManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/DynamicsManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,6 +145,7 @@
       <workItem from="1676080750440" duration="776000" />
       <workItem from="1676082290073" duration="5754000" />
       <workItem from="1676135860990" duration="12131000" />
+      <workItem from="1676245393554" duration="7410000" />
     </task>
     <servers />
   </component>

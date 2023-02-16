@@ -1,69 +1,66 @@
 using System;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityStandardAssets.Characters.ThirdPerson;
 
 
-[RequireComponent(typeof (TextReader))]
 // [RequireComponent(typeof (Outline))]
 public class Interactable : MonoBehaviour
 {
+    public enum TypeOfInteractable
+    {
+        Unscripted,
+        Scripted,
+        Cover,
+    }
+
+    public TypeOfInteractable typeOfInteractable = TypeOfInteractable.Unscripted;
+
+    
     public GameObject targetLocation;
+    [SerializeField] protected GameObject player;
     public bool isVisible;
-
-    [SerializeField] private GameObject player;
-    
-    private int _basicLayer;
-    private RaycastHit hit;
-
     public int minIntel;
-    public int playerIntelChange;
+    public int rewardIntel;
     
+    protected RaycastHit hit;
+    protected int _basicLayer;
+
+    [SerializeField] private LayerMask outlineColour;
+
     //TEST VARIABLES
-    private bool testRay;
-    
-    
-    // Start is called before the first frame update
-    void Start()
+    public bool testRay;
+
+    private void Awake()
     {
         _basicLayer = gameObject.layer;
     }
-    
-    private void OnTriggerStay(Collider other)
+
+    public virtual void OnTriggerStay(Collider other)
     {
-        // if (other.CompareTag("Player") && GameManager.IsMoveable)
         if (other.transform.root.CompareTag("Player") && other.transform.root.GetComponent<CharacterControl>().characterState == CharacterControl.CharacterState.Exploration)
         {
-            if (Physics.Raycast(player.transform.position, transform.position - player.transform.position, out hit) && hit.collider.CompareTag("Interactable") &&
-                GameManager.Intelligence >= minIntel)
+            if (Physics.Raycast(player.transform.position, transform.position - player.transform.position, out hit) && hit.collider.gameObject == gameObject &&
+                GameManager.Intelligence >= minIntel && !isVisible)
             {
-                // testRay = true;
-                print(hit.collider.name);
+                // print(hit.collider.name);
                 isVisible = true;
 
-                // for (int i = 0; i < transform.childCount; i++)
+                MeshRenderer[] tempMeshs = transform.GetComponentsInChildren<MeshRenderer>();
+
+                foreach (MeshRenderer meshRenderer in tempMeshs)
                 {
-                    // MeshRenderer[] tempMeshs = transform.GetChild(i).transform.GetComponentsInChildren<MeshRenderer>();
-
-                    MeshRenderer[] tempMeshs = transform.GetComponentsInChildren<MeshRenderer>();
-
-                    foreach (MeshRenderer meshRenderer in tempMeshs)
-                    {
-                        meshRenderer.gameObject.layer = LayerMask.NameToLayer("Outline");
-                    }
+                    meshRenderer.gameObject.layer = (int)Mathf.Log(outlineColour, 2);
                 }
             }
-            else if (!hit.collider.CompareTag("Interactable"))
+            if (Physics.Raycast(player.transform.position, transform.position - player.transform.position, out hit) && hit.collider.gameObject != gameObject)
             {
                 isVisible = false;
-                // for (int i = 0; i < transform.childCount; i++)
-                {
-                    MeshRenderer[] tempMeshs = transform.GetComponentsInChildren<MeshRenderer>();
+                MeshRenderer[] tempMeshs = transform.GetComponentsInChildren<MeshRenderer>();
 
-                    foreach (MeshRenderer meshRenderer in tempMeshs)
-                    {
-                        meshRenderer.gameObject.layer = _basicLayer;
-                    }
+                foreach (MeshRenderer meshRenderer in tempMeshs)
+                {
+                    meshRenderer.gameObject.layer = _basicLayer;
                 }
             }
             else
@@ -72,38 +69,31 @@ public class Interactable : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    public virtual void OnTriggerExit(Collider other)
     {
-        if (other.transform.root.CompareTag("Player"))
+        if (other.transform.root.CompareTag("Player") && isVisible)
         {
             // isinteracted = false;
             // testRay = false;
-            print("EXIT");
+            // print("EXIT");
 
             isVisible = false;
-            // for (int i = 0; i < transform.childCount; i++)
+                
+            MeshRenderer[] tempMeshs = transform.GetComponentsInChildren<MeshRenderer>();
+
+            foreach (MeshRenderer meshRenderer in tempMeshs)
             {
-                MeshRenderer[] tempMeshs = transform.GetComponentsInChildren<MeshRenderer>();
-
-                foreach (MeshRenderer meshRenderer in tempMeshs)
-                {
-                    meshRenderer.gameObject.layer = _basicLayer;
-                }
+                meshRenderer.gameObject.layer = _basicLayer;
             }
-
-            //OLD OUTLINE
-            // outline.OutlineMode = Outline.Mode.OutlineHidden;
-            // outline.needsUpdate = true;
         }
     }
-
-    /*
+    
     private void OnDrawGizmos()
     {
-        // if (testRay)
+        if (GameManager.TestRay && testRay)
         {
+            Gizmos.color = Color.red;
             Gizmos.DrawLine(player.transform.position, transform.position);
         }
     }
-    */
 }

@@ -3,7 +3,7 @@ using UnityEngine;
 
 
 // [ExecuteInEditMode]
-public class Chapter1DialogueAudioManager : MonoBehaviour
+public class ChapterDialogueAudioManager : MonoBehaviour
 {
     public int previousSpeaker;
     [SerializeField] private AudioSource[] charactersAudioSource;

@@ -4,12 +4,15 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public bool isMoveable;
-    // public static bool IsMoveable = false;
+    public static bool IsMoveable = false;
     public static bool isInteracting;
     public static string CurrentSpeaker;
 
     public int intelligence;
-    public static int Intelligence = 0;
+    public static int Intelligence;
+
+    public bool testRay;
+    public static bool TestRay;
     
     
     // TEXT READER VARIABLES
@@ -33,7 +36,9 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        intelligence = Intelligence;
+        print($" IS INTERACTING : {isInteracting}");
+        Intelligence = intelligence;
+        TestRay = testRay;
         // print("IS INTERACTING: " + isInteracting);
     }
 }

@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: 02_Selection_Objects
+  m_Name: YellowOutline
   m_Shader: {fileID: 4800000, guid: d7519a17c68ee8c4a87c72efee188840, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -30,5 +30,5 @@ Material:
     - _MaxDistance: 40
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _SelectionColor: {r: 1, g: 1, b: 1, a: 1}
+    - _SelectionColor: {r: 1, g: 0.8471056, b: 0, a: 1}
   m_BuildTextureStacks: []

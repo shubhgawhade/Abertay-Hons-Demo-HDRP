@@ -42,12 +42,10 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         private RaycastHit hit;
         private TextReader textReader;
 
-        private bool targetIsInteractable;
+        public Interactable currentInteractable;
+        public bool targetIsInteractable;
         public bool aIStopped;
-        
-        
-        private int deltaIntelligence;
-        
+
         // Gunplay local variables
         public GameObject weapon;
         public static Action<Material, bool, float> FadeRoof;
@@ -74,7 +72,6 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             agent = GetComponent<NavMeshAgent>();
             characterMovement = GetComponent<CharacterMovement>();
 
-            deltaIntelligence = 0;
             // ShootAt += ShootTarget;
 	        agent.updateRotation = false;
 	        agent.updatePosition = true;
@@ -107,7 +104,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             // coverAnimRig.weight = Mathf.Clamp(coverAnimRig.weight, 0, 1);
             
             // print(Vector3.Distance(transform.position, Camera.main.transform.position));
-            print(gameObject.name + aIStopped);
+            // print(gameObject.name + aIStopped);
 
             if (targetTransform != null)
             {
@@ -145,24 +142,19 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                                 aIStopped = true;
                                 if (cachedTransform != null)
                                 {
-                                    print(cachedTransform.eulerAngles);
+                                    // print(cachedTransform.eulerAngles);
 
                                     transform.eulerAngles = cachedTransform.eulerAngles;
+                                    cachedTransform = null;
                                 }
-                    
-                    
-                                if (targetIsInteractable && (textReader.interactableStates == InteractableStates.NotInteracted ||
-                                                             textReader.interactableStates == InteractableStates.InteractionOver))
+
+
+                                // WHEN THE PLAYER STOPS AT THE INTERACTABES TARGET LOCATION
+                                if (targetIsInteractable)
                                 {
                                     GameManager.isInteracting = true;
-                                    print("adding intel: " + deltaIntelligence);
-                                    GameManager.Intelligence += deltaIntelligence;
-                                    targetIsInteractable = false;
-                                    textReader.ToggleUI();
-                                    // Send action to Text reader to enable UI
-                                    print("ENABLE UI");
-
-                                    cinemachineTarget.AddMember(cachedTransform, 3, 0);
+                                    InteractableTypeBehaviour();
+                                    currentInteractable = null;
                                 }
                             }
                         }
@@ -176,21 +168,19 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                 
                 
                 case CharacterState.Exploration:
+                    
+                    if (CompareTag("Player") && Input.GetMouseButtonDown(0) && Physics.Raycast(ray, out hit))
+                    {
+                        // cachedTransform = null;
+                        // currentInteractable = null;
+                        OnCLickedObjectBehaviour();
+                    }
 
-                    
-                    
                     if ((target - transform.position).magnitude < 0.6f && agent.velocity.magnitude == 0 && cachedTransform != null)
                     {
                         // transform.eulerAngles = cachedTransform.eulerAngles;
                     }
                     // ----- RE FORMAT
-                    
-                    
-                    if (CompareTag("Player") && Input.GetMouseButtonDown(0) && Physics.Raycast(ray, out hit))
-                    {
-                        cachedTransform = null;
-                        OnCLickedObjectBehaviour();
-                    }
 
                     break;
                 
@@ -226,6 +216,38 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             
             DEBUG_CHEATS();
         }
+        
+        private void InteractableTypeBehaviour()
+        {
+                GameManager.Intelligence += currentInteractable.rewardIntel;
+                print("adding intel: " + currentInteractable.rewardIntel);
+                targetIsInteractable = false;
+                print("ENABLE UI");
+                cinemachineTarget.AddMember(currentInteractable.targetLocation.transform, 3, 0);
+                
+            switch (currentInteractable.typeOfInteractable)
+            {
+                case Interactable.TypeOfInteractable.Cover:
+
+                    break;
+                            
+                case Interactable.TypeOfInteractable.Scripted:
+                                
+                    // Send action to Text reader to enable UI
+                    textReader = currentInteractable.GetComponent<TextReader>();
+                    textReader.ToggleUI();
+                    
+                    break;
+                            
+                case Interactable.TypeOfInteractable.Unscripted:
+
+                    break;
+            }
+            
+            // if (textReader.interactableStates == InteractableStates.NotInteracted || textReader.interactableStates == InteractableStates.InteractionOver)
+            {
+            }
+        }
 
         private void OnCLickedObjectBehaviour()
         {
@@ -255,20 +277,30 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                     break;
 
                 case "Interactable":
-                    Interactable interactable = hit.collider.GetComponent<Interactable>();
-                    textReader = hit.collider.GetComponent<TextReader>();
-                    print("INTERACTED WITH" + hit.collider.name);
-
-                    if (interactable.isVisible && !GameManager.isInteracting)
+                    
+                    if (!GameManager.isInteracting)
                     {
-                        targetTransform = interactable.targetLocation.transform;
-                        target = targetTransform.transform.position;
-                        agent.SetDestination(target);
-                        deltaIntelligence = interactable.playerIntelChange;
-                        targetIsInteractable = true;
-                        //Send action to Text reader script to initialize dialogue but not display yet
+                        Interactable tempInteractable = hit.collider.GetComponent<Interactable>();
+
+                        if (tempInteractable.isVisible)
+                        {
+                            currentInteractable = tempInteractable;
+                            print("INTERACTED WITH" + hit.collider.name);
+                            targetTransform = currentInteractable.targetLocation.transform;
+                            target = targetTransform.transform.position;
+                            agent.SetDestination(target);
+                            // print(interactable.typeOfInteractable);
+                            targetIsInteractable = true;
+                            //Send action to Text reader script to initialize dialogue but not display yet
+                        }
                     }
 
+                    break;
+                
+                default:
+                        
+                        
+                        
                     break;
             }
         }
@@ -328,23 +360,23 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         {
             switch (other.tag)
             {
-                case "Cover":
-
-                    if (crouch)
-                    {
-                        coverAnimRigWeight = 1;
-                        // print(other.bounds.extents.y);
-                        float tempY = other.bounds.max.y - 0.5f;
-                        print($"CONSTRAINT HEIGHT: {tempY}");
-                        heightConstraint.position = new Vector3(heightConstraint.position.x, Mathf.Lerp(heightConstraint.position.y, tempY, 0.05f), heightConstraint.position.z);
-                        m_Capsule.height = other.bounds.center.y;
-                        m_Capsule.center = new Vector3(m_Capsule.center.x, (other.bounds.center.y - other.bounds.min.y) / 2 + 0.1f, m_Capsule.center.z);
-                    }
-                    else
-                    {
-                        coverAnimRigWeight = 0;
-                    }
-                    break;
+                // case "Cover":
+                //
+                //     if (crouch)
+                //     {
+                //         coverAnimRigWeight = 1;
+                //         // print(other.bounds.extents.y);
+                //         float tempY = other.bounds.max.y - 0.5f;
+                //         print($"CONSTRAINT HEIGHT: {tempY}");
+                //         heightConstraint.position = new Vector3(heightConstraint.position.x, Mathf.Lerp(heightConstraint.position.y, tempY, 0.05f), heightConstraint.position.z);
+                //         m_Capsule.height = other.bounds.center.y;
+                //         m_Capsule.center = new Vector3(m_Capsule.center.x, (other.bounds.center.y - other.bounds.min.y) / 2 + 0.1f, m_Capsule.center.z);
+                //     }
+                //     else
+                //     {
+                //         coverAnimRigWeight = 0;
+                //     }
+                //     break;
             }
         }
 
@@ -359,10 +391,10 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                     Detect(false);
                     break;
                 
-                case "Cover":
-                    heightConstraint.position = new Vector3(heightConstraint.position.x, _defaultHeightConstraint.position.y, heightConstraint.position.z);
-                    coverAnimRigWeight = 0;
-                    break;
+                // case "Cover":
+                //     heightConstraint.position = new Vector3(heightConstraint.position.x, _defaultHeightConstraint.position.y, heightConstraint.position.z);
+                //     coverAnimRigWeight = 0;
+                //     break;
             }
         }
     }

@@ -2,6 +2,7 @@ using System;
 using System.Text;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 //Get dialogues as single lines
 //Add audio clip to respective character dialogue
@@ -10,8 +11,8 @@ using UnityEngine;
 // [ExecuteInEditMode]
 public class TextReader : MonoBehaviour
 {
-    [SerializeField] private GameObject chapter1;
-    private Chapter1DialogueAudioManager chapter1DialogueAudioManager;
+    [SerializeField] private GameObject chapterManager;
+    private ChapterDialogueAudioManager _chapterDialogueAudioManager;
     public DialogueAudioMatch[] dialogueAudioMatch;
 
     // Create variables if player is already in conversation with someone or examining
@@ -52,7 +53,7 @@ public class TextReader : MonoBehaviour
             dialogueSkipTimer = gameObject.GetComponent<Timer>();
         }
         
-        chapter1DialogueAudioManager = chapter1.GetComponent<Chapter1DialogueAudioManager>();
+        _chapterDialogueAudioManager = chapterManager.GetComponent<ChapterDialogueAudioManager>();
 
         //USE LOAD ASYNC
         //Call from another script when player is in proximity of someone who has a dialogue
@@ -185,7 +186,7 @@ public class TextReader : MonoBehaviour
             interactableStates = InteractableStates.InteractionOver;
             if (GameManager.isInteracting)
             {
-                print(gameObject.transform);
+                // print(gameObject.transform);
                 RemoveCinemachineTarget(gameObject.GetComponent<Interactable>().targetLocation.transform);
             }
             GameManager.isInteracting = false;
@@ -224,7 +225,7 @@ public class TextReader : MonoBehaviour
             dialogueAudioMatch[i].dialogueLine = lines[i];
             
             string scriptName = textAsset.name + "_" + i;
-            dialogueAudioMatch[i].dialogueAudio = Array.Find(chapter1DialogueAudioManager.sceneCharactersAudio, p => p.name == scriptName);
+            dialogueAudioMatch[i].dialogueAudio = Array.Find(_chapterDialogueAudioManager.sceneCharactersAudio, p => p.name == scriptName);
             
             currentSpeaker = lines[i].Split(":")[0];
 

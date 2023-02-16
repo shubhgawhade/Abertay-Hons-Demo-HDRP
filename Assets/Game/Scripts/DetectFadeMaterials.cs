@@ -62,7 +62,7 @@ public class DetectFadeMaterials : MonoBehaviour
         
         if (collision.GetComponent<Collider>().CompareTag("Player"))
         {
-            print("ENTERED " + collision.name);
+            // print("ENTERED " + collision.name);
             //for loop to check which Floor Trigger
             for (int i = 0; i < FloorTriggers.detectFadeMats.Length; i++)
             {

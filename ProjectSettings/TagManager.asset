@@ -16,10 +16,10 @@ TagManager:
   - 
   - Water
   - UI
-  - Interactible
-  - Outline
-  - NoCollision
   - 
+  - OutlineYellow
+  - NoCollision
+  - OutlineRed
   - 
   - 
   - 

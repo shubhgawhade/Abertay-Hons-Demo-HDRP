@@ -3,9 +3,9 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public bool isMoveable;
-    public static bool IsMoveable = false;
-    public static bool isInteracting;
+    // public bool isMoveable;
+    // public static bool IsMoveable;
+    public static bool IsInteracting;
     public static string CurrentSpeaker;
 
     public int intelligence;
@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print($" IS INTERACTING : {isInteracting}");
+        print($" IS INTERACTING : {IsInteracting}");
         Intelligence = intelligence;
         TestRay = testRay;
         // print("IS INTERACTING: " + isInteracting);

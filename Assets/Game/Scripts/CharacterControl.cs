@@ -152,7 +152,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                                 // WHEN THE PLAYER STOPS AT THE INTERACTABES TARGET LOCATION
                                 if (targetIsInteractable)
                                 {
-                                    GameManager.isInteracting = true;
+                                    GameManager.IsInteracting = true;
                                     InteractableTypeBehaviour();
                                     currentInteractable = null;
                                 }
@@ -219,11 +219,10 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         
         private void InteractableTypeBehaviour()
         {
-                GameManager.Intelligence += currentInteractable.rewardIntel;
-                print("adding intel: " + currentInteractable.rewardIntel);
-                targetIsInteractable = false;
-                print("ENABLE UI");
-                cinemachineTarget.AddMember(currentInteractable.targetLocation.transform, 3, 0);
+            GameManager.Intelligence += currentInteractable.rewardIntel;
+            print("adding intel: " + currentInteractable.rewardIntel);
+            targetIsInteractable = false;
+            cinemachineTarget.AddMember(currentInteractable.targetLocation.transform, 3, 0);
                 
             switch (currentInteractable.typeOfInteractable)
             {
@@ -272,14 +271,14 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                     if (targetIsInteractable)
                     {
                         targetIsInteractable = false;
-                        GameManager.isInteracting = false;
+                        GameManager.IsInteracting = false;
                     }
 
                     break;
 
                 case "Interactable":
                     
-                    if (!GameManager.isInteracting)
+                    if (!GameManager.IsInteracting)
                     {
                         Interactable tempInteractable = hit.collider.GetComponent<Interactable>();
 
@@ -359,7 +358,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
         private void OnTriggerStay(Collider other)
         {
-            switch (other.tag)
+            // switch (other.tag)
             {
                 // case "Cover":
                 //

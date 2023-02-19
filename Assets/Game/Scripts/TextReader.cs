@@ -2,43 +2,49 @@ using System;
 using System.Text;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-//Get dialogues as single lines
-//Add audio clip to respective character dialogue
-//Format the text before displaying it as UI
+/// <summary>
+/// LOAD dialogues as single lines
+/// Add audio clip to respective character dialogue
+/// Format the text before displaying it as UI
+/// </summary>
 
+// DO NOT ENABLE UNLESS YOU WANT TO MANUALLY CLEANUP LOADED SCRIPT VARIABLES (LOADED BEFORE RUNTIME) EDIT: RUN UnloadScript() TO UNDO THIS
 // [ExecuteInEditMode]
 public class TextReader : MonoBehaviour
 {
+    // CHAPTER VARIABLES
     [SerializeField] private GameObject chapterManager;
     private ChapterDialogueAudioManager _chapterDialogueAudioManager;
     public DialogueAudioMatch[] dialogueAudioMatch;
 
-    // Create variables if player is already in conversation with someone or examining
-
+    // UI VARIABLES
     [SerializeField] private GameObject ui;
     [SerializeField] private TextMeshProUGUI dialogueText;
-
-
+    
+    // CURRENT INTERACTION STATE
     public InteractableStates interactableStates = InteractableStates.NotInteracted;
     
+    // TEXT BUILDING VARIABLES
     public TextAsset textAsset;
     public string[] lines;
     public string[] currentDialogue;
     public string currentSpeaker;
-    public string text;
-    public StringBuilder strB;
-    StringBuilder lineAdd = new();
+    private StringBuilder strB;
+    private StringBuilder lineAdd = new();
 
     public bool nextDialogue;
     // public bool dialogueOver;
 
     public int dialogueTracker;
 
+    // DIALOGUE SKIP VARIABLES
     private Timer dialogueSkipTimer;
-    public float skipDelay;
+    public float skipDelay = 1;
 
+    private Interactable interactable;
+
+    // ACTIONS RELATED TO EXTERNAL SCRIPTS
     public static Action<Transform> RemoveCinemachineTarget;
     public static Action<SpeakerEnum, AudioClip> SetDialogueAudio;
 
@@ -54,19 +60,13 @@ public class TextReader : MonoBehaviour
         }
         
         _chapterDialogueAudioManager = chapterManager.GetComponent<ChapterDialogueAudioManager>();
+        LoadScript();
+
+        interactable = GetComponent<Interactable>();
 
         //USE LOAD ASYNC
         //Call from another script when player is in proximity of someone who has a dialogue
         // ta = Resources.Load<TextAsset>("a");
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        // text = ta.text;
-        // strB = new StringBuilder(ta.text);
-        // // text = strB.ToString();
-        // lines = strB.ToString().Split("\n");
     }
 
     // Update is called once per frame
@@ -75,10 +75,10 @@ public class TextReader : MonoBehaviour
         if (interactableStates == InteractableStates.Interacting)
         {
             ParseUI();
+            PlayerInput();
         }
-        
     }
-
+    
     private void ParseUI()
     {
         if (nextDialogue)
@@ -118,7 +118,10 @@ public class TextReader : MonoBehaviour
                 }
             }
         }
-        
+    }
+    
+    private void PlayerInput()
+    {
         if (Input.GetKeyDown(KeyCode.Space))
         {
             // print(interactableStates.ToString());
@@ -127,24 +130,23 @@ public class TextReader : MonoBehaviour
             {
                 ToggleUI();
             }
+
             NextDialogue();
         }
-        
+
         // LONG PRESS SPACE TO SKIP
         else if (Input.GetKey(KeyCode.Space))
         {
             // print("SPACE HOLD");
-            
+
             if (!dialogueSkipTimer.isRunning)
             {
                 GameManager.dialogueSkipDelay = skipDelay;
                 dialogueSkipTimer.StartTimer(GameManager.dialogueSkipDelay);
-
             }
             else if (dialogueSkipTimer.isCompleted)
             {
-                dialogueTracker = -1;
-                NextDialogue();
+                EndDialogue();
             }
         }
         else if (Input.GetKeyUp(KeyCode.Space))
@@ -169,7 +171,7 @@ public class TextReader : MonoBehaviour
 
     public void ToggleUI()
     {
-        LoadScript();
+        // LoadScript();
         
         ui.SetActive(!ui.activeSelf);
 
@@ -181,15 +183,15 @@ public class TextReader : MonoBehaviour
 
     public void NextDialogue()
     {
-        if(dialogueTracker == -1)
+        if (dialogueTracker == -1)
         {
             interactableStates = InteractableStates.InteractionOver;
-            if (GameManager.isInteracting)
+            if (GameManager.IsInteracting)
             {
                 // print(gameObject.transform);
-                RemoveCinemachineTarget(gameObject.GetComponent<Interactable>().targetLocation.transform);
+                RemoveCinemachineTarget(interactable.targetLocation.transform);
             }
-            GameManager.isInteracting = false;
+            GameManager.IsInteracting = false;
             currentDialogue = null;
             dialogueText.text = "";
             dialogueTracker = 0;
@@ -207,14 +209,12 @@ public class TextReader : MonoBehaviour
         }
     }
 
-    private void LoadScript()
+    public void LoadScript()
     {
         // RESETS TIMER
         // dialogueSkipTimer.isCompleted = false;
 
-        text = textAsset.text;
         strB = new StringBuilder(textAsset.text);
-        // text = strB.ToString();
         lines = strB.ToString().Split("\n");
         
         dialogueAudioMatch = new DialogueAudioMatch[lines.Length];
@@ -251,9 +251,19 @@ public class TextReader : MonoBehaviour
         }
     }
 
-    // private void OnDisable()
-    // {
-    //     // dialogueSkipTimer
-    //     DestroyImmediate(dialogueSkipTimer);
-    // }
+    public void EndDialogue()
+    {
+        dialogueTracker = -1;
+        NextDialogue();
+    }
+
+    // UNLOADS THE SCRIPT FROM MEMORY
+    public void UnloadScript()
+    {
+        currentSpeaker = "";
+        strB = new StringBuilder();
+        lines = Array.Empty<string>();
+        currentDialogue = Array.Empty<string>();
+        dialogueAudioMatch = Array.Empty<DialogueAudioMatch>();
+    }
 }

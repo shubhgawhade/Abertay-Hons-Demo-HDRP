@@ -242,6 +242,7 @@ public class Chapter1 : MonoBehaviour
                     player.transform.LookAt(characters[1].transform);
                 }
                 
+                textReader.LoadScript();
                 textReader.ToggleUI();
                 
                 scene++;

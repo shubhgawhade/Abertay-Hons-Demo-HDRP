@@ -2329,7 +2329,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &541013383
 Transform:
   m_ObjectHideFlags: 0
@@ -4354,7 +4354,7 @@ MonoBehaviour:
   outlineColour:
     serializedVersion: 2
     m_Bits: 128
-  testRay: 0
+  testRay: 1
 --- !u!114 &979017932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4376,10 +4376,25 @@ MonoBehaviour:
   lines: []
   currentDialogue: []
   currentSpeaker: 
-  text: 
   nextDialogue: 0
   dialogueTracker: 0
-  skipDelay: 0
+  skipDelay: 1
+--- !u!114 &979017933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 979017899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb24e9bbfec601c40a8137c011114262, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time: 0
+  duration: 0
+  isRunning: 0
+  isCompleted: 0
 --- !u!1 &997659457
 GameObject:
   m_ObjectHideFlags: 0
@@ -4839,7 +4854,7 @@ MonoBehaviour:
   outlineColour:
     serializedVersion: 2
     m_Bits: 128
-  testRay: 0
+  testRay: 1
 --- !u!114 &1059146282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4861,10 +4876,25 @@ MonoBehaviour:
   lines: []
   currentDialogue: []
   currentSpeaker: 
-  text: 
   nextDialogue: 0
   dialogueTracker: 0
-  skipDelay: 0
+  skipDelay: 1
+--- !u!114 &1059146283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1059146235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb24e9bbfec601c40a8137c011114262, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time: 0
+  duration: 0
+  isRunning: 0
+  isCompleted: 0
 --- !u!1 &1095284864
 GameObject:
   m_ObjectHideFlags: 0
@@ -10331,25 +10361,6 @@ GameObject:
   - component: {fileID: 1885397266}
   - component: {fileID: 1885397267}
   - component: {fileID: 1885397268}
-  - component: {fileID: 1885397269}
-  - component: {fileID: 1885397270}
-  - component: {fileID: 1885397271}
-  - component: {fileID: 1885397272}
-  - component: {fileID: 1885397273}
-  - component: {fileID: 1885397274}
-  - component: {fileID: 1885397275}
-  - component: {fileID: 1885397276}
-  - component: {fileID: 1885397277}
-  - component: {fileID: 1885397278}
-  - component: {fileID: 1885397279}
-  - component: {fileID: 1885397280}
-  - component: {fileID: 1885397281}
-  - component: {fileID: 1885397282}
-  - component: {fileID: 1885397283}
-  - component: {fileID: 1885397284}
-  - component: {fileID: 1885397285}
-  - component: {fileID: 1885397286}
-  - component: {fileID: 1885397287}
   m_Layer: 0
   m_Name: Chapter1Controller
   m_TagString: Untagged
@@ -10419,76 +10430,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chapterManager: {fileID: 1885397263}
-  dialogueAudioMatch:
-  - name: 
-    dialogueLine: "Luca: Heya toots,$its about time you make your way back.\r"
-    dialogueAudio: {fileID: 0}
-    speakerId: 0
-  - name: 
-    dialogueLine: 
-    dialogueAudio: {fileID: 0}
-    speakerId: 0
-  - name: 
-    dialogueLine: 
-    dialogueAudio: {fileID: 0}
-    speakerId: 0
-  - name: 
-    dialogueLine: 
-    dialogueAudio: {fileID: 0}
-    speakerId: 0
-  - name: 
-    dialogueLine: 
-    dialogueAudio: {fileID: 0}
-    speakerId: 0
-  - name: 
-    dialogueLine: 
-    dialogueAudio: {fileID: 0}
-    speakerId: 0
-  - name: 
-    dialogueLine: 
-    dialogueAudio: {fileID: 0}
-    speakerId: 0
-  - name: 
-    dialogueLine: 
-    dialogueAudio: {fileID: 0}
-    speakerId: 0
+  dialogueAudioMatch: []
   ui: {fileID: 1186328887}
   dialogueText: {fileID: 6842342793622364927}
   interactableStates: 0
   textAsset: {fileID: 4900000, guid: b4b0d0cb61303684ca61321bade4bf3c, type: 3}
-  lines:
-  - "Luca: Heya toots,$its about time you make your way back.\r"
-  - "Mariano: Why so soon?\r"
-  - "Mariano: The more the merrier for such an occasion.\r"
-  - "Mariano: I've got fine whiskey oh in the kitchen.\r"
-  - "Mariano: I'd be a lot more inclined to share with a lovely lady around.\r"
-  - "Luca: No rush M.\r"
-  - "Luca: She'll be back to suck$the soul out of you.\r"
-  - 'Mariano: UWAGHHHHHHHHHHHHHHHHHHH?'
+  lines: []
   currentDialogue: []
   currentSpeaker: 
-  text: 'Luca: Heya toots,$its about time you make your way back.
-
-    Mariano: Why
-    so soon?
-
-    Mariano: The more the merrier for such an occasion.
-
-    Mariano:
-    I''ve got fine whiskey oh in the kitchen.
-
-    Mariano: I''d be a lot more inclined
-    to share with a lovely lady around.
-
-    Luca: No rush M.
-
-    Luca: She''ll
-    be back to suck$the soul out of you.
-
-    Mariano: UWAGHHHHHHHHHHHHHHHHHHH?'
   nextDialogue: 0
   dialogueTracker: 0
-  skipDelay: 0
+  skipDelay: 3
 --- !u!114 &1885397267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10518,310 +10470,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 08a0715826bb07f49bdc0bd3756877b5, type: 3}
   - {fileID: 8300000, guid: f5abe7be844eb0e44989c61a7bd6c8f0, type: 3}
 --- !u!114 &1885397268
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1885397263}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb24e9bbfec601c40a8137c011114262, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  time: 0
-  duration: 0
-  isRunning: 0
-  isCompleted: 0
---- !u!114 &1885397269
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1885397263}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb24e9bbfec601c40a8137c011114262, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  time: 0
-  duration: 0
-  isRunning: 0
-  isCompleted: 0
---- !u!114 &1885397270
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1885397263}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb24e9bbfec601c40a8137c011114262, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  time: 0
-  duration: 0
-  isRunning: 0
-  isCompleted: 0
---- !u!114 &1885397271
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1885397263}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb24e9bbfec601c40a8137c011114262, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  time: 0
-  duration: 0
-  isRunning: 0
-  isCompleted: 0
---- !u!114 &1885397272
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1885397263}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb24e9bbfec601c40a8137c011114262, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  time: 0
-  duration: 0
-  isRunning: 0
-  isCompleted: 0
---- !u!114 &1885397273
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1885397263}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb24e9bbfec601c40a8137c011114262, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  time: 0
-  duration: 0
-  isRunning: 0
-  isCompleted: 0
---- !u!114 &1885397274
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1885397263}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb24e9bbfec601c40a8137c011114262, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  time: 0
-  duration: 0
-  isRunning: 0
-  isCompleted: 0
---- !u!114 &1885397275
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1885397263}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb24e9bbfec601c40a8137c011114262, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  time: 0
-  duration: 0
-  isRunning: 0
-  isCompleted: 0
---- !u!114 &1885397276
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1885397263}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb24e9bbfec601c40a8137c011114262, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  time: 0
-  duration: 0
-  isRunning: 0
-  isCompleted: 0
---- !u!114 &1885397277
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1885397263}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb24e9bbfec601c40a8137c011114262, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  time: 0
-  duration: 0
-  isRunning: 0
-  isCompleted: 0
---- !u!114 &1885397278
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1885397263}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb24e9bbfec601c40a8137c011114262, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  time: 0
-  duration: 0
-  isRunning: 0
-  isCompleted: 0
---- !u!114 &1885397279
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1885397263}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb24e9bbfec601c40a8137c011114262, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  time: 0
-  duration: 0
-  isRunning: 0
-  isCompleted: 0
---- !u!114 &1885397280
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1885397263}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb24e9bbfec601c40a8137c011114262, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  time: 0
-  duration: 0
-  isRunning: 0
-  isCompleted: 0
---- !u!114 &1885397281
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1885397263}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb24e9bbfec601c40a8137c011114262, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  time: 0
-  duration: 0
-  isRunning: 0
-  isCompleted: 0
---- !u!114 &1885397282
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1885397263}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb24e9bbfec601c40a8137c011114262, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  time: 0
-  duration: 0
-  isRunning: 0
-  isCompleted: 0
---- !u!114 &1885397283
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1885397263}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb24e9bbfec601c40a8137c011114262, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  time: 0
-  duration: 0
-  isRunning: 0
-  isCompleted: 0
---- !u!114 &1885397284
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1885397263}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb24e9bbfec601c40a8137c011114262, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  time: 0
-  duration: 0
-  isRunning: 0
-  isCompleted: 0
---- !u!114 &1885397285
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1885397263}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb24e9bbfec601c40a8137c011114262, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  time: 0
-  duration: 0
-  isRunning: 0
-  isCompleted: 0
---- !u!114 &1885397286
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1885397263}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb24e9bbfec601c40a8137c011114262, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  time: 0
-  duration: 0
-  isRunning: 0
-  isCompleted: 0
---- !u!114 &1885397287
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -28323,9 +27971,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b62b04dfa675cb1409f5a5ebf4540ac7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isMoveable: 0
   intelligence: 0
-  testRay: 0
+  testRay: 1
 --- !u!222 &6842342793622364920
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -28751,22 +28398,9 @@ MonoBehaviour:
   lines: []
   currentDialogue: []
   currentSpeaker: 
-  text: 
   nextDialogue: 0
   dialogueTracker: 0
-  skipDelay: 0
---- !u!114 &6842342794275908233
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6842342794275908238}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  skipDelay: 1
 --- !u!114 &6842342794275908234
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28815,7 +28449,6 @@ GameObject:
   - component: {fileID: 6842342794275908244}
   - component: {fileID: 6842342794275908235}
   - component: {fileID: 6842342794275908234}
-  - component: {fileID: 6842342794275908233}
   - component: {fileID: 6842342794275908232}
   m_Layer: 0
   m_Name: Shelves_2C (1)

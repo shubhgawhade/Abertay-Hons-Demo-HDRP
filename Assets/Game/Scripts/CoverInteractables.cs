@@ -2,8 +2,10 @@ using UnityEngine;
 
 public class CoverInteractables : Interactable
 {
-    void Start()
+    public override void Awake()
     {
+        base.Awake();
+        
         _basicLayer = gameObject.layer;
         typeOfInteractable = TypeOfInteractable.Cover;
     }

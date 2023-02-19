@@ -31,9 +31,14 @@ public class Interactable : MonoBehaviour
     //TEST VARIABLES
     public bool testRay;
 
-    private void Awake()
+    public virtual void Awake()
     {
         _basicLayer = gameObject.layer;
+    }
+
+    public virtual void OnTriggerEnter(Collider other)
+    {
+        
     }
 
     public virtual void OnTriggerStay(Collider other)

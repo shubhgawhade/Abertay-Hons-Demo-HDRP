@@ -2052,6 +2052,7 @@ GameObject:
   - component: {fileID: 953782179}
   - component: {fileID: 953782181}
   - component: {fileID: 953782180}
+  - component: {fileID: 953782182}
   m_Layer: 0
   m_Name: Cover
   m_TagString: Interactable
@@ -2134,7 +2135,23 @@ MonoBehaviour:
   text: 
   nextDialogue: 0
   dialogueTracker: 0
-  skipDelay: 0
+  skipDelay: 1
+--- !u!114 &953782182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 953782174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb24e9bbfec601c40a8137c011114262, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time: 0
+  duration: 0
+  isRunning: 0
+  isCompleted: 0
 --- !u!64 &960943658
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -5834,7 +5851,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b62b04dfa675cb1409f5a5ebf4540ac7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isMoveable: 1
   intelligence: 0
   testRay: 1
 --- !u!4 &2114954666
@@ -21190,7 +21206,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6842342793067014595}
   m_LocalRotation: {x: -0.000000014901159, y: 0.9063078, z: -0.4226182, w: 0.000000029802319}
-  m_LocalPosition: {x: -34.885468, y: 8.679445, z: -11.102242}
+  m_LocalPosition: {x: -34.885468, y: 8.656152, z: -11.116787}
   m_LocalScale: {x: 1.000001, y: 1.0000002, z: 1.0000012}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -21824,7 +21840,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6842342793993662067}
   m_LocalRotation: {x: -0.000000014901159, y: 0.9063078, z: -0.4226182, w: 0.000000029802319}
-  m_LocalPosition: {x: -34.885468, y: 8.679445, z: -11.102242}
+  m_LocalPosition: {x: -34.885468, y: 8.656152, z: -11.116787}
   m_LocalScale: {x: 1.0000011, y: 1.0000002, z: 1.0000013}
   m_ConstrainProportionsScale: 0
   m_Children:

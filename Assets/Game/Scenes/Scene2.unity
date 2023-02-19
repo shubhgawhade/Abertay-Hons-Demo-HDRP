@@ -4298,7 +4298,7 @@ MonoBehaviour:
   customPasses:
   - rid: 4805122722823405568
   - rid: 8369776395329732613
-  injectionPoint: 1
+  injectionPoint: 3
   m_TargetCamera: {fileID: 0}
   useTargetCamera: 0
   references:
@@ -4364,7 +4364,7 @@ MonoBehaviour:
   customPasses:
   - rid: 4805122722823405568
   - rid: 8369776395329732613
-  injectionPoint: 1
+  injectionPoint: 3
   m_TargetCamera: {fileID: 0}
   useTargetCamera: 0
   references:
@@ -21190,7 +21190,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6842342793067014595}
   m_LocalRotation: {x: -0.000000014901159, y: 0.9063078, z: -0.4226182, w: 0.000000029802319}
-  m_LocalPosition: {x: -34.885468, y: 8.679447, z: -11.102244}
+  m_LocalPosition: {x: -34.885468, y: 8.679445, z: -11.102242}
   m_LocalScale: {x: 1.000001, y: 1.0000002, z: 1.0000012}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -21824,7 +21824,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6842342793993662067}
   m_LocalRotation: {x: -0.000000014901159, y: 0.9063078, z: -0.4226182, w: 0.000000029802319}
-  m_LocalPosition: {x: -34.885468, y: 8.679447, z: -11.102244}
+  m_LocalPosition: {x: -34.885468, y: 8.679445, z: -11.102242}
   m_LocalScale: {x: 1.0000011, y: 1.0000002, z: 1.0000013}
   m_ConstrainProportionsScale: 0
   m_Children:

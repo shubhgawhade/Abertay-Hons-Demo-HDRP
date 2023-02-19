@@ -264,6 +264,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                         characterMovement.run = true;
                     }
 
+                    cachedTransform = null;
                     target = new Vector3(hit.point.x, hit.point.y, hit.point.z);
                     agent.SetDestination(target);
                     aIStopped = false;

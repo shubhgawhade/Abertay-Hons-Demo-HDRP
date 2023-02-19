@@ -4351,6 +4351,9 @@ MonoBehaviour:
   isVisible: 0
   minIntel: 0
   rewardIntel: 0
+  outlineColour:
+    serializedVersion: 2
+    m_Bits: 128
   testRay: 0
 --- !u!114 &979017932
 MonoBehaviour:
@@ -4833,6 +4836,9 @@ MonoBehaviour:
   isVisible: 0
   minIntel: 0
   rewardIntel: 0
+  outlineColour:
+    serializedVersion: 2
+    m_Bits: 128
   testRay: 0
 --- !u!114 &1059146282
 MonoBehaviour:
@@ -28319,6 +28325,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isMoveable: 0
   intelligence: 0
+  testRay: 0
 --- !u!222 &6842342793622364920
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -28778,6 +28785,9 @@ MonoBehaviour:
   isVisible: 0
   minIntel: 0
   rewardIntel: 0
+  outlineColour:
+    serializedVersion: 2
+    m_Bits: 0
   testRay: 0
 --- !u!65 &6842342794275908235
 BoxCollider:

@@ -49,28 +49,20 @@ public class Interactable : MonoBehaviour
                 GameManager.Intelligence >= minIntel && !isVisible)
             {
                 // print(hit.collider.name);
-                isVisible = true;
-
-                MeshRenderer[] tempMeshs = transform.GetComponentsInChildren<MeshRenderer>();
-
-                foreach (MeshRenderer meshRenderer in tempMeshs)
-                {
-                    meshRenderer.gameObject.layer = (int)Mathf.Log(outlineColour, 2);
-                }
+                
+                EnableOutline();
             }
             if (Physics.Raycast(player.transform.position, transform.position - player.transform.position, out hit) && hit.collider.gameObject != gameObject)
             {
-                isVisible = false;
-                MeshRenderer[] tempMeshs = transform.GetComponentsInChildren<MeshRenderer>();
-
-                foreach (MeshRenderer meshRenderer in tempMeshs)
-                {
-                    meshRenderer.gameObject.layer = _basicLayer;
-                }
+                DisableOutline();
             }
             else
             {
             }
+        }
+        else if (!isVisible)
+        {
+            // DisableOutline();
         }
     }
 
@@ -82,14 +74,30 @@ public class Interactable : MonoBehaviour
             // testRay = false;
             // print("EXIT");
 
-            isVisible = false;
-                
-            MeshRenderer[] tempMeshs = transform.GetComponentsInChildren<MeshRenderer>();
+            DisableOutline();
+        }
+    }
 
-            foreach (MeshRenderer meshRenderer in tempMeshs)
-            {
-                meshRenderer.gameObject.layer = _basicLayer;
-            }
+    protected void EnableOutline()
+    {
+        isVisible = true;
+
+        MeshRenderer[] tempMeshs = transform.GetComponentsInChildren<MeshRenderer>();
+
+        foreach (MeshRenderer meshRenderer in tempMeshs)
+        {
+            meshRenderer.gameObject.layer = (int)Mathf.Log(outlineColour, 2);
+        }
+    }
+    
+    protected void DisableOutline()
+    {
+        isVisible = false;
+        MeshRenderer[] tempMeshs = transform.GetComponentsInChildren<MeshRenderer>();
+
+        foreach (MeshRenderer meshRenderer in tempMeshs)
+        {
+            meshRenderer.gameObject.layer = _basicLayer;
         }
     }
     

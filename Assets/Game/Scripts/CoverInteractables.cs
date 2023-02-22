@@ -13,6 +13,13 @@ public class CoverInteractables : Interactable
     public override void OnTriggerStay(Collider other)
     {
         base.OnTriggerStay(other);
+
+        if (CompareTag("Cover"))
+        {
+            DisableOutline();
+            
+            // IGNORE RAYCAST TO THIS OBJECT
+        }
     }
 
     public override void OnTriggerExit(Collider other)

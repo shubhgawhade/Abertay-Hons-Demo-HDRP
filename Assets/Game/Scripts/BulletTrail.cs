@@ -18,6 +18,7 @@ public class BulletTrail : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Destroy(this);
         print(other.name);
     }
 

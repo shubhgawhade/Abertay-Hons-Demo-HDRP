@@ -11,7 +11,7 @@ public class Interactable : MonoBehaviour
     {
         Unscripted,
         Scripted,
-        Cover,
+        Cover
     }
 
     public TypeOfInteractable typeOfInteractable = TypeOfInteractable.Unscripted;

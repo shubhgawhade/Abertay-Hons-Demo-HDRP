@@ -1,11 +1,11 @@
 using System;
 using System.Collections;
 using Cinemachine;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Animations.Rigging;
 using UnityEngine.Serialization;
+using Random = UnityEngine.Random;
 
 namespace UnityStandardAssets.Characters.ThirdPerson
 {
@@ -52,25 +52,28 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         public static Action<bool> Detect;
 
         private Rig coverAnimRig;
+        private Rig pointShootRig;
         private Transform _defaultHeightConstraint;
         private Transform heightConstraint;
         private float coverAnimRigWeight;
         
-        private bool crouch;
+        public bool crouch;
         private CapsuleCollider m_Capsule;
 
         public LayerMask ignoreLayer;
+
+        [SerializeField] private GameObject bulletTargetPointer;
         
         private void Start()
         {
             rb = GetComponent<Rigidbody>();
             m_Capsule = GetComponent<CapsuleCollider>();
             coverAnimRig = GetComponent<RigBuilder>().layers[0].rig;
+            pointShootRig = GetComponent<RigBuilder>().layers[1].rig;
             heightConstraint = coverAnimRig.gameObject.GetComponent<BlendConstraint>().data.sourceObjectB;
             _defaultHeightConstraint = heightConstraint;
 
             // get the components on the object we need ( should not be null due to require component so no need to check )
-            // agent = GetComponentInChildren<UnityEngine.AI.NavMeshAgent>();
             agent = GetComponent<NavMeshAgent>();
             characterMovement = GetComponent<CharacterMovement>();
 
@@ -98,13 +101,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                 coverAnimRigWeight = 0;
             }
             
-            // BAD
-            coverAnimRig.weight = Mathf.Lerp(coverAnimRig.weight, coverAnimRigWeight, 0.1f);
-            coverAnimRig.weight = Mathf.Clamp(coverAnimRig.weight, 0, 1);
-            
-            // print(Vector3.Distance(transform.position, Camera.main.transform.position));
             // print(gameObject.name + aIStopped);
-
             if (targetTransform != null)
             {
                 aIStopped = false;
@@ -118,9 +115,6 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                 // target = transform.position;
             }
             
-            // print(agent.isStopped);
-            // print(agent.remainingDistance);
-
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             
             // ----- RE-FORMAT
@@ -145,7 +139,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                             // print(cachedTransform.eulerAngles);
                             // transform.eulerAngles = cachedTransform.eulerAngles;
                             
-                            transform.rotation = Quaternion.Slerp(transform.rotation, cachedTransform.rotation, Time.deltaTime * 5);
+                            // transform.rotation = Quaternion.Slerp(transform.rotation, cachedTransform.rotation, Time.deltaTime * 5);
+                            transform.eulerAngles = Vector3.Slerp(transform.eulerAngles, cachedTransform.eulerAngles, Time.deltaTime * 5);
                             // cachedTransform = null;
                         }
 
@@ -154,20 +149,23 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                         {
                             GameManager.IsInteracting = true;
                             InteractableTypeBehaviour();
-                            currentInteractable = null;
+                            // currentInteractable = null;
                         }
                     }
                 }
             }
             // ----- RE FORMAT
 
+            // RAYCAST AT THE MOUSE LOCATION IGNORING THE LAYERS MENTIONED
+            Physics.Raycast(ray, out hit, Mathf.Infinity, ~ignoreLayer);
+
             // DETERMINES CHARACTERS BEHAVIOUR ON CLICKING ANYTHING IN THE WORLD BASED ON THE CHARACTER STATE
-            if (CompareTag("Player") && Input.GetMouseButtonDown(0) && Physics.Raycast(ray, out hit, Mathf.Infinity, ~ignoreLayer))
+            if (CompareTag("Player") && Input.GetMouseButtonDown(0))
             {
                 OnClickedPlayerBehaviour();
             }
             
-            // OTHER FUNCTIONS BASED ON THE CHARACTER STATE
+            // WORLD FUNCTIONS BASED ON THE CHARACTER STATE
             switch (characterState)
             {
                 case CharacterState.Dialogue: 
@@ -179,19 +177,34 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                 
                 case CharacterState.Exploration:
 
+                    // DUPLICATE CODE FOR LERPING BETWEEN DIFFERENT COVER HEIGHTS
+                    coverAnimRig.weight = Mathf.Lerp(coverAnimRig.weight, coverAnimRigWeight, 0.2f);
+                    coverAnimRig.weight = Mathf.Clamp(coverAnimRig.weight, 0, 1);
+
                     break;
                 
                 
                 case CharacterState.Gunplay:
+
+                    transform.LookAt(new Vector3(hit.point.x, transform.position.y, hit.point.z));
+                    // transform.eulerAngles = Vector3.Slerp(transform.eulerAngles, hit.point - transform.position, Time.deltaTime * 5);
+
+                    bulletTargetPointer.transform.position = hit.point;
+
+                    
+                    // DUPLICATE CODE FOR LERPING BETWEEN DIFFERENT COVER HEIGHTS
+                    coverAnimRig.weight = Mathf.Lerp(coverAnimRig.weight, coverAnimRigWeight, 0.2f);
+                    coverAnimRig.weight = Mathf.Clamp(coverAnimRig.weight, 0, 1);
                     
                     if (Input.GetKeyDown(KeyCode.LeftControl))
                     {
                         GameManager.IsInteracting = false;
                         characterState = CharacterState.Exploration;
-                        
-                        //BAD
-                        cinemachineTarget.m_Targets[cinemachineTarget.m_Targets.Length - 1].target.gameObject.transform.root.tag = "Interactable";
-                        cinemachineTarget.RemoveMember(cinemachineTarget.m_Targets[cinemachineTarget.m_Targets.Length - 1].target.transform);
+                        GetComponent<Animator>().SetBool("GunDrawn", false);
+
+                        // print(currentInteractable);
+                        currentInteractable.transform.root.tag = "Interactable";
+                        cinemachineTarget.RemoveMember(currentInteractable.targetLocation.transform);
                     }
                     
                     // Get weapon behavior from an object to allow customization
@@ -230,6 +243,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                     
                     characterState = CharacterState.Gunplay;
                     currentInteractable.tag = "Cover";
+                    GetComponent<Animator>().SetBool("GunDrawn", true);
                     crouch = true;
                     
                     break;
@@ -308,6 +322,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                             break;
                 
                         default:
+                            
 
                             break;
                     }
@@ -336,11 +351,12 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                             Interactable tempInteractable = hit.collider.GetComponent<Interactable>();
                             if (tempInteractable.typeOfInteractable == Interactable.TypeOfInteractable.Cover && tempInteractable.isVisible)
                             {
+                                GetComponent<Animator>().SetBool("GunDrawn", false);
                                 crouch = false;
                                 GameManager.IsInteracting = false;
                                 characterState = CharacterState.Exploration;
-                                cinemachineTarget.m_Targets[cinemachineTarget.m_Targets.Length - 1].target.gameObject.transform.root.tag = "Interactable";
-                                cinemachineTarget.RemoveMember(cinemachineTarget.m_Targets[cinemachineTarget.m_Targets.Length - 1].target.transform);
+                                currentInteractable.transform.root.tag = "Interactable";
+                                cinemachineTarget.RemoveMember(currentInteractable.targetLocation.transform);
                                 characterMovement.run = true;
                                 currentInteractable = tempInteractable;
                                 print("INTERACTED WITH" + hit.collider.name);
@@ -356,8 +372,18 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                         default:
                         
                             //SHOOT IF PLAYER CLICKED ANYTHING ELSE
+                            // heightConstraint.transform.position += new Vector3(0, 1, 0);
+                            crouch = false;
                             target = new Vector3(hit.point.x, hit.point.y, hit.point.z);
-                            ShootTarget(target);
+                            
+                            //CALCULATE NEW ROTATION BASED ON PAYERS DRUNK STATE
+                            // bulletTargetPointer.transform.position = new Vector3(hit.point.x + Random.Range(-3, 3), hit.point.y + Random.Range(-3, 3), hit.point.z + Random.Range(-3, 3));
+                            
+                            GetComponent<Animator>().SetTrigger("Shoot");
+                            pointShootRig.weight = 1;
+
+                            // USE TIMER INSTEAD
+                            StartCoroutine(A());
                         
                             break;
                     }
@@ -370,6 +396,17 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                     
                     break;
             }
+        }
+
+        IEnumerator A()
+        {
+            yield return new WaitForSeconds(0.2f);
+            ShootTarget(bulletTargetPointer.transform.position);
+            
+            yield return new WaitForSeconds(0.5f);
+            // WAIT FOR SOME TIME IF THE PLAYER WANTS TO SHOOT AGAIN. IF NOT, CROUCH
+            crouch = true;
+            pointShootRig.weight = 0;
         }
 
         private void DEBUG_CHEATS()
@@ -391,16 +428,21 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             this.characterState = characterState;
         }
         
-        private void ShootTarget(Vector3 target)
+        private void ShootTarget(Vector3 bulletTarget)
         {
             // print(bulletSpawnLoc.transform.forward);
-            Instantiate(muzzleFlash, bulletSpawnLoc.transform.position, Quaternion.identity);
+            muzzleFlash.SetActive(true);
+            // GameObject a = Instantiate(muzzleFlash, bulletSpawnLoc.transform.position, Quaternion.identity);
+            // a.transform.LookAt(target);
+            
             GameObject temp = Instantiate(bulletTrail, bulletSpawnLoc.transform.position, Quaternion.identity);
-            temp.transform.LookAt(target);
+            temp.transform.LookAt(bulletTarget);
+            
             // print(temp.transform.rotation.eulerAngles);
             // bullet.GetComponent<BulletControl>().target = target;
 
         }
+        
         private void OnTriggerEnter(Collider other)
         {
             switch (other.tag)
@@ -460,6 +502,15 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                     coverAnimRigWeight = 0;
                     break;
             }
+        }
+
+        private void OnDrawGizmos()
+        {
+            if (bulletTargetPointer != null)
+            {
+                Gizmos.color = Color.red;
+                Gizmos.DrawWireSphere(bulletTargetPointer.transform.position, 0.2f);
+            } 
         }
     }
 }

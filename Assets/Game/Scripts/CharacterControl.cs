@@ -15,13 +15,13 @@ namespace UnityStandardAssets.Characters.ThirdPerson
     {
         public enum CharacterState
         {
-            Dialogue,
+            Cutscene,
             Exploration,
             Gunplay,
             Dead
         }
 
-        public CharacterState characterState = CharacterState.Dialogue;
+        public CharacterState characterState = CharacterState.Cutscene;
         
         [SerializeField] private CinemachineTargetGroup cinemachineTarget;
         [SerializeField] private GameObject bulletTrail;
@@ -139,9 +139,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                             // print(cachedTransform.eulerAngles);
                             // transform.eulerAngles = cachedTransform.eulerAngles;
                             
-                            // transform.rotation = Quaternion.Slerp(transform.rotation, cachedTransform.rotation, Time.deltaTime * 5);
-                            transform.eulerAngles = Vector3.Slerp(transform.eulerAngles, cachedTransform.eulerAngles, Time.deltaTime * 5);
-                            // cachedTransform = null;
+                            transform.rotation = Quaternion.Slerp(transform.rotation, cachedTransform.rotation, Time.deltaTime * 5);
+                            // transform.eulerAngles = Vector3.Slerp(transform.eulerAngles, cachedTransform.eulerAngles, Time.deltaTime * 5);
                         }
 
                         // WHEN THE PLAYER STOPS AT THE INTERACTABES TARGET LOCATION
@@ -168,7 +167,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             // WORLD FUNCTIONS BASED ON THE CHARACTER STATE
             switch (characterState)
             {
-                case CharacterState.Dialogue: 
+                case CharacterState.Cutscene: 
                     
                     // characterMovement.Move(agent.desiredVelocity, ToggleCrouch(), false);
                     
@@ -226,8 +225,11 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                     
                     break;
             }
-            
-            DEBUG_CHEATS();
+
+            if (gameObject.CompareTag("Player"))
+            {
+                DEBUG_CHEATS();
+            }
         }
         
         private void InteractableTypeBehaviour()
@@ -271,7 +273,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         {
             switch (characterState)
             {
-                case CharacterState.Dialogue:
+                case CharacterState.Cutscene:
                     
                     // characterMovement.Move(agent.desiredVelocity, ToggleCrouch(), false);
                     
@@ -286,7 +288,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                     switch (hit.collider.tag)
                     {
                         case "Ground":
-                    
+
                             cachedTransform = null;
                             target = new Vector3(hit.point.x, hit.point.y, hit.point.z);
                             agent.SetDestination(target);

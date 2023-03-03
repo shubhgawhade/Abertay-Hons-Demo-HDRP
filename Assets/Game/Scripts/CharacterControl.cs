@@ -24,9 +24,9 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         public CharacterState characterState = CharacterState.Cutscene;
         
         [SerializeField] private CinemachineTargetGroup cinemachineTarget;
-        [SerializeField] private GameObject bulletTrail;
-        [SerializeField] private GameObject muzzleFlash;
-        [SerializeField] private GameObject bulletSpawnLoc;
+        // [SerializeField] private GameObject bulletTrail;
+        // [SerializeField] private GameObject muzzleFlash;
+        // [SerializeField] private GameObject bulletSpawnLoc;
         
         public string name;
         public Transform targetTransform;
@@ -47,7 +47,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         public bool aIStopped;
 
         // Gunplay local variables
-        public GameObject weapon;
+        public Weapon weapon;
         public static Action<Material, bool, float> FadeRoof;
         public static Action<bool> Detect;
 
@@ -62,7 +62,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
         public LayerMask ignoreLayer;
 
-        [SerializeField] private GameObject bulletTargetPointer;
+        [SerializeField] private GameObject bulletTarget;
         
         private void Start()
         {
@@ -96,8 +96,13 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         {
             timer += Time.deltaTime;
 
-            if (!crouch)
+            if (crouch)
             {
+                pointShootRig.weight = 0;
+            }
+            else
+            {
+                heightConstraint = _defaultHeightConstraint;
                 coverAnimRigWeight = 0;
             }
             
@@ -121,6 +126,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             if ((target - transform.position).magnitude > 0.2f)
             {
                 characterMovement.Move(agent.desiredVelocity, ToggleCrouch(), false);
+                agent.height = m_Capsule.height;
 
                 if ((target - transform.position).magnitude < 1f)
                 {
@@ -188,17 +194,20 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                     transform.LookAt(new Vector3(hit.point.x, transform.position.y, hit.point.z));
                     // transform.eulerAngles = Vector3.Slerp(transform.eulerAngles, hit.point - transform.position, Time.deltaTime * 5);
 
-                    bulletTargetPointer.transform.position = hit.point;
+                    bulletTarget.transform.position = hit.point;
 
                     
                     // DUPLICATE CODE FOR LERPING BETWEEN DIFFERENT COVER HEIGHTS
                     coverAnimRig.weight = Mathf.Lerp(coverAnimRig.weight, coverAnimRigWeight, 0.2f);
                     coverAnimRig.weight = Mathf.Clamp(coverAnimRig.weight, 0, 1);
                     
-                    if (Input.GetKeyDown(KeyCode.LeftControl))
+                    // if (Input.GetMouseButtonDown(1))
+                    if (Input.GetKeyDown(KeyCode.LeftControl)) 
                     {
+                        // pointShootRig.weight = 0;
                         GameManager.IsInteracting = false;
                         characterState = CharacterState.Exploration;
+                        weapon.gameObject.SetActive(false);
                         GetComponent<Animator>().SetBool("GunDrawn", false);
 
                         // print(currentInteractable);
@@ -245,6 +254,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                     
                     characterState = CharacterState.Gunplay;
                     currentInteractable.tag = "Cover";
+                    weapon = currentInteractable.GetComponent<CoverInteractables>().weapon;
+                    weapon.gameObject.SetActive(true);
                     GetComponent<Animator>().SetBool("GunDrawn", true);
                     crouch = true;
                     
@@ -349,10 +360,12 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                     switch (hit.collider.tag)
                     {
                         case "Interactable":
-                    
+
                             Interactable tempInteractable = hit.collider.GetComponent<Interactable>();
                             if (tempInteractable.typeOfInteractable == Interactable.TypeOfInteractable.Cover && tempInteractable.isVisible)
                             {
+                                pointShootRig.weight = 0;
+                                weapon.gameObject.SetActive(false);
                                 GetComponent<Animator>().SetBool("GunDrawn", false);
                                 crouch = false;
                                 GameManager.IsInteracting = false;
@@ -375,17 +388,31 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                         
                             //SHOOT IF PLAYER CLICKED ANYTHING ELSE
                             // heightConstraint.transform.position += new Vector3(0, 1, 0);
-                            crouch = false;
-                            target = new Vector3(hit.point.x, hit.point.y, hit.point.z);
-                            
-                            //CALCULATE NEW ROTATION BASED ON PAYERS DRUNK STATE
-                            // bulletTargetPointer.transform.position = new Vector3(hit.point.x + Random.Range(-3, 3), hit.point.y + Random.Range(-3, 3), hit.point.z + Random.Range(-3, 3));
-                            
-                            GetComponent<Animator>().SetTrigger("Shoot");
-                            pointShootRig.weight = 1;
 
-                            // USE TIMER INSTEAD
-                            StartCoroutine(A());
+                            // foreach (Weapon weapon in weapon)
+                            {
+                                if (weapon.isHandHeld && !weapon.onCooldown)
+                                {
+                                    crouch = false;
+                                    target = new Vector3(hit.point.x, hit.point.y, hit.point.z);
+
+                                    //CALCULATE NEW ROTATION BASED ON PAYERS DRUNK STATE
+                                    // bulletTargetPointer.transform.position = new Vector3(hit.point.x + Random.Range(-3, 3), hit.point.y + Random.Range(-3, 3), hit.point.z + Random.Range(-3, 3));
+                                    
+                                    GetComponent<Animator>().SetTrigger("Shoot");
+                                    pointShootRig.weight = 1;
+
+                                    weapon.ShootTarget(bulletTarget.transform.position);
+                                    
+                                    // USE TIMER INSTEAD
+                                    // StartCoroutine(WaitForShootingAnimation(weapon));
+                                    // Timer shootDelay = new Timer();
+                                    // shootDelay.duration = 
+                                    
+                                    break;
+                                }
+                            }
+
                         
                             break;
                     }
@@ -400,15 +427,22 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             }
         }
 
-        IEnumerator A()
+        // public void CrouchPlayer()
+        // {
+        //     crouch = true;
+        //     pointShootRig.weight = 0;
+        // }
+
+        IEnumerator WaitForShootingAnimation(Weapon weapon)
         {
             yield return new WaitForSeconds(0.2f);
-            ShootTarget(bulletTargetPointer.transform.position);
             
-            yield return new WaitForSeconds(0.5f);
+            // weapon.ShootTarget(bulletTargetPointer.transform.position);
+            
             // WAIT FOR SOME TIME IF THE PLAYER WANTS TO SHOOT AGAIN. IF NOT, CROUCH
-            crouch = true;
-            pointShootRig.weight = 0;
+            // yield return new WaitForSeconds(0.5f);
+            // crouch = true;
+            // pointShootRig.weight = 0;
         }
 
         private void DEBUG_CHEATS()
@@ -429,22 +463,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         {
             this.characterState = characterState;
         }
-        
-        private void ShootTarget(Vector3 bulletTarget)
-        {
-            // print(bulletSpawnLoc.transform.forward);
-            muzzleFlash.SetActive(true);
-            // GameObject a = Instantiate(muzzleFlash, bulletSpawnLoc.transform.position, Quaternion.identity);
-            // a.transform.LookAt(target);
-            
-            GameObject temp = Instantiate(bulletTrail, bulletSpawnLoc.transform.position, Quaternion.identity);
-            temp.transform.LookAt(bulletTarget);
-            
-            // print(temp.transform.rotation.eulerAngles);
-            // bullet.GetComponent<BulletControl>().target = target;
 
-        }
-        
         private void OnTriggerEnter(Collider other)
         {
             switch (other.tag)
@@ -482,6 +501,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                         heightConstraint.position = new Vector3(heightConstraint.position.x, Mathf.Lerp(heightConstraint.position.y, tempY, 0.1f), heightConstraint.position.z);
                         m_Capsule.height = other.bounds.center.y;
                         m_Capsule.center = new Vector3(m_Capsule.center.x, (other.bounds.center.y - other.bounds.min.y) / 2 + 0.1f, m_Capsule.center.z);
+                        agent.height = m_Capsule.height;
                     }
                     
                     break;
@@ -508,10 +528,10 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
         private void OnDrawGizmos()
         {
-            if (bulletTargetPointer != null)
+            if (bulletTarget != null)
             {
                 Gizmos.color = Color.red;
-                Gizmos.DrawWireSphere(bulletTargetPointer.transform.position, 0.2f);
+                Gizmos.DrawWireSphere(bulletTarget.transform.position, 0.2f);
             } 
         }
     }

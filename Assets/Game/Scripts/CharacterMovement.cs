@@ -102,8 +102,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			if (m_IsGrounded && crouch)
 			{
 				if (m_Crouching) return;
-				// m_Capsule.height = m_Capsule.height / 2f;
-				// m_Capsule.center = m_Capsule.center / 2f;
+				m_Capsule.height = m_Capsule.height / 2f;
+				m_Capsule.center = m_Capsule.center / 2f;
 				m_Crouching = true;
 			}
 			else

@@ -82,14 +82,14 @@ public class Chapter1 : MonoBehaviour
                 {
                     if (aiCharacterControl[i].aIStopped)
                     {
-                        aiCharacterControl[i].cachedTransform = null;
-                        i++;
+                        // aiCharacterControl[i].cachedTransform = null;
+                        i++;    
 
                         // print(i);
                         if (i == characters.Length)
                         {
                             // print(i + "STOPPED");
-                            player.GetComponent<CharacterControl>().cachedTransform = null;
+                            // player.GetComponent<CharacterControl>().cachedTransform = null;
                             scene++;
                         }
                     }

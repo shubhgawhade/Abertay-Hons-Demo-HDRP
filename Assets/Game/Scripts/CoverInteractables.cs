@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class CoverInteractables : Interactable
 {
+    public Weapon weapon;
+    
     public override void Awake()
     {
         base.Awake();

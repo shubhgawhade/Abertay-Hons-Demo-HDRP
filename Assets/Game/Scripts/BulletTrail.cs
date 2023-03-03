@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class BulletTrail : MonoBehaviour
 {
+    // public float damage;
     public float speed;
     public bool move;
 

@@ -9,6 +9,7 @@ TagManager:
   - IndoorsVolume
   - GunplayCover
   - Cover
+  - AI
   layers:
   - Default
   - TransparentFX

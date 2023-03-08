@@ -3,14 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="4dd56a48-5213-4dda-9bf0-e9744c4963bb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Abertay-Hons-Demo-HDRP/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Abertay-Hons-Demo-HDRP/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Animations/Animation Controllers/Player.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Animations/Animation Controllers/Player.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scenes/OutdoorsScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scenes/OutdoorsScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/Trail.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Prefabs/Trail.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Scenes/Scene2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scenes/Scene2.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/BulletTrail.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/BulletTrail.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/CharacterControl.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/CharacterControl.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/CharacterMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/CharacterMovement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/CoverInteractables.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/CoverInteractables.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Timer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Timer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Weapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Weapon.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +28,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Game/Scripts/DetectFadeMaterials.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Game/Scripts/DialogueAudioMatch.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Game/Scripts/FloorTriggers.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Game/Scripts/HealthManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Game/Scripts/MaterialFade.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Game/Scripts/MaterialInvisible.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Game/Scripts/ScriptedInteractables.cs" root0="FORCE_HIGHLIGHTING" />
@@ -174,6 +174,10 @@
       <workItem from="1677711345678" duration="13429000" />
       <workItem from="1677800988121" duration="4168000" />
       <workItem from="1677805334787" duration="3000" />
+      <workItem from="1677897172338" duration="1599000" />
+      <workItem from="1677951275931" duration="4956000" />
+      <workItem from="1678137110139" duration="13266000" />
+      <workItem from="1678235304496" duration="2949000" />
     </task>
     <servers />
   </component>

@@ -7,6 +7,9 @@ public class GameManager : MonoBehaviour
     // public static bool IsMoveable;
     public static bool IsInteracting;
     public static string CurrentSpeaker;
+    
+    // public int health;
+    public static float PlayerHealth;
 
     public int intelligence;
     public static int Intelligence;
@@ -36,6 +39,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        print($"PLAYER HEALTH: {PlayerHealth}");
         print($" IS INTERACTING : {IsInteracting}");
         Intelligence = intelligence;
         TestRay = testRay;

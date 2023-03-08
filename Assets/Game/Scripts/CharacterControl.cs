@@ -18,7 +18,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             Cutscene,
             Exploration,
             Gunplay,
-            Dead
+            Dead,
+            None
         }
 
         public CharacterState characterState = CharacterState.Cutscene;
@@ -225,6 +226,24 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                 break;
 
                 case CharacterState.Dead:
+
+                    m_Capsule.enabled = false;
+                    agent.updatePosition = false;
+                    
+                    Rigidbody[] bones = GetComponentsInChildren<Rigidbody>();
+                    
+                    foreach (Rigidbody bone in bones)
+                    {
+                        bone.useGravity = true;
+                        bone.isKinematic = false;
+                        // bone.AddForce(new Vector3(rb.velocity.x, 0, rb.velocity.z) * 2, ForceMode.Impulse);
+                        // bone.AddForce(rb.velocity * 2, ForceMode.Impulse);
+                    }
+                    GetComponent<Animator>().enabled = false;
+                    // agent.SetDestination(transform.position);
+                    agent.enabled = false;
+                    rb.isKinematic = true;
+                    characterState = CharacterState.None;
                     
                     break;
                 
@@ -454,6 +473,10 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             else if (Input.GetKeyDown(KeyCode.W))
             {
                 characterState = CharacterState.Gunplay;
+            }
+            else if (Input.GetMouseButtonDown(1))
+            {
+                characterState = CharacterState.Dead;
             }
             
             // print($"{gameObject.name.ToUpper()} STATE IS {characterState.ToString().ToUpper()}");

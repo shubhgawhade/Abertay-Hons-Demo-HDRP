@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityStandardAssets.Characters.ThirdPerson;
 
@@ -13,7 +12,7 @@ public class HealthManager : MonoBehaviour
         characterControl = GetComponent<CharacterControl>();
     }
 
-    private void UpdateHealth()
+    private void UpdatePlayerHealth()
     {
         if (gameObject.CompareTag("Player"))
         {
@@ -24,7 +23,7 @@ public class HealthManager : MonoBehaviour
     public void AddHealth(float addHealth)
     {
         health += addHealth;
-        UpdateHealth();
+        UpdatePlayerHealth();
     }
     
     public void SubtractHealth(float subtractHealth)
@@ -32,13 +31,13 @@ public class HealthManager : MonoBehaviour
         if (health - subtractHealth > 0)
         {
             health -= subtractHealth;
-            UpdateHealth();
         }
         else
         {
             health = 0;
             characterControl.characterState = CharacterControl.CharacterState.Dead;
         }
+        UpdatePlayerHealth();
     }
     
 }

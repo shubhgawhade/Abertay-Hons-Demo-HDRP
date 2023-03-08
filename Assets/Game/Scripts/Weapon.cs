@@ -7,13 +7,15 @@ public class Weapon : MonoBehaviour
     [SerializeField] private GameObject bulletTrail;
     [SerializeField] private GameObject muzzleFlash;
     [SerializeField] private GameObject bulletSpawnLoc;
-    public CharacterControl owner;
-    public Timer vulnerabilityTimer;
-    public Timer fireRateTimer;
-    public float vulnerabilityTime;
-    public float fireRate;
-    public float shootingAnimationDelay = 0.2f;
-    public float damage;
+    [SerializeField] private CharacterControl owner;
+    [SerializeField] private Timer vulnerabilityTimer;
+    [SerializeField] private Timer fireRateTimer;
+    [SerializeField] private float vulnerabilityTime;
+    [SerializeField] private float fireRate;
+    [SerializeField] private float shootingAnimationDelay = 0.2f;
+    [SerializeField] private float damage;
+    // [SerializeField] private float speed = 40;
+    
     public bool isHandHeld;
     public bool onCooldown;
 
@@ -49,7 +51,7 @@ public class Weapon : MonoBehaviour
         fireRateTimer.time = 0;
         fireRateTimer.StartTimer(fireRate + shootingAnimationDelay);
         onCooldown = true;
-
+        
         StartCoroutine(WaitForShootingAnimation(bulletTarget));
     }
 
@@ -59,6 +61,7 @@ public class Weapon : MonoBehaviour
         muzzleFlash.SetActive(true);
         GameObject temp = Instantiate(bulletTrail, bulletSpawnLoc.transform.position, Quaternion.identity);
         temp.GetComponent<BulletTrail>().damage = damage;
+        // temp.GetComponent<BulletTrail>().speed = speed;
         temp.transform.LookAt(bulletTarget);
     }
 

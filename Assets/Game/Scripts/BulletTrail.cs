@@ -1,13 +1,11 @@
-using System;
 using UnityEngine;
 
 public class BulletTrail : MonoBehaviour
 {
+    [SerializeField] private Rigidbody rb;
+
     public float damage;
     public float speed;
-    public bool move;
-
-    public Rigidbody rb;
 
     private void Awake()
     {
@@ -16,19 +14,16 @@ public class BulletTrail : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (move)
-        {
-            rb.AddForce(speed * Time.deltaTime * transform.forward, ForceMode.Force);
-            // transform.position += speed * Time.deltaTime * transform.forward;
-            // transform.Translate(speed * Time.deltaTime * transform.forward);
-        }
+        rb.AddForce(speed * Time.deltaTime * transform.forward, ForceMode.Force);
+        // transform.position += speed * Time.deltaTime * transform.forward;
+        // transform.Translate(speed * Time.deltaTime * transform.forward);
     }
 
     private void OnTriggerEnter(Collider other)
     {
         // Destroy(gameObject);
         
-        // print($"TRIGGER: {other.name}");
+        print($"TRIGGER: {other.name}");
         // HitPhysics(other);
     }
 
@@ -40,28 +35,27 @@ public class BulletTrail : MonoBehaviour
         HitPhysics(collision.collider);
     }
 
-    public void HitPhysics(Collider other)
+    private void HitPhysics(Collider hitCollider)
     {
-        if (other.transform.root.CompareTag("Player") || other.transform.root.CompareTag("AI"))
+        if (hitCollider.transform.root.CompareTag("Player") || hitCollider.transform.root.CompareTag("AI"))
         {
-            // Vector3 a = transform.localToWorldMatrix.MultiplyPoint3x4(transform.forward).normalized;
-            // print(transform.forward);
-            // other.GetComponent<Rigidbody>().AddForce(new Vector3(a.x, 0, a.z), ForceMode.Force);
-            print(GameManager.PlayerHealth - damage);
+            HealthManager hitCharacterHealthManger = hitCollider.transform.root.GetComponent<HealthManager>();
+            Rigidbody hitCharacterRigidbody = hitCollider.GetComponent<Rigidbody>();
+            
+            // print(hitCharacterHealthManger.health - damage);
 
-            if (GameManager.PlayerHealth - damage <= 0)
+            if (hitCharacterHealthManger.health - damage <= 0)
             {
-                other.GetComponent<Rigidbody>().useGravity = true;
-                other.GetComponent<Rigidbody>().isKinematic = false;
-                other.GetComponent<Rigidbody>().AddForce(rb.velocity * 6, ForceMode.Impulse);
+                hitCharacterRigidbody.useGravity = true;
+                hitCharacterRigidbody.isKinematic = false;
+                hitCharacterRigidbody.AddForce(rb.velocity * 6, ForceMode.Impulse);
             }
             else
             {
-                other.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                hitCharacterRigidbody.velocity = Vector3.zero;
             }
             
-            other.transform.root.GetComponent<HealthManager>().SubtractHealth(damage);
-            // print($"TRIGGER: {other.name}");
+            hitCharacterHealthManger.SubtractHealth(damage);
         }
     }
 }

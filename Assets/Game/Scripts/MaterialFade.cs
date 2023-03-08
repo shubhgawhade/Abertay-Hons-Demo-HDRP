@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityStandardAssets.Characters.ThirdPerson;
 
 public class MaterialFade : MonoBehaviour
 {
@@ -12,7 +11,6 @@ public class MaterialFade : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        CharacterControl.FadeRoof += FadeMat;
         objMat = gameObject.GetComponent<MeshRenderer>().material;
         layer = gameObject.layer;
     }

@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print($"PLAYER HEALTH: {PlayerHealth}");
+        // print($"PLAYER HEALTH: {PlayerHealth}");
         print($" IS INTERACTING : {IsInteracting}");
         Intelligence = intelligence;
         TestRay = testRay;

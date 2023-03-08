@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityStandardAssets.Characters.ThirdPerson;
 
 //ARRAY WITH ALL FLOORS HAVING THIS VOLUME TRIGGER
 //WHICHEVER COLLIDER GETS ACTIVATED, SETS FADE TO FALSE FOR ITSELF
@@ -7,27 +6,9 @@ using UnityStandardAssets.Characters.ThirdPerson;
 
 public class DetectFadeMaterials : MonoBehaviour
 {
-    // public bool enableCollidor;
-    // public int lastExited;
-    // public int lastEntered;
     public bool fade;
     public float fadeSpeed;
 
-    // public void ToggleCollider(bool )
-    // {
-    //     enableCollidor = !enableCollidor;
-    // }
-
-    private void Awake()
-    {
-        CharacterControl.Detect += Detect;
-    }
-
-    private void Detect(bool fade)
-    {
-        this.fade = fade;
-    }
-    
     private void OnCollisionStay(Collision collision)
     {
         // print(collision.gameObject.name);

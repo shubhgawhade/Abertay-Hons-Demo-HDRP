@@ -443,7 +443,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             }
             else if (Input.GetMouseButtonDown(1))
             {
-                // characterState = CharacterState.Dead;
+                characterState = CharacterState.Dead;
             }
             
             // print($"{gameObject.name.ToUpper()} STATE IS {characterState.ToString().ToUpper()}");

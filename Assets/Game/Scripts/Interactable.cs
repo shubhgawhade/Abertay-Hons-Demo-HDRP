@@ -13,8 +13,9 @@ public class Interactable : MonoBehaviour
     }
 
     public TypeOfInteractable typeOfInteractable = TypeOfInteractable.Unscripted;
+    public LayerMask ignoreLayer;
 
-    
+
     public GameObject targetLocation;
     [SerializeField] protected GameObject player;
     public bool isVisible;
@@ -43,15 +44,16 @@ public class Interactable : MonoBehaviour
     {
         if (other.transform.root.CompareTag("Player") && other.transform.root.GetComponent<CharacterControl>().characterState == CharacterControl.CharacterState.Exploration)
         {
-            if (Physics.Raycast(player.transform.position, transform.position - player.transform.position, out hit) && hit.collider.gameObject == gameObject &&
+            if (Physics.Raycast(player.transform.position, transform.position - player.transform.position, out hit, Mathf.Infinity, ~ignoreLayer) && hit.collider.gameObject == gameObject &&
                 GameManager.Intelligence >= minIntel && !isVisible)
             {
                 // print(hit.collider.name);
                 
                 EnableOutline();
             }
-            if (Physics.Raycast(player.transform.position, transform.position - player.transform.position, out hit) && hit.collider.gameObject != gameObject)
+            if (Physics.Raycast(player.transform.position, transform.position - player.transform.position, out hit, Mathf.Infinity, ~ignoreLayer) && hit.collider.gameObject != gameObject)
             {
+                print(hit.collider.name);
                 DisableOutline();
             }
             else

@@ -2474,9 +2474,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterState: 0
   cinemachineTarget: {fileID: 0}
-  bulletTrail: {fileID: 0}
-  muzzleFlash: {fileID: 0}
-  bulletSpawnLoc: {fileID: 0}
   name: STRIPPER
   targetTransform: {fileID: 259982479}
   cachedTransform: {fileID: 0}
@@ -2491,7 +2488,7 @@ MonoBehaviour:
   ignoreLayer:
     serializedVersion: 2
     m_Bits: 0
-  bulletTargetPointer: {fileID: 0}
+  bulletTarget: {fileID: 0}
 --- !u!195 &593167056
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -3683,6 +3680,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   typeOfInteractable: 0
+  ignoreLayer:
+    serializedVersion: 2
+    m_Bits: 1028
   targetLocation: {fileID: 648984993}
   player: {fileID: 1927926793}
   isVisible: 0
@@ -4253,6 +4253,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   typeOfInteractable: 0
+  ignoreLayer:
+    serializedVersion: 2
+    m_Bits: 0
   targetLocation: {fileID: 368253385}
   player: {fileID: 1927926793}
   isVisible: 0
@@ -7941,9 +7944,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterState: 0
   cinemachineTarget: {fileID: 0}
-  bulletTrail: {fileID: 0}
-  muzzleFlash: {fileID: 0}
-  bulletSpawnLoc: {fileID: 0}
   name: PAULIE
   targetTransform: {fileID: 1303421054}
   cachedTransform: {fileID: 0}
@@ -7958,7 +7958,7 @@ MonoBehaviour:
   ignoreLayer:
     serializedVersion: 2
     m_Bits: 0
-  bulletTargetPointer: {fileID: 0}
+  bulletTarget: {fileID: 0}
 --- !u!195 &1711899647
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -23135,9 +23135,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterState: 0
   cinemachineTarget: {fileID: 0}
-  bulletTrail: {fileID: 0}
-  muzzleFlash: {fileID: 0}
-  bulletSpawnLoc: {fileID: 0}
   name: LUCA
   targetTransform: {fileID: 977980771}
   cachedTransform: {fileID: 0}
@@ -23152,7 +23149,7 @@ MonoBehaviour:
   ignoreLayer:
     serializedVersion: 2
     m_Bits: 0
-  bulletTargetPointer: {fileID: 0}
+  bulletTarget: {fileID: 0}
 --- !u!136 &6121777988800495379
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -23604,7 +23601,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6842342793067014595}
   m_LocalRotation: {x: 0.36599812, y: 0.45315394, z: -0.2113091, w: 0.78488564}
-  m_LocalPosition: {x: -8.518103, y: 8.807754, z: -20.277428}
+  m_LocalPosition: {x: -8.518104, y: 8.807762, z: -20.277428}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -24290,7 +24287,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6842342793993662067}
   m_LocalRotation: {x: 0.36599812, y: 0.45315394, z: -0.2113091, w: 0.78488564}
-  m_LocalPosition: {x: -8.518103, y: 8.807754, z: -20.277428}
+  m_LocalPosition: {x: -8.518104, y: 8.807762, z: -20.277428}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -24336,6 +24333,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   typeOfInteractable: 0
+  ignoreLayer:
+    serializedVersion: 2
+    m_Bits: 0
   targetLocation: {fileID: 6842342793071541902}
   player: {fileID: 6842342792815959445}
   isVisible: 0

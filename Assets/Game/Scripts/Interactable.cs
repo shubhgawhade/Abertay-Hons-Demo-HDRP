@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityStandardAssets.Characters.ThirdPerson;
 
 
@@ -17,7 +18,7 @@ public class Interactable : MonoBehaviour
 
 
     public GameObject targetLocation;
-    [SerializeField] protected GameObject player;
+    [SerializeField] public GameObject character;
     public bool isVisible;
     public int minIntel;
     public int rewardIntel;
@@ -44,14 +45,14 @@ public class Interactable : MonoBehaviour
     {
         if (other.transform.root.CompareTag("Player") && other.transform.root.GetComponent<CharacterControl>().characterState == CharacterControl.CharacterState.Exploration)
         {
-            if (Physics.Raycast(player.transform.position, transform.position - player.transform.position, out hit, Mathf.Infinity, ~ignoreLayer) && hit.collider.gameObject == gameObject &&
+            if (Physics.Raycast(character.transform.position, transform.position - character.transform.position, out hit, Mathf.Infinity, ~ignoreLayer) && hit.collider.gameObject == gameObject &&
                 GameManager.Intelligence >= minIntel && !isVisible)
             {
                 // print(hit.collider.name);
                 
                 EnableOutline();
             }
-            if (Physics.Raycast(player.transform.position, transform.position - player.transform.position, out hit, Mathf.Infinity, ~ignoreLayer) && hit.collider.gameObject != gameObject)
+            if (Physics.Raycast(character.transform.position, transform.position - character.transform.position, out hit, Mathf.Infinity, ~ignoreLayer) && hit.collider.gameObject != gameObject)
             {
                 print(hit.collider.name);
                 DisableOutline();
@@ -106,7 +107,7 @@ public class Interactable : MonoBehaviour
         if (GameManager.TestRay && testRay)
         {
             Gizmos.color = Color.red;
-            Gizmos.DrawLine(player.transform.position, transform.position);
+            Gizmos.DrawLine(character.transform.position, transform.position);
         }
     }
 }

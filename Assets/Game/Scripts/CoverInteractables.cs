@@ -2,8 +2,15 @@ using UnityEngine;
 
 public class CoverInteractables : Interactable
 {
-    public Weapon weapon;
-    
+    public enum WeaponType
+    {
+        Gun,
+        BigGun,
+        Length
+    }
+
+    public WeaponType weaponType;
+
     public override void Awake()
     {
         base.Awake();

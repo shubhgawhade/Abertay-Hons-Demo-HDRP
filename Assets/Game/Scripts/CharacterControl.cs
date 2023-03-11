@@ -24,6 +24,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         [SerializeField] private CinemachineTargetGroup cinemachineTarget;
         
         public string name;
+        [SerializeField] private GameObject characterHead;
         public Transform targetTransform;
         public Transform cachedTransform;
         private Rigidbody rb;
@@ -43,6 +44,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
         // Gunplay local variables
         public Weapon weapon;
+        public Weapon[] weapons;
+        public CoverInteractables.WeaponType weaponType = CoverInteractables.WeaponType.Length;
 
         private Animator anim; 
         private Rig coverAnimRig;
@@ -264,13 +267,43 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                     
                     characterState = CharacterState.Gunplay;
                     currentInteractable.tag = "Cover";
-                    weapon = currentInteractable.GetComponent<CoverInteractables>().weapon;
-                   
-                    if (weapon.isHandHeld)
+                    
+                    //COMAPRE THE TYPE OF WEAPON AND ENABLE THAT WEAPON ON THIS PLAYER
+                    // weapon = currentInteractable.GetComponent<CoverInteractables>().weapon;
+                    currentInteractable.character = characterHead;
+                    weaponType = currentInteractable.GetComponent<CoverInteractables>().weaponType;
+                    
+                    for (int i = 0; i < (int)CoverInteractables.WeaponType.Length; i++)
                     {
-                        weapon.gameObject.SetActive(true);
-                        anim.SetBool("GunDrawn", true);
+                        if (i == (int)weaponType)
+                        {
+                            weapon = weapons[i];
+                            if (weapons[i].isHandHeld)
+                            {
+                                weapons[i].gameObject.SetActive(true);
+                            }
+                        }
                     }
+                    
+                    // switch (weaponType)
+                    // {
+                    //     case CoverInteractables.WeaponType.Gun:
+                    //
+                    //         
+                    //         break;
+                    //     
+                    //     case CoverInteractables.WeaponType.BigGun:
+                    //
+                    //         weapon = weapons[1];
+                    //         if (weapons[1].isHandHeld)
+                    //         {
+                    //             weapons[1].gameObject.SetActive(true);
+                    //         }
+                    //
+                    //         break;
+                    // }
+                    
+                    anim.SetBool("GunDrawn", true);
                     
                     crouch = true;
                     

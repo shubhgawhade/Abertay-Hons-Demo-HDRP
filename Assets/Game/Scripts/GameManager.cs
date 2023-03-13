@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour
     {
         // print($"PLAYER HEALTH: {PlayerHealth}");
         print($" IS INTERACTING : {IsInteracting}");
-        Intelligence = intelligence;
+        intelligence = Intelligence;
         TestRay = testRay;
         // print("IS INTERACTING: " + isInteracting);
     }

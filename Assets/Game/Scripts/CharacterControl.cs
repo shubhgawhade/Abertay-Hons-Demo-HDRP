@@ -256,8 +256,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
         private void InteractableTypeBehaviour()
         {
-            GameManager.Intelligence += currentInteractable.rewardIntel;
-            print("adding intel: " + currentInteractable.rewardIntel);
+            // GameManager.Intelligence += currentInteractable.rewardIntel;
+            // print("adding intel: " + currentInteractable.rewardIntel);
             targetIsInteractable = false;
             cinemachineTarget.AddMember(currentInteractable.targetLocation.transform, 3, 0);
                 

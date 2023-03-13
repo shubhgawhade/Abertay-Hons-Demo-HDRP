@@ -43,6 +43,7 @@ public class TextReader : MonoBehaviour
     public float skipDelay = 1;
 
     private Interactable interactable;
+    public bool alreadyInteracted;
 
     // ACTIONS RELATED TO EXTERNAL SCRIPTS
     public static Action<Transform> RemoveCinemachineTarget;
@@ -191,6 +192,14 @@ public class TextReader : MonoBehaviour
                 // print(gameObject.transform);
                 RemoveCinemachineTarget(interactable.targetLocation.transform);
             }
+
+            // ADDS INTEL ONLY IF THE PLAYER HASNT ALREADY INTERACTED WITH THIS OBJECT AND NOT SKIPPED THE DIALOGUE
+            if (!alreadyInteracted && !dialogueSkipTimer.isCompleted)
+            {
+                GameManager.Intelligence += interactable.rewardIntel;
+                alreadyInteracted = true;
+            }
+            
             GameManager.IsInteracting = false;
             currentDialogue = null;
             dialogueText.text = "";

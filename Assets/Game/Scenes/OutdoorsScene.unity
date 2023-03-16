@@ -2324,6 +2324,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Weight: 0
   m_Effectors: []
+--- !u!1 &564484852 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5159084768325038244, guid: e7504d630c9b7b2418ea56653a8066dc,
+    type: 3}
+  m_PrefabInstance: {fileID: 2368781113697025232}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &567708172 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -2664073417542549679, guid: 7140987bc17c0ce438716d386abe370a,
@@ -2394,7 +2400,7 @@ GameObject:
   - component: {fileID: 593167058}
   - component: {fileID: 593167057}
   - component: {fileID: 593167056}
-  - component: {fileID: 593167055}
+  - component: {fileID: 593167061}
   - component: {fileID: 593167054}
   - component: {fileID: 593167053}
   - component: {fileID: 593167060}
@@ -2460,35 +2466,6 @@ MonoBehaviour:
   m_MoveSpeedMultiplier: 1
   m_AnimSpeedMultiplier: 1
   m_GroundCheckDistance: 0.2
---- !u!114 &593167055
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 593167051}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c5335f0882fe4d478883cc8c58ce906, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  characterState: 0
-  cinemachineTarget: {fileID: 0}
-  name: STRIPPER
-  targetTransform: {fileID: 259982479}
-  cachedTransform: {fileID: 0}
-  target: {x: 0, y: 0, z: 0}
-  doubleClickDelay: 0
-  timer: 0
-  currentInteractable: {fileID: 0}
-  targetIsInteractable: 0
-  aIStopped: 0
-  weapon: {fileID: 0}
-  crouch: 0
-  ignoreLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  bulletTarget: {fileID: 0}
 --- !u!195 &593167056
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -2579,6 +2556,32 @@ MonoBehaviour:
   - m_Rig: {fileID: 1448566175}
     m_Active: 1
   m_Effectors: []
+--- !u!114 &593167061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 593167051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bed13b1fb8e5474eb1d644c39cc1e67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterState: 0
+  name: STRIPPER
+  targetTransform: {fileID: 259982479}
+  cachedTransform: {fileID: 0}
+  target: {x: 0, y: 0, z: 0}
+  isInteracting: 0
+  targetIsInteractable: 0
+  currentInteractable: {fileID: 0}
+  aIStopped: 0
+  weapon: {fileID: 0}
+  weapons: []
+  weaponType: 2
+  crouch: 0
+  bulletTarget: {fileID: 0}
 --- !u!4 &615494533 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1852576806548013000, guid: 093b7fb7d20e0224c83d859d14374220,
@@ -3684,7 +3687,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1028
   targetLocation: {fileID: 648984993}
-  player: {fileID: 1927926793}
+  character: {fileID: 564484852}
   isVisible: 0
   minIntel: 0
   rewardIntel: 0
@@ -3716,6 +3719,7 @@ MonoBehaviour:
   nextDialogue: 0
   dialogueTracker: 0
   skipDelay: 1
+  alreadyInteracted: 0
 --- !u!114 &979017933
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4257,7 +4261,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   targetLocation: {fileID: 368253385}
-  player: {fileID: 1927926793}
+  character: {fileID: 564484852}
   isVisible: 0
   minIntel: 0
   rewardIntel: 0
@@ -4289,6 +4293,7 @@ MonoBehaviour:
   nextDialogue: 0
   dialogueTracker: 0
   skipDelay: 1
+  alreadyInteracted: 0
 --- !u!114 &1059146283
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7881,7 +7886,7 @@ GameObject:
   - component: {fileID: 1711899649}
   - component: {fileID: 1711899648}
   - component: {fileID: 1711899647}
-  - component: {fileID: 1711899646}
+  - component: {fileID: 1711899653}
   - component: {fileID: 1711899645}
   - component: {fileID: 1711899644}
   - component: {fileID: 1711899652}
@@ -7930,35 +7935,6 @@ MonoBehaviour:
   m_MoveSpeedMultiplier: 1
   m_AnimSpeedMultiplier: 1
   m_GroundCheckDistance: 0.2
---- !u!114 &1711899646
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1711899643}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c5335f0882fe4d478883cc8c58ce906, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  characterState: 0
-  cinemachineTarget: {fileID: 0}
-  name: PAULIE
-  targetTransform: {fileID: 1303421054}
-  cachedTransform: {fileID: 0}
-  target: {x: 0, y: 0, z: 0}
-  doubleClickDelay: 0
-  timer: 0
-  currentInteractable: {fileID: 0}
-  targetIsInteractable: 0
-  aIStopped: 0
-  weapon: {fileID: 0}
-  crouch: 0
-  ignoreLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  bulletTarget: {fileID: 0}
 --- !u!195 &1711899647
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -8067,6 +8043,32 @@ MonoBehaviour:
   - m_Rig: {fileID: 1064339116}
     m_Active: 1
   m_Effectors: []
+--- !u!114 &1711899653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1711899643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bed13b1fb8e5474eb1d644c39cc1e67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterState: 0
+  name: PAULIE
+  targetTransform: {fileID: 1303421054}
+  cachedTransform: {fileID: 0}
+  target: {x: 0, y: 0, z: 0}
+  isInteracting: 0
+  targetIsInteractable: 0
+  currentInteractable: {fileID: 0}
+  aIStopped: 0
+  weapon: {fileID: 0}
+  weapons: []
+  weaponType: 2
+  crouch: 0
+  bulletTarget: {fileID: 0}
 --- !u!4 &1716276695 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6000407479487422213, guid: 1ec84fb33151a0644852dfd02495032b,
@@ -9305,6 +9307,7 @@ MonoBehaviour:
   nextDialogue: 0
   dialogueTracker: 0
   skipDelay: 2
+  alreadyInteracted: 0
 --- !u!114 &1885397267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22989,6 +22992,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 9091495906279102659, guid: e7504d630c9b7b2418ea56653a8066dc, type: 3}
+    - {fileID: 9091495907525941981, guid: e7504d630c9b7b2418ea56653a8066dc, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e7504d630c9b7b2418ea56653a8066dc, type: 3}
 --- !u!4 &2368781113697025233 stripped
 Transform:
@@ -23134,21 +23138,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterState: 0
-  cinemachineTarget: {fileID: 0}
   name: LUCA
   targetTransform: {fileID: 977980771}
   cachedTransform: {fileID: 0}
   target: {x: 0, y: 0, z: 0}
-  doubleClickDelay: 0
-  timer: 0
-  currentInteractable: {fileID: 0}
+  isInteracting: 0
   targetIsInteractable: 0
+  currentInteractable: {fileID: 0}
   aIStopped: 0
   weapon: {fileID: 0}
+  weapons: []
+  weaponType: 2
   crouch: 0
-  ignoreLayer:
-    serializedVersion: 2
-    m_Bits: 0
   bulletTarget: {fileID: 0}
 --- !u!136 &6121777988800495379
 CapsuleCollider:
@@ -23181,6 +23182,7 @@ GameObject:
   - component: {fileID: 6121777988800139333}
   - component: {fileID: 6121777987983562963}
   - component: {fileID: 6121777988825079984}
+  - component: {fileID: 6121777988825079985}
   m_Layer: 2
   m_Name: LUCA
   m_TagString: Untagged
@@ -23261,6 +23263,32 @@ MonoBehaviour:
   - m_Rig: {fileID: 532220001}
     m_Active: 1
   m_Effectors: []
+--- !u!114 &6121777988825079985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6121777988805844331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bed13b1fb8e5474eb1d644c39cc1e67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterState: 0
+  name: LUCA
+  targetTransform: {fileID: 977980771}
+  cachedTransform: {fileID: 0}
+  target: {x: 0, y: 0, z: 0}
+  isInteracting: 0
+  targetIsInteractable: 0
+  currentInteractable: {fileID: 0}
+  aIStopped: 0
+  weapon: {fileID: 0}
+  weapons: []
+  weaponType: 2
+  crouch: 0
+  bulletTarget: {fileID: 0}
 --- !u!1 &6842342792785642081
 GameObject:
   m_ObjectHideFlags: 0
@@ -23394,12 +23422,38 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2368781113697025232}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &6842342792815959445 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9091495907537412421, guid: e7504d630c9b7b2418ea56653a8066dc,
-    type: 3}
-  m_PrefabInstance: {fileID: 2368781113697025232}
+--- !u!114 &6842342792815747508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6842342792815747499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 426e6c021a9e26142b6a1cbde2a72350, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterState: 0
+  name: PLAYER
+  targetTransform: {fileID: 1682866909}
+  cachedTransform: {fileID: 0}
+  target: {x: 0, y: 0, z: 0}
+  isInteracting: 0
+  targetIsInteractable: 0
+  currentInteractable: {fileID: 0}
+  aIStopped: 0
+  weapon: {fileID: 0}
+  weapons: []
+  weaponType: 2
+  crouch: 0
+  bulletTarget: {fileID: 0}
+  cinemachineTarget: {fileID: 6842342793698539605}
+  doubleClickDelay: 0.2
+  timer: 0
+  ignoreLayer:
+    serializedVersion: 2
+    m_Bits: 1073741828
 --- !u!1 &6842342792879335384
 GameObject:
   m_ObjectHideFlags: 3
@@ -24320,6 +24374,7 @@ MonoBehaviour:
   nextDialogue: 0
   dialogueTracker: 0
   skipDelay: 1
+  alreadyInteracted: 0
 --- !u!114 &6842342794275908234
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24337,7 +24392,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   targetLocation: {fileID: 6842342793071541902}
-  player: {fileID: 6842342792815959445}
+  character: {fileID: 0}
   isVisible: 0
   minIntel: 0
   rewardIntel: 0

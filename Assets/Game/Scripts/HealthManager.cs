@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityStandardAssets.Characters.ThirdPerson;
 
 public class HealthManager : MonoBehaviour
 {

@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityStandardAssets.Characters.ThirdPerson;
 
 public class Weapon : MonoBehaviour
 {

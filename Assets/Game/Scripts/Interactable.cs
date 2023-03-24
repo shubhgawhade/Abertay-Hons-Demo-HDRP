@@ -46,12 +46,12 @@ public class Interactable : MonoBehaviour
             if (Physics.Raycast(character.transform.position, transform.position - character.transform.position, out hit, Mathf.Infinity, ~ignoreLayer) && hit.collider.gameObject == gameObject &&
                 GameManager.Intelligence >= minIntel && !isVisible)
             {
-                print(hit.collider.name);
+                // print(hit.collider.name);
                 EnableOutline();
             }
             else if ((Physics.Raycast(character.transform.position, transform.position - character.transform.position, out hit, Mathf.Infinity, ~ignoreLayer) && hit.collider.gameObject != gameObject) || GameManager.Intelligence < minIntel)
             {
-                print(hit.collider.name);
+                // print(hit.collider.name);
                 DisableOutline();
             }
             else

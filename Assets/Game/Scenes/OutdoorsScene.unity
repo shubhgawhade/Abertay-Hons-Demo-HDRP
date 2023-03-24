@@ -2582,6 +2582,16 @@ MonoBehaviour:
   weaponType: 2
   crouch: 0
   bulletTarget: {fileID: 0}
+  player: {fileID: 0}
+  aiRayLoc: {fileID: 0}
+  gunplayLocations: []
+  targetLocations: []
+  lookAt: 0
+  time: 0
+  hitLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  isFriendly: 0
 --- !u!4 &615494533 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1852576806548013000, guid: 093b7fb7d20e0224c83d859d14374220,
@@ -8069,6 +8079,16 @@ MonoBehaviour:
   weaponType: 2
   crouch: 0
   bulletTarget: {fileID: 0}
+  player: {fileID: 0}
+  aiRayLoc: {fileID: 0}
+  gunplayLocations: []
+  targetLocations: []
+  lookAt: 0
+  time: 0
+  hitLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  isFriendly: 0
 --- !u!4 &1716276695 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6000407479487422213, guid: 1ec84fb33151a0644852dfd02495032b,
@@ -23125,32 +23145,6 @@ MonoBehaviour:
   m_MoveSpeedMultiplier: 1
   m_AnimSpeedMultiplier: 1
   m_GroundCheckDistance: 0.2
---- !u!114 &6121777988800322253
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6121777988805844331}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c5335f0882fe4d478883cc8c58ce906, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  characterState: 0
-  name: LUCA
-  targetTransform: {fileID: 977980771}
-  cachedTransform: {fileID: 0}
-  target: {x: 0, y: 0, z: 0}
-  isInteracting: 0
-  targetIsInteractable: 0
-  currentInteractable: {fileID: 0}
-  aIStopped: 0
-  weapon: {fileID: 0}
-  weapons: []
-  weaponType: 2
-  crouch: 0
-  bulletTarget: {fileID: 0}
 --- !u!136 &6121777988800495379
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -23178,11 +23172,10 @@ GameObject:
   - component: {fileID: 6121777988808851801}
   - component: {fileID: 6121777988800495379}
   - component: {fileID: 6121777988825079983}
-  - component: {fileID: 6121777988800322253}
+  - component: {fileID: 6121777988825079985}
   - component: {fileID: 6121777988800139333}
   - component: {fileID: 6121777987983562963}
   - component: {fileID: 6121777988825079984}
-  - component: {fileID: 6121777988825079985}
   m_Layer: 2
   m_Name: LUCA
   m_TagString: Untagged
@@ -23289,6 +23282,16 @@ MonoBehaviour:
   weaponType: 2
   crouch: 0
   bulletTarget: {fileID: 0}
+  player: {fileID: 0}
+  aiRayLoc: {fileID: 0}
+  gunplayLocations: []
+  targetLocations: []
+  lookAt: 0
+  time: 0
+  hitLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  isFriendly: 0
 --- !u!1 &6842342792785642081
 GameObject:
   m_ObjectHideFlags: 0

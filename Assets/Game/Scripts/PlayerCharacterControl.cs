@@ -68,6 +68,7 @@ public class PlayerCharacterControl : CharacterControl
                 {
                     // pointShootRig.weight = 0;
                     GameManager.IsInteracting = false;
+                    currentInteractable.isOccupied = false;
                     characterState = CharacterState.Exploration;
                     weapon.gameObject.SetActive(false);
                     anim.SetBool("GunDrawn", false);
@@ -173,6 +174,7 @@ public class PlayerCharacterControl : CharacterControl
                             GameManager.IsInteracting = false;
                             characterState = CharacterState.Exploration;
                             currentInteractable.transform.root.tag = "Interactable";
+                            currentInteractable.isOccupied = false;
                             cinemachineTarget.RemoveMember(currentInteractable.targetLocation.transform);
                             characterMovement.run = true;
                             currentInteractable = tempInteractable;

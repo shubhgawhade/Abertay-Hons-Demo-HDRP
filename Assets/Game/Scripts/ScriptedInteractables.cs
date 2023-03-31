@@ -35,7 +35,7 @@ public class ScriptedInteractables : Interactable
     {
         base.OnTriggerExit(other);
         
-        if (textReader.interactableStates == InteractableStates.Interacting)
+        if (other.transform.root.CompareTag("Player") && textReader.interactableStates == InteractableStates.Interacting)
         {
             textReader.EndDialogue();
         }

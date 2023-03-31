@@ -103,8 +103,20 @@ public class CharacterControl : MonoBehaviour
         
         
         // ----- RE-FORMAT
+        print("DISTANCE LEFT" + (target - transform.position).magnitude);
         if ((target - transform.position).magnitude > 0.2f)
         {
+            // IF THE INTERACTABLE IS OCCUPIED BEFORE THE CHARACTER REACHES IT
+            if (targetIsInteractable && currentInteractable.isOccupied && currentInteractable.typeOfInteractable == Interactable.TypeOfInteractable.Cover)
+            {
+                cachedTransform = null;
+                currentInteractable = null;
+                target = transform.position;
+                agent.SetDestination(target);
+                targetIsInteractable = false;
+                // return;
+            }
+            
             characterMovement.Move(agent.desiredVelocity, ToggleCrouch(), false);
             agent.height = m_Capsule.height;
 
@@ -155,7 +167,7 @@ public class CharacterControl : MonoBehaviour
             case CharacterState.Exploration:
 
                 // LERPING BETWEEN DIFFERENT COVER HEIGHTS
-                InterpolateCoverRIgWeight();
+                InterpolateCoverRigWeight();
                 
                 break;
             
@@ -163,11 +175,17 @@ public class CharacterControl : MonoBehaviour
             case CharacterState.Gunplay:
 
                 // LERPING BETWEEN DIFFERENT COVER HEIGHTS
-                InterpolateCoverRIgWeight();
+                InterpolateCoverRigWeight();
 
                 break;
 
             case CharacterState.Dead:
+
+                if (currentInteractable)
+                {
+                    currentInteractable.tag = "Interactable";
+                    currentInteractable.isOccupied = false;
+                }
 
                 m_Capsule.enabled = false;
                 agent.updatePosition = false;
@@ -199,6 +217,7 @@ public class CharacterControl : MonoBehaviour
     
     protected virtual void InteractableTypeBehaviour()
     {
+        currentInteractable.isOccupied = true;
         targetIsInteractable = false;
             
         switch (currentInteractable.typeOfInteractable)
@@ -207,7 +226,7 @@ public class CharacterControl : MonoBehaviour
                 
                 characterState = CharacterState.Gunplay;
                 currentInteractable.tag = "Cover";
-                
+
                 //COMAPRE THE TYPE OF WEAPON AND ENABLE THAT WEAPON ON THIS PLAYER
                 // weapon = currentInteractable.GetComponent<CoverInteractables>().weapon;
                 // currentInteractable.character = characterHead;
@@ -251,7 +270,7 @@ public class CharacterControl : MonoBehaviour
         }
     }
 
-    private void InterpolateCoverRIgWeight()
+    private void InterpolateCoverRigWeight()
     {
         coverAnimRig.weight = Mathf.Lerp(coverAnimRig.weight, coverAnimRigWeight, 0.2f);
         coverAnimRig.weight = Mathf.Clamp(coverAnimRig.weight, 0, 1);

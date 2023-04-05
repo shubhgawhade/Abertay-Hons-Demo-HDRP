@@ -53,6 +53,15 @@ public class PlayerCharacterControl : CharacterControl
 
     private void PlayerUpdate()
     {
+        if (targetIsInteractable && currentInteractable.isOccupied && currentInteractable.typeOfInteractable == Interactable.TypeOfInteractable.Cover)
+        {
+            cachedTransform = null;
+            currentInteractable = null;
+            target = transform.position;
+            agent.SetDestination(target);
+            targetIsInteractable = false;
+        }
+
         // WORLD FUNCTIONS BASED ON THE CHARACTER STATE
         switch (characterState)
         {

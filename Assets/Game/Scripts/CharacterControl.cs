@@ -103,19 +103,19 @@ public class CharacterControl : MonoBehaviour
         
         
         // ----- RE-FORMAT
-        print("DISTANCE LEFT" + (target - transform.position).magnitude);
+        // print("DISTANCE LEFT" + (target - transform.position).magnitude);
         if ((target - transform.position).magnitude > 0.2f)
         {
             // IF THE INTERACTABLE IS OCCUPIED BEFORE THE CHARACTER REACHES IT
-            if (targetIsInteractable && currentInteractable.isOccupied && currentInteractable.typeOfInteractable == Interactable.TypeOfInteractable.Cover)
-            {
-                cachedTransform = null;
-                currentInteractable = null;
-                target = transform.position;
-                agent.SetDestination(target);
-                targetIsInteractable = false;
-                // return;
-            }
+            // if (targetIsInteractable && currentInteractable.isOccupied && currentInteractable.typeOfInteractable == Interactable.TypeOfInteractable.Cover)
+            // {
+            //     cachedTransform = null;
+            //     currentInteractable = null;
+            //     target = transform.position;
+            //     agent.SetDestination(target);
+            //     targetIsInteractable = false;
+            //     // return;
+            // }
             
             characterMovement.Move(agent.desiredVelocity, ToggleCrouch(), false);
             agent.height = m_Capsule.height;
@@ -142,7 +142,7 @@ public class CharacterControl : MonoBehaviour
                     }
 
                     // WHEN THE PLAYER STOPS AT THE INTERACTABES TARGET LOCATION
-                    if (targetIsInteractable)
+                    if (targetIsInteractable && !currentInteractable.isOccupied)
                     {
                         InteractableTypeBehaviour();
                         // currentInteractable = null;
@@ -209,7 +209,7 @@ public class CharacterControl : MonoBehaviour
             
             default:
                 
-                print($"{gameObject.name} NOT SET TO ANY CHARACTER STATE");
+                Debug.LogWarning($"{gameObject.name} NOT SET TO ANY CHARACTER STATE");
                 
                 break;
         }

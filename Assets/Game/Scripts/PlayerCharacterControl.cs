@@ -53,6 +53,19 @@ public class PlayerCharacterControl : CharacterControl
 
     private void PlayerUpdate()
     {
+        if ((target - transform.position).magnitude > 0.2f)
+        {
+            // IF THE INTERACTABLE IS OCCUPIED BEFORE THE CHARACTER REACHES IT
+            if (targetIsInteractable && currentInteractable.isOccupied && currentInteractable.typeOfInteractable == Interactable.TypeOfInteractable.Cover)
+            {
+                cachedTransform = null;
+                currentInteractable = null;
+                target = transform.position;
+                agent.SetDestination(target);
+                targetIsInteractable = false;
+            }
+        }
+        
         if (targetIsInteractable && currentInteractable.isOccupied && currentInteractable.typeOfInteractable == Interactable.TypeOfInteractable.Cover)
         {
             cachedTransform = null;

@@ -39,16 +39,17 @@ public class CharacterControl : MonoBehaviour
     public CoverInteractables.WeaponType weaponType = CoverInteractables.WeaponType.Length;
 
     protected Animator anim; 
-    protected Rig coverAnimRig;
+    public Rig coverAnimRig;
     protected Rig pointShootRig;
     private Transform _defaultHeightConstraint;
-    private Transform heightConstraint;
+    public Transform heightConstraint;
     private float coverAnimRigWeight;
     
     public bool crouch;
-    protected CapsuleCollider m_Capsule;
+    public CapsuleCollider m_Capsule;
 
     [SerializeField] protected GameObject bulletTarget;
+    public bool isFriendly;
     
     protected void Start()
     {
@@ -210,6 +211,7 @@ public class CharacterControl : MonoBehaviour
             default:
                 
                 Debug.LogWarning($"{gameObject.name} NOT SET TO ANY CHARACTER STATE");
+                // enabled = false;
                 
                 break;
         }
@@ -310,6 +312,7 @@ public class CharacterControl : MonoBehaviour
             case "Cover":
                 heightConstraint.position = new Vector3(heightConstraint.position.x, _defaultHeightConstraint.position.y, heightConstraint.position.z);
                 coverAnimRigWeight = 0;
+                _defaultHeightConstraint = heightConstraint;
                 break;
         }
     }

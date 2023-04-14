@@ -42,7 +42,7 @@ public class Weapon : MonoBehaviour
         }
     }
     
-    public void ShootTarget(Vector3 bulletTarget)
+    public void ShootTarget(GameObject bulletTarget)
     {
         vulnerabilityTimer.time = 0;
         vulnerabilityTimer.StartTimer(vulnerabilityTime);
@@ -54,14 +54,14 @@ public class Weapon : MonoBehaviour
         StartCoroutine(WaitForShootingAnimation(bulletTarget));
     }
 
-    IEnumerator WaitForShootingAnimation(Vector3 bulletTarget)
+    IEnumerator WaitForShootingAnimation(GameObject bulletTarget)
     {
         yield return new WaitForSeconds(shootingAnimationDelay);
         muzzleFlash.SetActive(true);
         GameObject temp = Instantiate(bulletTrail, bulletSpawnLoc.transform.position, Quaternion.identity);
         temp.GetComponent<BulletTrail>().damage = damage;
         // temp.GetComponent<BulletTrail>().speed = speed;
-        temp.transform.LookAt(bulletTarget);
+        temp.transform.LookAt(bulletTarget.transform.position);
     }
 
     private void OnDestroy()

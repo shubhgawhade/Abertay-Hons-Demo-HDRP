@@ -227,7 +227,7 @@ public class PlayerCharacterControl : CharacterControl
                                 anim.SetTrigger("Shoot");
                                 pointShootRig.weight = 1;
 
-                                weapon.ShootTarget(bulletTarget.transform.position);
+                                weapon.ShootTarget(bulletTarget);
                         }
 
                         break;

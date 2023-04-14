@@ -1,7 +1,7 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 [Serializable]
@@ -23,6 +23,7 @@ public class AICharacterControl : CharacterControl
     [SerializeField] private GameObject aiRayLoc;
     [SerializeField] private GameObject aiTarget;
     [SerializeField] private List<Interactable> gunplayLocations;
+    [SerializeField] private AICharacterControl frienlyAiCharacterControl;
     [SerializeField] private List<CharacterControl> friends;
     [SerializeField] private List<CharacterControl> enemies;
     
@@ -109,6 +110,9 @@ public class AICharacterControl : CharacterControl
                 {
                     transform.LookAt(new Vector3(aiTarget.transform.position.x, transform.position.y, aiTarget.transform.position.z));
                 }
+
+                // TEMPORARY SHOOTING
+                StartCoroutine(ShootDelay());
                 
                 if (Input.GetKeyDown(KeyCode.S))
                 {
@@ -123,7 +127,7 @@ public class AICharacterControl : CharacterControl
                         pointShootRig.weight = 1;
 
                         // SELECT WHERE TO SHOOT BEFORE SHOOTING
-                        weapon.ShootTarget(aiTarget.transform.position);
+                        weapon.ShootTarget(aiTarget);
                     }
                     
                     // weapon.ShootTarget(transform.forward);
@@ -149,6 +153,27 @@ public class AICharacterControl : CharacterControl
                 aiBehaviour = InternalBehaviour.None;
                 
                 break;
+        }
+    }
+
+    // TEST IMPLEMENT
+    IEnumerator ShootDelay()
+    {
+        float shootDelay = Random.Range(1.0f, 5.0f);
+        yield return new WaitForSeconds(shootDelay);
+        
+        if (weapon.isHandHeld && !weapon.onCooldown)
+        {
+            crouch = false;
+
+            //CALCULATE NEW ROTATION BASED ON PAYERS DRUNK STATE
+            // bulletTargetPointer.transform.position = new Vector3(hit.point.x + Random.Range(-3, 3), hit.point.y + Random.Range(-3, 3), hit.point.z + Random.Range(-3, 3));
+                                
+            anim.SetTrigger("Shoot");
+            pointShootRig.weight = 1;
+
+            // SELECT WHERE TO SHOOT BEFORE SHOOTING
+            weapon.ShootTarget(aiTarget);
         }
     }
 
@@ -227,7 +252,15 @@ public class AICharacterControl : CharacterControl
         //     }
         // }
 
-        // VISION CONE DETECTION AND CHASE
+        // if (enemies.Count == 0)
+        // {
+        //     foreach (var VARIABLE in friends)
+        //     {
+        //         
+        //     }
+        // }
+        
+        // VISION CONE DETECTION
         foreach (CharacterControl enemy in enemies)
         {
             float basePos = enemy.transform.position.y + enemy.m_Capsule.height / 2;
@@ -296,7 +329,7 @@ public class AICharacterControl : CharacterControl
 
                 if (repeatedCheck)
                 {
-                    KnownTargetData data = new KnownTargetData
+                    KnownTargetData targetData = new KnownTargetData
                     {
                         obj = enemy.gameObject,
                         character = enemy,
@@ -307,7 +340,7 @@ public class AICharacterControl : CharacterControl
                         time = 0
                     };
                     
-                    knownTargetData.Add(data);
+                    knownTargetData.Add(targetData);
                     
                     // if (hits > 2 && data.healthManager.health > 30)
                     // {
@@ -322,7 +355,6 @@ public class AICharacterControl : CharacterControl
         // SHOOT FASTER WHEN 4 OR MORE BONES ARE VISIBLE
         // CHOOSE A RANDOM HIT POINT TO SHOOT AT WITH HEAD HAVING THE LEAST PROBABILITY
 
-        // UPDATE METHOD FOR TARGET DATA
         knownTargetData.Sort((data1, data2) => data2.health.CompareTo(data1.health));
         if (knownTargetData.Count > 0) //&& knownTargetData[0].bonesVisible >= 2)
         {
@@ -331,6 +363,7 @@ public class AICharacterControl : CharacterControl
             // aiTarget.transform.position = hit.point;
         }
         
+        // UPDATE METHOD FOR TARGET DATA
         foreach (KnownTargetData targetData in knownTargetData)
         {
             targetData.time += Time.deltaTime;
@@ -398,7 +431,7 @@ public class AICharacterControl : CharacterControl
                 target = transform.position;
                 agent.SetDestination(target);
                 targetIsInteractable = false;
-                ChooseLocation();
+                ChooseGunPlayLocation();
             }
         }
 
@@ -472,7 +505,7 @@ public class AICharacterControl : CharacterControl
                     }
                     
                     // CHOOSING COVER LOCATION
-                    if (!ChooseLocation())
+                    if (!ChooseGunPlayLocation())
                     {
                         // SWITCH BACK TO COMBAT FROM CHASE WHEN IT FINDS COVER
                         
@@ -523,43 +556,67 @@ public class AICharacterControl : CharacterControl
         }
     }
 
-    private void ChooseTarget()
-    {
-        
-    }
-
-    private bool ChooseLocation()
+    private bool ChooseGunPlayLocation()
     {
         characterState = CharacterState.Exploration;
         crouch = false;
-
-
+        
         // IF THERE IS AT LEAST 1 LOCATION TO GO TO
         if (gunplayLocations.Count > 0)
         {
-            int location = Random.Range(0, gunplayLocations.Count);
+            int randomLocation;
             do
             {
-                location = Random.Range(0, gunplayLocations.Count);
-                targetTransform = gunplayLocations[location].targetLocation.transform;
-                currentInteractable = gunplayLocations[location];
+                randomLocation = Random.Range(0, gunplayLocations.Count);
+                targetTransform = gunplayLocations[randomLocation].targetLocation.transform;
+                currentInteractable = gunplayLocations[randomLocation];
                 targetIsInteractable = true;
-
-            } while (gunplayLocations[location] != currentInteractable);
+        
+            } while (gunplayLocations[randomLocation] != currentInteractable);
             characterMovement.run = true;
             return true;
         }
-        else
+
+        // IF THERE ARENT ANY GUNPLAY LOCATIONS FOUND, CHOOSE A FRIEND AND FIND A GUNPLAY LOCATION
+        // IF THERE ARE NO VALID LOCATIONS, CHOOSE ANOTHER FRIEND
+        // REPEAT THE PROCESS AS MANY TIMES AS THE NUMBER OF FRIENDS WHICH WILL INCREASE THE PROBABILITY OF CHOOSING A TARGET OVER CHASING
+        int tryNum = 0;
+        while (friends.Count > 0 && tryNum < friends.Count)
         {
-            characterMovement.run = false;
-            aiBehaviour = InternalBehaviour.Chase;
-            cachedTransform = null;
-            currentInteractable = null;
-            target = transform.position;
-            agent.SetDestination(target);
-            targetIsInteractable = false;
-            return false;
+            int randomFriend = Random.Range(0, friends.Count);
+            if (friends[randomFriend].CompareTag("AI"))
+            {
+                print($"TRY NUM:{tryNum}");
+                tryNum++;
+                frienlyAiCharacterControl = friends[randomFriend].GetComponent<AICharacterControl>();
+                if (frienlyAiCharacterControl.gunplayLocations.Count > 0)
+                {
+                    int randomLocation;
+                    do
+                    {
+                        randomLocation = Random.Range(0, frienlyAiCharacterControl.gunplayLocations.Count);
+                        targetTransform = frienlyAiCharacterControl.gunplayLocations[randomLocation].targetLocation.transform;
+                        currentInteractable = frienlyAiCharacterControl.gunplayLocations[randomLocation];
+                        targetIsInteractable = true;
+                        print($"{gameObject.name} TRY:{tryNum} FRIEND:{friends[randomFriend].gameObject.name} LOCATION:{frienlyAiCharacterControl.gunplayLocations[randomLocation].name}");
+
+                    } while (frienlyAiCharacterControl.gunplayLocations[randomLocation] != currentInteractable);
+                    characterMovement.run = true;
+                    frienlyAiCharacterControl = null;
+                    return true;
+                }
+            }
         }
+        
+        Debug.LogWarning($"{gameObject.name}: NO LOCATIONS FOUND");
+        characterMovement.run = false;
+        aiBehaviour = InternalBehaviour.Chase;
+        cachedTransform = null;
+        currentInteractable = null;
+        target = transform.position;
+        agent.SetDestination(target);
+        targetIsInteractable = false;
+        return false;
     }
 
     protected override void InteractableTypeBehaviour()
@@ -638,14 +695,15 @@ public class AICharacterControl : CharacterControl
         
         if (other.transform.root.gameObject != gameObject &&
             (other.transform.root.CompareTag("Player") ||
-             other.transform.root.CompareTag("AI"))) 
+             other.transform.root.CompareTag("AI")))
         {
-            if (other.transform.root.GetComponent<CharacterControl>().isFriendly == isFriendly)
+            CharacterControl characterControl = other.transform.root.GetComponent<CharacterControl>();
+            if (characterControl.isFriendly == isFriendly)
             {
                 bool repeatedCheck = true;
                 for (int j = 0; j < friends.Count; j++)
                 {
-                    if (other.transform.root.GetComponent<CharacterControl>() == friends[j])
+                    if (characterControl == friends[j])
                     {
                         repeatedCheck = false;
                     }                    
@@ -653,7 +711,7 @@ public class AICharacterControl : CharacterControl
 
                 if (repeatedCheck)
                 {
-                    friends.Add(other.transform.root.GetComponent<CharacterControl>());
+                    friends.Add(characterControl);
                 }
             }
             else
@@ -661,7 +719,7 @@ public class AICharacterControl : CharacterControl
                 bool repeatedCheck = true;
                 for (int j = 0; j < enemies.Count; j++)
                 {
-                    if (other.transform.root.GetComponent<CharacterControl>() == enemies[j])
+                    if (characterControl == enemies[j])
                     {
                         repeatedCheck = false;
                     }                    
@@ -669,14 +727,14 @@ public class AICharacterControl : CharacterControl
 
                 if (repeatedCheck)
                 {
-                    enemies.Add(other.transform.root.GetComponent<CharacterControl>());
+                    enemies.Add(characterControl);
                 }
             }
             
-            if (other.transform.root.GetComponent<CharacterControl>().characterState == CharacterState.None)
+            if (characterControl.characterState == CharacterState.None)
             {
-                friends.Remove(other.transform.root.GetComponent<CharacterControl>());
-                enemies.Remove(other.transform.root.GetComponent<CharacterControl>());
+                friends.Remove(characterControl);
+                enemies.Remove(characterControl);
             }
         }
         
@@ -704,13 +762,14 @@ public class AICharacterControl : CharacterControl
             (other.transform.root.CompareTag("Player") ||
              other.transform.root.CompareTag("AI"))) 
         {
-            if (other.transform.root.GetComponent<CharacterControl>().isFriendly == isFriendly)
+            CharacterControl characterControl = other.transform.root.GetComponent<CharacterControl>();
+            if (characterControl.isFriendly == isFriendly)
             {
-                friends.Remove(other.transform.root.GetComponent<CharacterControl>());
+                friends.Remove(characterControl);
             }
             else
             {
-                enemies.Remove(other.transform.root.GetComponent<CharacterControl>());
+                enemies.Remove(characterControl);
             }
         }
     }

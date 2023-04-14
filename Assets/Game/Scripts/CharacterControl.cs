@@ -211,7 +211,9 @@ public class CharacterControl : MonoBehaviour
             default:
                 
                 Debug.LogWarning($"{gameObject.name} NOT SET TO ANY CHARACTER STATE");
-                // enabled = false;
+                StopAllCoroutines();
+                // Time.timeScale = 0.5f;
+                enabled = false;
                 
                 break;
         }

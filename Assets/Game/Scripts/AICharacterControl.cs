@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 [Serializable]
@@ -21,7 +22,10 @@ public class AICharacterControl : CharacterControl
     
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject aiRayLoc;
-    [SerializeField] private GameObject aiTarget;
+    [SerializeField] private GameObject aiLookTarget;
+    [SerializeField] private GameObject aiShootTarget;
+    [SerializeField] private GameObject[] bonesHit;
+    [SerializeField] private Vector3[] hitLocs;
     [SerializeField] private List<Interactable> gunplayLocations;
     [SerializeField] private AICharacterControl frienlyAiCharacterControl;
     [SerializeField] private List<CharacterControl> friends;
@@ -32,6 +36,8 @@ public class AICharacterControl : CharacterControl
     {
         public GameObject obj;
         public CharacterControl character;
+        public GameObject[] bones = new GameObject[5];
+        public Vector3[] hitLocs;
         public int bonesVisible;
         public bool isKnown;
         public HealthManager healthManager;
@@ -106,9 +112,13 @@ public class AICharacterControl : CharacterControl
                 // Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
                 // transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 5);
                 
-                // if (targetKnown)
+                if (currentTarget.obj)
                 {
-                    transform.LookAt(new Vector3(aiTarget.transform.position.x, transform.position.y, aiTarget.transform.position.z));
+                    transform.LookAt(new Vector3(currentTarget.obj.transform.position.x, transform.position.y, currentTarget.obj.transform.position.z));
+                }
+                else
+                {
+                    transform.LookAt(new Vector3(aiLookTarget.transform.position.x, transform.position.y, aiLookTarget.transform.position.z));
                 }
 
                 // TEMPORARY SHOOTING
@@ -127,7 +137,7 @@ public class AICharacterControl : CharacterControl
                         pointShootRig.weight = 1;
 
                         // SELECT WHERE TO SHOOT BEFORE SHOOTING
-                        weapon.ShootTarget(aiTarget);
+                        weapon.ShootTarget(aiLookTarget);
                     }
                     
                     // weapon.ShootTarget(transform.forward);
@@ -159,21 +169,36 @@ public class AICharacterControl : CharacterControl
     // TEST IMPLEMENT
     IEnumerator ShootDelay()
     {
-        float shootDelay = Random.Range(1.0f, 5.0f);
+        float shootDelay = Random.Range(0.2f, 3.0f);
         yield return new WaitForSeconds(shootDelay);
-        
-        if (weapon.isHandHeld && !weapon.onCooldown)
+
+        if (weapon.isHandHeld && !weapon.onCooldown && currentTarget.bonesVisible > 1)
         {
-            crouch = false;
-
-            //CALCULATE NEW ROTATION BASED ON PAYERS DRUNK STATE
-            // bulletTargetPointer.transform.position = new Vector3(hit.point.x + Random.Range(-3, 3), hit.point.y + Random.Range(-3, 3), hit.point.z + Random.Range(-3, 3));
-                                
-            anim.SetTrigger("Shoot");
-            pointShootRig.weight = 1;
-
             // SELECT WHERE TO SHOOT BEFORE SHOOTING
-            weapon.ShootTarget(aiTarget);
+            int randomBone = Random.Range(0, currentTarget.bones.Length);
+            if (currentTarget.bonesVisible > 0)
+            {
+                crouch = false;
+
+                //CALCULATE NEW ROTATION BASED ON PAYERS DRUNK STATE
+                // bulletTargetPointer.transform.position = new Vector3(hit.point.x + Random.Range(-3, 3), hit.point.y + Random.Range(-3, 3), hit.point.z + Random.Range(-3, 3));
+                                
+                anim.SetTrigger("Shoot");
+                pointShootRig.weight = 1;
+                
+                // WARN PLAYER
+
+                if (currentTarget.bones[randomBone] != null)
+                {
+                    aiShootTarget.transform.position = currentTarget.bones[randomBone].transform.position;
+                    weapon.ShootTarget(aiShootTarget);
+                }
+                else if (currentTarget.hitLocs[randomBone] != Vector3.zero)
+                {
+                    aiShootTarget.transform.position = currentTarget.hitLocs[randomBone];
+                    weapon.ShootTarget(aiShootTarget);
+                }
+            }
         }
     }
 
@@ -278,10 +303,12 @@ public class AICharacterControl : CharacterControl
             }
 
             int hits = 0;
+
+            bonesHit = new GameObject[5];
+            hitLocs = new Vector3[5];
             for (int i = 0; i < 5; i++)
             {
-                Vector3 dir = new Vector3(enemy.transform.position.x, basePos + 0.5f * (i / j), enemy.transform.position.z) -
-                              (aiRayLoc.transform.position + new Vector3(0, 0.2f, 0) + transform.forward * 0.25f);
+                Vector3 dir = new Vector3(enemy.transform.position.x, basePos + 0.5f * (i / j), enemy.transform.position.z) - (aiRayLoc.transform.position + new Vector3(0, 0.2f, 0) + transform.forward * 0.25f);
 
                 // if (time > 1f)
                 // {
@@ -298,18 +325,30 @@ public class AICharacterControl : CharacterControl
                         if (hit.collider.transform.root.GetComponent<CharacterControl>() == enemy)
                         {
                             hits++;
-
+                            
                             if (currentTarget.character == enemy)
                             {
-                                aiTarget.transform.position = hit.point;
+                                aiLookTarget.transform.position = hit.point;
                             }
-                            
+
+                            bonesHit[i] = hit.transform.gameObject;
+                            continue;
+
                             // targetKnown = true;
                             // time = 0;
                             // aiTarget.transform.position = hit.point;
                         }
+                        // aiTarget.transform.position = hit.point;
+                        // hitLocations[i] = aiTarget;
+
+                        // hitLocations[i].transform.position = hit.point;
+                        bonesHit[i] = null;
+                        hitLocs[i] = hit.point;
+                        continue;
                     }
+                    hitLocs[i] = Vector3.zero;
                 }
+                
             }
 
             print(hits);
@@ -320,19 +359,23 @@ public class AICharacterControl : CharacterControl
                 {
                     if (enemy == knownTargetData[k].character)
                     {
+                        knownTargetData[k].bones = bonesHit;
+                        knownTargetData[k].hitLocs = hitLocs;
                         knownTargetData[k].bonesVisible = hits;
                         knownTargetData[k].isKnown = true;
                         knownTargetData[k].time = 0;
                         repeatedCheck = false;
                     }                    
                 }
-
+            
                 if (repeatedCheck)
                 {
                     KnownTargetData targetData = new KnownTargetData
                     {
                         obj = enemy.gameObject,
                         character = enemy,
+                        bones = bonesHit,
+                        hitLocs = hitLocs,
                         bonesVisible = hits,
                         isKnown = false,
                         healthManager = enemy.GetComponent<HealthManager>(),
@@ -360,7 +403,6 @@ public class AICharacterControl : CharacterControl
         {
             print(knownTargetData[0].obj.name);
             currentTarget = knownTargetData[0];
-            // aiTarget.transform.position = hit.point;
         }
         
         // UPDATE METHOD FOR TARGET DATA
@@ -548,7 +590,7 @@ public class AICharacterControl : CharacterControl
                     characterState = CharacterState.Exploration;
                     aiBehaviour = InternalBehaviour.Chase;
                     
-                    transform.LookAt(new Vector3(aiTarget.transform.position.x, transform.position.y, aiTarget.transform.position.z));
+                    transform.LookAt(new Vector3(currentTarget.obj.transform.position.x, transform.position.y, currentTarget.obj.transform.position.z));
                 }
                 
                 break;
@@ -583,11 +625,11 @@ public class AICharacterControl : CharacterControl
         int tryNum = 0;
         while (friends.Count > 0 && tryNum < friends.Count)
         {
+            tryNum++;
             int randomFriend = Random.Range(0, friends.Count);
             if (friends[randomFriend].CompareTag("AI"))
             {
                 print($"TRY NUM:{tryNum}");
-                tryNum++;
                 frienlyAiCharacterControl = friends[randomFriend].GetComponent<AICharacterControl>();
                 if (frienlyAiCharacterControl.gunplayLocations.Count > 0)
                 {
@@ -599,7 +641,7 @@ public class AICharacterControl : CharacterControl
                         currentInteractable = frienlyAiCharacterControl.gunplayLocations[randomLocation];
                         targetIsInteractable = true;
                         print($"{gameObject.name} TRY:{tryNum} FRIEND:{friends[randomFriend].gameObject.name} LOCATION:{frienlyAiCharacterControl.gunplayLocations[randomLocation].name}");
-
+        
                     } while (frienlyAiCharacterControl.gunplayLocations[randomLocation] != currentInteractable);
                     characterMovement.run = true;
                     frienlyAiCharacterControl = null;

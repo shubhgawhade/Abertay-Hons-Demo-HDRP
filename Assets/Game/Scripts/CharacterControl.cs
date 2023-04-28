@@ -138,7 +138,14 @@ public class CharacterControl : MonoBehaviour
                         // print(cachedTransform.eulerAngles);
                         // transform.eulerAngles = cachedTransform.eulerAngles;
                             
-                        transform.rotation = Quaternion.Slerp(transform.rotation, cachedTransform.rotation, Time.deltaTime * 5);
+                        transform.rotation = Quaternion.Slerp(transform.rotation.normalized, cachedTransform.rotation.normalized, Time.deltaTime * 5);
+
+                        print(Vector3.Dot(transform.forward.normalized, cachedTransform.transform.forward.normalized));
+                        if (Vector3.Dot(transform.forward.normalized, cachedTransform.transform.forward.normalized) > 1f)
+                        {
+                            cachedTransform = null;
+                        }
+                        
                         // transform.eulerAngles = Vector3.Slerp(transform.eulerAngles, cachedTransform.eulerAngles, Time.deltaTime * 5);
                     }
 
@@ -213,7 +220,7 @@ public class CharacterControl : MonoBehaviour
                 Debug.LogWarning($"{gameObject.name} NOT SET TO ANY CHARACTER STATE");
                 StopAllCoroutines();
                 // Time.timeScale = 0.5f;
-                enabled = false;
+                // enabled = false;
                 
                 break;
         }

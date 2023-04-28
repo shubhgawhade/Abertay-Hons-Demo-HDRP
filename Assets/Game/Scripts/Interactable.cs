@@ -16,6 +16,7 @@ public class Interactable : MonoBehaviour
 
 
     public GameObject targetLocation;
+    public GameObject aiTargetLocation;
     [SerializeField] public GameObject character;
     public bool isVisible;
     public int minIntel;

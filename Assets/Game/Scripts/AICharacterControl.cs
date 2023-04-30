@@ -62,6 +62,9 @@ public class AICharacterControl : CharacterControl
     RaycastHit hit;
     public float knownTargetTimeout;
 
+    public CharacterControl hitBullet;
+    public int bulletsShot;
+
     protected override bool ToggleCrouch()
     {
         // KEY TO TOGGLE CROUCH
@@ -96,9 +99,8 @@ public class AICharacterControl : CharacterControl
         
         
     }
-    
-    
 
+    public bool a;
     private void AIUpdate()
     {
         switch (characterState)
@@ -106,6 +108,12 @@ public class AICharacterControl : CharacterControl
             // CODE FOR AI TO CHOOSE SHOOTING LOCATION 
             case CharacterState.Gunplay:
 
+                // ADD HEALTH IF CROUCHING IN GUNPLAY
+                // if (crouch)
+                // {
+                //     GetComponent<HealthManager>().AddHealth(0.5f * Time.deltaTime);
+                // }
+                
                 // Vector3 targetDirection = new Vector3(aiTarget.transform.position.x, transform.position.y, aiTarget.transform.position.z) - new Vector3(transform.position.x, transform.position.y, transform.position.z);
                 // Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
                 // transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 5);
@@ -137,28 +145,45 @@ public class AICharacterControl : CharacterControl
                     // transform.LookAt(new Vector3(aiLookTarget.transform.position.x, transform.position.y, aiLookTarget.transform.position.z));
                 }
 
-                // TEMPORARY SHOOTING
-                if (currentTarget.bonesVisible > 1)
+                // SHOOT NUMBER OF BULLETS AS BONES WITH THE DELAY AND BONES VISIBLE INVERSELY PROPORTIONAL
+                if (bulletsShot < currentTarget.bonesVisible)
                 {
-                    StartCoroutine(ShootDelay());
+                    Shoot();
                 }
+                else if(bulletsShot == currentTarget.bonesVisible)
+                {
+                    StartCoroutine(shootCoolDown());
+                }
+                
+                // TEMPORARY SHOOTING
+                // if (currentTarget.bonesVisible > 1 && !a)
+                // {
+                //     for (int i = 0; i <= currentTarget.bonesVisible; i++)
+                //     {
+                //         StartCoroutine(ShootDelay());
+                //     }
+                //     
+                //     a = true;
+                // }
                 
                 // MANUAL SHOOTING
                 if (Input.GetKeyDown(KeyCode.S))
                 {
-                    if (weapon.isHandHeld && !weapon.onCooldown)
-                    {
-                        crouch = false;
+                    // StartCoroutine(ShootDelay());
 
-                        //CALCULATE NEW ROTATION BASED ON PAYERS DRUNK STATE
-                        // bulletTargetPointer.transform.position = new Vector3(hit.point.x + Random.Range(-3, 3), hit.point.y + Random.Range(-3, 3), hit.point.z + Random.Range(-3, 3));
-                                
-                        anim.SetTrigger("Shoot");
-                        pointShootRig.weight = 1;
-
-                        // SELECT WHERE TO SHOOT BEFORE SHOOTING
-                        weapon.ShootTarget(aiLookTarget);
-                    }
+                    // if (weapon.isHandHeld && !weapon.onCooldown)
+                    // {
+                    //     crouch = false;
+                    //
+                    //     //CALCULATE NEW ROTATION BASED ON PAYERS DRUNK STATE
+                    //     // bulletTargetPointer.transform.position = new Vector3(hit.point.x + Random.Range(-3, 3), hit.point.y + Random.Range(-3, 3), hit.point.z + Random.Range(-3, 3));
+                    //             
+                    //     anim.SetTrigger("Shoot");
+                    //     pointShootRig.weight = 1;
+                    //
+                    //     // SELECT WHERE TO SHOOT BEFORE SHOOTING
+                    //     weapon.ShootTarget(aiLookTarget);
+                    // }
                 }
                 
                 break;
@@ -171,12 +196,17 @@ public class AICharacterControl : CharacterControl
         }
     }
 
-    // TEST SHOOTING
-    IEnumerator ShootDelay()
+    IEnumerator shootCoolDown()
     {
-        float shootDelay = Random.Range(0.2f, 3.0f);
-        yield return new WaitForSeconds(shootDelay);
+        print(gameObject.name +  " CD TIME: " + (5 - currentTarget.bonesVisible));
+        yield return new WaitForSeconds(5 - currentTarget.bonesVisible);
 
+        bulletsShot = 0;
+        StopAllCoroutines();
+    }
+    
+    void Shoot()
+    {
         if (weapon.isHandHeld && !weapon.onCooldown)
         {
             // SELECT WHERE TO SHOOT BEFORE SHOOTING
@@ -203,9 +233,48 @@ public class AICharacterControl : CharacterControl
                     aiShootTarget.transform.position = currentTarget.hitLocs[randomBone];
                     weapon.ShootTarget(aiShootTarget);
                 }
+
+                bulletsShot++;
+                print(gameObject.name + " SHOT " + bulletsShot);
             }
         }
     }
+    
+    // TEST SHOOTING
+    // IEnumerator ShootDelay()
+    // {
+    //     float shootDelay = Random.Range(0.2f, 3.0f);
+    //     yield return new WaitForSeconds(shootDelay);
+    //
+    //     if (weapon.isHandHeld && !weapon.onCooldown)
+    //     {
+    //         // SELECT WHERE TO SHOOT BEFORE SHOOTING
+    //         int randomBone = Random.Range(0, currentTarget.bones.Length);
+    //         if (currentTarget.bonesVisible > 0)
+    //         {
+    //             crouch = false;
+    //
+    //             //CALCULATE NEW ROTATION BASED ON PAYERS DRUNK STATE
+    //             // bulletTargetPointer.transform.position = new Vector3(hit.point.x + Random.Range(-3, 3), hit.point.y + Random.Range(-3, 3), hit.point.z + Random.Range(-3, 3));
+    //                             
+    //             anim.SetTrigger("Shoot");
+    //             pointShootRig.weight = 1;
+    //             
+    //             // WARN PLAYER
+    //
+    //             if (currentTarget.bones[randomBone])
+    //             {
+    //                 aiShootTarget.transform.position = currentTarget.bones[randomBone].transform.position;
+    //                 weapon.ShootTarget(aiShootTarget);
+    //             }
+    //             else if (currentTarget.hitLocs[randomBone] != Vector3.zero)
+    //             {
+    //                 aiShootTarget.transform.position = currentTarget.hitLocs[randomBone];
+    //                 weapon.ShootTarget(aiShootTarget);
+    //             }
+    //         }
+    //     }
+    // }
 
     private void AIBehaviour()
     {
@@ -351,8 +420,8 @@ public class AICharacterControl : CharacterControl
                     if (knownTargetTimeout > 3)
                     {
                         // TODO: AI LOOKS AT A DIRECTION WHICH NEEDS TO BE SELECTED(CURRENTLY FIRST ENEMY IN THE RADIUS) AND STANDS UP TO FIND TARGETS
-                        
-                        aiLookTarget.transform.position = enemies[0].transform.position;
+
+                        aiLookTarget.transform.position = previousTarget.obj.transform.position;
                         // transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(enemies[0].transform.position - transform.position), Time.deltaTime * 10);
                         crouch = false;
                         pointShootRig.weight = 0;
@@ -395,11 +464,17 @@ public class AICharacterControl : CharacterControl
                 if (knownTargetData.Count > 0) //&& knownTargetData[0].bonesVisible >= 2)
                 {
                     // print(knownTargetData[0].obj.name);
-                    if (currentTarget.character)
+                    for (int i = 0; i < knownTargetData.Count; i++)
                     {
-                        previousTarget = currentTarget;
+                        // if (knownTargetData[i].bonesVisible > 1)
+                        {
+                            if (currentTarget.character && previousTarget != currentTarget)
+                            {
+                                previousTarget = currentTarget;
+                            }
+                            currentTarget = knownTargetData[i];
+                        }
                     }
-                    currentTarget = knownTargetData[0];
                 }
                 
                 // UPDATES AVAILABLE LOCATIONS

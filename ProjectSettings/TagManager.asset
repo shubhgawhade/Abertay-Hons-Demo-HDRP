@@ -10,6 +10,7 @@ TagManager:
   - GunplayCover
   - Cover
   - AI
+  - Bullet
   layers:
   - Default
   - TransparentFX

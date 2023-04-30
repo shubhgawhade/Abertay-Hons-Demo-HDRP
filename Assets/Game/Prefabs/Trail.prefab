@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1184636154}
   m_Layer: 8
   m_Name: Trail
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -158,6 +158,7 @@ MonoBehaviour:
   rb: {fileID: 0}
   damage: 0
   speed: 60
+  owner: {fileID: 0}
 --- !u!54 &1184636155
 Rigidbody:
   m_ObjectHideFlags: 0

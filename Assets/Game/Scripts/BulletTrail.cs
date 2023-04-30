@@ -6,6 +6,7 @@ public class BulletTrail : MonoBehaviour
 
     public float damage;
     public float speed;
+    public CharacterControl owner;
 
     private void Awake()
     {
@@ -23,15 +24,20 @@ public class BulletTrail : MonoBehaviour
     {
         // Destroy(gameObject);
         
-        print($"TRIGGER: {other.name}");
+        // print($"TRIGGER: {other.name}");
         // HitPhysics(other);
     }
 
     private void OnCollisionEnter(Collision collision)
     {
+        if (collision.collider.transform.root.CompareTag("Player") || collision.collider.transform.root.CompareTag("AI"))
+        {
+            print(owner.gameObject.name + " HIT " + collision.collider.transform.root.gameObject.name);
+        }
+        
         Destroy(gameObject);
         
-        print($"COLLIDER: {collision.collider.name}");
+        // print($"COLLIDER: {collision.collider.name}");
         HitPhysics(collision.collider);
     }
 

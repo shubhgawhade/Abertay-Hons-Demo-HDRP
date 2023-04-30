@@ -140,7 +140,7 @@ public class CharacterControl : MonoBehaviour
                             
                         transform.rotation = Quaternion.Slerp(transform.rotation.normalized, cachedTransform.rotation.normalized, Time.deltaTime * 5);
 
-                        print(Vector3.Dot(transform.forward.normalized, cachedTransform.transform.forward.normalized));
+                        // print(Vector3.Dot(transform.forward.normalized, cachedTransform.transform.forward.normalized));
                         if (Vector3.Dot(transform.forward.normalized, cachedTransform.transform.forward.normalized) > 1f)
                         {
                             cachedTransform = null;

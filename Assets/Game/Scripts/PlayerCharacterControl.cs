@@ -158,7 +158,7 @@ public class PlayerCharacterControl : CharacterControl
                             if (tempInteractable.isVisible)
                             {
                                 currentInteractable = tempInteractable;
-                                print("INTERACTED WITH" + hit.collider.name);
+                                // print("INTERACTED WITH" + hit.collider.name);
                                 targetTransform = currentInteractable.targetLocation.transform;
                                 target = targetTransform.transform.position;
                                 agent.SetDestination(target);

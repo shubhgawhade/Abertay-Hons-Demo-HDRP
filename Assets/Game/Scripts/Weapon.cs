@@ -59,6 +59,7 @@ public class Weapon : MonoBehaviour
         yield return new WaitForSeconds(shootingAnimationDelay);
         muzzleFlash.SetActive(true);
         GameObject temp = Instantiate(bulletTrail, bulletSpawnLoc.transform.position, Quaternion.identity);
+        temp.GetComponent<BulletTrail>().owner = owner;
         temp.GetComponent<BulletTrail>().damage = damage;
         // temp.GetComponent<BulletTrail>().speed = speed;
         temp.transform.LookAt(bulletTarget.transform.position);

@@ -95,8 +95,8 @@ public class PlayerCharacterControl : CharacterControl
                     weapon.gameObject.SetActive(false);
                     anim.SetBool("GunDrawn", false);
 
-                    // print(currentInteractable);
-                    currentInteractable.transform.root.tag = "Interactable";
+                    print(currentInteractable);
+                    currentInteractable.tag = "Interactable";
                     cinemachineTarget.RemoveMember(currentInteractable.targetLocation.transform);
                 }
                 

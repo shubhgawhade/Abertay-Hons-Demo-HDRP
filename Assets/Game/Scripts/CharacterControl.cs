@@ -211,6 +211,7 @@ public class CharacterControl : MonoBehaviour
                 // agent.SetDestination(transform.position);
                 agent.enabled = false;
                 rb.isKinematic = true;
+                // m_Capsule.enabled = false;
                 characterState = CharacterState.None;
                 
                 break;

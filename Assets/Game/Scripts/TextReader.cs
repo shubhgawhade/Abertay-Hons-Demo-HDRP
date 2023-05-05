@@ -193,14 +193,19 @@ public class TextReader : MonoBehaviour
                 RemoveCinemachineTarget(interactable.targetLocation.transform);
             }
 
-            // ADDS INTEL ONLY IF THE PLAYER HASNT ALREADY INTERACTED WITH THIS OBJECT AND NOT SKIPPED THE DIALOGUE
-            if (!alreadyInteracted && !dialogueSkipTimer.isCompleted)
+            if (interactable)
             {
-                GameManager.Intelligence += interactable.rewardIntel;
-                alreadyInteracted = true;
+                // ADDS INTEL ONLY IF THE PLAYER HASNT ALREADY INTERACTED WITH THIS OBJECT AND NOT SKIPPED THE DIALOGUE
+                if (!alreadyInteracted && !dialogueSkipTimer.isCompleted)
+                {
+                    GameManager.Intelligence = interactable.minIntel + interactable.rewardIntel;
+                    alreadyInteracted = true;
+                }
+                
+                interactable.isOccupied = false;
+                GameManager.IsInteracting = false;
             }
             
-            GameManager.IsInteracting = false;
             currentDialogue = null;
             dialogueText.text = "";
             dialogueTracker = 0;

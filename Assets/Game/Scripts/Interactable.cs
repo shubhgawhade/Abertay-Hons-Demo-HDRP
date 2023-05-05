@@ -85,10 +85,16 @@ public class Interactable : MonoBehaviour
         isVisible = true;
 
         MeshRenderer[] tempMeshs = transform.GetComponentsInChildren<MeshRenderer>();
+        SkinnedMeshRenderer[] skinnedMeshRenderers = transform.GetComponentsInChildren<SkinnedMeshRenderer>();
 
         foreach (MeshRenderer meshRenderer in tempMeshs)
         {
             meshRenderer.gameObject.layer = (int)Mathf.Log(outlineColour, 2);
+        }
+        
+        foreach (SkinnedMeshRenderer skinnedMeshRenderer in skinnedMeshRenderers)
+        {
+            skinnedMeshRenderer.gameObject.layer = (int)Mathf.Log(outlineColour, 2);
         }
     }
     
@@ -96,10 +102,16 @@ public class Interactable : MonoBehaviour
     {
         isVisible = false;
         MeshRenderer[] tempMeshs = transform.GetComponentsInChildren<MeshRenderer>();
+        SkinnedMeshRenderer[] skinnedMeshRenderers = transform.GetComponentsInChildren<SkinnedMeshRenderer>();
 
         foreach (MeshRenderer meshRenderer in tempMeshs)
         {
             meshRenderer.gameObject.layer = _basicLayer;
+        }
+        
+        foreach (SkinnedMeshRenderer skinnedMeshRenderer in skinnedMeshRenderers)
+        {
+            skinnedMeshRenderer.gameObject.layer = _basicLayer;
         }
     }
     

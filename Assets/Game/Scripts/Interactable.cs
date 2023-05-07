@@ -1,17 +1,16 @@
 using UnityEngine;
 
-
 // [RequireComponent(typeof (Outline))]
 public class Interactable : MonoBehaviour
 {
     public enum TypeOfInteractable
     {
-        Unscripted,
+        Inspectable,
         Scripted,
-        Cover
+        Cover,
     }
 
-    public TypeOfInteractable typeOfInteractable = TypeOfInteractable.Unscripted;
+    public TypeOfInteractable typeOfInteractable = TypeOfInteractable.Scripted;
     public LayerMask ignoreLayer;
 
 
@@ -31,6 +30,8 @@ public class Interactable : MonoBehaviour
     public bool isOccupied;
 
     //TEST VARIABLES
+    [Header("TEST VARIABLES")]
+    [Space(10)]
     public bool testRay;
 
     public virtual void Awake()
@@ -72,10 +73,6 @@ public class Interactable : MonoBehaviour
     {
         if (other.transform.root.CompareTag("Player") && isVisible)
         {
-            // isinteracted = false;
-            // testRay = false;
-            // print("EXIT");
-
             DisableOutline();
         }
     }

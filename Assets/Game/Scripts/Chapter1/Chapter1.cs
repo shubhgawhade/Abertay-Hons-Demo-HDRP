@@ -175,7 +175,11 @@ public class Chapter1 : MonoBehaviour
             case Scene.PostDecisionAnimations:
                 // STRIPPER DEATH ANIM
                 animators[2].SetTrigger("Dead");
-                aiCharacterControl[2].characterState = CharacterControl.CharacterState.Dead;
+                // aiCharacterControl[2].characterState = CharacterControl.CharacterState.Dead;
+                aiCharacterControl[2].m_Capsule.enabled = false;
+                aiCharacterControl[2].enabled = false;
+                aiCharacterControl[2].agent.enabled = false;
+                
                 playerAnimator.SetBool("Grabbing", false);
                 
                 characters[2].transform.parent = charactersParent.transform;
@@ -184,9 +188,10 @@ public class Chapter1 : MonoBehaviour
                 {
                     print("Paulie Death Anim");
                     animators[1].SetTrigger("Dead");
-                    aiCharacterControl[1].characterState = CharacterControl.CharacterState.Dead;
-                    // aiCharacterControl[1].enabled = false;
-                    // aiCharacterControl[1].agent.enabled = false;
+                    // aiCharacterControl[1].characterState = CharacterControl.CharacterState.Dead;
+                    aiCharacterControl[1].m_Capsule.enabled = false;
+                    aiCharacterControl[1].enabled = false;
+                    aiCharacterControl[1].agent.enabled = false;
 
 
                     // LUCA STAB ANIMATION and add timer before shot
@@ -201,9 +206,10 @@ public class Chapter1 : MonoBehaviour
                 {
                     print("Luca Death Anim");
                     animators[0].SetTrigger("Dead");
-                    aiCharacterControl[0].characterState = CharacterControl.CharacterState.Dead;
-                    // aiCharacterControl[0].enabled = false;
-                    // aiCharacterControl[0].agent.enabled = false;
+                    // aiCharacterControl[0].characterState = CharacterControl.CharacterState.Dead;
+                    aiCharacterControl[0].m_Capsule.enabled = false;
+                    aiCharacterControl[0].enabled = false;
+                    aiCharacterControl[0].agent.enabled = false;
 
                     animators[0].SetBool("GunDrawn", false);
                     // PAULIE RUNNING TOWARDS PLAYER
@@ -369,9 +375,10 @@ public class Chapter1 : MonoBehaviour
                         weapons[0].transform.GetChild(0).gameObject.SetActive(true);
                         playerAnimator.SetBool("GunDrawn", false);
                         animators[0].SetBool("Shot", true);
-                        aiCharacterControl[0].characterState = CharacterControl.CharacterState.Dead;
-                        // aiCharacterControl[0].enabled = false;
-                        // aiCharacterControl[0].agent.enabled = false;
+                        // aiCharacterControl[0].characterState = CharacterControl.CharacterState.Dead;
+                        aiCharacterControl[0].m_Capsule.enabled = false;
+                        aiCharacterControl[0].enabled = false;
+                        aiCharacterControl[0].agent.enabled = false;
                         yield return new WaitForSeconds(2f);
                         scene++;
                         StopAllCoroutines();
@@ -392,9 +399,10 @@ public class Chapter1 : MonoBehaviour
                         yield return new WaitForSeconds(0.3f);
                         playerAnimator.SetBool("GunDrawn", false);
                         animators[1].SetBool("Shot", true);
-                        aiCharacterControl[1].characterState = CharacterControl.CharacterState.Dead;
-                        // aiCharacterControl[1].enabled = false;
-                        // aiCharacterControl[1].agent.enabled = false;
+                        // aiCharacterControl[1].characterState = CharacterControl.CharacterState.Dead;
+                        aiCharacterControl[1].m_Capsule.enabled = false;
+                        aiCharacterControl[1].enabled = false;
+                        aiCharacterControl[1].agent.enabled = false;
                         yield return new WaitForSeconds(2f);
                         scene++;
                         StopAllCoroutines();

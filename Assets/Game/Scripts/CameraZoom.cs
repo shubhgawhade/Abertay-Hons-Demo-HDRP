@@ -15,6 +15,8 @@ public class CameraZoom : MonoBehaviour
     private void Awake()
     {
         TextReader.RemoveCinemachineTarget += RemoveCinemachinTarget;
+        InspectableInteractables.RemoveCinemachineTarget += RemoveCinemachinTarget;
+
         targetGroup = GetComponent<CinemachineTargetGroup>();
     }
 
@@ -37,5 +39,6 @@ public class CameraZoom : MonoBehaviour
     private void OnDisable()
     {
         TextReader.RemoveCinemachineTarget -= RemoveCinemachinTarget;
+        InspectableInteractables.RemoveCinemachineTarget -= RemoveCinemachinTarget;
     }
 }

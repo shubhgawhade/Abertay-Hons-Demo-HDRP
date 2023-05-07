@@ -46,7 +46,7 @@ public class PlayerCharacterControl : CharacterControl
         
         if (gameObject.CompareTag("Player"))
         {
-            DEBUG_CHEATS();
+            // DEBUG_CHEATS();
         }
         
     }
@@ -259,8 +259,10 @@ public class PlayerCharacterControl : CharacterControl
                 
                 break;
                         
-            case Interactable.TypeOfInteractable.Unscripted:
+            case Interactable.TypeOfInteractable.Inspectable:
 
+                currentInteractable.GetComponent<InspectableInteractables>().SetupStudio();
+                
                 break;
         }
         

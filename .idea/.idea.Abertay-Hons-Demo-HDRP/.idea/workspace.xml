@@ -5,22 +5,55 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4dd56a48-5213-4dda-9bf0-e9744c4963bb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/InspectableInteractables.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/InspectableInteractables.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Game/Vids/InspectableInteractableTexture.renderTexture" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Game/Vids/InspectableInteractableTexture.renderTexture.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Abertay-Hons-Demo-HDRP/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Abertay-Hons-Demo-HDRP/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/Easily Interiors Assets/Models/Materials/Atlas_2.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Addons/Easily Interiors Assets/Models/Materials/Atlas_2.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/Easily Interiors Assets/Textures/golf.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Addons/Easily Interiors Assets/Textures/golf.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Chap2.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Chap2.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Animations/Animation Controllers/Player 1.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Animations/Animation Controllers/Player 1.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scenes/OutdoorsScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scenes/OutdoorsScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 1/Characters/Mariano 1/Hair.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/3D/Chapter 1/Characters/Mariano 1/Hair.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/24_Body_diffuse.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/24_Body_diffuse.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/24_Body_gloss.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/24_Body_gloss.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/24_Body_normal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/24_Body_normal.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/24_Body_specular.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/24_Body_specular.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/24_Bottom_diffuse.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/24_Bottom_diffuse.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/24_Bottom_gloss.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/24_Bottom_gloss.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/24_Bottom_normal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/24_Bottom_normal.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/24_Bottom_specular.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/24_Bottom_specular.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/24_Hair_diffuse.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/24_Hair_diffuse.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/24_Hair_gloss.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/24_Hair_gloss.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/24_Hair_normal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/24_Hair_normal.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/24_Hair_specular.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/24_Hair_specular.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/24_Shoes_diffuse.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/24_Shoes_diffuse.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/24_Shoes_gloss.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/24_Shoes_gloss.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/24_Shoes_normal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/24_Shoes_normal.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/24_Shoes_specular.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/24_Shoes_specular.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/24_Top_diffuse.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/24_Top_diffuse.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/24_Top_gloss.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/24_Top_gloss.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/24_Top_normal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/24_Top_normal.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/24_Top_specular.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/24_Top_specular.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/Cashier.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/Cashier.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/cashier.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/cashier.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/Trail.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Prefabs/Trail.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Scenes/Scene2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scenes/Scene2.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/CameraZoom.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/CameraZoom.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Chapter1/Chapter1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Chapter1/Chapter1.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Interactable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Interactable.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/PlayerCharacterControl.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/PlayerCharacterControl.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scenes/Scene2/NavMesh.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scenes/Scene2/NavMesh.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,10 +172,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="31040">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="31040" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -283,7 +316,11 @@
       <workItem from="1683356705667" duration="839000" />
       <workItem from="1683397988023" duration="10585000" />
       <workItem from="1683480641449" duration="30000" />
-      <workItem from="1683481126720" duration="9463000" />
+      <workItem from="1683481126720" duration="10543000" />
+      <workItem from="1683553834098" duration="2427000" />
+      <workItem from="1683558131564" duration="44000" />
+      <workItem from="1683558716202" duration="7000" />
+      <workItem from="1683561388688" duration="2000" />
     </task>
     <servers />
   </component>

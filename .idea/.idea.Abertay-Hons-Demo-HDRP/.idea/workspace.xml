@@ -6,54 +6,43 @@
   <component name="ChangeListManager">
     <list default="true" id="4dd56a48-5213-4dda-9bf0-e9744c4963bb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Abertay-Hons-Demo-HDRP/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Abertay-Hons-Demo-HDRP/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 1/Characters/Mariano 1/Hair.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/3D/Chapter 1/Characters/Mariano 1/Hair.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/24_Body_diffuse.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/24_Body_diffuse.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/24_Body_gloss.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/24_Body_gloss.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/24_Body_normal.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/24_Body_normal.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/24_Body_specular.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/24_Body_specular.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/24_Bottom_diffuse.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/24_Bottom_diffuse.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/24_Bottom_gloss.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/24_Bottom_gloss.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/24_Bottom_normal.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/24_Bottom_normal.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/24_Bottom_specular.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/24_Bottom_specular.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/24_Hair_diffuse.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/24_Hair_diffuse.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/24_Hair_gloss.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/24_Hair_gloss.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/24_Hair_normal.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/24_Hair_normal.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/24_Hair_specular.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/24_Hair_specular.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/24_Shoes_diffuse.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/24_Shoes_diffuse.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/24_Shoes_gloss.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/24_Shoes_gloss.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/24_Shoes_normal.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/24_Shoes_normal.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/24_Shoes_specular.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/24_Shoes_specular.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/24_Top_diffuse.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/24_Top_diffuse.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/24_Top_gloss.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/24_Top_gloss.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/24_Top_normal.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/24_Top_normal.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/24_Top_specular.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/24_Top_specular.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/Cashier.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/Cashier.controller.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/cashier.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/cashier.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/Trail.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Prefabs/Trail.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/Cashier/24_Body_diffuse.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/Cashier/24_Body_diffuse.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/Cashier/24_Body_gloss.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/Cashier/24_Body_gloss.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/Cashier/24_Body_normal.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/Cashier/24_Body_normal.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/Cashier/24_Body_specular.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/Cashier/24_Body_specular.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/Cashier/24_Bottom_diffuse.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/Cashier/24_Bottom_diffuse.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/Cashier/24_Bottom_gloss.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/Cashier/24_Bottom_gloss.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/Cashier/24_Bottom_normal.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/Cashier/24_Bottom_normal.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/Cashier/24_Bottom_specular.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/Cashier/24_Bottom_specular.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/Cashier/24_Hair_diffuse.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/Cashier/24_Hair_diffuse.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/Cashier/24_Hair_gloss.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/Cashier/24_Hair_gloss.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/Cashier/24_Hair_normal.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/Cashier/24_Hair_normal.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/Cashier/24_Hair_specular.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/Cashier/24_Hair_specular.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/Cashier/24_Shoes_diffuse.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/Cashier/24_Shoes_diffuse.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/Cashier/24_Shoes_gloss.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/Cashier/24_Shoes_gloss.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/Cashier/24_Shoes_normal.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/Cashier/24_Shoes_normal.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/Cashier/24_Shoes_specular.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/Cashier/24_Shoes_specular.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/Cashier/24_Top_diffuse.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/Cashier/24_Top_diffuse.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/Cashier/24_Top_gloss.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/Cashier/24_Top_gloss.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/Cashier/24_Top_normal.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/Cashier/24_Top_normal.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/Cashier/24_Top_specular.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/Cashier/24_Top_specular.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/Gang Member/Gangmember_packed.obj.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/Gang Member/Gangmember_packed.obj.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/Gang Member/Gangmember_packed_packed0_diffuse.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/Gang Member/Gangmember_packed_packed0_diffuse.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/Gang Member/Gangmember_packed_packed0_gloss.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/Gang Member/Gangmember_packed_packed0_gloss.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/Gang Member/Gangmember_packed_packed0_normal.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/Gang Member/Gangmember_packed_packed0_normal.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/Gang Member/Gangmember_packed_packed0_specular.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/Gang Member/Gangmember_packed_packed0_specular.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/Luca/LucaCH2_packed0_diffuse.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/Luca/LucaCH2_packed0_diffuse.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/Luca/LucaCH2_packed0_gloss.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/Luca/LucaCH2_packed0_gloss.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/Luca/LucaCH2_packed0_normal.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/Luca/LucaCH2_packed0_normal.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/Luca/LucaCH2_packed0_specular.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/Luca/LucaCH2_packed0_specular.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/Paulie/PaulieCH2_packed0_diffuse.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/Paulie/PaulieCH2_packed0_diffuse.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/Paulie/PaulieCH2_packed0_gloss.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/Paulie/PaulieCH2_packed0_gloss.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/Paulie/PaulieCH2_packed0_normal.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/Paulie/PaulieCH2_packed0_normal.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/Paulie/PaulieCH2_packed0_specular.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/Paulie/PaulieCH2_packed0_specular.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Petrol Station/exhaust2.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Petrol Station/exhaust2.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Animations/Animation Controllers/Player.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Animations/Animation Controllers/Player.controller" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Scenes/Scene2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scenes/Scene2.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scenes/Scene2/NavMesh.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scenes/Scene2/NavMesh.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/PlayerCharacterControl.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/PlayerCharacterControl.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -321,6 +310,8 @@
       <workItem from="1683558131564" duration="44000" />
       <workItem from="1683558716202" duration="7000" />
       <workItem from="1683561388688" duration="2000" />
+      <workItem from="1683579962549" duration="552000" />
+      <workItem from="1683582360468" duration="3087000" />
     </task>
     <servers />
   </component>

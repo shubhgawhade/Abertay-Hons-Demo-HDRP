@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Cinemachine;
 using UnityEngine;
 
@@ -13,6 +14,8 @@ public class PlayerCharacterControl : CharacterControl
     
     public LayerMask ignoreLayer;
 
+    [SerializeField] private List<CharacterControl> friends;
+    [SerializeField] private List<CharacterControl> enemies;
 
     protected override bool ToggleCrouch()
     {
@@ -245,7 +248,6 @@ public class PlayerCharacterControl : CharacterControl
     protected override void InteractableTypeBehaviour()
     {
         GameManager.IsInteracting = true;
-        cinemachineTarget.AddMember(currentInteractable.targetLocation.transform, 3, 0);
         
         base.InteractableTypeBehaviour();
         
@@ -253,6 +255,7 @@ public class PlayerCharacterControl : CharacterControl
         {
             case Interactable.TypeOfInteractable.Scripted:
                             
+                cinemachineTarget.AddMember(currentInteractable.targetLocation.transform, 3, 0);
                 // Send action to Text reader to enable UI
                 textReader = currentInteractable.GetComponent<TextReader>();
                 textReader.ToggleUI();
@@ -262,8 +265,69 @@ public class PlayerCharacterControl : CharacterControl
             case Interactable.TypeOfInteractable.Inspectable:
 
                 currentInteractable.GetComponent<InspectableInteractables>().SetupStudio();
+
+                break;
+            
+            case Interactable.TypeOfInteractable.Cover:
+
+                cinemachineTarget.m_Targets[0].weight = 2;
+                foreach (CharacterControl characterControl in enemies)
+                {
+                    cinemachineTarget.AddMember(characterControl.transform, 2, 2);
+                }
                 
                 break;
+        }
+        
+    }
+    
+    protected override void OnTriggerStay(Collider other)
+    {
+        base.OnTriggerStay(other);
+
+        if (other.transform.root.gameObject != gameObject &&
+            (other.transform.root.CompareTag("Player") ||
+             other.transform.root.CompareTag("AI")))
+        {
+            CharacterControl characterControl = other.transform.root.GetComponent<CharacterControl>();
+            if (characterControl.isFriendly == isFriendly)
+            {
+                bool repeatedCheck = true;
+                for (int j = 0; j < friends.Count; j++)
+                {
+                    if (characterControl == friends[j])
+                    {
+                        repeatedCheck = false;
+                    }                    
+                }
+
+                if (repeatedCheck)
+                {
+                    friends.Add(characterControl);
+                }
+            }
+            else
+            {
+                bool repeatedCheck = true;
+                for (int j = 0; j < enemies.Count; j++)
+                {
+                    if (characterControl == enemies[j])
+                    {
+                        repeatedCheck = false;
+                    }                    
+                }
+
+                if (repeatedCheck)
+                {
+                    enemies.Add(characterControl);
+                }
+            }
+            
+            if (characterControl.characterState == CharacterState.None)
+            {
+                friends.Remove(characterControl);
+                enemies.Remove(characterControl);
+            }
         }
         
     }

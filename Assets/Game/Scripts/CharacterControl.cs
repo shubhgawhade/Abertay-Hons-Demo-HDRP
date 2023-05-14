@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Animations.Rigging;
@@ -49,7 +51,11 @@ public class CharacterControl : MonoBehaviour
     public CapsuleCollider m_Capsule;
 
     [SerializeField] protected GameObject bulletTarget;
+    [SerializeField] protected List<CharacterControl> friends;
+    [SerializeField] protected List<CharacterControl> enemies;
     public bool isFriendly;
+    [SerializeField] protected CinemachineTargetGroup cinemachineTarget;
+
     
     protected void Start()
     {
@@ -218,6 +224,7 @@ public class CharacterControl : MonoBehaviour
             
             default:
                 
+                cinemachineTarget.RemoveMember(gameObject.transform);
                 Debug.LogWarning($"{gameObject.name} NOT SET TO ANY CHARACTER STATE");
                 StopAllCoroutines();
                 // Time.timeScale = 0.5f;
@@ -299,8 +306,14 @@ public class CharacterControl : MonoBehaviour
         {
             case "Cover":
                 
-                if (crouch)
+                if (crouch && isInteracting)
                 {
+                    // TO HELP THE FRIENDLY AI TO BE A BIT BETTER THAN THE ENEMY AI SO THAT THEY DONT BECOME BAD TEAM MATES
+                    if (isFriendly && GetComponent<HealthManager>().health < 30)
+                    {
+                        GetComponent<HealthManager>().AddHealth(Time.deltaTime);
+                    }
+
                     coverAnimRigWeight = 1;
                     // print(other.bounds.extents.y);
                     float tempY = other.bounds.max.y - 0.5f;
@@ -313,6 +326,51 @@ public class CharacterControl : MonoBehaviour
                 
                 break;
         }
+        
+        if (other.transform.root.gameObject != gameObject &&
+            (other.transform.root.CompareTag("Player") ||
+             other.transform.root.CompareTag("AI")))
+        {
+            CharacterControl characterControl = other.transform.root.GetComponent<CharacterControl>();
+            if (characterControl.isFriendly == isFriendly)
+            {
+                bool repeatedCheck = true;
+                for (int j = 0; j < friends.Count; j++)
+                {
+                    if (characterControl == friends[j])
+                    {
+                        repeatedCheck = false;
+                    }                    
+                }
+
+                if (repeatedCheck)
+                {
+                    friends.Add(characterControl);
+                }
+            }
+            else
+            {
+                bool repeatedCheck = true;
+                for (int j = 0; j < enemies.Count; j++)
+                {
+                    if (characterControl == enemies[j])
+                    {
+                        repeatedCheck = false;
+                    }                    
+                }
+
+                if (repeatedCheck)
+                {
+                    enemies.Add(characterControl);
+                }
+            }
+            
+            if (characterControl.characterState == CharacterState.None)
+            {
+                friends.Remove(characterControl);
+                enemies.Remove(characterControl);
+            }
+        }
     }
 
     protected virtual void OnTriggerExit(Collider other)
@@ -324,6 +382,21 @@ public class CharacterControl : MonoBehaviour
                 coverAnimRigWeight = 0;
                 _defaultHeightConstraint = heightConstraint;
                 break;
+        }
+        
+        if (other.transform.root.gameObject != gameObject &&
+            (other.transform.root.CompareTag("Player") ||
+             other.transform.root.CompareTag("AI"))) 
+        {
+            CharacterControl characterControl = other.transform.root.GetComponent<CharacterControl>();
+            if (characterControl.isFriendly == isFriendly)
+            {
+                friends.Remove(characterControl);
+            }
+            else
+            {
+                enemies.Remove(characterControl);
+            }
         }
     }
 

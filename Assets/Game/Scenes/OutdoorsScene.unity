@@ -2936,7 +2936,10 @@ MonoBehaviour:
   crouch: 0
   m_Capsule: {fileID: 0}
   bulletTarget: {fileID: 0}
+  friends: []
+  enemies: []
   isFriendly: 0
+  cinemachineTarget: {fileID: 0}
   previousBehaviour: 0
   aiBehaviour: 0
   player: {fileID: 0}
@@ -2946,8 +2949,6 @@ MonoBehaviour:
   bonesHit: []
   hitLocs: []
   gunplayLocations: []
-  friends: []
-  enemies: []
   sharedEnemies: []
   knownTargetData: []
   currentTarget:
@@ -8694,7 +8695,10 @@ MonoBehaviour:
   crouch: 0
   m_Capsule: {fileID: 0}
   bulletTarget: {fileID: 0}
+  friends: []
+  enemies: []
   isFriendly: 0
+  cinemachineTarget: {fileID: 0}
   previousBehaviour: 0
   aiBehaviour: 0
   player: {fileID: 0}
@@ -8704,8 +8708,6 @@ MonoBehaviour:
   bonesHit: []
   hitLocs: []
   gunplayLocations: []
-  friends: []
-  enemies: []
   sharedEnemies: []
   knownTargetData: []
   currentTarget:
@@ -9818,7 +9820,7 @@ MonoBehaviour:
   pauliePos2: {fileID: 175700778}
   killDecisionUI: {fileID: 1375425344}
   killOrSpareUI: {fileID: 1683931627}
-  dialogue1_2Luca: {fileID: 4900000, guid: e3fb3fa843fc8e24dbe8ffa386a8224a, type: 3}
+  dialogue1_2Luca: {fileID: 4900000, guid: 135b4ba6c7df8a24e8c806429821c126, type: 3}
   dialogue1_2Paulie: {fileID: 4900000, guid: 2c215a9b413ff9940b727ad71e876c55, type: 3}
   isPaulieKilled: 0
   animPaused: 0
@@ -9876,6 +9878,18 @@ MonoBehaviour:
   - {fileID: 8300000, guid: c55e6aa62bff4ac44adc802083860eaf, type: 3}
   - {fileID: 8300000, guid: a91015f8aa643604f824b66f26e47f2d, type: 3}
   - {fileID: 8300000, guid: 08a0715826bb07f49bdc0bd3756877b5, type: 3}
+  - {fileID: 8300000, guid: 36877dc63c0695a499f6387f74a7f699, type: 3}
+  - {fileID: 8300000, guid: dd356cc0206508242af1f588469cd95a, type: 3}
+  - {fileID: 8300000, guid: 2338d19eb315dae48bca35f21f503b51, type: 3}
+  - {fileID: 8300000, guid: 899a4829a115c5c4b9077421d0f30d0d, type: 3}
+  - {fileID: 8300000, guid: 60f9524eb2819ec469d444707e1a4c01, type: 3}
+  - {fileID: 8300000, guid: 4669ee53757bad34e8be1daf9394da3c, type: 3}
+  - {fileID: 8300000, guid: 17d64c407b500874f9de754bf79978d7, type: 3}
+  - {fileID: 8300000, guid: a17815ceda2becd42b2cdd7b5b683bbb, type: 3}
+  - {fileID: 8300000, guid: 53bab4af51618f943bd662ac9673725a, type: 3}
+  - {fileID: 8300000, guid: 57437b7de6997b44583cebb980f3de49, type: 3}
+  - {fileID: 8300000, guid: 826244f6aea3f7245b891c8427b72ba5, type: 3}
+  - {fileID: 8300000, guid: 830336c212cad054d956b19b27f13e2c, type: 3}
   - {fileID: 8300000, guid: f5abe7be844eb0e44989c61a7bd6c8f0, type: 3}
 --- !u!114 &1885397268
 MonoBehaviour:
@@ -15059,7 +15073,10 @@ MonoBehaviour:
   crouch: 0
   m_Capsule: {fileID: 0}
   bulletTarget: {fileID: 0}
+  friends: []
+  enemies: []
   isFriendly: 0
+  cinemachineTarget: {fileID: 0}
   previousBehaviour: 0
   aiBehaviour: 0
   player: {fileID: 0}
@@ -15069,8 +15086,6 @@ MonoBehaviour:
   bonesHit: []
   hitLocs: []
   gunplayLocations: []
-  friends: []
-  enemies: []
   sharedEnemies: []
   knownTargetData: []
   currentTarget:
@@ -15288,6 +15303,8 @@ MonoBehaviour:
   crouch: 0
   m_Capsule: {fileID: 0}
   bulletTarget: {fileID: 0}
+  friends: []
+  enemies: []
   isFriendly: 0
   cinemachineTarget: {fileID: 6842342793698539605}
   doubleClickDelay: 0.2

@@ -28,8 +28,6 @@ public class AICharacterControl : CharacterControl
     [SerializeField] private GameObject[] bonesHit;
     [SerializeField] private Vector3[] hitLocs;
     [SerializeField] private List<Interactable> gunplayLocations;
-    [SerializeField] private List<CharacterControl> friends;
-    [SerializeField] private List<CharacterControl> enemies;
     [SerializeField] private List<CharacterControl> sharedEnemies;
     
     [Serializable]
@@ -148,6 +146,11 @@ public class AICharacterControl : CharacterControl
                 // SHOOT NUMBER OF BULLETS AS BONES WITH THE DELAY AND BONES VISIBLE INVERSELY PROPORTIONAL
                 if (bulletsShot < currentTarget.bonesVisible)
                 {
+                    if (isFriendly && GetComponent<HealthManager>().health < 20)
+                    {
+                        break;
+                    }
+                    
                     Shoot();
                 }
                 else if(bulletsShot == currentTarget.bonesVisible)
@@ -803,50 +806,50 @@ public class AICharacterControl : CharacterControl
             }
         }
         
-        if (other.transform.root.gameObject != gameObject &&
-            (other.transform.root.CompareTag("Player") ||
-             other.transform.root.CompareTag("AI")))
-        {
-            CharacterControl characterControl = other.transform.root.GetComponent<CharacterControl>();
-            if (characterControl.isFriendly == isFriendly)
-            {
-                bool repeatedCheck = true;
-                for (int j = 0; j < friends.Count; j++)
-                {
-                    if (characterControl == friends[j])
-                    {
-                        repeatedCheck = false;
-                    }                    
-                }
-
-                if (repeatedCheck)
-                {
-                    friends.Add(characterControl);
-                }
-            }
-            else
-            {
-                bool repeatedCheck = true;
-                for (int j = 0; j < enemies.Count; j++)
-                {
-                    if (characterControl == enemies[j])
-                    {
-                        repeatedCheck = false;
-                    }                    
-                }
-
-                if (repeatedCheck)
-                {
-                    enemies.Add(characterControl);
-                }
-            }
-            
-            if (characterControl.characterState == CharacterState.None)
-            {
-                friends.Remove(characterControl);
-                enemies.Remove(characterControl);
-            }
-        }
+        // if (other.transform.root.gameObject != gameObject &&
+        //     (other.transform.root.CompareTag("Player") ||
+        //      other.transform.root.CompareTag("AI")))
+        // {
+        //     CharacterControl characterControl = other.transform.root.GetComponent<CharacterControl>();
+        //     if (characterControl.isFriendly == isFriendly)
+        //     {
+        //         bool repeatedCheck = true;
+        //         for (int j = 0; j < friends.Count; j++)
+        //         {
+        //             if (characterControl == friends[j])
+        //             {
+        //                 repeatedCheck = false;
+        //             }                    
+        //         }
+        //
+        //         if (repeatedCheck)
+        //         {
+        //             friends.Add(characterControl);
+        //         }
+        //     }
+        //     else
+        //     {
+        //         bool repeatedCheck = true;
+        //         for (int j = 0; j < enemies.Count; j++)
+        //         {
+        //             if (characterControl == enemies[j])
+        //             {
+        //                 repeatedCheck = false;
+        //             }                    
+        //         }
+        //
+        //         if (repeatedCheck)
+        //         {
+        //             enemies.Add(characterControl);
+        //         }
+        //     }
+        //     
+        //     if (characterControl.characterState == CharacterState.None)
+        //     {
+        //         friends.Remove(characterControl);
+        //         enemies.Remove(characterControl);
+        //     }
+        // }
         
     }
 
@@ -868,20 +871,20 @@ public class AICharacterControl : CharacterControl
                 break;
         }
         
-        if (other.transform.root.gameObject != gameObject &&
-            (other.transform.root.CompareTag("Player") ||
-             other.transform.root.CompareTag("AI"))) 
-        {
-            CharacterControl characterControl = other.transform.root.GetComponent<CharacterControl>();
-            if (characterControl.isFriendly == isFriendly)
-            {
-                friends.Remove(characterControl);
-            }
-            else
-            {
-                enemies.Remove(characterControl);
-            }
-        }
+        // if (other.transform.root.gameObject != gameObject &&
+        //     (other.transform.root.CompareTag("Player") ||
+        //      other.transform.root.CompareTag("AI"))) 
+        // {
+        //     CharacterControl characterControl = other.transform.root.GetComponent<CharacterControl>();
+        //     if (characterControl.isFriendly == isFriendly)
+        //     {
+        //         friends.Remove(characterControl);
+        //     }
+        //     else
+        //     {
+        //         enemies.Remove(characterControl);
+        //     }
+        // }
     }
 
     // VISUALIZE THE AI DETECTION SYSTEM

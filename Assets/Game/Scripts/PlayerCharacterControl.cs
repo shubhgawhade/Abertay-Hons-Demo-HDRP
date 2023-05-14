@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class PlayerCharacterControl : CharacterControl
 {
-    [SerializeField] private CinemachineTargetGroup cinemachineTarget;
-    
     private RaycastHit hit;
     private TextReader textReader;
     
@@ -13,9 +11,6 @@ public class PlayerCharacterControl : CharacterControl
     public float timer;
     
     public LayerMask ignoreLayer;
-
-    [SerializeField] private List<CharacterControl> friends;
-    [SerializeField] private List<CharacterControl> enemies;
 
     protected override bool ToggleCrouch()
     {
@@ -89,9 +84,10 @@ public class PlayerCharacterControl : CharacterControl
                 bulletTarget.transform.position = hit.point;
 
                 // if (Input.GetMouseButtonDown(1))
-                if (Input.GetKeyDown(KeyCode.LeftControl)) 
+                if (Input.GetMouseButtonDown(1)) 
                 {
-                    // pointShootRig.weight = 0;
+                    pointShootRig.weight = 0;
+                    cachedTransform = null;
                     GameManager.IsInteracting = false;
                     currentInteractable.isOccupied = false;
                     characterState = CharacterState.Exploration;
@@ -240,7 +236,7 @@ public class PlayerCharacterControl : CharacterControl
             
             
             default:
-
+                
                 break;
         }
     }
@@ -270,10 +266,23 @@ public class PlayerCharacterControl : CharacterControl
             
             case Interactable.TypeOfInteractable.Cover:
 
-                cinemachineTarget.m_Targets[0].weight = 2;
+                // cinemachineTarget.m_Targets[0].weight = 2;
                 foreach (CharacterControl characterControl in enemies)
                 {
-                    cinemachineTarget.AddMember(characterControl.transform, 2, 2);
+                    bool hasRepeated = false;
+                    foreach (CinemachineTargetGroup.Target target in cinemachineTarget.m_Targets)
+                    {
+                        if (target.target == characterControl.transform)
+                        {
+                            hasRepeated = true;
+                        }
+
+                    }
+                    
+                    if (!hasRepeated)
+                    {
+                        cinemachineTarget.AddMember(characterControl.transform, 2, 2);
+                    }
                 }
                 
                 break;
@@ -281,56 +290,56 @@ public class PlayerCharacterControl : CharacterControl
         
     }
     
-    protected override void OnTriggerStay(Collider other)
-    {
-        base.OnTriggerStay(other);
-
-        if (other.transform.root.gameObject != gameObject &&
-            (other.transform.root.CompareTag("Player") ||
-             other.transform.root.CompareTag("AI")))
-        {
-            CharacterControl characterControl = other.transform.root.GetComponent<CharacterControl>();
-            if (characterControl.isFriendly == isFriendly)
-            {
-                bool repeatedCheck = true;
-                for (int j = 0; j < friends.Count; j++)
-                {
-                    if (characterControl == friends[j])
-                    {
-                        repeatedCheck = false;
-                    }                    
-                }
-
-                if (repeatedCheck)
-                {
-                    friends.Add(characterControl);
-                }
-            }
-            else
-            {
-                bool repeatedCheck = true;
-                for (int j = 0; j < enemies.Count; j++)
-                {
-                    if (characterControl == enemies[j])
-                    {
-                        repeatedCheck = false;
-                    }                    
-                }
-
-                if (repeatedCheck)
-                {
-                    enemies.Add(characterControl);
-                }
-            }
-            
-            if (characterControl.characterState == CharacterState.None)
-            {
-                friends.Remove(characterControl);
-                enemies.Remove(characterControl);
-            }
-        }
-        
-    }
+    // protected override void OnTriggerStay(Collider other)
+    // {
+    //     base.OnTriggerStay(other);
+    //
+    //     if (other.transform.root.gameObject != gameObject &&
+    //         (other.transform.root.CompareTag("Player") ||
+    //          other.transform.root.CompareTag("AI")))
+    //     {
+    //         CharacterControl characterControl = other.transform.root.GetComponent<CharacterControl>();
+    //         if (characterControl.isFriendly == isFriendly)
+    //         {
+    //             bool repeatedCheck = true;
+    //             for (int j = 0; j < friends.Count; j++)
+    //             {
+    //                 if (characterControl == friends[j])
+    //                 {
+    //                     repeatedCheck = false;
+    //                 }                    
+    //             }
+    //
+    //             if (repeatedCheck)
+    //             {
+    //                 friends.Add(characterControl);
+    //             }
+    //         }
+    //         else
+    //         {
+    //             bool repeatedCheck = true;
+    //             for (int j = 0; j < enemies.Count; j++)
+    //             {
+    //                 if (characterControl == enemies[j])
+    //                 {
+    //                     repeatedCheck = false;
+    //                 }                    
+    //             }
+    //
+    //             if (repeatedCheck)
+    //             {
+    //                 enemies.Add(characterControl);
+    //             }
+    //         }
+    //         
+    //         if (characterControl.characterState == CharacterState.None)
+    //         {
+    //             friends.Remove(characterControl);
+    //             enemies.Remove(characterControl);
+    //         }
+    //     }
+    //     
+    // }
 
     private void DEBUG_CHEATS()
     {

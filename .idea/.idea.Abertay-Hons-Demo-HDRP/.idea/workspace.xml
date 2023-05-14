@@ -6,12 +6,19 @@
   <component name="ChangeListManager">
     <list default="true" id="4dd56a48-5213-4dda-9bf0-e9744c4963bb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Abertay-Hons-Demo-HDRP/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Abertay-Hons-Demo-HDRP/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/Luca/LucaCH2FBX.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/Luca/LucaCH2FBX.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/Luca/LucaCh2.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/Luca/LucaCh2.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/Paulie/PaulieCH2FBX.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Characters/Paulie/PaulieCH2FBX.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Animations/Animation Controllers/Player.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Animations/Animation Controllers/Player.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Petrol Station/Convex Mirror Test/Convex Mirror.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Petrol Station/Convex Mirror Test/Convex Mirror.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scenes/OutdoorsScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scenes/OutdoorsScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Scenes/Scene2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scenes/Scene2.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scenes/Scene2/NavMesh.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scenes/Scene2/NavMesh.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/AICharacterControl.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/AICharacterControl.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/CharacterControl.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/CharacterControl.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/PlayerCharacterControl.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/PlayerCharacterControl.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Chapter1Dialogue1_2_Luca.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Chapter1Dialogue1_2_Luca.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Chapter1Dialogue1_2_Paulie.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Chapter1Dialogue1_2_Paulie.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Chapter1_2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/Chapter1_2.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Chapter1_2.txt.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/Chapter1_2.txt.meta" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -283,6 +290,8 @@
       <workItem from="1683582360468" duration="3087000" />
       <workItem from="1683597269728" duration="4000" />
       <workItem from="1683672080312" duration="1000" />
+      <workItem from="1683920319959" duration="15483000" />
+      <workItem from="1684097826981" duration="3960000" />
     </task>
     <servers />
   </component>

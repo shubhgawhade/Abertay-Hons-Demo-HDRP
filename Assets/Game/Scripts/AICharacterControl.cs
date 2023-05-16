@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 [Serializable]
@@ -13,7 +12,8 @@ public class AICharacterControl : CharacterControl
         None,
         Chase,
         Flee,
-        Combat
+        Combat,
+        FollowPlayer
     }
 
     [Header("AI SETTINGS")]
@@ -505,6 +505,12 @@ public class AICharacterControl : CharacterControl
                         
                     }
                 }
+                
+                break;
+            
+            case InternalBehaviour.FollowPlayer:
+
+                
                 
                 break;
 

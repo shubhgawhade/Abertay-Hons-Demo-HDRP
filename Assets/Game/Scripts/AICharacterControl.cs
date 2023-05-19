@@ -13,18 +13,21 @@ public class AICharacterControl : CharacterControl
         Chase,
         Flee,
         Combat,
-        FollowPlayer
+        RandomLocationPicker
     }
 
     [Header("AI SETTINGS")]
     [Space(10)]
     [SerializeField] private InternalBehaviour previousBehaviour;
     [SerializeField] private InternalBehaviour aiBehaviour = InternalBehaviour.None;
-    
+
+
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject aiRayLoc;
     [SerializeField] private GameObject aiLookTarget;
     [SerializeField] private GameObject aiShootTarget;
+    [SerializeField] private Transform smartTransform;
+    public bool smartLocationPicked;
     [SerializeField] private GameObject[] bonesHit;
     [SerializeField] private Vector3[] hitLocs;
     [SerializeField] private List<Interactable> gunplayLocations;
@@ -508,15 +511,44 @@ public class AICharacterControl : CharacterControl
                 
                 break;
             
-            case InternalBehaviour.FollowPlayer:
+            case InternalBehaviour.RandomLocationPicker:
 
-                
+                if (cachedTransform)
+                {
+                    print("NEW LOC");
+
+                    // WHEN AI IS 'X' METRES CLOSE TO ITS TARGET LOCATION
+                    // CALCULATE A NEW TARGET POSITION BEHIND THE DIRECTION IN WHICH THE ORIGINAL TARGET IS FACING AROUND THE ORIGINAL TARGET LOCATION < 'X'
+                    // SET THE CACHED TRANSFORMS FORWARD TO LOOK AT THE ORIGINAL TARGET LOCATION
+                    if ((transform.position - target).magnitude < 5 && !smartLocationPicked)
+                    {
+                        Vector3 newRot = cachedTransform.eulerAngles;
+                        Vector3 newLoc = cachedTransform.position;
+                        
+                        // +/- 60
+                        float randomAngle = Random.Range(-60.0f, 60.0f);
+                        print(randomAngle);
+                        smartTransform.position = newLoc;
+                        smartTransform.eulerAngles = new Vector3(newRot.x, newRot.y + randomAngle, newRot.z);
+                        
+                        print(smartTransform.localPosition);
+                        smartTransform.localPosition -= Random.Range(1,5) * smartTransform.forward;
+                        
+                        // tempObj.transform.LookAt(newLoc);
+                        targetTransform = smartTransform;
+                        smartLocationPicked = true;
+                    }
+                }
+                else
+                {
+                    smartLocationPicked = false;
+                }
                 
                 break;
 
         }
     }
-
+    
     private void VisionDetection(List<CharacterControl> detectionList)
     {
         // VISION CONE DETECTION

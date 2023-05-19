@@ -62,10 +62,15 @@ public class CharacterControl : MonoBehaviour
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         m_Capsule = GetComponent<CapsuleCollider>();
-        coverAnimRig = GetComponent<RigBuilder>().layers[0].rig;
-        pointShootRig = GetComponent<RigBuilder>().layers[1].rig;
-        heightConstraint = coverAnimRig.gameObject.GetComponent<BlendConstraint>().data.sourceObjectB;
-        _defaultHeightConstraint = heightConstraint;
+        
+        if (GetComponent<RigBuilder>())
+        {
+            coverAnimRig = GetComponent<RigBuilder>().layers[0].rig;
+            pointShootRig = GetComponent<RigBuilder>().layers[1].rig;
+            heightConstraint = coverAnimRig.gameObject.GetComponent<BlendConstraint>().data.sourceObjectB;
+            _defaultHeightConstraint = heightConstraint;
+        }
+        
 
         // get the components on the object we need ( should not be null due to require component so no need to check )
         agent = GetComponent<NavMeshAgent>();
@@ -85,12 +90,18 @@ public class CharacterControl : MonoBehaviour
     {
         if (crouch)
         {
-            pointShootRig.weight = 0;
+            if (pointShootRig)
+            {
+                pointShootRig.weight = 0;
+            }
         }
         else
         {
-            heightConstraint = _defaultHeightConstraint;
-            coverAnimRigWeight = 0;
+            if (coverAnimRig)
+            {
+                heightConstraint = _defaultHeightConstraint;
+                coverAnimRigWeight = 0;
+            }
         }
         
         // print(gameObject.name + aIStopped);
@@ -147,7 +158,7 @@ public class CharacterControl : MonoBehaviour
                         transform.rotation = Quaternion.Slerp(transform.rotation.normalized, cachedTransform.rotation.normalized, Time.deltaTime * 5);
 
                         // print(Vector3.Dot(transform.forward.normalized, cachedTransform.transform.forward.normalized));
-                        if (Vector3.Dot(transform.forward.normalized, cachedTransform.transform.forward.normalized) > 1f)
+                        if (Vector3.Dot(transform.forward.normalized, cachedTransform.transform.forward.normalized) > 0.99f)
                         {
                             cachedTransform = null;
                         }
@@ -181,7 +192,10 @@ public class CharacterControl : MonoBehaviour
             case CharacterState.Exploration:
 
                 // LERPING BETWEEN DIFFERENT COVER HEIGHTS
-                InterpolateCoverRigWeight();
+                if (coverAnimRig)
+                {
+                    InterpolateCoverRigWeight();
+                }
                 
                 break;
             
@@ -189,7 +203,10 @@ public class CharacterControl : MonoBehaviour
             case CharacterState.Gunplay:
 
                 // LERPING BETWEEN DIFFERENT COVER HEIGHTS
-                InterpolateCoverRigWeight();
+                if (coverAnimRig)
+                {
+                    InterpolateCoverRigWeight();
+                }
 
                 break;
 

@@ -15,6 +15,16 @@ public class TextReader : MonoBehaviour
 {
     // CHAPTER VARIABLES
     [SerializeField] private GameObject chapterManager;
+    
+    [Serializable]
+    public class UnlockDialogue
+    {
+        public TextReader forinteractable;
+        public TextAsset unlockTextAsset;
+    }
+
+    [SerializeField] private UnlockDialogue unlockDialogue;
+    
     private ChapterDialogueAudioManager _chapterDialogueAudioManager;
     public DialogueAudioMatch[] dialogueAudioMatch;
 
@@ -172,6 +182,10 @@ public class TextReader : MonoBehaviour
 
     public void ToggleUI()
     {
+        if (!unlockDialogue.forinteractable && !alreadyInteracted)
+        {
+            chapterManager.GetComponent<Chapters>().sceneNum++;
+        }
         // LoadScript();
         
         ui.SetActive(!ui.activeSelf);
@@ -198,7 +212,13 @@ public class TextReader : MonoBehaviour
                 // ADDS INTEL ONLY IF THE PLAYER HASNT ALREADY INTERACTED WITH THIS OBJECT AND NOT SKIPPED THE DIALOGUE
                 if (!alreadyInteracted && !dialogueSkipTimer.isCompleted)
                 {
-                    GameManager.Intelligence = interactable.minIntel + interactable.rewardIntel;
+                    if (unlockDialogue.forinteractable)
+                    {
+                        unlockDialogue.forinteractable.textAsset = unlockDialogue.unlockTextAsset;
+                        unlockDialogue.forinteractable.LoadScript();
+                    }
+                    
+                    GameManager.Intelligence += interactable.rewardIntel;
                     alreadyInteracted = true;
                 }
                 

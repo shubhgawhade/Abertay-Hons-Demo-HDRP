@@ -30,8 +30,7 @@ public class Interactable : MonoBehaviour
     public bool isOccupied;
 
     //TEST VARIABLES
-    [Header("TEST VARIABLES")]
-    [Space(10)]
+    [Header("TEST VARIABLE")]
     public bool testRay;
 
     public virtual void Awake()

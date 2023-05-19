@@ -1,17 +1,8 @@
 using System.Collections;
 using UnityEngine;
 
-public class Chapter1 : MonoBehaviour
+public class Chapter1 : Chapters
 {
-    [SerializeField] private GameObject player;
-    [SerializeField] private GameObject[] characters;
-    [SerializeField] private CharacterControl[] aiCharacterControl;
-    [SerializeField] private Animator[] animators;
-    [SerializeField] private GameObject[] weapons;
-    
-
-    [SerializeField] private GameObject charactersParent;
-    
     [SerializeField] private Transform lucaPos2;
     [SerializeField] private Transform pauliePos2;
 
@@ -22,11 +13,8 @@ public class Chapter1 : MonoBehaviour
     [SerializeField] private TextAsset dialogue1_2Paulie;
     
     public bool isPaulieKilled;
-    public bool animPaused;
     public bool calledPostDecision;
     private bool showKillDecisionUI;
-    private Animator playerAnimator;
-    private TextReader textReader;
     
     public enum Scene
     {
@@ -42,21 +30,21 @@ public class Chapter1 : MonoBehaviour
 
     public Scene scene = Scene.InitialMove;
 
-    private void Awake()
-    {
-        textReader = GetComponent<TextReader>();
-        aiCharacterControl = new CharacterControl[characters.Length];
-        animators = new Animator[characters.Length];
-
-        for (int i = 0; i < characters.Length; i++)
-        {
-            aiCharacterControl[i] = characters[i].GetComponent<CharacterControl>();
-            animators[i] = characters[i].GetComponent<Animator>();
-        }
-
-        playerAnimator = player.GetComponent<Animator>();
-
-    }
+    // private void Awake()
+    // {
+    //     textReader = GetComponent<TextReader>();
+    //     aiCharacterControl = new CharacterControl[characters.Length];
+    //     animators = new Animator[characters.Length];
+    //
+    //     for (int i = 0; i < characters.Length; i++)
+    //     {
+    //         aiCharacterControl[i] = characters[i].GetComponent<CharacterControl>();
+    //         animators[i] = characters[i].GetComponent<Animator>();
+    //     }
+    //
+    //     playerAnimator = player.GetComponent<Animator>();
+    //
+    // }
 
     private void A()
     {
@@ -146,10 +134,10 @@ public class Chapter1 : MonoBehaviour
                 killDecisionUI.SetActive(true);
                 characters[2].transform.parent = player.transform;
 
-                if (!animPaused)
+                if (!scenePaused)
                 {
                     Time.timeScale = 0;
-                    animPaused = true;
+                    scenePaused = true;
                 }
                 
                 if (Input.GetMouseButtonDown(0))
@@ -182,7 +170,7 @@ public class Chapter1 : MonoBehaviour
                 
                 playerAnimator.SetBool("Grabbing", false);
                 
-                characters[2].transform.parent = charactersParent.transform;
+                characters[2].transform.parent = null;
                 
                 if (isPaulieKilled)
                 {
@@ -303,7 +291,7 @@ public class Chapter1 : MonoBehaviour
             
             case Scene.EOC:
                 playerAnimator.SetBool("GunDrawn", false);
-                player.GetComponent<CharacterControl>().ChangeCharacterState(CharacterControl.CharacterState.Exploration);
+                playerCharacterControl.ChangeCharacterState(CharacterControl.CharacterState.Exploration);
                 break;
         }
 
@@ -351,7 +339,7 @@ public class Chapter1 : MonoBehaviour
 
                 // GUNSHOT PARTICLE FX
 
-                animPaused = false;
+                scenePaused = false;
                 Time.timeScale = 1;
                 // yield return new WaitForSeconds(0.3f);
                 killDecisionUI.SetActive(false);

@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class InspectableInteractables : Interactable
 {
+    [SerializeField] private GameObject chapterManager;
     [SerializeField] private Camera studioCam;
     [SerializeField] private CameraZoom cameraZoom;
     [SerializeField] private Transform studioTransform;
@@ -10,12 +11,22 @@ public class InspectableInteractables : Interactable
 
     public bool studioSetupComplete;
     public bool isRotateable;
+    public bool alreadyInteracted;
 
     private Interactable interactable;
     private GameObject temp;
     private Bounds bounds;
     private Vector3 center;
     
+    [Serializable]
+    public class UnlockDialogue
+    {
+        public TextReader forinteractable;
+        public TextAsset unlockTextAsset;
+    }
+
+    [SerializeField] private UnlockDialogue unlockDialogue;
+
     public static Action<Transform> RemoveCinemachineTarget;
 
     // Start is called before the first frame update
@@ -30,6 +41,11 @@ public class InspectableInteractables : Interactable
 
     public void SetupStudio()
     {
+        if (!unlockDialogue.forinteractable)
+        {
+            chapterManager.GetComponent<Chapters>().sceneNum++;
+        }
+        
         studioTransform.gameObject.SetActive(true);
         // cameraZoom.enabled = false;
         
@@ -124,6 +140,20 @@ public class InspectableInteractables : Interactable
             RemoveCinemachineTarget(interactable.targetLocation.transform);
             GameManager.IsInteracting = false;
             isOccupied = false;
+        }
+        
+        
+        
+        if (!alreadyInteracted)
+        {
+            if (unlockDialogue.forinteractable)
+            {
+                unlockDialogue.forinteractable.textAsset = unlockDialogue.unlockTextAsset;
+                unlockDialogue.forinteractable.LoadScript();
+            }
+            
+            GameManager.Intelligence += interactable.rewardIntel;
+            alreadyInteracted = true;
         }
 
         studioTransform.gameObject.SetActive(false);

@@ -7,15 +7,15 @@
     <list default="true" id="4dd56a48-5213-4dda-9bf0-e9744c4963bb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Abertay-Hons-Demo-HDRP/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Abertay-Hons-Demo-HDRP/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Petrol Station/exhaust2.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Petrol Station/exhaust2.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Animations/Paulie 1 Rigged@Gunplay.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Animations/Paulie 1 Rigged@Gunplay.fbx.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Scenes/Scene2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scenes/Scene2.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/AICharacterControl.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/AICharacterControl.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Chapter1/Chapter1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Chapter1/Chapter1.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Chapter2/Chapter2.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Chapter2/Chapter2.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/CharacterControl.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/CharacterControl.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/InspectableInteractables.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/InspectableInteractables.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Interactable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Interactable.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/TextReader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/TextReader.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Chapter2_A_1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/Chapter2_A_1.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Chapter2_MiniGame.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Chapter2_MiniGame.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Chapter2_MiniGameBonus.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Chapter2_MiniGameBonus.txt.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,13 +32,17 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4a31731933e0419ca5a995305014ad37157a00/c9/1ca77152/MonoBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4a31731933e0419ca5a995305014ad37157a00/d3/c2fd97b9/Object.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/76/4b237d08/CollectionExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/b5/cb04d34f/Convert.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/89d2c0fe37e0454991daf2807b7dcb6329200/ec/40adff44/GUIUtility.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/e40e5a8f982c4b618a930d29f9bd091c46a800/77/fdb95c88/List`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3ea01e77be99618395f448b16bd7cc2bd4248bd9e5d8474964b2d97f39c5d74/System.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Game/Scripts/AICharacterControl.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Game/Scripts/AudioDialogueTest.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Game/Scripts/Chapter1/ChapterDialogueAudioManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Game/Scripts/Chapter1/SpeakerEnum.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Game/Scripts/Chapter2/Chapter2.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Game/Scripts/Chapter2/MiniGameManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Game/Scripts/Chapter2/TEMP/ParticleEnterTrigger.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Game/Scripts/Chapters.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Game/Scripts/CoverInteractables.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Game/Scripts/DetectFadeMaterials.cs" root0="FORCE_HIGHLIGHTING" />
@@ -302,6 +306,11 @@
       <workItem from="1684345983523" duration="3057000" />
       <workItem from="1684350917779" duration="17977000" />
       <workItem from="1684445942379" duration="16751000" />
+      <workItem from="1684537588900" duration="7495000" />
+      <workItem from="1684625916611" duration="11475000" />
+      <workItem from="1684646218640" duration="3728000" />
+      <workItem from="1684694974546" duration="19815000" />
+      <workItem from="1684874925316" duration="15309000" />
     </task>
     <servers />
   </component>

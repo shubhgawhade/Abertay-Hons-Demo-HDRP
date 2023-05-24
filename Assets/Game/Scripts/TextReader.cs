@@ -182,7 +182,7 @@ public class TextReader : MonoBehaviour
 
     public void ToggleUI()
     {
-        if (!unlockDialogue.forinteractable && !alreadyInteracted)
+        if (unlockDialogue.forinteractable != null && !alreadyInteracted)
         {
             chapterManager.GetComponent<Chapters>().sceneNum++;
         }
@@ -201,7 +201,7 @@ public class TextReader : MonoBehaviour
         if (dialogueTracker == -1)
         {
             interactableStates = InteractableStates.InteractionOver;
-            if (GameManager.IsInteracting)
+            if (GameManager.IsInteracting && interactable)
             {
                 // print(gameObject.transform);
                 RemoveCinemachineTarget(interactable.targetLocation.transform);
@@ -214,8 +214,8 @@ public class TextReader : MonoBehaviour
                 {
                     if (unlockDialogue.forinteractable)
                     {
-                        unlockDialogue.forinteractable.textAsset = unlockDialogue.unlockTextAsset;
-                        unlockDialogue.forinteractable.LoadScript();
+                        // unlockDialogue.forinteractable.textAsset = unlockDialogue.unlockTextAsset;
+                        // unlockDialogue.forinteractable.LoadScript();
                     }
                     
                     GameManager.Intelligence += interactable.rewardIntel;
@@ -226,6 +226,7 @@ public class TextReader : MonoBehaviour
                 GameManager.IsInteracting = false;
             }
             
+            alreadyInteracted = true; // DUPLICATE
             currentDialogue = null;
             dialogueText.text = "";
             dialogueTracker = 0;

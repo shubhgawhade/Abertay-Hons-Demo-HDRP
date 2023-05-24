@@ -148,8 +148,8 @@ public class InspectableInteractables : Interactable
         {
             if (unlockDialogue.forinteractable)
             {
-                unlockDialogue.forinteractable.textAsset = unlockDialogue.unlockTextAsset;
-                unlockDialogue.forinteractable.LoadScript();
+                // unlockDialogue.forinteractable.textAsset = unlockDialogue.unlockTextAsset;
+                // unlockDialogue.forinteractable.LoadScript();
             }
             
             GameManager.Intelligence += interactable.rewardIntel;

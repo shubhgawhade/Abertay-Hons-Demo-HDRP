@@ -7,15 +7,34 @@
     <list default="true" id="4dd56a48-5213-4dda-9bf0-e9744c4963bb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Abertay-Hons-Demo-HDRP/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Abertay-Hons-Demo-HDRP/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Petrol Station/exhaust2.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Petrol Station/exhaust2.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scenes/Scene2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scenes/Scene2.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scenes/OutdoorsScene.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scenes/OutdoorsScene.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scenes/OutdoorsScene.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scenes/OutdoorsScene/Box Volume Profile.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scenes/OutdoorsScene/Box Volume Profile.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scenes/OutdoorsScene/LightingData.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scenes/OutdoorsScene/LightingData.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scenes/OutdoorsScene/NavMesh.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scenes/OutdoorsScene/NavMesh.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scenes/Scene2.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scenes/Scene2.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scenes/Scene2.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scenes/Scene2/LightingData.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scenes/Scene2/LightingData.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scenes/Scene2/NavMesh.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scenes/Scene2/NavMesh.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scenes/Scene2LevelDesign.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scenes/Scene2LevelDesign.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/AICharacterControl.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/AICharacterControl.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Chapter1/Chapter1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Chapter1/Chapter1.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Chapter1/ChapterDialogueAudioManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Chapter1/ChapterDialogueAudioManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Chapter2/Chapter2.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Chapter2/Chapter2.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Chapters.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Chapters.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/GameManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/InspectableInteractables.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/InspectableInteractables.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Interactable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Interactable.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/TextReader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/TextReader.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Chapter2_A_1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/Chapter2_A_1.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Chapter2_MiniGame.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Chapter2_MiniGame.txt.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Chapter2_MiniGameBonus.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Chapter2_MiniGameBonus.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +55,10 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/89d2c0fe37e0454991daf2807b7dcb6329200/ec/40adff44/GUIUtility.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/e40e5a8f982c4b618a930d29f9bd091c46a800/77/fdb95c88/List`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3ea01e77be99618395f448b16bd7cc2bd4248bd9e5d8474964b2d97f39c5d74/System.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/b2856ca068a85f5ce4a0462fdd6462e56463d4b04c303e873a2783e049125f45/System.Security.Cryptography.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../2022/10 October/Abertay Hons Demo/Assets/Game/Scripts/CameraZoom.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../2022/10 October/Abertay Hons Demo/Assets/Game/Scripts/GameManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../2022/12 December/SoloCodingProject/Assets/Game/Scripts/MainMenu.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Game/Scripts/AICharacterControl.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Game/Scripts/AudioDialogueTest.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Game/Scripts/Chapter1/ChapterDialogueAudioManager.cs" root0="FORCE_HIGHLIGHTING" />
@@ -50,9 +73,12 @@
     <setting file="file://$PROJECT_DIR$/Assets/Game/Scripts/FloorTriggers.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Game/Scripts/HealthManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Game/Scripts/InspectableInteractables.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Game/Scripts/MainMenu/MainMenuUI.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Game/Scripts/MaterialFade.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Game/Scripts/MaterialInvisible.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Game/Scripts/PersistentSave.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Game/Scripts/PlayerCharacterControl.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Game/Scripts/PlayerData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Game/Scripts/ScriptedInteractables.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Game/Scripts/Weapon.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.animation.rigging@1.1.1/Runtime/AnimationRig/Rig.cs" root0="SKIP_HIGHLIGHTING" />
@@ -65,6 +91,9 @@
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.high-definition@12.1.7/Editor/Lighting/Reflection/HDBakedReflectionSystem.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.high-definition@12.1.7/Runtime/Sky/StaticLightingSky.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://E:/D DRIVE/UNITY/2021/April/BetterAI/Assets/Scripts/NPCMove.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://E:/D DRIVE/UNITY/2021/June/CrLaHoAs-Contd/Assets/Scripts/GameManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://E:/D DRIVE/UNITY/2021/June/CrLaHoAs-Contd/Assets/Scripts/PersistentSave.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://E:/D DRIVE/UNITY/2021/June/CrLaHoAs-Contd/Assets/Scripts/PlayerData.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -311,6 +340,8 @@
       <workItem from="1684646218640" duration="3728000" />
       <workItem from="1684694974546" duration="19815000" />
       <workItem from="1684874925316" duration="15309000" />
+      <workItem from="1684945268984" duration="22100000" />
+      <workItem from="1685017988150" duration="35647000" />
     </task>
     <servers />
   </component>

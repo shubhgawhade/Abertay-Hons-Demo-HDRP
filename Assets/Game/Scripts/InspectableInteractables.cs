@@ -11,7 +11,6 @@ public class InspectableInteractables : Interactable
 
     public bool studioSetupComplete;
     public bool isRotateable;
-    public bool alreadyInteracted;
 
     private Interactable interactable;
     private GameObject temp;

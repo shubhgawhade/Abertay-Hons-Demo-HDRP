@@ -3,12 +3,12 @@ using UnityEngine;
 public class Chapter2 : Chapters
 {
     [SerializeField] private GameObject[] ai;
-    [SerializeField] private Interactable[] interactables;
+    [SerializeField] public Interactable[] interactables;
     [SerializeField] private TextReader[] interactablesTextReader;
     [SerializeField] private TextAsset[] storyScripts;
-    [SerializeField] private int storyScriptNum;
+    public int storyScriptNum;
     [SerializeField] private Transform[] friendlyLocations;
-    [SerializeField] private int friendlyLocationsCount;
+    public int friendlyLocationsCount;
         
     [SerializeField] private TextAsset receptionistDialogue2;
 
@@ -19,7 +19,7 @@ public class Chapter2 : Chapters
     public bool knows;
     
     public enum Scene
-    {
+    { 
         InitialExploration,
         ReceptionistDialogue,
         PreMiniGameDialogue,
@@ -37,6 +37,10 @@ public class Chapter2 : Chapters
 
     protected override void Awake()
     {
+        GameManager.Chapter2Manager = this;
+        
+        // LOAD SAVED DATA
+        
         base.Awake();
 
         interactablesTextReader = new TextReader[interactables.Length];
@@ -99,7 +103,7 @@ public class Chapter2 : Chapters
                         }
                     }
                     positionSet = true;
-                    friendlyLocationsCount++;
+                    // friendlyLocationsCount++;
                 }
 
                 if (interactables[3].isOccupied)
@@ -184,6 +188,14 @@ public class Chapter2 : Chapters
             }
         }
         
-        SceneFlow();
+        // if (Input.GetMouseButtonDown(1))
+        // {
+        //     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        // }
+
+        if (GameManager.DoneLoadingChapter)
+        {
+            SceneFlow();
+        }
     }
 }

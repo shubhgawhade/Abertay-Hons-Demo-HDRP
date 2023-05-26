@@ -210,7 +210,7 @@ public class TextReader : MonoBehaviour
             if (interactable)
             {
                 // ADDS INTEL ONLY IF THE PLAYER HASNT ALREADY INTERACTED WITH THIS OBJECT AND NOT SKIPPED THE DIALOGUE
-                if (!alreadyInteracted && !dialogueSkipTimer.isCompleted)
+                if (!interactable.alreadyInteracted && !dialogueSkipTimer.isCompleted)
                 {
                     if (unlockDialogue.forinteractable)
                     {
@@ -220,12 +220,14 @@ public class TextReader : MonoBehaviour
                     
                     GameManager.Intelligence += interactable.rewardIntel;
                     alreadyInteracted = true;
+                    interactable.alreadyInteracted = true;
                 }
                 
+                interactable.alreadyInteracted = true;
                 interactable.isOccupied = false;
                 GameManager.IsInteracting = false;
             }
-            
+
             alreadyInteracted = true; // DUPLICATE
             currentDialogue = null;
             dialogueText.text = "";

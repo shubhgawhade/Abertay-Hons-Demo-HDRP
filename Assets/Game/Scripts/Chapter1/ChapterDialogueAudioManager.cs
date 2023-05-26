@@ -39,4 +39,9 @@ public class ChapterDialogueAudioManager : MonoBehaviour
         previousSpeaker = tempSpeaker;
         charactersAudioSource[tempSpeaker].Play();
     }
+
+    private void OnDisable()
+    {
+        TextReader.SetDialogueAudio -= SetDialogueAudio;
+    }
 }

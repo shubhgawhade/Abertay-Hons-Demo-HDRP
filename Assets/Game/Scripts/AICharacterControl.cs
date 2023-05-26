@@ -527,11 +527,11 @@ public class AICharacterControl : CharacterControl
                         
                         // +/- 60
                         float randomAngle = Random.Range(-60.0f, 60.0f);
-                        print(randomAngle);
+                        // print(randomAngle);
                         smartTransform.position = newLoc;
                         smartTransform.eulerAngles = new Vector3(newRot.x, newRot.y + randomAngle, newRot.z);
                         
-                        print(smartTransform.localPosition);
+                        // print(smartTransform.localPosition);
                         smartTransform.localPosition -= Random.Range(1,5) * smartTransform.forward;
                         
                         // tempObj.transform.LookAt(newLoc);

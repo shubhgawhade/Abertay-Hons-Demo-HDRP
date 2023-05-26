@@ -30,21 +30,12 @@ public class Chapter1 : Chapters
 
     public Scene scene = Scene.InitialMove;
 
-    // private void Awake()
-    // {
-    //     textReader = GetComponent<TextReader>();
-    //     aiCharacterControl = new CharacterControl[characters.Length];
-    //     animators = new Animator[characters.Length];
-    //
-    //     for (int i = 0; i < characters.Length; i++)
-    //     {
-    //         aiCharacterControl[i] = characters[i].GetComponent<CharacterControl>();
-    //         animators[i] = characters[i].GetComponent<Animator>();
-    //     }
-    //
-    //     playerAnimator = player.GetComponent<Animator>();
-    //
-    // }
+    protected override void Awake()
+    {
+        GameManager.Chapter1Manager = this;
+
+        base.Awake();
+    }
 
     private void A()
     {

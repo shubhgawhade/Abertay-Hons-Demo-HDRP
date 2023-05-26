@@ -26,7 +26,7 @@ public class Interactable : MonoBehaviour
 
     [SerializeField] private LayerMask outlineColour;
 
-    
+    public bool alreadyInteracted;
     public bool isOccupied;
 
     //TEST VARIABLES

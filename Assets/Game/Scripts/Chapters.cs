@@ -1,12 +1,12 @@
+using System;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class Chapters : MonoBehaviour
 {
-    [SerializeField] protected GameObject player;
+    [SerializeField] public GameObject player;
     [SerializeField] protected PlayerCharacterControl playerCharacterControl;
-    [SerializeField] protected GameObject[] characters;
-    [SerializeField] protected AICharacterControl[] aiCharacterControl;
+    [SerializeField] public GameObject[] characters;
+    [SerializeField] public AICharacterControl[] aiCharacterControl;
     [SerializeField] protected Animator[] animators;
     [SerializeField] protected GameObject[] weapons;
 
@@ -15,9 +15,13 @@ public class Chapters : MonoBehaviour
 
     public bool scenePaused;
     public int sceneNum;
-    
+   
+    public static Action SceneActive;
+
     protected virtual void Awake()
     {
+        GameManager.ChaptersManager = this;
+        
         textReader = GetComponent<TextReader>();
         aiCharacterControl = new AICharacterControl[characters.Length];
         playerCharacterControl = player.GetComponent<PlayerCharacterControl>();
@@ -30,6 +34,9 @@ public class Chapters : MonoBehaviour
         }
 
         playerAnimator = player.GetComponent<Animator>();
+        
+        // TELL THE GAME MANAGER THAT THE SCENE IS ACTIVE TO LOAD SAVED CHAPTER DATA
+        SceneActive();
     }
 
     // Start is called before the first frame update

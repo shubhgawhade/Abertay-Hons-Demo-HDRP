@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class BulletTrail : MonoBehaviour
@@ -28,6 +29,14 @@ public class BulletTrail : MonoBehaviour
         // HitPhysics(other);
     }
 
+    private void Update()
+    {
+        if (owner.characterState == CharacterControl.CharacterState.None)
+        {
+            Destroy(gameObject);
+        }
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.collider.transform.root.CompareTag("Player") || collision.collider.transform.root.CompareTag("AI"))
@@ -35,10 +44,11 @@ public class BulletTrail : MonoBehaviour
             print(owner.gameObject.name + " HIT " + collision.collider.transform.root.gameObject.name);
         }
         
-        Destroy(gameObject);
+        // Destroy(gameObject);
         
         // print($"COLLIDER: {collision.collider.name}");
         HitPhysics(collision.collider);
+        gameObject.SetActive(false);
     }
 
     private void HitPhysics(Collider hitCollider)
@@ -63,5 +73,10 @@ public class BulletTrail : MonoBehaviour
             
             hitCharacterHealthManger.SubtractHealth(damage);
         }
+    }
+
+    private void OnDisable()
+    {
+        rb.velocity = Vector3.zero;
     }
 }

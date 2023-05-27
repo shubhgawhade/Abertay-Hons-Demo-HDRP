@@ -78,10 +78,10 @@ public class GameManager : MonoBehaviour
         if (hasSave)
         {
             ChaptersManager.sceneNum = data.sceneNum;
-            Chapter2Manager.player.SetActive(false);
+            ChaptersManager.player.SetActive(false);
             ChaptersManager.player.transform.position = data.player.position;
             ChaptersManager.player.transform.eulerAngles = data.player.rotation;
-            Chapter2Manager.player.SetActive(true);
+            ChaptersManager.player.SetActive(true);
 
             switch (ChaptersManager)
             {
@@ -119,9 +119,30 @@ public class GameManager : MonoBehaviour
                     
                     Chapter2Manager.storyScriptNum = data.storyScriptNum;
                     Chapter2Manager.friendlyLocationsCount = data.friendlyLocationsCount;
+                    Chapter2Manager.unlockables = data.unocklabes;
                     // Chapter2Manager.positionSet = data.positionSet;
                     // Chapter2Manager.scriptSet = data.scriptSet;
-                    Chapter2Manager.knows = data.knows;
+                    // FADE OUT AREAS
+                    // FIND HOW MANY DOORS ARE UNLOCKED AND SEND THAT NUMBER TO CH2M]
+                    int doorsUnlocked = -1;
+                    for (int i = 0; i < Chapter2Manager.unlockLocations.Length; i++)
+                    {
+                        for (int j = 0; j < data.unlockLocations[i].unlocked.Length; j++)
+                        {
+                            if (data.unlockLocations[i].unlocked[j])
+                            {
+                                doorsUnlocked++;
+                            }
+                        }
+
+                        if (doorsUnlocked >= 0)
+                        {
+                            print($"{i} : {doorsUnlocked}");
+                            Chapter2Manager.UnlockLocation(i, doorsUnlocked);
+                        }
+                    }
+                    // Chapter2Manager.unlockLocations = data.unlockLocations;
+                    
 
                     break;
             }
@@ -136,7 +157,7 @@ public class GameManager : MonoBehaviour
 
     private void OnDisable()
     {
-        // Chapters.SceneActive -= LoadSceneData;
+        Chapters.SceneActive -= LoadSceneData;
         // data = null;
         // ChaptersManager = null;
         // Chapter1Manager = null;

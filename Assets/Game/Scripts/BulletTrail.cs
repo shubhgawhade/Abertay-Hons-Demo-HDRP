@@ -31,10 +31,10 @@ public class BulletTrail : MonoBehaviour
 
     private void Update()
     {
-        if (owner.characterState == CharacterControl.CharacterState.None)
-        {
-            Destroy(gameObject);
-        }
+        // if (owner.characterState == CharacterControl.CharacterState.None)
+        // {
+        //     Destroy(gameObject);
+        // }
     }
 
     private void OnCollisionEnter(Collision collision)

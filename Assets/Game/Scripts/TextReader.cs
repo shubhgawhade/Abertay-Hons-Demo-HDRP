@@ -16,15 +16,6 @@ public class TextReader : MonoBehaviour
     // CHAPTER VARIABLES
     [SerializeField] private GameObject chapterManager;
     
-    [Serializable]
-    public class UnlockDialogue
-    {
-        public TextReader forinteractable;
-        public TextAsset unlockTextAsset;
-    }
-
-    [SerializeField] private UnlockDialogue unlockDialogue;
-    
     private ChapterDialogueAudioManager _chapterDialogueAudioManager;
     public DialogueAudioMatch[] dialogueAudioMatch;
 
@@ -53,11 +44,13 @@ public class TextReader : MonoBehaviour
     public float skipDelay = 1;
 
     private Interactable interactable;
+    public int unlockContent = -1;
     public bool alreadyInteracted;
 
     // ACTIONS RELATED TO EXTERNAL SCRIPTS
     public static Action<Transform> RemoveCinemachineTarget;
     public static Action<SpeakerEnum, AudioClip> SetDialogueAudio;
+    public static Action<int> Unlock;
 
     private void Awake()
     {
@@ -182,10 +175,10 @@ public class TextReader : MonoBehaviour
 
     public void ToggleUI()
     {
-        if (unlockDialogue.forinteractable != null && !alreadyInteracted)
-        {
-            chapterManager.GetComponent<Chapters>().sceneNum++;
-        }
+        // if (unlockDialogue.forinteractable != null && !alreadyInteracted)
+        // {
+        //     chapterManager.GetComponent<Chapters>().sceneNum++;
+        // }
         // LoadScript();
         
         ui.SetActive(!ui.activeSelf);
@@ -210,12 +203,11 @@ public class TextReader : MonoBehaviour
             if (interactable)
             {
                 // ADDS INTEL ONLY IF THE PLAYER HASNT ALREADY INTERACTED WITH THIS OBJECT AND NOT SKIPPED THE DIALOGUE
-                if (!interactable.alreadyInteracted && !dialogueSkipTimer.isCompleted)
+                if (!interactable.alreadyInteracted) //&& !dialogueSkipTimer.isCompleted)
                 {
-                    if (unlockDialogue.forinteractable)
+                    if (unlockContent != -1)
                     {
-                        // unlockDialogue.forinteractable.textAsset = unlockDialogue.unlockTextAsset;
-                        // unlockDialogue.forinteractable.LoadScript();
+                        Unlock(unlockContent);
                     }
                     
                     GameManager.Intelligence += interactable.rewardIntel;

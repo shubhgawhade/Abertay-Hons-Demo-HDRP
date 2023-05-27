@@ -23,7 +23,8 @@ public class PlayerData
     public int friendlyLocationsCount;
     public bool positionSet;
     public bool scriptSet;
-    public bool knows;
+    public Chapter2.Unlockables[] unocklabes;
+    public Chapter2.UnlockableLocations[] unlockLocations;
 
     public PlayerData()
     {
@@ -71,10 +72,12 @@ public class PlayerData
                     
                     storyScriptNum = ch2M.storyScriptNum;
                     friendlyLocationsCount = ch2M.friendlyLocationsCount;
+                    unocklabes = ch2M.unlockables;
+                    // positionSet = ch2.positionSet;
                     // positionSet = ch2.positionSet;
                     // scriptSet = ch2.scriptSet;
-                    knows = ch2M.knows;
-
+                    unlockLocations = ch2M.unlockLocations;
+                    
                     break;
             }
         }
@@ -85,7 +88,7 @@ public class PlayerData
 }
 
 [Serializable]
-public class SaveObject
+public struct SaveObject
 {
     public bool enabled;
     public Vector3 position;

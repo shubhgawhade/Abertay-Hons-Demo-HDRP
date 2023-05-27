@@ -6,9 +6,18 @@
   <component name="ChangeListManager">
     <list default="true" id="4dd56a48-5213-4dda-9bf0-e9744c4963bb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Abertay-Hons-Demo-HDRP/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Abertay-Hons-Demo-HDRP/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Petrol Station/exhaust2.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Petrol Station/exhaust2.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/CustomPasses/Selection/Materials/02_Selection_Fullscreen.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/CustomPasses/Selection/Materials/02_Selection_Fullscreen.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Scenes/Chapter2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scenes/Chapter2.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scenes/Chapter2/NavMesh.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scenes/Chapter2/NavMesh.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/BulletTrail.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/BulletTrail.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Weapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Weapon.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Chapter2/Chapter2.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Chapter2/Chapter2.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/InspectableInteractables.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/InspectableInteractables.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/PlayerData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/PlayerData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/TextReader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/TextReader.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/DynamicsManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/DynamicsManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -318,6 +327,7 @@
       <workItem from="1684874925316" duration="15309000" />
       <workItem from="1684945268984" duration="22100000" />
       <workItem from="1685017988150" duration="35647000" />
+      <workItem from="1685194557742" duration="18040000" />
     </task>
     <servers />
   </component>

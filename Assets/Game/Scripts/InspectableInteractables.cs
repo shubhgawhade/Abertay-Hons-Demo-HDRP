@@ -13,20 +13,13 @@ public class InspectableInteractables : Interactable
     public bool isRotateable;
 
     private Interactable interactable;
+    public int unlockContent = -1;
     private GameObject temp;
     private Bounds bounds;
     private Vector3 center;
-    
-    [Serializable]
-    public class UnlockDialogue
-    {
-        public TextReader forinteractable;
-        public TextAsset unlockTextAsset;
-    }
-
-    [SerializeField] private UnlockDialogue unlockDialogue;
 
     public static Action<Transform> RemoveCinemachineTarget;
+    public static Action<int> Unlock;
 
     // Start is called before the first frame update
     public override void Awake()
@@ -40,11 +33,6 @@ public class InspectableInteractables : Interactable
 
     public void SetupStudio()
     {
-        if (!unlockDialogue.forinteractable)
-        {
-            chapterManager.GetComponent<Chapters>().sceneNum++;
-        }
-        
         studioTransform.gameObject.SetActive(true);
         // cameraZoom.enabled = false;
         
@@ -140,15 +128,12 @@ public class InspectableInteractables : Interactable
             GameManager.IsInteracting = false;
             isOccupied = false;
         }
-        
-        
-        
+
         if (!alreadyInteracted)
         {
-            if (unlockDialogue.forinteractable)
+            if (unlockContent != -1)
             {
-                // unlockDialogue.forinteractable.textAsset = unlockDialogue.unlockTextAsset;
-                // unlockDialogue.forinteractable.LoadScript();
+                Unlock(unlockContent);
             }
             
             GameManager.Intelligence += interactable.rewardIntel;

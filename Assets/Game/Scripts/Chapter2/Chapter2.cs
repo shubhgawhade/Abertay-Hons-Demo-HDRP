@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Chapter2 : Chapters
@@ -9,14 +10,29 @@ public class Chapter2 : Chapters
     public int storyScriptNum;
     [SerializeField] private Transform[] friendlyLocations;
     public int friendlyLocationsCount;
-        
-    [SerializeField] private TextAsset receptionistDialogue2;
-
+    
     [SerializeField] private GameObject minigame;
-
     public bool positionSet;
     public bool scriptSet;
-    public bool knows;
+    
+    [Serializable]
+    public class Unlockables
+    {
+        public string what;
+        public bool unlocked;
+    }
+
+    public Unlockables[] unlockables;
+
+    [Serializable]
+    public class UnlockableLocations
+    {
+        public MaterialFade materialFade;
+        public Animator[] doors;
+        public bool[] unlocked;
+    }
+    
+    public UnlockableLocations[] unlockLocations;
     
     public enum Scene
     { 
@@ -34,6 +50,7 @@ public class Chapter2 : Chapters
     }
 
     public Scene scene = Scene.InitialExploration;
+    private readonly int open = Animator.StringToHash("Open");
 
     protected override void Awake()
     {
@@ -48,6 +65,14 @@ public class Chapter2 : Chapters
         {
             interactablesTextReader[i] = interactables[i].GetComponent<TextReader>();
         }
+
+        TextReader.Unlock += ChoiceTaken;
+        InspectableInteractables.Unlock += ChoiceTaken;
+    }
+
+    private void ChoiceTaken(int knows)
+    {
+        unlockables[knows].unlocked = true;
     }
 
     public void SceneFlow()
@@ -83,7 +108,7 @@ public class Chapter2 : Chapters
                 if (textReader.alreadyInteracted)
                 {
                     GameManager.IsInteracting = false;
-                    textReader.alreadyInteracted = false;
+                    // textReader.alreadyInteracted = false;
                     scriptSet = false;
                     positionSet = false;
                     sceneNum++;
@@ -108,6 +133,9 @@ public class Chapter2 : Chapters
 
                 if (interactables[3].isOccupied)
                 {
+                    // AUTOSAVE
+                    PersistentSave.Save();
+                    
                     textReader.alreadyInteracted = false;
                     scriptSet = false;
                     positionSet = false;
@@ -118,7 +146,7 @@ public class Chapter2 : Chapters
             
             case Scene.PreMiniGameDialogue:
                 
-                if (knows)
+                if (unlockables[0].unlocked)
                 {
                     interactablesTextReader[3].textAsset = storyScripts[1];
                     interactablesTextReader[3].LoadScript();
@@ -130,7 +158,6 @@ public class Chapter2 : Chapters
                     playerCharacterControl.ChangeCharacterState(CharacterControl.CharacterState.Cutscene);
                     sceneNum++;
                 }
-                
                 
                 break;
             
@@ -149,6 +176,48 @@ public class Chapter2 : Chapters
             
             case Scene.PostMiniGameDialogue:
 
+                // STORY KNOWS ABOUT MAN BEHIND THE COUNTER
+                if (unlockables[0].unlocked && !scriptSet)
+                {
+                    textReader.textAsset = storyScripts[2];
+                    textReader.LoadScript();
+                    textReader.ToggleUI();
+                    // storyScriptNum++;
+                    scriptSet = true;
+                }
+
+                if (textReader.alreadyInteracted)
+                {
+                    // textReader.alreadyInteracted = false;
+                    scriptSet = false;
+                }
+
+                // STORY RECEPTIONIST DIALOGUE
+                if (!scriptSet)
+                {
+                    textReader.textAsset = storyScripts[3];
+                    textReader.LoadScript();
+                    textReader.ToggleUI();
+                    
+                    // storyScriptNum++;
+                    scriptSet = true;
+                    
+                    // DOORS OPEN
+                    // UNLOCK THE OFFICE AND FADE INTO VIEW
+                    // unlockables[1].unlocked = true;
+                    UnlockLocation(0, 1);
+                    characters[2].SetActive(true);
+                }
+                
+                // NEXT SCENE
+                if (characters[2].activeSelf)
+                {
+                    textReader.alreadyInteracted = false;
+                    scriptSet = false;
+                    positionSet = false;
+                    sceneNum++;
+                }
+                
                 // if (interactables[3].GetComponent<TextReader>().alreadyInteracted)
                 // {
                 //     textReader.textAsset = receptionistDialogue2;
@@ -177,6 +246,26 @@ public class Chapter2 : Chapters
         }
     }
 
+    public void UnlockLocation(int unlockLocationNum, int doorsUnlocked)
+    {
+        if (!unlockLocations[unlockLocationNum].materialFade.enabled)
+        {
+            unlockLocations[unlockLocationNum].materialFade.enabled = true;
+        }
+
+        if (doorsUnlocked >= 0)
+        {
+            for (int j = 0; j <= doorsUnlocked; j++)
+            {
+                if (!unlockLocations[unlockLocationNum].unlocked[j])
+                {
+                    unlockLocations[unlockLocationNum].doors[j].SetBool(open, true);
+                    unlockLocations[unlockLocationNum].unlocked[j] = true;
+                }
+            }
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -197,5 +286,11 @@ public class Chapter2 : Chapters
         {
             SceneFlow();
         }
+    }
+
+    private void OnDestroy()
+    {
+        TextReader.Unlock -= ChoiceTaken;
+        InspectableInteractables.Unlock -= ChoiceTaken;
     }
 }

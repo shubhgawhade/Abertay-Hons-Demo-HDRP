@@ -41,6 +41,7 @@ public class Chapter2 : Chapters
 
     [SerializeField] private GameObject shootingTutorialUi;
     [SerializeField] private Animator carAnimator;
+    [SerializeField] private GameObject failUI;
     
     public enum Scene
     { 
@@ -399,14 +400,90 @@ public class Chapter2 : Chapters
                 break;
             
             case Scene.Shootout:
+
+                int enemiesDead = 0;
+                int friendlyDead = 0;
+
+                if (playerCharacterControl.characterState == CharacterControl.CharacterState.None)
+                {
+                    failUI.SetActive(true);
+                }
                 
+                for (int i = 3; i <= 5; i++)
+                {
+                    if (aiCharacterControl[i].characterState == CharacterControl.CharacterState.None)
+                    {
+                        enemiesDead++;
+
+                        if (enemiesDead == 3)
+                        {
+                            for (int j = 0; j <= 1; j++)
+                            {
+                                if (aiCharacterControl[i].characterState == CharacterControl.CharacterState.None)
+                                {
+                                    friendlyDead++;
+
+                                    if (friendlyDead > 0)
+                                    {
+                                        // FAIL
+                                        failUI.SetActive(true);
+                                    }
+                                    else
+                                    {
+                                        // PASS
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                
+                
+
                 foreach (AICharacterControl aicharacterControl in aiCharacterControl)
                 {
                     if (aicharacterControl.aiBehaviour == AICharacterControl.InternalBehaviour.RandomLocationPicker)
                     {
                         aicharacterControl.aiBehaviour = AICharacterControl.InternalBehaviour.Chase;
                     }
+
+                    // if (aicharacterControl.characterState == CharacterControl.CharacterState.None)
+                    // {
+                    //     b++;
+                    //     print(b);
+                    // }
                 }
+
+                if (enemiesDead == 3)
+                {
+                    print("WIN");
+                }
+
+                
+                
+                // for (int i = 3; i < 5;)
+                // {
+                //     if (aiCharacterControl[i].characterState == CharacterControl.CharacterState.None)
+                //     {
+                //         i++;
+                //     }
+                // }
+                //
+                // for (int i = 0; i < 2;)
+                // {
+                //     if (aiCharacterControl[i].characterState != CharacterControl.CharacterState.None)
+                //     {
+                //         i++;
+                //         if (i == 2)
+                //         {
+                //             print("WIN");
+                //         }
+                //         else
+                //         {
+                //             print("LOSE");
+                //         }
+                //     }
+                // }
                 
                 break;
         }
@@ -467,6 +544,7 @@ public class Chapter2 : Chapters
                     
                     // FAIL SCREEN
                     Time.timeScale = 0;
+                    failUI.SetActive(true);
                 }
 
                 break;
@@ -558,5 +636,6 @@ public class Chapter2 : Chapters
     {
         TextReader.Unlock -= ChoiceTaken;
         InspectableInteractables.Unlock -= ChoiceTaken;
+        Time.timeScale = 1;
     }
 }

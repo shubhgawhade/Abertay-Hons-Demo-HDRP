@@ -101,7 +101,6 @@ public class AICharacterControl : CharacterControl
         
     }
 
-    public bool a;
     private void AIUpdate()
     {
         switch (characterState)

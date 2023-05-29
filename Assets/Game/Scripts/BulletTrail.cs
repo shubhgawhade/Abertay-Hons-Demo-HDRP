@@ -15,7 +15,7 @@ public class BulletTrail : MonoBehaviour
 
     void FixedUpdate()
     {
-        rb.AddForce(speed * Time.deltaTime * transform.forward, ForceMode.Force);
+        rb.AddForce(speed * Time.deltaTime * transform.forward, ForceMode.VelocityChange);
         // transform.position += speed * Time.deltaTime * transform.forward;
         // transform.Translate(speed * Time.deltaTime * transform.forward);
     }

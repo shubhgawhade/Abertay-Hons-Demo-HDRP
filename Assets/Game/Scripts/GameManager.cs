@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -27,28 +28,19 @@ public class GameManager : MonoBehaviour
     public static Chapter2 Chapter2Manager{ get; set; }
 
     // public static float DialogueSKipDelay;
-    [SerializeField] public static float dialogueSkipDelay { get; set; }
+    public static float dialogueSkipDelay { get; set; }
 
+    public static bool useSave;
     private PlayerData data;
-    
+
     private void Awake()
     {
-        data = null;
-        data = PersistentSave.Load();
-        if (hasSave)
-        {
-            CurrentScene = data.currentscene;
-            Intelligence = data.intelligence;
-        }
-        else
-        {
-            CurrentScene = 2;
-        }
-        
+        LoadData();        
         // IsMoveable = isMoveable;
         // Intelligence = intelligence;
 
         Chapters.SceneActive += LoadSceneData;
+        Chapter2UI.Load += LoadData;
         
         DontDestroyOnLoad(gameObject);
     }
@@ -61,7 +53,6 @@ public class GameManager : MonoBehaviour
             PersistentSave.Save();
         }
 
-
         // print($"PLAYER HEALTH: {PlayerHealth}");
         // print($" IS INTERACTING : {IsInteracting}");
         // intelligence = Intelligence;
@@ -70,13 +61,29 @@ public class GameManager : MonoBehaviour
         // print("IS INTERACTING: " + isInteracting);
     }
 
+    private void LoadData()
+    {
+        IsInteracting = false;
+        data = null;
+        data = PersistentSave.Load();
+        if (hasSave)
+        {
+            CurrentScene = data.currentscene;
+        }
+        else
+        {
+            CurrentScene = 2;
+        }
+    }
+
     // WAIT FOR SCENE TO LOAD BEFORE LOADING THE REMAINING DATA
     private void LoadSceneData()
     {
         print($"HAS SAVE : {hasSave}");
         // print(data.player.position);
-        if (hasSave)
+        if (hasSave && useSave)
         {
+            Intelligence = data.intelligence;
             ChaptersManager.sceneNum = data.sceneNum;
             ChaptersManager.player.SetActive(false);
             ChaptersManager.player.transform.position = data.player.position;
@@ -166,6 +173,7 @@ public class GameManager : MonoBehaviour
     private void OnDisable()
     {
         Chapters.SceneActive -= LoadSceneData;
+        Chapter2UI.Load -= LoadData;
         // data = null;
         // ChaptersManager = null;
         // Chapter1Manager = null;

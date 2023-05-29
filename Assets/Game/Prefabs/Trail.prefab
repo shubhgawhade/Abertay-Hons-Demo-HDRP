@@ -157,7 +157,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
   damage: 0
-  speed: 60
+  speed: 250
   owner: {fileID: 0}
 --- !u!54 &1184636155
 Rigidbody:

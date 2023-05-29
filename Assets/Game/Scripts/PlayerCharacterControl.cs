@@ -207,6 +207,10 @@ public class PlayerCharacterControl : CharacterControl
                             // print(interactable.typeOfInteractable);
                             targetIsInteractable = true;
                         }
+                        else
+                        {
+                            Shoot();
+                        }
 
                         break;
                     
@@ -216,24 +220,8 @@ public class PlayerCharacterControl : CharacterControl
                         //SHOOT IF PLAYER CLICKED ANYTHING ELSE
                         // heightConstraint.transform.position += new Vector3(0, 1, 0);
                         
-                        // if (weapon.isHandHeld && !weapon.onCooldown)
-                        {
-                                crouch = false;
-                                target = new Vector3(hit.point.x, hit.point.y, hit.point.z);
-
-                                //CALCULATE NEW ROTATION BASED ON PAYERS DRUNK STATE
-                                // float accuracy = 0.8f;
-                                // shootLoc.transform.position = new Vector3(hit.point.x + Random.Range(-accuracy, accuracy), hit.point.y + Random.Range(-accuracy, accuracy), hit.point.z + Random.Range(-accuracy, accuracy));
-                                
-                                // IF NOT DRUNK
-                                shootLoc.transform.position = bulletTarget.transform.position;
-                                
-                                anim.SetTrigger("Shoot");
-                                pointShootRig.weight = 1;
-
-                                weapon.ShootTarget(shootLoc);
-                        }
-
+                        Shoot();
+                        
                         break;
                 }
 
@@ -242,7 +230,29 @@ public class PlayerCharacterControl : CharacterControl
             
             default:
                 
+                
                 break;
+        }
+    }
+
+    public void Shoot()
+    {
+        if (weapon.isHandHeld && !weapon.onCooldown)
+        {
+            crouch = false;
+            target = new Vector3(hit.point.x, hit.point.y, hit.point.z);
+
+            //CALCULATE NEW ROTATION BASED ON PAYERS DRUNK STATE
+            // float accuracy = 0.8f;
+            // shootLoc.transform.position = new Vector3(hit.point.x + Random.Range(-accuracy, accuracy), hit.point.y + Random.Range(-accuracy, accuracy), hit.point.z + Random.Range(-accuracy, accuracy));
+                                
+            // IF NOT DRUNK
+            shootLoc.transform.position = bulletTarget.transform.position;
+                                
+            anim.SetTrigger("Shoot");
+            pointShootRig.weight = 1;
+
+            weapon.ShootTarget(shootLoc);
         }
     }
     

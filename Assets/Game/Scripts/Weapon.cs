@@ -21,6 +21,7 @@ public class Weapon : MonoBehaviour
     
     public bool isHandHeld;
     public bool onCooldown;
+    public bool autoCrouch = true;
 
     private void Awake()
     {
@@ -34,7 +35,10 @@ public class Weapon : MonoBehaviour
         if (vulnerabilityTimer.isCompleted)
         {
             vulnerabilityTimer.isCompleted = false;
-            owner.crouch = true;
+            if (autoCrouch)
+            {
+                owner.crouch = true;
+            }
             // vulnerabilityTimer.time = 0;
         }
 

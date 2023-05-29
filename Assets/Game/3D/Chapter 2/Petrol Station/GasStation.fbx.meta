@@ -1,14 +1,9 @@
 fileFormatVersion: 2
-guid: a504b9c4bc7515f45ae5fd6812a95699
+guid: 6d0351cfc6059c44c8f04caaea4eb506
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Gas Sattion Big Objects
-    second: {fileID: 2100000, guid: 0a7bff2ee4faf504a878d3991ff81da5, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0

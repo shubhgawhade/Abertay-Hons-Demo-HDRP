@@ -1,15 +1,20 @@
 using System;
+using System.Collections;
+using Cinemachine;
 using UnityEngine;
 
 public class Chapter2 : Chapters
 {
+    [SerializeField] private CinemachineTargetGroup cinemachineTarget;
     [SerializeField] private GameObject[] ai;
     [SerializeField] public Interactable[] interactables;
     [SerializeField] private TextReader[] interactablesTextReader;
     [SerializeField] private TextAsset[] storyScripts;
     public int storyScriptNum;
     [SerializeField] private Transform[] friendlyLocations;
-    public int friendlyLocationsCount;
+    [SerializeField] private Transform[] enemyLocations;
+    [SerializeField] private Transform[] playerLocations;
+    // public int friendlyLocationsCount;
     
     [SerializeField] private GameObject minigame;
     public bool positionSet;
@@ -33,6 +38,9 @@ public class Chapter2 : Chapters
     }
     
     public UnlockableLocations[] unlockLocations;
+
+    [SerializeField] private GameObject shootingTutorialUi;
+    [SerializeField] private Animator carAnimator;
     
     public enum Scene
     { 
@@ -41,12 +49,15 @@ public class Chapter2 : Chapters
         PreMiniGameDialogue,
         MiniGame,
         PostMiniGameDialogue,
-        MoeDoor,
         Moe,
         GangMemberKillsMoe,
         GangMemberRunsToCar,
         ShootingTutorial,
-        
+        QTE,
+        GangMemberRunsAway,
+        BackToFriends,
+        Shootout,
+        A
     }
 
     public Scene scene = Scene.InitialExploration;
@@ -89,11 +100,11 @@ public class Chapter2 : Chapters
                     {
                         if (aicharacterControl.isFriendly)
                         {
-                            aicharacterControl.targetTransform = friendlyLocations[friendlyLocationsCount];
+                            aicharacterControl.targetTransform = friendlyLocations[0];
                         }
                     }
                     positionSet = true;
-                    friendlyLocationsCount++;
+                    // friendlyLocationsCount++;
                 }
 
                 if (!scriptSet)
@@ -124,7 +135,7 @@ public class Chapter2 : Chapters
                     {
                         if (aicharacterControl.isFriendly)
                         {
-                            aicharacterControl.targetTransform = friendlyLocations[friendlyLocationsCount];
+                            aicharacterControl.targetTransform = friendlyLocations[1];
                         }
                     }
                     positionSet = true;
@@ -179,6 +190,7 @@ public class Chapter2 : Chapters
                 // STORY KNOWS ABOUT MAN BEHIND THE COUNTER
                 if (unlockables[0].unlocked && !scriptSet)
                 {
+                    GameManager.IsInteracting = true;
                     textReader.textAsset = storyScripts[2];
                     textReader.LoadScript();
                     textReader.ToggleUI();
@@ -189,12 +201,14 @@ public class Chapter2 : Chapters
                 if (textReader.alreadyInteracted)
                 {
                     // textReader.alreadyInteracted = false;
+                    GameManager.IsInteracting = false;
                     scriptSet = false;
                 }
 
                 // STORY RECEPTIONIST DIALOGUE
                 if (!scriptSet)
                 {
+                    GameManager.IsInteracting = true;
                     textReader.textAsset = storyScripts[3];
                     textReader.LoadScript();
                     textReader.ToggleUI();
@@ -230,8 +244,28 @@ public class Chapter2 : Chapters
             
             case Scene.Moe:
                 
-                if (interactables[4].GetComponent<TextReader>().alreadyInteracted)
+                if (!positionSet)
                 {
+                    foreach (AICharacterControl aicharacterControl in aiCharacterControl)
+                    {
+                        if (aicharacterControl.isFriendly)
+                        {
+                            aicharacterControl.targetTransform = friendlyLocations[2];
+                        }
+                    }
+                    positionSet = true;
+                    // friendlyLocationsCount++;
+                }
+
+                if (textReader.alreadyInteracted)
+                {
+                    GameManager.IsInteracting = false;
+                    textReader.alreadyInteracted = false;
+                }
+                
+                if (interactables[4].alreadyInteracted)
+                {
+                    positionSet = false;
                     sceneNum++;
                 }
                 
@@ -241,6 +275,238 @@ public class Chapter2 : Chapters
                 
                 playerCharacterControl.ChangeCharacterState(CharacterControl.CharacterState.Cutscene);
                 // playerCharacterControl.targetTransform = characters[1].transform;
+
+                aiCharacterControl[6].weapon = aiCharacterControl[6].weapons[0];
+                aiCharacterControl[6].weapon.gameObject.SetActive(true);
+                aiCharacterControl[6].crouch = false;
+                aiCharacterControl[6].pointShootRig.weight = 1;
+                Vector3 a = interactables[4].transform.position;
+                a.y = 2.5f;
+                aiCharacterControl[6].aiShootTarget.transform.position = a;
+                aiCharacterControl[6].aiLookTarget.transform.position = a;
+                
+                if (!aiCharacterControl[6].weapon.onCooldown)
+                {
+                    aiCharacterControl[6].weapon.ShootTarget(aiCharacterControl[6].aiShootTarget);
+                }
+                
+                StartCoroutine(TasksToWait(0));
+
+                break;
+            
+            case Scene.GangMemberRunsToCar:
+                
+                if ((player.transform.position - playerLocations[0].transform.position).magnitude < 0.8f)
+                {
+                    playerCharacterControl.ChangeCharacterState(CharacterControl.CharacterState.Exploration);
+                    Time.timeScale = 0;
+                    shootingTutorialUi.SetActive(true);
+                    
+                    // ENABLE UI FOR SHOOTING TUTORIAL
+                    if (!textReader.alreadyInteracted)
+                    {
+                        textReader.alreadyInteracted = true;
+                        textReader.textAsset = storyScripts[4];
+                        textReader.LoadScript();
+                        textReader.ToggleUI();
+                        textReader.alreadyInteracted = false;
+
+                        positionSet = false;
+                        sceneNum++;
+                    }
+                }
+
+                // if (Input.GetKeyDown(KeyCode.Escape))
+                // {
+                //     Time.timeScale = 1;
+                // }
+                
+                break;
+            
+            case Scene.ShootingTutorial:
+
+                if (textReader.alreadyInteracted)
+                {
+                    shootingTutorialUi.SetActive(false);
+                    Time.timeScale = 1;
+                }
+
+                if (aiCharacterControl[6].aIStopped)
+                {
+                    carAnimator.SetBool("FLDoor", true);
+                    aiCharacterControl[6].targetTransform = enemyLocations[1];
+                    aiCharacterControl[6].crouch = true;
+                    sceneNum++;
+                }
+                
+                break;
+            
+            case Scene.QTE:
+                
+                if (aiCharacterControl[6].aIStopped)
+                {
+                    // aiCharacterControl[6].targetTransform = aiCharacterControl[6].transform;
+                    // aiCharacterControl[6].enabled = false;
+                    aiCharacterControl[6].transform.parent = carAnimator.transform;
+                    aiCharacterControl[6].agent.enabled = false;
+                    carAnimator.SetBool("FLDoor", false);
+                    carAnimator.SetBool("Flee", true);
+                    
+                    // 3 seconds before setting to false and if player passes
+                    StartCoroutine(TasksToWait(1));
+                }
+                
+                
+                // FAIL IF CAR GOES OUTSIDE
+                // SHOOT THE CAR 3 TIMES TO GET THE CAR TO CRASH
+                // IF PASS GANG MEMBER RUNS TOWARDS THE WAREHOUSE
+                // PLAYER GOES BACK TO MEET PAULIE AND LUCA FOR GUNFIGHT
+
+                break;
+            
+            case Scene.GangMemberRunsAway:
+                
+                carAnimator.SetBool("FLDoor", true);
+                StartCoroutine(TasksToWait(2));
+
+                break;
+            
+            case Scene.BackToFriends:
+
+                if (GameManager.IsInteracting)
+                {
+                    playerCharacterControl.weapon.gameObject.SetActive(false);
+                    playerAnimator.SetBool("GunDrawn", false);
+                    playerCharacterControl.currentInteractable.tag = "Interactable";
+                    playerCharacterControl.currentInteractable.isOccupied = false;
+                    GameManager.IsInteracting = false;
+                }
+                    
+                playerCharacterControl.pointShootRig.weight = 0;
+                playerCharacterControl.coverAnimRig.weight = 0;
+                playerCharacterControl.characterMovement.run = true;
+                playerCharacterControl.crouch = false;
+                playerCharacterControl.targetTransform = playerLocations[1].transform;
+
+                if (!playerCharacterControl.cachedTransform)
+                {
+                    playerCharacterControl.characterState = CharacterControl.CharacterState.Exploration;
+                    // AUTOSAVE
+                    PersistentSave.Save();
+                    sceneNum++;
+                }
+                
+                break;
+            
+            case Scene.Shootout:
+                
+                foreach (AICharacterControl aicharacterControl in aiCharacterControl)
+                {
+                    if (aicharacterControl.aiBehaviour == AICharacterControl.InternalBehaviour.RandomLocationPicker)
+                    {
+                        aicharacterControl.aiBehaviour = AICharacterControl.InternalBehaviour.Chase;
+                    }
+                }
+                
+                break;
+        }
+    }
+
+    IEnumerator TasksToWait(int taskNum)
+    {
+        switch (taskNum)
+        {
+            case 0:
+
+                yield return new WaitForSeconds(1f);
+                aiCharacterControl[6].pointShootRig.weight = 0;
+                aiCharacterControl[6].GetComponent<CharacterMovement>().run = true;
+                aiCharacterControl[6].targetTransform = enemyLocations[0];
+                playerCharacterControl.targetTransform = playerLocations[0].transform;
+                sceneNum = 7;
+                if (!animators[2].enabled && aiCharacterControl[2].characterState == CharacterControl.CharacterState.None)
+                {
+                    animators[2].enabled = true;
+                    animators[2].SetTrigger("Dead");
+                }
+                
+                if (!positionSet)
+                {
+                    foreach (AICharacterControl aicharacterControl in aiCharacterControl)
+                    {
+                        if (aicharacterControl.isFriendly)
+                        {
+                            aicharacterControl.targetTransform = friendlyLocations[3];
+                            aicharacterControl.GetComponent<CharacterMovement>().run = true;
+                        }
+                    }
+                    positionSet = true;
+                    // friendlyLocationsCount++;
+                }
+
+                yield return new WaitForSeconds(0.3f);
+                player.GetComponent<CharacterMovement>().run = true;
+
+                break;
+            
+            case 1:
+
+                yield return new WaitForSeconds(4f);
+                if (unlockables[1].unlocked)
+                {
+                    carAnimator.SetBool("Flee", false);
+                    aiCharacterControl[6].weapon.gameObject.SetActive(false);
+                    aiCharacterControl[6].weapon = null;
+                    sceneNum = 10;
+                    StopAllCoroutines();
+                }
+                else
+                {
+                    yield return new WaitForSeconds(1f);
+                    cinemachineTarget.RemoveMember(aiCharacterControl[6].transform);
+                    
+                    // FAIL SCREEN
+                    Time.timeScale = 0;
+                }
+
+                break;
+            
+            case 2:
+
+                yield return new WaitForSeconds(1.5f);
+                aiCharacterControl[6].agent.enabled = true;
+                aiCharacterControl[6].transform.parent = null;
+                aiCharacterControl[6].targetTransform = enemyLocations[2];
+                aiCharacterControl[6].crouch = false;
+                aiCharacterControl[6].GetComponent<CharacterMovement>().run = true;
+                
+                yield return new WaitForSeconds(4f);
+                cinemachineTarget.RemoveMember(aiCharacterControl[6].transform);
+                playerCharacterControl.characterState = CharacterControl.CharacterState.Cutscene;
+                if (!positionSet)
+                {
+                    foreach (AICharacterControl aicharacterControl in aiCharacterControl)
+                    {
+                        if (aicharacterControl.isFriendly)
+                        {
+                            aicharacterControl.targetTransform = playerLocations[1];
+                            aicharacterControl.GetComponent<CharacterMovement>().run = true;
+                        }
+                    }
+                    positionSet = true;
+                    // friendlyLocationsCount++;
+                }
+                characters[3].SetActive(true);
+                characters[4].SetActive(true);
+                characters[5].SetActive(true);
+                
+                sceneNum = 11;
+
+                break;
+            
+            default:
+
+                yield return null;
                 
                 break;
         }
@@ -269,13 +535,13 @@ public class Chapter2 : Chapters
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            foreach (GameObject go in ai)
-            {
-                go.SetActive(true);
-            }
-        }
+        // if (Input.GetKeyDown(KeyCode.A))
+        // {
+        //     foreach (GameObject go in ai)
+        //     {
+        //         go.SetActive(true);
+        //     }
+        // }
         
         // if (Input.GetMouseButtonDown(1))
         // {

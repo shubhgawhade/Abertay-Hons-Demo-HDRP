@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
 using UnityEngine;
@@ -42,7 +43,7 @@ public class CharacterControl : MonoBehaviour
 
     protected Animator anim; 
     public Rig coverAnimRig;
-    protected Rig pointShootRig;
+    public Rig pointShootRig;
     private Transform _defaultHeightConstraint;
     public Transform heightConstraint;
     private float coverAnimRigWeight;
@@ -235,20 +236,28 @@ public class CharacterControl : MonoBehaviour
                 agent.enabled = false;
                 rb.isKinematic = true;
                 // m_Capsule.enabled = false;
+                
+                StopAllCoroutines();
                 characterState = CharacterState.None;
                 
                 break;
             
             default:
-                
-                cinemachineTarget.RemoveMember(gameObject.transform);
+
+                // cinemachineTarget.RemoveMember(gameObject.transform);
+                StartCoroutine(Wait());
                 Debug.LogWarning($"{gameObject.name} NOT SET TO ANY CHARACTER STATE");
-                StopAllCoroutines();
                 // Time.timeScale = 0.5f;
                 // enabled = false;
                 
                 break;
         }
+    }
+
+    IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(1f);
+        cinemachineTarget.RemoveMember(gameObject.transform);
     }
     
     protected virtual void InteractableTypeBehaviour()

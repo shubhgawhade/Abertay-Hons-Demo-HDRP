@@ -20,11 +20,17 @@ public class PlayerData
     public int storyScriptNum;
     public bool[] alreadyinteracted;
     public AICharacterControl[] aiCharacterControl;
-    public int friendlyLocationsCount;
+    // public int friendlyLocationsCount;
     public bool positionSet;
     public bool scriptSet;
     public Chapter2.Unlockables[] unocklabes;
-    public Chapter2.UnlockableLocations[] unlockLocations;
+    public UnlockableLocationsSave[] unlockLocations;
+    
+    [Serializable]
+    public struct UnlockableLocationsSave
+    {
+        public bool[] unlocked;
+    }
 
     public PlayerData()
     {
@@ -57,6 +63,7 @@ public class PlayerData
                     {
                         characters[i] = new SaveObject
                         {
+                            characterState = (int)ch2M.aiCharacterControl[i].characterState,
                             enabled = ch2M.characters[i].activeSelf,
                             position = ch2M.characters[i].transform.position,
                             rotation = ch2M.characters[i].transform.eulerAngles
@@ -71,12 +78,16 @@ public class PlayerData
                     }
                     
                     storyScriptNum = ch2M.storyScriptNum;
-                    friendlyLocationsCount = ch2M.friendlyLocationsCount;
+                    // friendlyLocationsCount = ch2M.friendlyLocationsCount;
                     unocklabes = ch2M.unlockables;
                     // positionSet = ch2.positionSet;
                     // positionSet = ch2.positionSet;
                     // scriptSet = ch2.scriptSet;
-                    unlockLocations = ch2M.unlockLocations;
+                    unlockLocations = new UnlockableLocationsSave[ch2M.unlockLocations.Length];
+                    for (int i = 0; i < unlockLocations.Length; i++)
+                    {
+                        unlockLocations[i].unlocked = ch2M.unlockLocations[i].unlocked;
+                    }
                     
                     break;
             }
@@ -90,6 +101,7 @@ public class PlayerData
 [Serializable]
 public struct SaveObject
 {
+    public int characterState;
     public bool enabled;
     public Vector3 position;
     public Vector3 rotation;

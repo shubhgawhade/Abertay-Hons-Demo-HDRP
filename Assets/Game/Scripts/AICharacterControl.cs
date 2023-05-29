@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 [Serializable]
 public class AICharacterControl : CharacterControl
 {
-    private enum InternalBehaviour
+    public enum InternalBehaviour
     {
         None,
         Chase,
@@ -19,13 +19,13 @@ public class AICharacterControl : CharacterControl
     [Header("AI SETTINGS")]
     [Space(10)]
     [SerializeField] private InternalBehaviour previousBehaviour;
-    [SerializeField] private InternalBehaviour aiBehaviour = InternalBehaviour.None;
+    [SerializeField] public InternalBehaviour aiBehaviour = InternalBehaviour.None;
 
 
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject aiRayLoc;
-    [SerializeField] private GameObject aiLookTarget;
-    [SerializeField] private GameObject aiShootTarget;
+    [SerializeField] public GameObject aiLookTarget;
+    [SerializeField] public GameObject aiShootTarget;
     [SerializeField] private Transform smartTransform;
     public bool smartLocationPicked;
     [SerializeField] private GameObject[] bonesHit;
@@ -211,7 +211,7 @@ public class AICharacterControl : CharacterControl
         StopAllCoroutines();
     }
     
-    void Shoot()
+    public void Shoot()
     {
         if (weapon.isHandHeld && !weapon.onCooldown)
         {

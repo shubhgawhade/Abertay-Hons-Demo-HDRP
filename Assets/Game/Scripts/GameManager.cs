@@ -102,6 +102,14 @@ public class GameManager : MonoBehaviour
                         {
                             isActive = true;
                             Chapter2Manager.characters[i].SetActive(false);
+                            if (data.characters[i].characterState == 4)
+                            {
+                                Chapter2Manager.aiCharacterControl[i].characterState = (CharacterControl.CharacterState)(data.characters[i].characterState - 1);
+                            }
+                            else
+                            {
+                                Chapter2Manager.aiCharacterControl[i].characterState = (CharacterControl.CharacterState)data.characters[i].characterState;
+                            }
                         }
                         Chapter2Manager.characters[i].transform.position = data.characters[i].position;
                         Chapter2Manager.characters[i].transform.eulerAngles = data.characters[i].rotation;
@@ -118,7 +126,7 @@ public class GameManager : MonoBehaviour
                     }
                     
                     Chapter2Manager.storyScriptNum = data.storyScriptNum;
-                    Chapter2Manager.friendlyLocationsCount = data.friendlyLocationsCount;
+                    // Chapter2Manager.friendlyLocationsCount = data.friendlyLocationsCount;
                     Chapter2Manager.unlockables = data.unocklabes;
                     // Chapter2Manager.positionSet = data.positionSet;
                     // Chapter2Manager.scriptSet = data.scriptSet;

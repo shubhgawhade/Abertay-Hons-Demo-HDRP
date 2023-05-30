@@ -8352,6 +8352,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chapterManager: {fileID: 1885397263}
+  unlockDialogue:
+    forinteractable: {fileID: 0}
+    unlockTextAsset: {fileID: 0}
   dialogueAudioMatch: []
   ui: {fileID: 1186328887}
   dialogueText: {fileID: 6842342793622364927}
@@ -13631,7 +13634,10 @@ MonoBehaviour:
   isFriendly: 0
   cinemachineTarget: {fileID: 6842342793698539605}
   shootLoc: {fileID: 0}
+<<<<<<< Updated upstream:Assets/Game/Scenes/Chapter1.unity
   clickLocUI: {fileID: 1941594240}
+=======
+>>>>>>> Stashed changes:Assets/Game/Scenes/OutdoorsScene.unity
   doubleClickDelay: 0.2
   timer: 0
   ignoreLayer:

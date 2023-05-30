@@ -1,3 +1,10 @@
 Mariano: We’re finally here it’s time to collect.
+<<<<<<< Updated upstream
 Paulie : Hehehe! Let’s go we gotta do the ritual inside eh!
 Luca : Oh come on I can’t drive home drunk, my wife is gonna kill me!
+=======
+Paulie : Let’s go we gotta do the ritual inside eh!
+Luca : Oh come on I can’t drive home drunk, my wife is gonna kill me!
+Mariano : Who says you have to get back to your wife?
+Paulie : Hehehe!
+>>>>>>> Stashed changes

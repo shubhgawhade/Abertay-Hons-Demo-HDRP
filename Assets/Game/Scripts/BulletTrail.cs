@@ -1,12 +1,16 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class BulletTrail : MonoBehaviour
 {
-    [SerializeField] private Rigidbody rb;
+    private Rigidbody rb;
+    [SerializeField] private GameObject bulletDecalPrefab;
 
     public float damage;
     public float speed;
     public CharacterControl owner;
+
+    [SerializeField] private List<GameObject> reusableBulletDecals;
 
     private void Awake()
     {
@@ -42,6 +46,29 @@ public class BulletTrail : MonoBehaviour
         {
             print(owner.gameObject.name + " HIT " + collision.collider.transform.root.gameObject.name);
         }
+        else
+        {
+            if (!DecalsLeft())
+            {
+                GameObject temp = Instantiate(bulletDecalPrefab, collision.contacts[0].point, Quaternion.identity);
+                reusableBulletDecals.Add(temp);
+                temp.transform.forward = -collision.contacts[0].normal;
+                temp.SetActive(true);
+            }
+            else
+            {
+                foreach (GameObject temp in reusableBulletDecals)
+                {
+                    if (!temp.activeSelf)
+                    {
+                        temp.transform.position = collision.contacts[0].point;
+                        temp.transform.forward = -collision.contacts[0].normal;
+                        temp.SetActive(true);
+                        break;
+                    }
+                }
+            }
+        }
         
         // Destroy(gameObject);
         
@@ -74,6 +101,19 @@ public class BulletTrail : MonoBehaviour
                 hitCharacterHealthManger.SubtractHealth(damage);
             }
         }
+    }
+    
+    private bool DecalsLeft()
+    {
+        foreach (GameObject a in reusableBulletDecals)
+        {
+            if (!a.activeSelf)
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     private void OnDisable()

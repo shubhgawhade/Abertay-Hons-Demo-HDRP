@@ -56,6 +56,7 @@ public class HealthManager : MonoBehaviour
                 if (!temp.activeSelf)
                 {
                     currentDamageUI = temp;
+                    currentDamageUI.transform.position = transform.position;
                     currentDamageUI.SetActive(true);
                     break;
                 }

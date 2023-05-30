@@ -22,13 +22,6 @@ public static class PersistentSave
         // Create Aes object for encryption
         using (Aes iAes = Aes.Create())
         {
-            // Create CryptoStream for writing
-            // CryptoStream iStream = new CryptoStream(dataStream, iAes.CreateEncryptor(iAes.Key, iAes.IV), CryptoStreamMode.Write);
-            CryptoStream iStream = new CryptoStream(dataStream, iAes.CreateEncryptor(Convert.FromBase64String (PlayerPrefs.GetString("iv")), Convert.FromBase64String (PlayerPrefs.GetString("key"))), CryptoStreamMode.Write);
-
-            // Create StreamWriter for writing
-            StreamWriter sWriter = new StreamWriter(iStream);
-
             // TO HAVE ONLY 1 KEY PER PC
             if (!PlayerPrefs.HasKey("iv"))
             {
@@ -41,6 +34,14 @@ public static class PersistentSave
                 PlayerPrefs.SetString ("iv", keyString);
                 PlayerPrefs.SetString ("key", ivString);
             }
+            
+            // Create CryptoStream for writing
+            // CryptoStream iStream = new CryptoStream(dataStream, iAes.CreateEncryptor(iAes.Key, iAes.IV), CryptoStreamMode.Write);
+            CryptoStream iStream = new CryptoStream(dataStream, iAes.CreateEncryptor(Convert.FromBase64String (PlayerPrefs.GetString("iv")), Convert.FromBase64String (PlayerPrefs.GetString("key"))), CryptoStreamMode.Write);
+
+            // Create StreamWriter for writing
+            StreamWriter sWriter = new StreamWriter(iStream);
+
 
             // Write JSON string to the innermost stream (which will encrypt it)
             sWriter.Write(jsonString);

@@ -6,57 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="4dd56a48-5213-4dda-9bf0-e9744c4963bb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Abertay-Hons-Demo-HDRP/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Abertay-Hons-Demo-HDRP/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Addons/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/1stFloorStairs.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/1stFloorStairs.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/AIAim.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/AIAim.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Chapter2_1.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Chapter2_1.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Chapter2_1VoumeCollider.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Chapter2_1VoumeCollider.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/CoverInteractable.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/CoverInteractable.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/FadeMat.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/FadeMat.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/GasStationIndoorsVolume.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/GasStationIndoorsVolume.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/GasStationRoof.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/GasStationRoof.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/New Material.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/New Material.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/NoEntry.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/NoEntry.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/NoEntryT.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/NoEntryT.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/OfficeHidden.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/OfficeHidden.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Petrol Station/RoofMat.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Petrol Station/RoofMat.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Petrol Station/RoofMatT.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Petrol Station/RoofMatT.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/PlayerAim.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/PlayerAim.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/RoofMat.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/RoofMat.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/TransparentMat.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/TransparentMat.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/WallMat.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/WallMat.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Animations/Animation Controllers/PlayerChapter2.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Animations/Animation Controllers/PlayerChapter2.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Petrol Station/exhaust2.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Petrol Station/exhaust2.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/Trail.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Prefabs/Trail.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scenes/Chapter1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scenes/Chapter1.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Scenes/Chapter2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scenes/Chapter2.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scenes/Chapter2/NavMesh.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scenes/Chapter2/NavMesh.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/BulletTrail.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/BulletTrail.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Chapter2/Chapter2.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Chapter2/Chapter2.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Chapter2/Chapter2UI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Chapter2/Chapter2UI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/CharacterControl.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/CharacterControl.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/FloorTriggers.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/FloorTriggers.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/GameManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/HealthManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/HealthManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/MainMenu/MainMenuUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/MainMenu/MainMenuUI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/PlayerCharacterControl.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/PlayerCharacterControl.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/PlayerData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/PlayerData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/InspectableInteractables.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/InspectableInteractables.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/PersistentSave.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/PersistentSave.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,6 +44,7 @@
     <setting file="file://$PROJECT_DIR$/../2022/12 December/SoloCodingProject/Assets/Game/Scripts/MainMenu.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Game/Scripts/AICharacterControl.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Game/Scripts/AudioDialogueTest.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Game/Scripts/BulletDecal.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Game/Scripts/Chapter1/ChapterDialogueAudioManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Game/Scripts/Chapter1/SpeakerEnum.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Game/Scripts/Chapter2/CarCollider.cs" root0="FORCE_HIGHLIGHTING" />
@@ -170,7 +129,7 @@
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="$USER_HOME$/Desktop/LATEST BUILD\HDRP.exe" />
+      <option name="EXE_PATH" value="$USER_HOME$/Desktop/LATEST BUILD/Q\HDRP.exe" />
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="D:\UNITY\Abertay-Hons-Demo-HDRP\_BUILDS\Test" />
       <option name="PASS_PARENT_ENVS" value="1" />

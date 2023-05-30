@@ -11,9 +11,13 @@ public class InspectableInteractables : Interactable
 
     public bool studioSetupComplete;
     public bool isRotateable;
+    public int unlockContent = -1;
+    [Space(10)]
+    [Header("DIALOGUE OPTIONS")]
+    [SerializeField] private bool hasDialogue;
+    private TextReader textReader;
 
     private Interactable interactable;
-    public int unlockContent = -1;
     private GameObject temp;
     private Bounds bounds;
     private Vector3 center;
@@ -27,8 +31,13 @@ public class InspectableInteractables : Interactable
         base.Awake();
 
         typeOfInteractable = TypeOfInteractable.Inspectable;
-        
         interactable = GetComponent<Interactable>();
+
+        if (hasDialogue)
+        {
+            textReader = GetComponent<TextReader>();
+            textReader.LoadScript();
+        }
     }
 
     public void SetupStudio()
@@ -56,6 +65,11 @@ public class InspectableInteractables : Interactable
             studioCam.transform.position = new Vector3(0, center.y, distanceFromObject - 1.5f);
         }
 
+        if (hasDialogue)
+        {
+            textReader.ToggleUI();
+        }
+        
         studioSetupComplete = true;
     }
     
@@ -140,6 +154,11 @@ public class InspectableInteractables : Interactable
             alreadyInteracted = true;
         }
 
+        if (hasDialogue && textReader.dialogueTracker != 0)
+        {
+            textReader.EndDialogue();
+        }
+        
         studioTransform.gameObject.SetActive(false);
         Destroy(temp);
         studioSetupComplete = false;
@@ -148,9 +167,15 @@ public class InspectableInteractables : Interactable
     public override void OnTriggerExit(Collider other)
     {
         base.OnTriggerExit(other);
+
         
         if (other.transform.root.CompareTag("Player") && studioSetupComplete)
         {
+            if (hasDialogue && textReader.dialogueTracker != 0)
+            {
+                textReader.EndDialogue();
+            }
+            
             StopInspecting();
         }
     }

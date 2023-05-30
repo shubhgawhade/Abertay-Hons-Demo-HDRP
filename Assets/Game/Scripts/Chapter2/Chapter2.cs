@@ -285,6 +285,7 @@ public class Chapter2 : Chapters
                 a.y = 2.5f;
                 aiCharacterControl[6].aiShootTarget.transform.position = a;
                 aiCharacterControl[6].aiLookTarget.transform.position = a;
+                aiCharacterControl[2].isFriendly = true;
                 
                 if (!aiCharacterControl[6].weapon.onCooldown)
                 {
@@ -325,7 +326,7 @@ public class Chapter2 : Chapters
                 break;
             
             case Scene.ShootingTutorial:
-
+                
                 if (textReader.alreadyInteracted)
                 {
                     shootingTutorialUi.SetActive(false);
@@ -334,6 +335,8 @@ public class Chapter2 : Chapters
 
                 if (aiCharacterControl[6].aIStopped)
                 {
+                    interactables[0].enabled = false;
+                    interactables[0].GetComponent<BoxCollider>().enabled = false;
                     carAnimator.SetBool("FLDoor", true);
                     aiCharacterControl[6].targetTransform = enemyLocations[1];
                     aiCharacterControl[6].crouch = true;
@@ -450,10 +453,10 @@ public class Chapter2 : Chapters
 
                 print($"{friendlyDead} : {enemiesDead}");
                 
-                if (friendlyDead == 2)
-                {
-                    Time.timeScale = 0;
-                }
+                // if (friendlyDead == 2)
+                // {
+                //     Time.timeScale = 0;
+                // }
                 
                 foreach (AICharacterControl aicharacterControl in aiCharacterControl)
                 {
@@ -497,7 +500,7 @@ public class Chapter2 : Chapters
                 {
                     foreach (AICharacterControl aicharacterControl in aiCharacterControl)
                     {
-                        if (aicharacterControl.isFriendly)
+                        if (aicharacterControl.isFriendly && aicharacterControl.characterState != CharacterControl.CharacterState.None)
                         {
                             aicharacterControl.targetTransform = friendlyLocations[3];
                             aicharacterControl.GetComponent<CharacterMovement>().run = true;
@@ -529,8 +532,8 @@ public class Chapter2 : Chapters
                     cinemachineTarget.RemoveMember(aiCharacterControl[6].transform);
                     
                     // FAIL SCREEN
-                    Time.timeScale = 0;
                     failUI.SetActive(true);
+                    Time.timeScale = 0;
                 }
 
                 break;
@@ -551,10 +554,11 @@ public class Chapter2 : Chapters
                 {
                     foreach (AICharacterControl aicharacterControl in aiCharacterControl)
                     {
-                        if (aicharacterControl.isFriendly)
+                        if (aicharacterControl.isFriendly && aicharacterControl.characterState != CharacterControl.CharacterState.None)
                         {
                             aicharacterControl.targetTransform = playerLocations[1];
                             aicharacterControl.GetComponent<CharacterMovement>().run = true;
+                            aicharacterControl.characterState = CharacterControl.CharacterState.Exploration;
                         }
                     }
                     positionSet = true;

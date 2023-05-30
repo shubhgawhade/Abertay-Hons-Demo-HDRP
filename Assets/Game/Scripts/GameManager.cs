@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -134,6 +133,8 @@ public class GameManager : MonoBehaviour
                                 Chapter2Manager.aiCharacterControl[i].characterState = (CharacterControl.CharacterState)data.characters[i].characterState;
                             }
                         }
+
+                        Chapter2Manager.aiCharacterControl[i].aiBehaviour = (AICharacterControl.InternalBehaviour)data.characters[i].internalAIState;
                         Chapter2Manager.characters[i].transform.position = data.characters[i].position;
                         Chapter2Manager.characters[i].transform.eulerAngles = data.characters[i].rotation;
 

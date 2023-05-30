@@ -374,6 +374,11 @@ public class Chapter2 : Chapters
             
             case Scene.BackToFriends:
 
+                if (aiCharacterControl[6].aIStopped)
+                {
+                    aiCharacterControl[6].gameObject.SetActive(false);
+                }
+                
                 if (GameManager.IsInteracting)
                 {
                     playerCharacterControl.weapon.gameObject.SetActive(false);
@@ -444,10 +449,11 @@ public class Chapter2 : Chapters
                 }
 
                 print($"{friendlyDead} : {enemiesDead}");
-                // if (friendlyDead == 2)
-                // {
-                //     Time.timeScale = 0;
-                // }
+                
+                if (friendlyDead == 2)
+                {
+                    Time.timeScale = 0;
+                }
                 
                 foreach (AICharacterControl aicharacterControl in aiCharacterControl)
                 {
@@ -476,6 +482,7 @@ public class Chapter2 : Chapters
 
                 yield return new WaitForSeconds(1f);
                 aiCharacterControl[6].pointShootRig.weight = 0;
+                aiCharacterControl[6].characterState = CharacterControl.CharacterState.Exploration;
                 aiCharacterControl[6].GetComponent<CharacterMovement>().run = true;
                 aiCharacterControl[6].targetTransform = enemyLocations[0];
                 playerCharacterControl.targetTransform = playerLocations[0].transform;

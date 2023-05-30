@@ -64,7 +64,7 @@ public class BulletTrail : MonoBehaviour
                 {
                     hitCharacterRigidbody.useGravity = true;
                     hitCharacterRigidbody.isKinematic = false;
-                    hitCharacterRigidbody.AddForce(rb.velocity * 6, ForceMode.Impulse);
+                    hitCharacterRigidbody.AddForce(rb.velocity * 3, ForceMode.Impulse);
                 }
                 else
                 {

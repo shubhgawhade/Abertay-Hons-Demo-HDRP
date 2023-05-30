@@ -54,4 +54,9 @@ public class MainMenuUI : MonoBehaviour
         GameManager.useSave = true;
         async.allowSceneActivation = true;
     }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 }

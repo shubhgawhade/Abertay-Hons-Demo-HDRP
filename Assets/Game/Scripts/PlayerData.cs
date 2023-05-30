@@ -64,6 +64,7 @@ public class PlayerData
                         characters[i] = new SaveObject
                         {
                             characterState = (int)ch2M.aiCharacterControl[i].characterState,
+                            internalAIState = (int) ch2M.aiCharacterControl[i].aiBehaviour,
                             enabled = ch2M.characters[i].activeSelf,
                             position = ch2M.characters[i].transform.position,
                             rotation = ch2M.characters[i].transform.eulerAngles
@@ -102,6 +103,7 @@ public class PlayerData
 public struct SaveObject
 {
     public int characterState;
+    public int internalAIState;
     public bool enabled;
     public Vector3 position;
     public Vector3 rotation;

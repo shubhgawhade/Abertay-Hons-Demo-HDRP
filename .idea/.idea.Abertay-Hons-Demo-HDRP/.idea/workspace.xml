@@ -6,15 +6,57 @@
   <component name="ChangeListManager">
     <list default="true" id="4dd56a48-5213-4dda-9bf0-e9744c4963bb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Abertay-Hons-Demo-HDRP/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Abertay-Hons-Demo-HDRP/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Petrol Station/exhaust2.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Petrol Station/exhaust2.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/Trail.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Prefabs/Trail.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Addons/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/1stFloorStairs.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/1stFloorStairs.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/AIAim.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/AIAim.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Chapter2_1.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Chapter2_1.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Chapter2_1VoumeCollider.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Chapter2_1VoumeCollider.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/CoverInteractable.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/CoverInteractable.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/FadeMat.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/FadeMat.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/GasStationIndoorsVolume.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/GasStationIndoorsVolume.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/GasStationRoof.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/GasStationRoof.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/New Material.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/New Material.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/NoEntry.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/NoEntry.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/NoEntryT.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/NoEntryT.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/OfficeHidden.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/OfficeHidden.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Petrol Station/RoofMat.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Petrol Station/RoofMat.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Petrol Station/RoofMatT.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Petrol Station/RoofMatT.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/PlayerAim.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/PlayerAim.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/RoofMat.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/RoofMat.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/TransparentMat.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/TransparentMat.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/WallMat.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/WallMat.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Animations/Animation Controllers/PlayerChapter2.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Animations/Animation Controllers/PlayerChapter2.controller" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Scenes/Chapter2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scenes/Chapter2.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scenes/Chapter2/NavMesh.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scenes/Chapter2/NavMesh.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/BulletTrail.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/BulletTrail.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Chapter2/Chapter2.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Chapter2/Chapter2.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Chapter2/Chapter2UI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Chapter2/Chapter2UI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/CharacterControl.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/CharacterControl.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/FloorTriggers.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/FloorTriggers.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/HealthManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/HealthManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/MainMenu/MainMenuUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/MainMenu/MainMenuUI.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/PlayerCharacterControl.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/PlayerCharacterControl.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/DynamicsManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/DynamicsManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/PlayerData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/PlayerData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,6 +96,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Game/Scripts/Chapter2/TEMP/ParticleEnterTrigger.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Game/Scripts/Chapters.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Game/Scripts/CoverInteractables.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Game/Scripts/DamageUI.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Game/Scripts/DetectFadeMaterials.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Game/Scripts/DialogueAudioMatch.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Game/Scripts/FloorTriggers.cs" root0="FORCE_HIGHLIGHTING" />
@@ -82,6 +125,14 @@
     <setting file="file://E:/D DRIVE/UNITY/2021/June/CrLaHoAs-Contd/Assets/Scripts/GameManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://E:/D DRIVE/UNITY/2021/June/CrLaHoAs-Contd/Assets/Scripts/PersistentSave.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://E:/D DRIVE/UNITY/2021/June/CrLaHoAs-Contd/Assets/Scripts/PlayerData.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://E:/D DRIVE/UNITY/2022/August/BYOG22 URP/Assets/Game/Scripts/GameManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://E:/D DRIVE/UNITY/2022/August/BYOG22 URP/Assets/Game/Scripts/PlayerLook.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://E:/D DRIVE/UNITY/2022/August/BYOG22 URP/Assets/Game/Scripts/PlayerMovement.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://E:/D DRIVE/UNITY/2022/August/BYOG22 URP/Assets/Game/Scripts/Shoot.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://E:/D DRIVE/UNITY/2022/July/GMTK22 URP/Assets/Game/Scripts/GameManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://E:/D DRIVE/UNITY/2022/July/GMTK22 URP/Assets/Game/Scripts/Mloc.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://E:/D DRIVE/UNITY/2022/July/GMTK22 URP/Assets/Game/Scripts/PlayerLookAt.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://E:/D DRIVE/UNITY/2022/July/GMTK22 URP/Assets/Game/Scripts/PlayerMovement.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -331,7 +382,8 @@
       <workItem from="1684945268984" duration="22100000" />
       <workItem from="1685017988150" duration="35647000" />
       <workItem from="1685194557742" duration="18040000" />
-      <workItem from="1685393663256" duration="12060000" />
+      <workItem from="1685393663256" duration="17347000" />
+      <workItem from="1685438091406" duration="11755000" />
     </task>
     <servers />
   </component>

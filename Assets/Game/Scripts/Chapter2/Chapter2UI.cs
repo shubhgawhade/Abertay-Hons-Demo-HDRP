@@ -22,4 +22,11 @@ public class Chapter2UI : MonoBehaviour
         pauseMenu.SetActive(false);
         Time.timeScale = 1;
     }
+
+    private void OnDestroy()
+    {
+        GameManager.isPaused = false;
+        pauseMenu.SetActive(false);
+        Time.timeScale = 1;
+    }
 }

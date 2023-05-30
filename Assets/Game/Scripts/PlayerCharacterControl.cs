@@ -4,6 +4,7 @@ using UnityEngine;
 public class PlayerCharacterControl : CharacterControl
 {
     [SerializeField] private GameObject shootLoc;
+    [SerializeField] private GameObject clickLocUI;
     
     private RaycastHit hit;
     private TextReader textReader;
@@ -136,6 +137,7 @@ public class PlayerCharacterControl : CharacterControl
                 {
                     case "Ground":
 
+                        
                         cachedTransform = null;
                         target = new Vector3(hit.point.x, hit.point.y, hit.point.z);
                         agent.SetDestination(target);
@@ -146,6 +148,10 @@ public class PlayerCharacterControl : CharacterControl
                             targetIsInteractable = false;
                             GameManager.IsInteracting = false;
                         }
+                        
+                        // CLIKING UI
+                        clickLocUI.transform.position = new Vector3(target.x, target.y + 0.2f, target.z);
+                        clickLocUI.SetActive(true);
 
                         break;
 

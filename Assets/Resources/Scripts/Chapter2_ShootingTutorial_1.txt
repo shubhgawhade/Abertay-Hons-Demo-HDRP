@@ -1,4 +1,4 @@
 Red Interactables allow you to get behind cover and shoot
 Once you get behind cover, you will not be able to move $You can use your mouse to target and click to shoot
-Use your Left Ctrl button too crouch and dodge oncoming bullets.
+Use your Left Ctrl button to crouch and dodge incoming bullets.
 Use the right click if you need to get out of cover. $You can switch between cover by clicking on other red interactables nearby

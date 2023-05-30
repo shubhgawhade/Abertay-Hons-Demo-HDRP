@@ -293,8 +293,8 @@ public class PlayerCharacterControl : CharacterControl
                         }
 
                     }
-                    
-                    if (!hasRepeated)
+
+                    if (!hasRepeated && characterControl.characterState != CharacterState.Cutscene)
                     {
                         cinemachineTarget.AddMember(characterControl.transform, 2, 2);
                     }

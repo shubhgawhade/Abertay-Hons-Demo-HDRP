@@ -1,19 +1,25 @@
-using System;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class Chapter2UI : MonoBehaviour
 {
-    public static Action Load;
-
-    public void RetryButton()
+    [SerializeField] private GameObject pauseMenu;
+    
+    private void Update()
     {
-        SceneManager.LoadScene(GameManager.CurrentScene);
-        Load();
+        if (GameManager.isPaused)
+        {
+            pauseMenu.SetActive(true);
+        }
+        else
+        {
+            pauseMenu.SetActive(false);
+        }
     }
 
-    public void MainMenuButton()
+    public void Resume()
     {
-        SceneManager.LoadScene(0);
+        GameManager.isPaused = false;
+        pauseMenu.SetActive(false);
+        Time.timeScale = 1;
     }
 }

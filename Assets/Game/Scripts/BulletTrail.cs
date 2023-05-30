@@ -15,7 +15,7 @@ public class BulletTrail : MonoBehaviour
 
     void FixedUpdate()
     {
-        rb.AddForce(speed * Time.deltaTime * transform.forward, ForceMode.VelocityChange);
+        rb.AddForce(speed * Time.deltaTime * transform.forward, ForceMode.Force);
         // transform.position += speed * Time.deltaTime * transform.forward;
         // transform.Translate(speed * Time.deltaTime * transform.forward);
     }
@@ -58,19 +58,21 @@ public class BulletTrail : MonoBehaviour
             Rigidbody hitCharacterRigidbody = hitCollider.GetComponent<Rigidbody>();
             
             // print(hitCharacterHealthManger.health - damage);
-
-            if (hitCharacterHealthManger.health - damage <= 0)
+            if (owner.isFriendly != hitCollider.transform.root.GetComponent<CharacterControl>().isFriendly)
             {
-                hitCharacterRigidbody.useGravity = true;
-                hitCharacterRigidbody.isKinematic = false;
-                hitCharacterRigidbody.AddForce(rb.velocity * 6, ForceMode.Impulse);
+                if (hitCharacterHealthManger.health - damage <= 0)
+                {
+                    hitCharacterRigidbody.useGravity = true;
+                    hitCharacterRigidbody.isKinematic = false;
+                    hitCharacterRigidbody.AddForce(rb.velocity * 6, ForceMode.Impulse);
+                }
+                else
+                {
+                    hitCharacterRigidbody.velocity = Vector3.zero;
+                }
+                
+                hitCharacterHealthManger.SubtractHealth(damage);
             }
-            else
-            {
-                hitCharacterRigidbody.velocity = Vector3.zero;
-            }
-            
-            hitCharacterHealthManger.SubtractHealth(damage);
         }
     }
 

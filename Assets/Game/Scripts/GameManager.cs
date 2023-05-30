@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
     // public static float DialogueSKipDelay;
     public static float dialogueSkipDelay { get; set; }
 
+    public static bool isPaused;
     public static bool useSave;
     private PlayerData data;
 
@@ -40,7 +41,7 @@ public class GameManager : MonoBehaviour
         // Intelligence = intelligence;
 
         Chapters.SceneActive += LoadSceneData;
-        Chapter2UI.Load += LoadData;
+        FailUI.Load += LoadData;
         
         DontDestroyOnLoad(gameObject);
     }
@@ -53,6 +54,20 @@ public class GameManager : MonoBehaviour
             PersistentSave.Save();
         }
 
+        if (!IsInteracting && CurrentScene > 0 && Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (isPaused)
+            {
+                isPaused = false;
+                Time.timeScale = 1;
+            }
+            else
+            {
+                isPaused = true;
+                Time.timeScale = 0;
+            }
+        }
+        
         // print($"PLAYER HEALTH: {PlayerHealth}");
         // print($" IS INTERACTING : {IsInteracting}");
         // intelligence = Intelligence;
@@ -66,6 +81,7 @@ public class GameManager : MonoBehaviour
         IsInteracting = false;
         data = null;
         data = PersistentSave.Load();
+        print(hasSave);
         if (hasSave)
         {
             CurrentScene = data.currentscene;
@@ -173,7 +189,8 @@ public class GameManager : MonoBehaviour
     private void OnDisable()
     {
         Chapters.SceneActive -= LoadSceneData;
-        Chapter2UI.Load -= LoadData;
+        FailUI.Load -= LoadData;
+        Time.timeScale = 1;
         // data = null;
         // ChaptersManager = null;
         // Chapter1Manager = null;

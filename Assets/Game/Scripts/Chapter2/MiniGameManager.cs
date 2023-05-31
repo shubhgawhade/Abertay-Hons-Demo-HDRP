@@ -60,12 +60,12 @@ public class MiniGameManager : MonoBehaviour
          // 80000 total
          if (aiIsDrinking)
          {
-             for (int i = 0; i < Random.Range(0, 20); i++)
+             for (int i = 0; i < Random.Range(0, 6); i++)
              {
                  drinkSlider[1 - tougherAi].value--;
              }
              
-             for (int i = 0; i < Random.Range(0, 25); i++)
+             for (int i = 0; i < Random.Range(0, 8); i++)
              {
                  drinkSlider[tougherAi].value--;
              }

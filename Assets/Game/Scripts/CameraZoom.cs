@@ -12,6 +12,8 @@ public class CameraZoom : MonoBehaviour
     public float minZoom;
     public float maxZoom;
 
+    public bool clampZoom = true;
+
     private void Awake()
     {
         TextReader.RemoveCinemachineTarget += RemoveCinemachinTarget;
@@ -22,8 +24,15 @@ public class CameraZoom : MonoBehaviour
 
     private void Update()
     {
-        targetGroup.m_Targets[0].radius -=  Input.GetAxis("Mouse ScrollWheel") * sensitivity;
-        targetGroup.m_Targets[1].radius -=  Input.GetAxis("Mouse ScrollWheel") * sensitivity;
+        for (int i = 0; i < 2; i++)
+        {
+            targetGroup.m_Targets[i].radius -=  Input.GetAxis("Mouse ScrollWheel") * sensitivity;
+            
+            if (clampZoom)
+            {
+                targetGroup.m_Targets[i].radius = Mathf.Clamp(targetGroup.m_Targets[1].radius, 2.5f, 5f);
+            }
+        }
     }
 
     public void AddCinemachineTarget(Transform transform, float weight, float radius)

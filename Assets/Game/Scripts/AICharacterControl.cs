@@ -529,7 +529,7 @@ public class AICharacterControl : CharacterControl
 
                 if (cachedTransform)
                 {
-                    print("NEW LOC");
+                    // print("NEW LOC");
 
                     // WHEN AI IS 'X' METRES CLOSE TO ITS TARGET LOCATION
                     // CALCULATE A NEW TARGET POSITION BEHIND THE DIRECTION IN WHICH THE ORIGINAL TARGET IS FACING AROUND THE ORIGINAL TARGET LOCATION < 'X'

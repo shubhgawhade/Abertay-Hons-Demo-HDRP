@@ -6,30 +6,18 @@
   <component name="ChangeListManager">
     <list default="true" id="4dd56a48-5213-4dda-9bf0-e9744c4963bb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Abertay-Hons-Demo-HDRP/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Abertay-Hons-Demo-HDRP/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 1/Characters/Mariano 1/Mariano_CH1.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 1/Characters/Mariano 1/Mariano_CH1.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 1/Characters/Mariano 1/Mariano_CH1_packed0_diffuse.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 1/Characters/Mariano 1/Mariano_CH1_packed0_diffuse.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 1/Characters/Mariano 1/Mariano_CH1_packed0_gloss.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 1/Characters/Mariano 1/Mariano_CH1_packed0_gloss.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 1/Characters/Mariano 1/Mariano_CH1_packed0_normal.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 1/Characters/Mariano 1/Mariano_CH1_packed0_normal.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 1/Characters/Mariano 1/Mariano_CH1_packed0_specular.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 1/Characters/Mariano 1/Mariano_CH1_packed0_specular.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 1/Characters/Mariano_CH1.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 1/Characters/Mariano_CH1.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 1/Exterior.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Petrol Station/Washroom/m_1.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Petrol Station/Washroom/m_1.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Petrol Station/Washroom/m_2.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Petrol Station/Washroom/m_2.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Petrol Station/Washroom/m_3.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Petrol Station/Washroom/m_3.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Petrol Station/exhaust2.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Petrol Station/exhaust2.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scenes/Chapter1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scenes/Chapter1.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Scenes/Chapter2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scenes/Chapter2.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Chapter2/CarCollider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Chapter2/CarCollider.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Chapter2/Chapter2.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Chapter2/Chapter2.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/CharacterControl.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/CharacterControl.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/PlayerCharacterControl.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/PlayerCharacterControl.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/PlayerData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/PlayerData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SnowShader/SnowLayers.shadergraph" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SnowShader/SnowLayers.shadergraph.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scenes/Chapter2/NavMesh.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scenes/Chapter2/NavMesh.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scenes/Chapter2/OcclusionCullingData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scenes/Chapter2/OcclusionCullingData.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scenes/Chapter2/OcclusionCullingData.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scenes/Chapter2/OcclusionCullingData.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/AICharacterControl.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/AICharacterControl.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/CameraZoom.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/CameraZoom.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Chapter2/MiniGameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Chapter2/MiniGameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Chapter2/TEMP/MiniGamePlayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Chapter2/TEMP/MiniGamePlayer.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

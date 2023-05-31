@@ -49,7 +49,7 @@ public class MiniGamePlayer : MonoBehaviour
             miniGameManager.WinConditions();
             // miniGameManager.EndMiniGame();
             // miniGameManager.isRunning = false;
-            print(miniGameManager.timeRunning);
+            // print(miniGameManager.timeRunning);
         }
     }
 

@@ -35,6 +35,8 @@ public class FailUI : MonoBehaviour
 
     public void MainMenuButton()
     {
+        GameManager.isPaused = false;
+        Time.timeScale = 1;
         SceneManager.LoadScene(0);
     }
     

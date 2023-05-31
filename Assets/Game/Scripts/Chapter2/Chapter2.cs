@@ -68,7 +68,6 @@ public class Chapter2 : Chapters
     {
         Time.timeScale = 1;
         GameManager.CurrentScene = 2;
-
         GameManager.Chapter2Manager = this;
         
         // LOAD SAVED DATA
@@ -97,7 +96,6 @@ public class Chapter2 : Chapters
         {
             case Scene.InitialExploration:
 
-                GameManager.IsInteracting = true;
                 if (!positionSet)
                 {
                     foreach (AICharacterControl aicharacterControl in aiCharacterControl)
@@ -639,7 +637,7 @@ public class Chapter2 : Chapters
         //     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         // }
 
-        if (GameManager.DoneLoadingChapter)
+        // if (GameManager.DoneLoadingChapter)
         {
             SceneFlow();
         }

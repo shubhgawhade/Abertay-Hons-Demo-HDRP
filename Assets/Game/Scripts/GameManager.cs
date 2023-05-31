@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager _instance;
+
     public static bool hasSave { get; set; }
     
     // public int currentScene;
@@ -34,6 +36,15 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        if (_instance != null)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            _instance = this;
+        }
+        
         LoadData(); 
         // IsMoveable = isMoveable;
         // Intelligence = intelligence;
@@ -141,6 +152,10 @@ public class GameManager : MonoBehaviour
                         if (isActive)
                         {
                             Chapter2Manager.characters[i].SetActive(true);
+                        }
+                        else
+                        {
+                            Chapter2Manager.characters[i].SetActive(false);
                         }
                     }
                     

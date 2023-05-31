@@ -41,7 +41,7 @@ public class CharacterControl : MonoBehaviour
     public Weapon[] weapons;
     public CoverInteractables.WeaponType weaponType = CoverInteractables.WeaponType.Length;
 
-    protected Animator anim; 
+    public Animator anim; 
     public Rig coverAnimRig;
     public Rig pointShootRig;
     private Transform _defaultHeightConstraint;

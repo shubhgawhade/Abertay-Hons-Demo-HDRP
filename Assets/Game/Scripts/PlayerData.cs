@@ -4,6 +4,27 @@ using UnityEngine;
 [Serializable]
 public class PlayerData
 {
+    [Serializable]
+    public class SaveObject
+    {
+        public bool enabled;
+        public Vector3 position;
+        public Vector3 rotation;
+    }
+    
+    [Serializable]
+    public class CharacterSaveObject : SaveObject
+    {
+        public int characterState;
+        public int internalAIState;
+    }
+
+    [Serializable]
+    public class InteractableSaveObject : SaveObject
+    {
+        public bool alreadyInteracted;
+    }
+    
     // GENERAL SAVE VARIABLES
     public int currentscene;
     public int intelligence;
@@ -17,9 +38,9 @@ public class PlayerData
     // public <T>
 
     // CHAPTER 2 MANAGER SAVE VARIABLES
-    public SaveObject[] characters;
+    public CharacterSaveObject[] characters;
     public int storyScriptNum;
-    public bool[] alreadyinteracted;
+    public InteractableSaveObject[] interactableSaveObjects;
     public AICharacterControl[] aiCharacterControl;
     // public int friendlyLocationsCount;
     public bool positionSet;
@@ -61,10 +82,10 @@ public class PlayerData
 
                     Chapter2 ch2M = GameManager.Chapter2Manager;
                     
-                    characters = new SaveObject[ch2M.characters.Length];
+                    characters = new CharacterSaveObject[ch2M.characters.Length];
                     for (int i = 0; i < ch2M.characters.Length; i++)
                     {
-                        characters[i] = new SaveObject
+                        characters[i] = new CharacterSaveObject
                         {
                             characterState = (int)ch2M.aiCharacterControl[i].characterState,
                             internalAIState = (int) ch2M.aiCharacterControl[i].aiBehaviour,
@@ -75,10 +96,16 @@ public class PlayerData
                         // Debug.Log(ch2M.characters[i].transform.position);
                     }
                     
-                    alreadyinteracted = new bool[ch2M.interactables.Length];
-                    for (int i = 0; i < alreadyinteracted.Length; i++)
+                    interactableSaveObjects = new InteractableSaveObject[ch2M.interactables.Length];
+                    for (int i = 0; i < interactableSaveObjects.Length; i++)
                     {
-                        alreadyinteracted[i] = ch2M.interactables[i].alreadyInteracted;
+                        interactableSaveObjects[i] = new InteractableSaveObject()
+                        {
+                            enabled = ch2M.interactables[i].gameObject.activeSelf,
+                            position = ch2M.interactables[i].transform.position,
+                            rotation = ch2M.interactables[i].transform.eulerAngles,
+                            alreadyInteracted = ch2M.interactables[i].alreadyInteracted
+                        };
                     }
                     
                     storyScriptNum = ch2M.storyScriptNum;
@@ -100,14 +127,4 @@ public class PlayerData
         intelligence = GameManager.Intelligence;
         // saveObject = new SaveObject[]
     }
-}
-
-[Serializable]
-public struct SaveObject
-{
-    public int characterState;
-    public int internalAIState;
-    public bool enabled;
-    public Vector3 position;
-    public Vector3 rotation;
 }

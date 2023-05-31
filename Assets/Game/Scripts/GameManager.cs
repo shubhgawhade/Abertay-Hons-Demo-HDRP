@@ -161,7 +161,10 @@ public class GameManager : MonoBehaviour
                     
                     for (int i = 0; i < Chapter2Manager.interactables.Length; i++)
                     {
-                        Chapter2Manager.interactables[i].alreadyInteracted = data.alreadyinteracted[i];
+                        Chapter2Manager.interactables[i].gameObject.SetActive(data.interactableSaveObjects[i].enabled);
+                        Chapter2Manager.interactables[i].transform.position = data.interactableSaveObjects[i].position;
+                        Chapter2Manager.interactables[i].transform.eulerAngles = data.interactableSaveObjects[i].rotation;
+                        Chapter2Manager.interactables[i].alreadyInteracted = data.interactableSaveObjects[i].alreadyInteracted;
                     }
                     
                     Chapter2Manager.storyScriptNum = data.storyScriptNum;

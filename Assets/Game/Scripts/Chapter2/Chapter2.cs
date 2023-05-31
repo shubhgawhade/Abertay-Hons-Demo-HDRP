@@ -405,7 +405,12 @@ public class Chapter2 : Chapters
                 {
                     playerCharacterControl.characterState = CharacterControl.CharacterState.Exploration;
                     // AUTOSAVE
+                    // Transform tempTransform = interactables[0].transform;
+                    // interactables[0].transform.position = carAnimator.transform.position;
+                    // interactables[0].transform.rotation = carAnimator.transform.rotation;
                     PersistentSave.Save();
+                    // interactables[0].transform.position = tempTransform.position;
+                    // interactables[0].transform.rotation = tempTransform.rotation;
                     sceneNum++;
                 }
                 
@@ -413,6 +418,20 @@ public class Chapter2 : Chapters
             
             case Scene.Shootout:
 
+                foreach (AICharacterControl aicharacterControl in aiCharacterControl)
+                {
+                    if (aicharacterControl.aiBehaviour == AICharacterControl.InternalBehaviour.RandomLocationPicker)
+                    {
+                        aicharacterControl.aiBehaviour = AICharacterControl.InternalBehaviour.Chase;
+                    }
+
+                    // if (aicharacterControl.characterState == CharacterControl.CharacterState.None)
+                    // {
+                    //     b++;
+                    //     print(b);
+                    // }
+                }
+                
                 int enemiesDead = 0;
                 int friendlyDead = 0;
 
@@ -426,6 +445,7 @@ public class Chapter2 : Chapters
                     if (aiCharacterControl[j].characterState == CharacterControl.CharacterState.None)
                     {
                         print(aiCharacterControl[j].name);
+                        GameManager.Intelligence++;
                         friendlyDead++;
                     }
                 }
@@ -449,6 +469,7 @@ public class Chapter2 : Chapters
                             {
                                 // PASS
                                 print("PASS!");
+                                positionSet = false;
                                 sceneNum++;
                             }
                         }
@@ -462,24 +483,33 @@ public class Chapter2 : Chapters
                 //     Time.timeScale = 0;
                 // }
                 
-                foreach (AICharacterControl aicharacterControl in aiCharacterControl)
-                {
-                    if (aicharacterControl.aiBehaviour == AICharacterControl.InternalBehaviour.RandomLocationPicker)
-                    {
-                        aicharacterControl.aiBehaviour = AICharacterControl.InternalBehaviour.Chase;
-                    }
-
-                    // if (aicharacterControl.characterState == CharacterControl.CharacterState.None)
-                    // {
-                    //     b++;
-                    //     print(b);
-                    // }
-                }
                 
 
                 break;
             
             case Scene.Warehouse:
+                
+                foreach (AICharacterControl aicharacterControl in aiCharacterControl)
+                {
+                    if (aicharacterControl.isFriendly)
+                    {
+                        if (aicharacterControl.isInteracting)
+                        {
+                            aicharacterControl.pointShootRig.weight = 0;
+                            aicharacterControl.anim.SetBool("GunDrawn", false);
+                            aicharacterControl.currentInteractable.tag = "Interactable";
+                            aicharacterControl.weapon.gameObject.SetActive(false);
+                            aicharacterControl.currentInteractable.isOccupied = false;
+                            aicharacterControl.characterState = CharacterControl.CharacterState.Exploration;
+                            aicharacterControl.isInteracting = false;
+                        }
+
+                        aicharacterControl.characterMovement.run = false;
+                        aicharacterControl.crouch = false;
+                        aicharacterControl.aiBehaviour = AICharacterControl.InternalBehaviour.RandomLocationPicker;
+                    }
+                }
+
                 
                 if (!positionSet)
                 {
@@ -487,7 +517,7 @@ public class Chapter2 : Chapters
                     {
                         if (aicharacterControl.isFriendly && aicharacterControl.characterState != CharacterControl.CharacterState.None)
                         {
-                            aicharacterControl.targetTransform = friendlyLocations[3];
+                            aicharacterControl.targetTransform = friendlyLocations[4];
                             aicharacterControl.GetComponent<CharacterMovement>().run = true;
                         }
                     }

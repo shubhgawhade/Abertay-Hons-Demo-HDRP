@@ -193,7 +193,7 @@ public class PlayerCharacterControl : CharacterControl
                     case "Interactable":
 
                         Interactable tempInteractable = hit.collider.GetComponent<Interactable>();
-                        if (tempInteractable.typeOfInteractable == Interactable.TypeOfInteractable.Cover && tempInteractable.isVisible)
+                        if (tempInteractable && tempInteractable.typeOfInteractable == Interactable.TypeOfInteractable.Cover && tempInteractable.isVisible)
                         {
                             pointShootRig.weight = 0;
                             weapon.gameObject.SetActive(false);

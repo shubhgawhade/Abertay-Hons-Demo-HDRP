@@ -7,8 +7,10 @@ public class HealthManager : MonoBehaviour
 {
     [SerializeField] private DamageUI damageUI;
     [SerializeField] private Slider healthAndDrunkBar;
+    [SerializeField] private Slider drunkBar;
     
     public float health;
+    public float drunk;
     private GameObject currentDamageUI;
     private CharacterControl characterControl;
     public List<GameObject> reusabledamageUI;
@@ -31,11 +33,16 @@ public class HealthManager : MonoBehaviour
     {
         if (characterControl.CompareTag("Player"))
         {
+            // HEALTH BAR VALUES
             health = Mathf.Clamp(health, 0, 100);
-            GameManager.Drunkenness -= 0.2f * Time.deltaTime;
             Mathf.Clamp(GameManager.Drunkenness, 0, 50);
             // print(GameManager.Drunkenness);
             healthAndDrunkBar.value = Mathf.Lerp(healthAndDrunkBar.value, health, 10 * Time.deltaTime);
+            
+            // DRUNK BAR VALUES
+            drunk = Mathf.Clamp(GameManager.Drunkenness, 0, 50);
+            GameManager.Drunkenness -= 0.2f * Time.deltaTime;
+            drunkBar.value = Mathf.Lerp(drunkBar.value, GameManager.Drunkenness, 10 * Time.deltaTime);
         }
     }
 

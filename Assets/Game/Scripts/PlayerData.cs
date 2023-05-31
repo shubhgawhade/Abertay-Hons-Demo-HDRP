@@ -19,11 +19,11 @@ public class PlayerData
         public int internalAIState;
     }
 
-    [Serializable]
-    public class InteractableSaveObject : SaveObject
-    {
-        public bool alreadyInteracted;
-    }
+    // [Serializable]
+    // public class InteractableSaveObject : SaveObject
+    // {
+    //     public bool alreadyInteracted;
+    // }
     
     // GENERAL SAVE VARIABLES
     public int currentscene;
@@ -40,7 +40,8 @@ public class PlayerData
     // CHAPTER 2 MANAGER SAVE VARIABLES
     public CharacterSaveObject[] characters;
     public int storyScriptNum;
-    public InteractableSaveObject[] interactableSaveObjects;
+    // public InteractableSaveObject[] interactableSaveObjects;
+    public bool[] alreadyInteracted;
     public AICharacterControl[] aiCharacterControl;
     // public int friendlyLocationsCount;
     public bool positionSet;
@@ -96,17 +97,23 @@ public class PlayerData
                         // Debug.Log(ch2M.characters[i].transform.position);
                     }
                     
-                    interactableSaveObjects = new InteractableSaveObject[ch2M.interactables.Length];
-                    for (int i = 0; i < interactableSaveObjects.Length; i++)
+                    alreadyInteracted = new bool[ch2M.interactables.Length];
+                    for (int i = 0; i < alreadyInteracted.Length; i++)
                     {
-                        interactableSaveObjects[i] = new InteractableSaveObject()
-                        {
-                            enabled = ch2M.interactables[i].gameObject.activeSelf,
-                            position = ch2M.interactables[i].transform.position,
-                            rotation = ch2M.interactables[i].transform.eulerAngles,
-                            alreadyInteracted = ch2M.interactables[i].alreadyInteracted
-                        };
+                        alreadyInteracted[i] = ch2M.interactables[i].alreadyInteracted;
                     }
+                    
+                    // interactableSaveObjects = new InteractableSaveObject[ch2M.interactables.Length];
+                    // for (int i = 0; i < interactableSaveObjects.Length; i++)
+                    // {
+                    //     interactableSaveObjects[i] = new InteractableSaveObject
+                    //     {
+                    //         // enabled = ch2M.interactables[i].gameObject.activeSelf,
+                    //         // position = ch2M.interactables[i].transform.position,
+                    //         // rotation = ch2M.interactables[i].transform.eulerAngles,
+                    //         alreadyInteracted = ch2M.interactables[i].alreadyInteracted
+                    //     };
+                    // }
                     
                     storyScriptNum = ch2M.storyScriptNum;
                     // friendlyLocationsCount = ch2M.friendlyLocationsCount;

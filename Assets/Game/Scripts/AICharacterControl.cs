@@ -231,13 +231,28 @@ public class AICharacterControl : CharacterControl
                 if (currentTarget.bones[randomBone])
                 {
                     aiShootTarget.transform.position = currentTarget.bones[randomBone].transform.position;
-                    weapon.ShootTarget(aiShootTarget);
                 }
                 else if (currentTarget.hitLocs[randomBone] != Vector3.zero)
                 {
                     aiShootTarget.transform.position = currentTarget.hitLocs[randomBone];
-                    weapon.ShootTarget(aiShootTarget);
                 }
+                
+                // AI ALWAYS DRUNK
+
+                float inverseAccuracy = 1;
+                if (!isFriendly)
+                {
+                     inverseAccuracy = 0.6f;
+                }
+                else
+                {
+                    inverseAccuracy = 0.3f;
+                }
+                
+                aiShootTarget.transform.position += new Vector3(Random.Range(-inverseAccuracy, inverseAccuracy), Random.Range(-inverseAccuracy, inverseAccuracy), Random.Range(-inverseAccuracy, inverseAccuracy));
+
+                weapon.damage = 10f;
+                weapon.ShootTarget(aiShootTarget);
 
                 bulletsShot++;
                 print(gameObject.name + " SHOT " + bulletsShot);
@@ -824,7 +839,7 @@ public class AICharacterControl : CharacterControl
         if (other.CompareTag("Interactable"))
         {
             Interactable tempInteractable = other.GetComponent<Interactable>();
-            if (tempInteractable.typeOfInteractable == Interactable.TypeOfInteractable.Cover)
+            if (tempInteractable && tempInteractable.typeOfInteractable == Interactable.TypeOfInteractable.Cover)
             {
                 bool repeatedCheck = true;
                 for (int i = 0; i < gunplayLocations.Count; i++)
@@ -899,7 +914,7 @@ public class AICharacterControl : CharacterControl
             case "Interactable":
                 
                 Interactable tempInteractable = other.GetComponent<Interactable>();
-                if (tempInteractable.typeOfInteractable == Interactable.TypeOfInteractable.Cover)
+                if (tempInteractable && tempInteractable.typeOfInteractable == Interactable.TypeOfInteractable.Cover)
                 {
                     // print($"{gameObject.name} REMOVING {tempInteractable}");
                     gunplayLocations.Remove(tempInteractable);

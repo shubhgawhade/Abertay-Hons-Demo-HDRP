@@ -1,10 +1,12 @@
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HealthManager : MonoBehaviour
 {
     [SerializeField] private DamageUI damageUI;
+    [SerializeField] private Slider healthAndDrunkBar;
     
     public float health;
     private GameObject currentDamageUI;
@@ -24,7 +26,19 @@ public class HealthManager : MonoBehaviour
             GameManager.PlayerHealth = health;
         }
     }
-    
+
+    private void Update()
+    {
+        if (characterControl.CompareTag("Player"))
+        {
+            health = Mathf.Clamp(health, 0, 100);
+            GameManager.Drunkenness -= 0.2f * Time.deltaTime;
+            Mathf.Clamp(GameManager.Drunkenness, 0, 50);
+            // print(GameManager.Drunkenness);
+            healthAndDrunkBar.value = Mathf.Lerp(healthAndDrunkBar.value, health, 10 * Time.deltaTime);
+        }
+    }
+
     public void AddHealth(float addHealth)
     {
         health += addHealth;
@@ -78,7 +92,8 @@ public class HealthManager : MonoBehaviour
         {
             currentDamageUI.GetComponent<DamageUI>().damageText.color = Color.yellow;
         }
-        damageUI.damageText.text = subtractHealth.ToString();
+        
+        currentDamageUI.GetComponent<DamageUI>().damageText.text = subtractHealth.ToString();
     }
     
     private bool DamageUILLeft()

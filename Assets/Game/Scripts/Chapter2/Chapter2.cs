@@ -58,7 +58,7 @@ public class Chapter2 : Chapters
         GangMemberRunsAway,
         BackToFriends,
         Shootout,
-        A
+        Warehouse
     }
 
     public Scene scene = Scene.InitialExploration;
@@ -66,6 +66,9 @@ public class Chapter2 : Chapters
 
     protected override void Awake()
     {
+        Time.timeScale = 1;
+        GameManager.CurrentScene = 2;
+
         GameManager.Chapter2Manager = this;
         
         // LOAD SAVED DATA
@@ -176,9 +179,12 @@ public class Chapter2 : Chapters
             case Scene.MiniGame:
                 
                 // MINIGAME
+                GameManager.IsInteracting = true;
                 print(minigame.activeSelf);
                 if (!minigame.activeSelf)
                 {
+                    GameManager.IsInteracting = false;
+                    GameManager.Drunkenness = 50;
                     sceneNum++;
                     playerCharacterControl.ChangeCharacterState(CharacterControl.CharacterState.Exploration);
                 }
@@ -474,6 +480,23 @@ public class Chapter2 : Chapters
                 
 
                 break;
+            
+            case Scene.Warehouse:
+                
+                if (!positionSet)
+                {
+                    foreach (AICharacterControl aicharacterControl in aiCharacterControl)
+                    {
+                        if (aicharacterControl.isFriendly && aicharacterControl.characterState != CharacterControl.CharacterState.None)
+                        {
+                            aicharacterControl.targetTransform = friendlyLocations[3];
+                            aicharacterControl.GetComponent<CharacterMovement>().run = true;
+                        }
+                    }
+                    positionSet = true;
+                }
+                
+                break;
         }
     }
 
@@ -603,13 +626,13 @@ public class Chapter2 : Chapters
     // Update is called once per frame
     void Update()
     {
-        // if (Input.GetKeyDown(KeyCode.A))
-        // {
-        //     foreach (GameObject go in ai)
-        //     {
-        //         go.SetActive(true);
-        //     }
-        // }
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            foreach (GameObject go in ai)
+            {
+                go.SetActive(true);
+            }
+        }
         
         // if (Input.GetMouseButtonDown(1))
         // {

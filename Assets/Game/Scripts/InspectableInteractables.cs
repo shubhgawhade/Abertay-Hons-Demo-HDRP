@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class InspectableInteractables : Interactable
 {
@@ -18,7 +19,7 @@ public class InspectableInteractables : Interactable
     private TextReader textReader;
 
     private Interactable interactable;
-    private GameObject temp;
+    public GameObject tempstudioModel;
     private Bounds bounds;
     private Vector3 center;
 
@@ -45,22 +46,22 @@ public class InspectableInteractables : Interactable
         studioTransform.gameObject.SetActive(true);
         // cameraZoom.enabled = false;
         
-        temp = Instantiate(model, studioTransform.position, Quaternion.identity);
-        GetBoundsWithChildren(temp);
+        tempstudioModel = Instantiate(model, studioTransform.position, Quaternion.identity);
+        GetBoundsWithChildren(tempstudioModel);
         center = bounds.center;
         // temp.transform.position = new Vector3(temp.transform.position.x, temp.transform.position.y - mr.bounds.center.y, temp.transform.position.z);
-        temp.transform.LookAt(studioCam.transform.position);
-        temp.transform.eulerAngles = new Vector3(0, temp.transform.eulerAngles.y, 0);
+        tempstudioModel.transform.LookAt(studioCam.transform.position);
+        tempstudioModel.transform.eulerAngles = new Vector3(0, tempstudioModel.transform.eulerAngles.y, 0);
         
         if (bounds.extents.x > bounds.extents.y)
         {
-            print($"{temp.name} is WIDER");
+            print($"{tempstudioModel.name} is WIDER");
             float distanceFromObject = -bounds.extents.x;
             studioCam.transform.position = new Vector3(0, center.y, distanceFromObject - 1.5f);
         }
         else
         {
-            print($"{temp.name} is TALLER");
+            print($"{tempstudioModel.name} is TALLER");
             float distanceFromObject = -bounds.extents.y / Mathf.Tan(studioCam.fieldOfView * 0.5f * Mathf.Deg2Rad);
             studioCam.transform.position = new Vector3(0, center.y, distanceFromObject - 1.5f);
         }
@@ -113,17 +114,19 @@ public class InspectableInteractables : Interactable
     {
         if (studioSetupComplete && isRotateable)
         {
+            tempstudioModel.SetActive(true);
+            
             float horizontalInput = Input.GetAxis("Horizontal");
             float verticalInput = Input.GetAxis("Vertical");
 
             if (horizontalInput != 0)
             {
-                temp.transform.RotateAround(center, -Vector3.up, horizontalInput);
+                tempstudioModel.transform.RotateAround(center, -Vector3.up, horizontalInput);
             }
 
             if (verticalInput != 0)
             {
-                temp.transform.RotateAround(center, Vector3.right, verticalInput);
+                tempstudioModel.transform.RotateAround(center, Vector3.right, verticalInput);
 
             }
 
@@ -160,7 +163,7 @@ public class InspectableInteractables : Interactable
         }
         
         studioTransform.gameObject.SetActive(false);
-        Destroy(temp);
+        Destroy(tempstudioModel);
         studioSetupComplete = false;
     }
     

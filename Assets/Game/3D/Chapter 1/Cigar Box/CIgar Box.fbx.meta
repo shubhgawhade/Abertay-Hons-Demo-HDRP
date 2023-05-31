@@ -3,7 +3,12 @@ guid: 07d419b7f907a4e498b3026b9923a9a3
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cigar Box.004
+    second: {fileID: 2100000, guid: adbf85276a8dac9498c52644c1d5b4b2, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

@@ -335,9 +335,9 @@ public class CharacterControl : MonoBehaviour
                 if (crouch && isInteracting)
                 {
                     // TO HELP THE FRIENDLY AI TO BE A BIT BETTER THAN THE ENEMY AI SO THAT THEY DONT BECOME BAD TEAM MATES
-                    if (isFriendly && GetComponent<HealthManager>().health < 30 && characterState != CharacterState.None)
+                    if (isFriendly && GetComponent<HealthManager>().health < 40 && characterState != CharacterState.None)
                     {
-                        GetComponent<HealthManager>().AddHealth(Time.deltaTime);
+                        GetComponent<HealthManager>().AddHealth(2 * Time.deltaTime);
                     }
 
                     coverAnimRigWeight = 1;

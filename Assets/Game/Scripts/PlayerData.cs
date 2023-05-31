@@ -11,6 +11,7 @@ public class PlayerData
     // CHAPTERS MANAGER SAVE VARIABLES
     public int sceneNum;
     public SaveObject player;
+    public float drunkenness;
     
     // CHAPTER 1 MANAGER SAVE VARIABLES
     // public <T>
@@ -45,6 +46,8 @@ public class PlayerData
                 position = chM.player.transform.position,
                 rotation = chM.player.transform.eulerAngles
             };
+
+            drunkenness = GameManager.Drunkenness;
             
             // SWITCH TO THE CURRENT CHAPTER DATA TO SAVE
             switch (GameManager.ChaptersManager)

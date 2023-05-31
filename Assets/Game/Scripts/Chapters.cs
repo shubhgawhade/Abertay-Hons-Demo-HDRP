@@ -36,7 +36,10 @@ public class Chapters : MonoBehaviour
         playerAnimator = player.GetComponent<Animator>();
         
         // TELL THE GAME MANAGER THAT THE SCENE IS ACTIVE TO LOAD SAVED CHAPTER DATA
-        SceneActive();
+        if (GameManager.useSave)
+        {
+            SceneActive();
+        }
     }
 
     // Start is called before the first frame update

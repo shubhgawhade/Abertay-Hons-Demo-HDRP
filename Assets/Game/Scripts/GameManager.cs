@@ -12,11 +12,10 @@ public class GameManager : MonoBehaviour
     public static bool IsInteracting{ get; set; }
     // public static string CurrentSpeaker;
     
-    // public int health;
-    public static float PlayerHealth;
-
     // public int intelligence{ get; set; }
     public static int Intelligence{ get; set; }
+    public static float Drunkenness{ get; set; }
+    public static float PlayerHealth { get; set; }
 
     // public bool testRay;
     public static bool TestRay;
@@ -35,7 +34,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        LoadData();        
+        LoadData(); 
         // IsMoveable = isMoveable;
         // Intelligence = intelligence;
 
@@ -87,7 +86,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            CurrentScene = 2;
+            CurrentScene = 1;
         }
     }
 
@@ -104,6 +103,7 @@ public class GameManager : MonoBehaviour
             ChaptersManager.player.transform.position = data.player.position;
             ChaptersManager.player.transform.eulerAngles = data.player.rotation;
             ChaptersManager.player.SetActive(true);
+            Drunkenness = data.drunkenness;
 
             switch (ChaptersManager)
             {

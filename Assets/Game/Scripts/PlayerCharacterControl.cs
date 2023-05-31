@@ -150,8 +150,8 @@ public class PlayerCharacterControl : CharacterControl
                         }
                         
                         // CLIKING UI
-                        clickLocUI.transform.position = new Vector3(target.x, target.y + 0.2f, target.z);
-                        clickLocUI.SetActive(true);
+                        // clickLocUI.transform.position = new Vector3(target.x, target.y + 0.2f, target.z);
+                        // clickLocUI.SetActive(true);
 
                         break;
 
@@ -248,13 +248,33 @@ public class PlayerCharacterControl : CharacterControl
             crouch = false;
             target = new Vector3(hit.point.x, hit.point.y, hit.point.z);
 
+            float accuracy = GameManager.Drunkenness / (150 - GameManager.PlayerHealth);
             //CALCULATE NEW ROTATION BASED ON PAYERS DRUNK STATE
-            // float accuracy = 0.8f;
-            // shootLoc.transform.position = new Vector3(hit.point.x + Random.Range(-accuracy, accuracy), hit.point.y + Random.Range(-accuracy, accuracy), hit.point.z + Random.Range(-accuracy, accuracy));
-                                
-            // IF NOT DRUNK
-            shootLoc.transform.position = bulletTarget.transform.position;
-                                
+            if (GameManager.Drunkenness > 0)
+            {
+                // float accuracy = 0.8f;
+                shootLoc.transform.position = new Vector3(hit.point.x + Random.Range(-accuracy, accuracy), hit.point.y + Random.Range(-accuracy, accuracy), hit.point.z + Random.Range(-accuracy, accuracy));
+
+                if (accuracy > 0.7f && accuracy < 1f)
+                {
+                    weapon.damage = 20f;
+                }
+                else if (accuracy > 0.5f && accuracy < 0.7f)
+                {
+                    weapon.damage = 15f;
+                }
+                else
+                {
+                    weapon.damage = 12f;
+                }
+            }
+            else
+            {
+                // IF NOT DRUNK
+                shootLoc.transform.position = bulletTarget.transform.position;
+            }
+            
+            print($"{GameManager.Drunkenness} : {accuracy} : {weapon.damage}");
             anim.SetTrigger("Shoot");
             pointShootRig.weight = 1;
 

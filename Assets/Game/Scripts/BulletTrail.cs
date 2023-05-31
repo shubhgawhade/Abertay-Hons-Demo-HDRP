@@ -72,7 +72,7 @@ public class BulletTrail : MonoBehaviour
         
         // Destroy(gameObject);
         
-        print($"COLLIDER: {collision.collider.name}");
+        // print($"COLLIDER: {collision.collider.name}");
         HitPhysics(collision.collider);
         gameObject.SetActive(false);
     }

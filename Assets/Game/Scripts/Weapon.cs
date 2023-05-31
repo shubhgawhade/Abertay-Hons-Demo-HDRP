@@ -13,7 +13,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] private float vulnerabilityTime;
     [SerializeField] private float fireRate;
     [SerializeField] private float shootingAnimationDelay = 0.2f;
-    [SerializeField] private float damage;
+    [SerializeField] public float damage;
     // [SerializeField] private float speed = 40;
     
     [SerializeField] private List<GameObject> reusableBullets;
@@ -82,6 +82,8 @@ public class Weapon : MonoBehaviour
             {
                 if (!temp.activeSelf)
                 {
+                    temp.GetComponent<BulletTrail>().owner = owner;
+                    temp.GetComponent<BulletTrail>().damage = damage;
                     temp.transform.position = bulletSpawnLoc.transform.position;
                     temp.transform.LookAt(bulletTarget.transform.position);
                     temp.SetActive(true);

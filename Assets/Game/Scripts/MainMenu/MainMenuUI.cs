@@ -40,9 +40,9 @@ public class MainMenuUI : MonoBehaviour
 
     public void NewGame()
     {
-        GameManager.CurrentScene = 2;
+        GameManager.CurrentScene = 1;
         GameManager.useSave = false;
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(1);
         // SceneManager.UnloadSceneAsync(GameManager.CurrentScene);
         // GameManager.CurrentScene = 1;
         // StartCoroutine(LoadSceneAsync1());

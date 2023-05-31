@@ -1,10 +1,15 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Chapter1 : Chapters
 {
+    [SerializeField] private GameObject sceneEndUI;
+    [SerializeField] private GameObject sceneStartUI;
+    
     [SerializeField] private Transform lucaPos2;
     [SerializeField] private Transform pauliePos2;
+    [SerializeField] private Transform endScenePos;
 
     [SerializeField] private GameObject killDecisionUI;
     [SerializeField] private GameObject killOrSpareUI;
@@ -30,6 +35,8 @@ public class Chapter1 : Chapters
 
     public Scene scene = Scene.InitialMove;
 
+    private bool note;
+
     protected override void Awake()
     {
         GameManager.Chapter1Manager = this;
@@ -39,7 +46,6 @@ public class Chapter1 : Chapters
 
     private void A()
     {
-        
         print("STOPPED");
     }
 
@@ -56,6 +62,13 @@ public class Chapter1 : Chapters
         {
             case Scene.InitialMove:
 
+                if (!note)
+                {
+                    sceneStartUI.SetActive(true);
+                    Time.timeScale = 0;
+                    note = true;
+                }
+
                 for (int i = 0; i < characters.Length;)
                 {
                     if (aiCharacterControl[i].aIStopped)
@@ -67,7 +80,8 @@ public class Chapter1 : Chapters
                         if (i == characters.Length)
                         {
                             // print(i + "STOPPED");
-                            // player.GetComponent<CharacterControl>().cachedTransform = null;
+                            // player.GetComponent<CharacterControl>().cachedTransform = null;3
+                            note = false;
                             scene++;
                         }
                     }
@@ -283,6 +297,15 @@ public class Chapter1 : Chapters
             case Scene.EOC:
                 playerAnimator.SetBool("GunDrawn", false);
                 playerCharacterControl.ChangeCharacterState(CharacterControl.CharacterState.Exploration);
+
+                if ((player.transform.position - endScenePos.transform.position).magnitude < 3f)
+                {
+                    print("CHAPTER 2");
+                    Time.timeScale = 0;
+                    sceneEndUI.SetActive(true);
+                    // ENABLE SCRIPT
+                }
+                
                 break;
         }
 
@@ -297,6 +320,17 @@ public class Chapter1 : Chapters
             
         }
         */
+    }
+
+    public void Continue()
+    {
+        sceneStartUI.SetActive(false);
+        Time.timeScale = 1;
+    }
+
+    public void SwitchScene()
+    {
+        SceneManager.LoadScene(2);
     }
 
     IEnumerator A(int num)

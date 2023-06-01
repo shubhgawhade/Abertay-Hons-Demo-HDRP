@@ -5,28 +5,45 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4dd56a48-5213-4dda-9bf0-e9744c4963bb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Chapter1/Chapter1UI.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Chapter1/Chapter1UI.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/Chapter1_2.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/Chapter1_2.txt.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Abertay-Hons-Demo-HDRP/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Abertay-Hons-Demo-HDRP/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/Febucci/Text Animator/Scripts/Editor/AboutWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Addons/Febucci/Text Animator/Scripts/Editor/AboutWindow.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Addons/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/2D/_272190f9-b540-4681-a5e4-31caf85c5909.jpg.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/2D/_272190f9-b540-4681-a5e4-31caf85c5909.jpg.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Petrol Station/exhaust2.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/3D/Chapter 2/Petrol Station/exhaust2.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/MouseClickCanvas.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Prefabs/MouseClickCanvas.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Scenes/Chapter1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scenes/Chapter1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scenes/Chapter1/NavMesh.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scenes/Chapter1/NavMesh.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Scenes/Chapter2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scenes/Chapter2.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Scenes/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scenes/MainMenu.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Chapter1/Chapter1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Chapter1/Chapter1.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Chapter2/Chapter2.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Chapter2/Chapter2.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Chapter2/Chapter2UI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Chapter2/Chapter2UI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Chapters.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Chapters.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/HealthManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/HealthManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/InspectableInteractables.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/InspectableInteractables.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/PersistentSave.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/PersistentSave.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/PlayerCharacterControl.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/PlayerCharacterControl.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/TextReader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/TextReader.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Chapter1_1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/Chapter1_1.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Audio/Chapter1.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Audio/Chapter1.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Audio/Chapter1/Chapter1_1_0.mp3.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Audio/Chapter1/Chapter1_1_0.mp3.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Audio/Chapter1/Chapter1_1_1.mp3.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Audio/Chapter1/Chapter1_1_1.mp3.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Audio/Chapter1/Chapter1_1_2.mp3.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Audio/Chapter1/Chapter1_1_2.mp3.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Audio/Chapter1/Chapter1_1_3.mp3.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Audio/Chapter1/Chapter1_1_3.mp3.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Audio/Chapter1/Chapter1_1_4.mp3.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Audio/Chapter1/Chapter1_1_4.mp3.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Audio/Chapter1/Chapter1_1_5.mp3.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Audio/Chapter1/Chapter1_1_5.mp3.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Audio/Chapter1/Chapter1_1_6.mp3.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Audio/Chapter1/Chapter1_1_6.mp3.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Audio/Chapter1/Chapter1_1_7.mp3.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Audio/Chapter1/Chapter1_1_7.mp3.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Audio/Chapter1/Chapter1_A_1_0.mp3.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Audio/Chapter1/Chapter1_A_1_0.mp3.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Audio/Chapter1/Chapter1_A_1_1.mp3.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Audio/Chapter1/Chapter1_A_1_1.mp3.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Audio/Chapter1/Chapter1_A_1_2.mp3.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Audio/Chapter1/Chapter1_A_1_2.mp3.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Audio/Chapter1/Chapter1_A_1_3.mp3.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Audio/Chapter1/Chapter1_A_1_3.mp3.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Audio/Chapter1/Chapter1_A_1_4.mp3.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Audio/Chapter1/Chapter1_A_1_4.mp3.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Audio/Chapter1/Chapter1_A_1_5.mp3.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Audio/Chapter1/Chapter1_A_1_5.mp3.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Audio/Chapter1/Chapter1_A_1_6.mp3.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Audio/Chapter1/Chapter1_A_1_6.mp3.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Audio/Chapter1/Chapter1_B_1_0.mp3.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Audio/Chapter1/Chapter1_B_1_0.mp3.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Audio/Chapter1/Chapter1_B_1_1.mp3.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Audio/Chapter1/Chapter1_B_1_1.mp3.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Audio/Chapter1/Chapter1_B_1_2.mp3.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Audio/Chapter1/Chapter1_B_1_2.mp3.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Audio/Chapter1/Chapter1_B_1_3.mp3.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Audio/Chapter1/Chapter1_B_1_3.mp3.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Audio/Chapter1/Chapter1_B_1_4.mp3.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Audio/Chapter1/Chapter1_B_1_4.mp3.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Audio/Chapter1/Chapter1_Bookshelf_0.mp3.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Audio/Chapter1/Chapter1_Bookshelf_0.mp3.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Chapter2_Clue1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/Chapter2_Clue1.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings/HDRPDefaultResources/HDRenderPipelineAsset.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/HDRPDefaultResources/HDRenderPipelineAsset.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +53,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0eae19bf3535403db241b96018ae9c8745ec00/ab/b4778e67/HDMaterialProperties.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/23ef3e6c42454dbdbb9c9dcdfaf8a6e11a000/7b/c91e4d70/RaycastHit.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/44a70d1b13cf47e29810e30f45ffae08811600/99/8cc6423b/EditorApplication.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4a31731933e0419ca5a995305014ad37157a00/1f/f52d0e1d/GameObject.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4a31731933e0419ca5a995305014ad37157a00/43/6e9786b7/RectTransform.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4a31731933e0419ca5a995305014ad37157a00/5e/554cc439/Vector3.cs" root0="SKIP_HIGHLIGHTING" />
@@ -143,7 +161,7 @@
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="$USER_HOME$/Desktop/LATEST BUILD/NEW SUBMISSION\One Way Ride.exe" />
+      <option name="EXE_PATH" value="$USER_HOME$/Desktop/LATEST BUILD/Q\One Way Ride.exe" />
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="D:\UNITY\Abertay-Hons-Demo-HDRP\_BUILDS\Test" />
       <option name="PASS_PARENT_ENVS" value="1" />

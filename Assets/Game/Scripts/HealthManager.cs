@@ -41,7 +41,10 @@ public class HealthManager : MonoBehaviour
             
             // DRUNK BAR VALUES
             drunk = Mathf.Clamp(GameManager.Drunkenness, 0, 50);
-            GameManager.Drunkenness -= 0.2f * Time.deltaTime;
+            if (characterControl.characterState != CharacterControl.CharacterState.None)
+            {
+                GameManager.Drunkenness -= 0.2f * Time.deltaTime;
+            }
             drunkBar.value = Mathf.Lerp(drunkBar.value, GameManager.Drunkenness, 10 * Time.deltaTime);
         }
     }

@@ -242,6 +242,7 @@ public class TextReader : MonoBehaviour
             dialogueText.text = "";
             dialogueTracker = 0;
 
+            time = 0;
             ToggleUI();
             // textAsset = null;
         }

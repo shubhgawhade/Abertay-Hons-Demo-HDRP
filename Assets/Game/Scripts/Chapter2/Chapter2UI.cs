@@ -3,6 +3,7 @@ using UnityEngine;
 public class Chapter2UI : MonoBehaviour
 {
     [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private CharacterControl playerCharacterControl;
     
     private void Update()
     {
@@ -14,6 +15,12 @@ public class Chapter2UI : MonoBehaviour
         {
             pauseMenu.SetActive(false);
         }
+    }
+    
+
+    public void StopInspecting()
+    {
+        playerCharacterControl.currentInteractable.GetComponent<InspectableInteractables>().StopInspecting();
     }
 
     public void Resume()

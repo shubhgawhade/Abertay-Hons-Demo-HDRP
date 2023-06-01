@@ -58,12 +58,12 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            PersistentSave.Save();
-        }
+        // if (Input.GetKeyDown(KeyCode.S))
+        // {
+        //     PersistentSave.Save();
+        // }
 
-        if (!IsInteracting && CurrentScene > 0 && Input.GetKeyDown(KeyCode.Escape))
+        if (!IsInteracting && CurrentScene > 1 && Input.GetKeyDown(KeyCode.Escape))
         {
             if (isPaused)
             {

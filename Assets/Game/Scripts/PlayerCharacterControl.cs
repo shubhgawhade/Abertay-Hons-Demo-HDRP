@@ -46,10 +46,10 @@ public class PlayerCharacterControl : CharacterControl
         
         PlayerUpdate();
         
-        if (gameObject.CompareTag("Player"))
-        {
-            // DEBUG_CHEATS();
-        }
+        // if (gameObject.CompareTag("Player"))
+        // {
+        //     DEBUG_CHEATS();
+        // }
         
     }
 

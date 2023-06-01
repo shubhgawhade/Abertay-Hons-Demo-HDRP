@@ -36,7 +36,7 @@ public class InspectableInteractables : Interactable
         if (hasDialogue)
         {
             textReader = GetComponent<TextReader>();
-            textReader.LoadScript();
+            // textReader.LoadScript();
         }
     }
 
@@ -67,6 +67,7 @@ public class InspectableInteractables : Interactable
 
         if (hasDialogue)
         {
+            textReader.LoadScript();
             textReader.ToggleUI();
         }
         
@@ -111,28 +112,32 @@ public class InspectableInteractables : Interactable
 
     private void Update()
     {
-        if (studioSetupComplete && isRotateable)
+        if (studioSetupComplete)
         {
             tempstudioModel.SetActive(true);
-            
-            float horizontalInput = Input.GetAxis("Horizontal");
-            float verticalInput = Input.GetAxis("Vertical");
 
-            if (horizontalInput != 0)
+
+            if (studioSetupComplete)
             {
-                tempstudioModel.transform.RotateAround(center, -Vector3.up, horizontalInput);
+                float horizontalInput = Input.GetAxis("Horizontal");
+                float verticalInput = Input.GetAxis("Vertical");
+
+                if (horizontalInput != 0)
+                {
+                    tempstudioModel.transform.RotateAround(center, -Vector3.up, horizontalInput);
+                }
+
+                if (verticalInput != 0)
+                {
+                    tempstudioModel.transform.RotateAround(center, Vector3.right, verticalInput);
+
+                }
             }
 
-            if (verticalInput != 0)
-            {
-                tempstudioModel.transform.RotateAround(center, Vector3.right, verticalInput);
-
-            }
-
-            if (Input.GetKeyDown(KeyCode.P))
-            {
-                StopInspecting();
-            }
+            // if (Input.GetKeyDown(KeyCode.P))
+            // {
+            //     StopInspecting();
+            // }
         }
     }
 

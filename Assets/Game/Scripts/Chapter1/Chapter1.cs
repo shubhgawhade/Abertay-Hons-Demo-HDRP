@@ -16,6 +16,9 @@ public class Chapter1 : Chapters
 
     [SerializeField] private TextAsset dialogue1_2Luca;
     [SerializeField] private TextAsset dialogue1_2Paulie;
+
+    [SerializeField] private Transform[] locations;
+    [SerializeField] private TextAsset[] storyScripts;
     
     public bool isPaulieKilled;
     public bool calledPostDecision;
@@ -46,7 +49,7 @@ public class Chapter1 : Chapters
 
     private void A()
     {
-        print("STOPPED");
+        // print("STOPPED");
     }
 
     // Start is called before the first frame update
@@ -110,8 +113,25 @@ public class Chapter1 : Chapters
             
             case Scene.InitialDialogue:
                 
-                textReader.ToggleUI();
-                scene++;
+                if (!scriptSet)
+                {
+                    textReader.LoadScript();
+                    textReader.ToggleUI();
+                    scriptSet = true;
+                    
+                }
+
+                if (textReader.alreadyInteracted)
+                {
+                    // STRIPPER WALKS
+                    aiCharacterControl[2].targetTransform = locations[0];
+                    
+                    textReader.textAsset = storyScripts[0];
+                    textReader.LoadScript();
+                    textReader.ToggleUI();
+                    scene++;
+                }
+
                 break;
             
             case Scene.PreFightAnims:
@@ -147,7 +167,7 @@ public class Chapter1 : Chapters
                 
                 if (Input.GetMouseButtonDown(0))
                 {
-                    print("Left");
+                    // print("Left");
                     isPaulieKilled = true;
                     // ROTATE TOWARDS PAULIE
                     player.transform.LookAt(characters[1].transform.position);
@@ -155,7 +175,7 @@ public class Chapter1 : Chapters
                 }
                 else if (Input.GetMouseButtonDown(1))
                 {
-                    print("Right");
+                    // print("Right");
                     // ROTATE TOWARDS LUCA
                     player.transform.LookAt(characters[0].transform.position);
                     // animators[0].SetBool("GunDrawn", false);
@@ -179,7 +199,7 @@ public class Chapter1 : Chapters
                 
                 if (isPaulieKilled)
                 {
-                    print("Paulie Death Anim");
+                    // print("Paulie Death Anim");
                     animators[1].SetTrigger("Dead");
                     // aiCharacterControl[1].characterState = CharacterControl.CharacterState.Dead;
                     aiCharacterControl[1].m_Capsule.enabled = false;
@@ -197,7 +217,7 @@ public class Chapter1 : Chapters
                 }
                 else
                 {
-                    print("Luca Death Anim");
+                    // print("Luca Death Anim");
                     animators[0].SetTrigger("Dead");
                     // aiCharacterControl[0].characterState = CharacterControl.CharacterState.Dead;
                     aiCharacterControl[0].m_Capsule.enabled = false;
@@ -229,7 +249,7 @@ public class Chapter1 : Chapters
                 break;
             
             case Scene.PostDecisionDialogue:
-                print("POST DECISION DIALOGUE");
+                // print("POST DECISION DIALOGUE");
                 playerAnimator.ResetTrigger("Shoot");
 
                 if (isPaulieKilled)
@@ -258,7 +278,7 @@ public class Chapter1 : Chapters
 
                     if (Input.GetMouseButtonDown(0))
                     {
-                        print("KILL");
+                        // print("KILL");
                         if (isPaulieKilled)
                         {
                             player.transform.LookAt(characters[0].transform);
@@ -271,7 +291,7 @@ public class Chapter1 : Chapters
                         }
                         playerAnimator.SetTrigger("Shoot");
                         weapons[0].transform.GetChild(0).gameObject.SetActive(true);
-                        print("FLARE");
+                        // print("FLARE");
                         //PLAY DEATH ANIM ON LUCA OR PAULIE
                         
                         killOrSpareUI.SetActive(false);
@@ -282,7 +302,7 @@ public class Chapter1 : Chapters
                     }
                     else if (Input.GetMouseButtonDown(1))
                     {
-                        print("SPARE");
+                        // print("SPARE");
                         
                         killOrSpareUI.SetActive(false);
                         
@@ -296,11 +316,12 @@ public class Chapter1 : Chapters
             
             case Scene.EOC:
                 playerAnimator.SetBool("GunDrawn", false);
+                weapons[0].SetActive(false);
                 playerCharacterControl.ChangeCharacterState(CharacterControl.CharacterState.Exploration);
 
                 if ((player.transform.position - endScenePos.transform.position).magnitude < 3f)
                 {
-                    print("CHAPTER 2");
+                    // print("CHAPTER 2");
                     Time.timeScale = 0;
                     sceneEndUI.SetActive(true);
                     // ENABLE SCRIPT
@@ -355,12 +376,12 @@ public class Chapter1 : Chapters
                 playerAnimator.SetTrigger("Shoot");
                 playerAnimator.SetLayerWeight(1, 1);
                 weapons[0].transform.GetChild(0).gameObject.SetActive(true);
-                print("FLARE");
+                // print("FLARE");
 
                 // PAULIE GUNSHOT ANIM
                 animators[1].SetTrigger("Shoot");
                 weapons[2].transform.GetChild(0).gameObject.SetActive(true);
-                print("FLARE");
+                // print("FLARE");
 
                 // GUNSHOT PARTICLE FX
 
@@ -407,7 +428,7 @@ public class Chapter1 : Chapters
                         yield return new WaitForSeconds(3f);
                         player.transform.LookAt(characters[1].transform);
                         playerAnimator.SetTrigger("Shoot");
-                        print("FLARE" + calledPostDecision);
+                        // print("FLARE" + calledPostDecision);
                         weapons[0].transform.GetChild(0).gameObject.SetActive(true);
                         yield return new WaitForSeconds(0.3f);
                         playerAnimator.SetBool("GunDrawn", false);

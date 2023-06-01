@@ -52,6 +52,8 @@ public class TextReader : MonoBehaviour
     public static Action<SpeakerEnum, AudioClip> SetDialogueAudio;
     public static Action<int> Unlock;
 
+    public float time;
+
     private void Awake()
     {
         if (!gameObject.GetComponent<Timer>())
@@ -80,6 +82,20 @@ public class TextReader : MonoBehaviour
         {
             ParseUI();
             PlayerInput();
+        }
+
+        if (ui.activeSelf)
+        {
+            time += Time.deltaTime;
+
+            if (time > 10)
+            {
+                ui.GetComponent<Animator>().SetBool("Help", true);
+            }
+            else
+            {
+                ui.GetComponent<Animator>().SetBool("Help", false);
+            }
         }
     }
     
@@ -150,13 +166,14 @@ public class TextReader : MonoBehaviour
             }
             else if (dialogueSkipTimer.isCompleted)
             {
+                time = 0;
                 EndDialogue();
             }
         }
         else if (Input.GetKeyUp(KeyCode.Space))
         {
             // print("SPACE UP");
-
+            time = 0;
             dialogueSkipTimer.StopTimer();
         }
     }

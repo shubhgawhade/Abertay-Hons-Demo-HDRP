@@ -17,8 +17,8 @@ public class Chapter2 : Chapters
     // public int friendlyLocationsCount;
     
     [SerializeField] private GameObject minigame;
-    public bool positionSet;
-    public bool scriptSet;
+    [SerializeField] private GameObject doneUI;
+    
     
     [Serializable]
     public class Unlockables
@@ -522,6 +522,12 @@ public class Chapter2 : Chapters
                         }
                     }
                     positionSet = true;
+                }
+
+                if (GameManager.Intelligence == 5)
+                {
+                    // ENABLE FINAL NOTE
+                    doneUI.SetActive(true);
                 }
                 
                 break;

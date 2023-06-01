@@ -2,7 +2,9 @@ using Cinemachine;
 using UnityEngine;
 
 public class PlayerCharacterControl : CharacterControl
-{
+{    
+    [SerializeField] Texture2D mouseShootingTexture;
+
     [SerializeField] private GameObject shootLoc;
     [SerializeField] private GameObject clickLocUI;
     
@@ -80,6 +82,7 @@ public class PlayerCharacterControl : CharacterControl
         {
             case CharacterState.Gunplay:
 
+                Cursor.SetCursor(mouseShootingTexture, new Vector2 (mouseShootingTexture.width / 2, mouseShootingTexture.height / 2), CursorMode.Auto);
                 transform.LookAt(new Vector3(hit.point.x, transform.position.y, hit.point.z));
                 // transform.eulerAngles = Vector3.Slerp(transform.eulerAngles, hit.point - transform.position, Time.deltaTime * 5);
 
@@ -101,6 +104,12 @@ public class PlayerCharacterControl : CharacterControl
                     cinemachineTarget.RemoveMember(currentInteractable.targetLocation.transform);
                 }
                 
+                break;
+            
+            default:
+                
+                Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+
                 break;
         }
     }
@@ -150,8 +159,8 @@ public class PlayerCharacterControl : CharacterControl
                         }
                         
                         // CLIKING UI
-                        // clickLocUI.transform.position = new Vector3(target.x, target.y + 0.2f, target.z);
-                        // clickLocUI.SetActive(true);
+                        clickLocUI.transform.position = new Vector3(target.x, target.y + 0.2f, target.z);
+                        clickLocUI.SetActive(true);
 
                         break;
 

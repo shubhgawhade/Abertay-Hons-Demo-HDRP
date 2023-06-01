@@ -23,6 +23,11 @@ public class Chapter2UI : MonoBehaviour
         Time.timeScale = 1;
     }
 
+    public void QuitButton()
+    {
+        Application.Quit();
+    }
+
     private void OnDestroy()
     {
         GameManager.isPaused = false;

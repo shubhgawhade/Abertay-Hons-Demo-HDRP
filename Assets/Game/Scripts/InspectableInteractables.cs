@@ -54,13 +54,13 @@ public class InspectableInteractables : Interactable
         
         if (bounds.extents.x > bounds.extents.y)
         {
-            print($"{tempstudioModel.name} is WIDER");
+            // print($"{tempstudioModel.name} is WIDER");
             float distanceFromObject = -bounds.extents.x;
             studioCam.transform.position = new Vector3(0, center.y, distanceFromObject - 1.5f);
         }
         else
         {
-            print($"{tempstudioModel.name} is TALLER");
+            // print($"{tempstudioModel.name} is TALLER");
             float distanceFromObject = -bounds.extents.y / Mathf.Tan(studioCam.fieldOfView * 0.5f * Mathf.Deg2Rad);
             studioCam.transform.position = new Vector3(0, center.y, distanceFromObject - 1.5f);
         }
@@ -136,7 +136,7 @@ public class InspectableInteractables : Interactable
         }
     }
 
-    private void StopInspecting()
+    public void StopInspecting()
     {
         if (GameManager.IsInteracting)
         {

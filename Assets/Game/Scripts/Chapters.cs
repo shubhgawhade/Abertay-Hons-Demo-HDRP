@@ -15,6 +15,8 @@ public class Chapters : MonoBehaviour
 
     public bool scenePaused;
     public int sceneNum;
+    public bool positionSet;
+    public bool scriptSet;
    
     public static Action SceneActive;
 

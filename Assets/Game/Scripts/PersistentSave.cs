@@ -28,7 +28,7 @@ public static class PersistentSave
                 string keyString = Convert.ToBase64String (iAes.Key);
                 string ivString = Convert.ToBase64String (iAes.IV);
             
-                Debug.Log($"{keyString} : {ivString}");
+                // Debug.Log($"{keyString} : {ivString}");
                 
                 // Store them somewhere securely
                 PlayerPrefs.SetString ("iv", keyString);
@@ -56,10 +56,10 @@ public static class PersistentSave
     public static PlayerData Load()
     {
         string path = Path.Combine(Application.persistentDataPath, Location);
-        Debug.Log(File.Exists(path));
+        // Debug.Log(File.Exists(path));
         if (File.Exists(path))
         {
-            Debug.Log($"{PlayerPrefs.GetString("key")} : {PlayerPrefs.GetString("iv")}");
+            // Debug.Log($"{PlayerPrefs.GetString("key")} : {PlayerPrefs.GetString("iv")}");
             byte[] keyBytes = Convert.FromBase64String (PlayerPrefs.GetString("iv"));
             byte[] ivBytes = Convert.FromBase64String (PlayerPrefs.GetString("key"));
             

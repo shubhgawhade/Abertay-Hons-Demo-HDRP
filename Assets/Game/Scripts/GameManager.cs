@@ -90,7 +90,7 @@ public class GameManager : MonoBehaviour
         IsInteracting = false;
         data = null;
         data = PersistentSave.Load();
-        print(hasSave);
+        // print(hasSave);
         if (hasSave)
         {
             CurrentScene = data.currentscene;
